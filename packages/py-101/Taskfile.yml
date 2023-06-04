@@ -1,0 +1,58 @@
+version: "3"
+
+
+#
+# global vars: https://taskfile.dev/#/usage?id=variables
+#
+vars:
+  VAR1: "some-var"
+
+# global env:
+env:
+  ENV1: testing
+
+
+################################################################################################
+
+
+tasks:
+  run:
+    cmds:
+      - |
+        python3 run.py \
+          --token=${DISCORD_TOKEN} \
+          --http_proxy=${HTTP_PROXY}
+    dir: src/discord_bot/
+
+
+  ################################################################################################
+
+
+  install:
+    cmds:
+      - poetry install
+
+  add:
+    cmds:
+      - poetry add click discord.py
+
+  add:dev:
+    cmds:
+      - poetry add ${PACKAGE} --dev
+
+  update:
+    cmds:
+      - poetry update
+
+  config:
+    cmds:
+      - poetry config virtualenvs.in-project false --local
+      - poetry config virtualenvs.create false --local
+
+  env:
+    cmds:
+      - poetry
+      - poetry env list
+      - poetry cache list
+      - poetry debug info
+      - poetry debug resolve

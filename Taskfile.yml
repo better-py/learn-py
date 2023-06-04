@@ -1,0 +1,108 @@
+version: "3"
+
+includes:
+  py101:
+    taskfile: packages/py-101/
+    dir: packages/py-101/
+    optional: true #
+
+
+
+################################################################################################
+
+#
+# global vars: https://taskfile.dev/#/usage?id=variables
+#
+vars:
+  VAR1: "some-var"
+
+# global env:
+env:
+  ENV1: testing
+
+# env file:
+dotenv:
+  - .env
+
+
+################################################################################################
+
+
+tasks:
+
+  setup:
+    cmds:
+      - curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
+      - pyenv install 3.9.9
+      - pyenv virtualenv 3.9.9 py39-toolbox
+      - pyenv local py39-toolbox
+      - pip install --upgrade pip
+      - pip install -U pipx
+      - pipx ensurepath
+      - pipx --version
+
+  install:tools:
+    cmds:
+      - pipx install cookiecutter
+      - cookiecutter --version
+      - pipx install poetry
+      - poetry --version
+      - poetry config virtualenvs.in-project true
+      - poetry config --list
+
+
+  install:
+    cmds:
+      - pip3 install -r requirements.txt
+
+  install:dev:
+    cmds:
+      - pip3 install -r requirements-dev.txt
+
+  init:
+    cmds:
+      - task init:env
+      - task install
+
+  init:env:
+    cmds:
+      - cp .env.local .env
+
+  ##################################################################################################
+
+  new:
+    cmds:
+      - poetry new ${NEW_PROJECT_NAME} --src
+    dir: packages/
+
+  new2:
+    dir: packages
+    cmds:
+      - cookiecutter gh:jacebrowning/template-python -f
+
+
+  ##################################################################################################
+
+
+  quick:
+    cmds:
+      - task: commit
+      - task: commit
+  #      - task: pull
+  #      - task: push
+
+  commit:
+    cmds:
+      - git add .
+      - git commit -m "update"
+    ignore_error: true
+
+  pull:
+    cmds:
+      - git config pull.rebase false
+      - git pull origin main
+
+  push:
+    cmds:
+      - git push origin main --tags
+      - repo_url=`git remote -v | grep push | awk -F ":" '{print $2}' | awk -F ".git" '{print "https://github.com/"$1}'`; open $repo_url
