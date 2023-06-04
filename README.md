@@ -1,6 +1,18 @@
 # learn-py
 
-python 一些库的调研 & 实践
+
+<p align="#middle">
+    <a href="https://discord.com/invite/MnDA9pfWAW" target="_blank">
+      <img src="https://img.shields.io/badge/Discord-GossipCoder-%237289DA.svg?logo=iscord&logoColor=white" alt="Discord">
+    </a> 
+    <a href="https://discord.com/invite/MnDA9pfWAW" target="_blank">
+      <img src="https://img.shields.io/discord/877031318272217179" alt="Discord">
+    </a> 
+    <img src="https://visitor-badge.laobi.icu/badge?page_id=better-py" alt="10000" />
+</p>
+
+
+- python 一些库的调研 & 实践
 
 ## 项目列表：
 

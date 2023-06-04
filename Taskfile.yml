@@ -4,9 +4,12 @@ includes:
   py101:
     taskfile: packages/py-101/
     dir: packages/py-101/
-    optional: true #
+    optional: true
 
-
+  try:
+    taskfile: packages/py-try/
+    dir: packages/py-try/
+    optional: true
 
 ################################################################################################
 
@@ -72,7 +75,8 @@ tasks:
 
   new:
     cmds:
-      - poetry new ${NEW_PROJECT_NAME} --src
+      - echo new ${NEW_PROJECT_DIR}${NEW_PROJECT_NAME}
+      - poetry new ${NEW_PROJECT_DIR}${NEW_PROJECT_NAME} --src
     dir: packages/
 
   new2:
