@@ -1,16 +1,5 @@
 version: "3"
 
-includes:
-  chroma:
-    taskfile: try-chroma/
-    dir: try-chroma/
-    optional: true
-
-  pywry:
-    taskfile: try-pywry/
-    dir: try-pywry/
-    optional: true
-
 
 #
 # global vars: https://taskfile.dev/#/usage?id=variables
