@@ -1,28 +1,5 @@
 version: "3"
 
-includes:
-  chroma:
-    taskfile: try-chroma/
-    dir: try-chroma/
-    optional: true
-
-  autogpt:
-    taskfile: try-autogpt/
-    dir: try-autogpt/
-    optional: true
-
-  pywry:
-    taskfile: try-pywry/
-    dir: try-pywry/
-    optional: true
-
-  nicegui:
-    taskfile: try-nicegui/
-    dir: try-nicegui/
-    optional: true
-
-
-
 #
 # global vars: https://taskfile.dev/#/usage?id=variables
 #
@@ -38,13 +15,19 @@ env:
 
 tasks:
 
+  run:
+    cmds:
+      - |
+        python src/try_nicegui/main.py
+
+
   install:
     cmds:
       - poetry install
 
   add:
     cmds:
-      - poetry add click discord.py
+      - poetry add click nicegui
 
   add:dev:
     cmds:
