@@ -12,13 +12,20 @@ env:
 
 ################################################################################################
 
-
 tasks:
-
   run:
     cmds:
+#      - source $(poetry env info --path)/bin/activate
       - |
         python src/try_nicegui/run02_tpl.py --mode=native
+#      - deactivate
+
+  run3:
+    cmds:
+#      - source $(poetry env info --path)/bin/activate
+      - |
+        python3 src/try_nicegui/run03_exe.py
+#      - source $(poetry env info --path)/bin/activate
 
   run:tray:
     cmds:
@@ -33,6 +40,9 @@ tasks:
     cmds:
       - rm -rf dist/
       - rm -rf build/
+      - rm -rf .venv/
+      - poetry env remove --all
+    ignore_error: true
 
   release:
     cmds:
@@ -46,12 +56,38 @@ tasks:
       #      - cp poetry.bak.toml poetry.toml
       - open ./dist
 
-
   ################################################################################################
 
   debug:
     cmds:
-      - poetry check
+      #      - poetry shell -vvv
+      - poetry debug info
+      - poetry env list
+
+  env:fix:
+    cmds:
+      #      - rm -rf ~/Library/Caches/pypoetry  # 也不要乱删此路径
+      - poetry env list
+      - poetry env remove --all
+      - poetry config virtualenvs.path --unset  # 不要改此参数
+
+  env:init:
+    cmds:
+      - pyenv which python3
+      - poetry env use $(pyenv which python3)
+      - task: debug
+      #      - poetry env use $(pyenv which python3)
+      #      - poetry env use /Users/dev/.pyenv/versions/py310-exe/bin/python3
+#      - poetry env use 3.10
+    ignore_error: true
+
+  env:cfg:
+    cmds:
+      - poetry config virtualenvs.in-project false
+      - poetry config virtualenvs.create false
+      - poetry config virtualenvs.prefer-active-python true
+      - poetry config virtualenvs.path .venv
+      - poetry config --list
 
   install:
     cmds:
@@ -60,6 +96,8 @@ tasks:
       #      - poetry config virtualenvs.prefer-active-python true
       #      - poetry config virtualenvs.path .venv
       - poetry install -vvv
+      - poetry run pip3 install numpy
+    ignore_error: true
 
   add:
     cmds:

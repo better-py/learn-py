@@ -1,4 +1,0 @@
-[virtualenvs]
-prefer-active-python = false
-in-project = true # release app
-create = true   # release app
