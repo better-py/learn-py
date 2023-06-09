@@ -9,10 +9,10 @@ packages = [{include = "try_nicegui", from = "src"}]
 [tool.poetry.dependencies]
 python = "^3.10,<3.12"
 click = "^8.1.3"
-nicegui = "^1.2.17"
 pystray = "^0.19.4"
 loguru = "^0.7.0"
-pillow = "^9.5.0"
+pillow = "^8.3.2"
+nicegui = "^1.2.17"
 
 
 [tool.poetry.group.dev.dependencies]

@@ -15,17 +15,17 @@ env:
 tasks:
   run:
     cmds:
-#      - source $(poetry env info --path)/bin/activate
+      #      - source $(poetry env info --path)/bin/activate
       - |
         python src/try_nicegui/run02_tpl.py --mode=native
-#      - deactivate
+  #      - deactivate
 
   run3:
     cmds:
-#      - source $(poetry env info --path)/bin/activate
+      #      - source $(poetry env info --path)/bin/activate
       - |
         python3 src/try_nicegui/run03_exe.py
-#      - source $(poetry env info --path)/bin/activate
+  #      - source $(poetry env info --path)/bin/activate
 
   run:tray:
     cmds:
@@ -78,7 +78,7 @@ tasks:
       - task: debug
       #      - poetry env use $(pyenv which python3)
       #      - poetry env use /Users/dev/.pyenv/versions/py310-exe/bin/python3
-#      - poetry env use 3.10
+    #      - poetry env use 3.10
     ignore_error: true
 
   env:cfg:
@@ -96,11 +96,13 @@ tasks:
       #      - poetry config virtualenvs.prefer-active-python true
       #      - poetry config virtualenvs.path .venv
       - poetry install -vvv
-      - poetry run pip3 install numpy
+    #      - poetry run pip3 uninstall numpy
+    #      - poetry run pip3 install numpy
     ignore_error: true
 
   add:
     cmds:
+      #- poetry remove nicegui
       - poetry add click nicegui pystray loguru Pillow
       - |
         poetry run \
