@@ -27,12 +27,9 @@ env:
 dotenv:
   - .env
 
-
 ################################################################################################
 
-
 tasks:
-
   setup:
     cmds:
       - curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
@@ -44,10 +41,17 @@ tasks:
       - pipx ensurepath
       - pipx --version
 
+  #
+  # fix: https://stackoverflow.com/questions/43067039/pyinstaller-error-oserror-python-library-not-found-libpython3-4mu-so-1-0-lib
+  #
+  install:py:
+    cmds:
+      - env PYTHON_CONFIGURE_OPTS="--enable-shared" pyenv install 3.10.6 # fix for pyinstaller
+
   install:poetry:
     cmds:
       - curl -sSL https://install.python-poetry.org | python3 -
-#      - pipx install poetry
+      #      - pipx install poetry
       - poetry --version
       - poetry config virtualenvs.in-project true
       - poetry config --list
@@ -57,7 +61,6 @@ tasks:
       - curl -sSL https://install.python-poetry.org | python3 - --uninstall
       - curl -sSL https://install.python-poetry.org | python3 -
       - poetry --version
-
 
   install:tools:
     cmds:
@@ -95,9 +98,7 @@ tasks:
     cmds:
       - cookiecutter gh:jacebrowning/template-python -f
 
-
   ##################################################################################################
-
 
   quick:
     cmds:

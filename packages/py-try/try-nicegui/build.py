@@ -5,6 +5,7 @@ import nicegui
 
 # app main file
 app_file = "src/try_nicegui/run02_tpl.py"
+app_file = "src/try_nicegui/run03_exe.py" # packages/py-try/try-nicegui/src/try_nicegui/run03_exe.py
 
 cmd = [
     'python',
