@@ -52,6 +52,13 @@ tasks:
       - poetry config virtualenvs.in-project true
       - poetry config --list
 
+  install:poetry:clean:
+    cmds:
+      - curl -sSL https://install.python-poetry.org | python3 - --uninstall
+      - curl -sSL https://install.python-poetry.org | python3 -
+      - poetry --version
+
+
   install:tools:
     cmds:
       - pipx install cookiecutter

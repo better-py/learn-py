@@ -35,11 +35,11 @@ tasks:
       #      - poetry run pyinstaller -F -w -i ./public/images/logo.ico \
       #        src/try_nicegui/run02_tpl.py \
       #        --name myapp
-      - cp poetry.toml poetry.bak.toml
-      - cp poetry.rel.toml poetry.toml
+      #      - cp poetry.toml poetry.bak.toml
+      #      - cp poetry.rel.toml poetry.toml
       - poetry install --directory=.
       - poetry run python build.py
-      - cp poetry.bak.toml poetry.toml
+      #      - cp poetry.bak.toml poetry.toml
       - open ./dist
 
 
@@ -47,19 +47,22 @@ tasks:
 
   debug:
     cmds:
-      - poetry shell
+      - poetry check
 
   install:
     cmds:
-      - poetry config virtualenvs.in-project true
-      - poetry config virtualenvs.create true
-      - poetry config virtualenvs.prefer-active-python true
-      - poetry config virtualenvs.path .venv
+      #      - poetry config virtualenvs.in-project true
+      #      - poetry config virtualenvs.create true
+      #      - poetry config virtualenvs.prefer-active-python true
+      #      - poetry config virtualenvs.path .venv
       - poetry install -vvv
 
   add:
     cmds:
       - poetry add click nicegui pystray loguru Pillow
+      - |
+        poetry run \
+          pip3 install numpy # fix for m1 mac
 
   add:dev:
     cmds:
