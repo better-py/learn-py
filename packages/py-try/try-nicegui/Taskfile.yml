@@ -25,6 +25,23 @@ tasks:
       - |
         python src/try_nicegui/run01_tray.py
 
+  run:exe:
+    cmds:
+      - ./dist/myapp
+
+
+  release:
+    cmds:
+      #      - poetry run pyinstaller -F -w -i ./public/images/logo.ico \
+      #        src/try_nicegui/run02_tpl.py \
+      #        --name myapp
+      - python build.py
+      - open ./dist
+
+
+  ################################################################################################
+
+
   install:
     cmds:
       - poetry install
@@ -35,7 +52,9 @@ tasks:
 
   add:dev:
     cmds:
-      - poetry add ${PACKAGE} --dev
+      - |
+        poetry add --dev \
+          pyinstaller
 
   update:
     cmds:

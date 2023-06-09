@@ -11,7 +11,7 @@ def home():
 
 
 @click.command()
-@click.option('--mode', default="web")
+@click.option('--mode', default="native")
 def main(mode: str = True):
     """命令行传参， 启动
 
@@ -36,5 +36,13 @@ def main(mode: str = True):
     logger.debug("app exit...")
 
 
-if __name__ == '__main__':
-    main()
+ui.run(
+    native=True,
+    window_size=(500, 400),
+    fullscreen=False,
+    reload=False,
+    show=False
+)
+
+# if __name__ == '__main__':
+#     main()
