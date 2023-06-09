@@ -35,16 +35,27 @@ tasks:
       #      - poetry run pyinstaller -F -w -i ./public/images/logo.ico \
       #        src/try_nicegui/run02_tpl.py \
       #        --name myapp
-      - python build.py
+      - cp poetry.toml poetry.bak.toml
+      - cp poetry.rel.toml poetry.toml
+      - poetry install --directory=.
+      - poetry run python build.py
+      - cp poetry.bak.toml poetry.toml
       - open ./dist
 
 
   ################################################################################################
 
+  debug:
+    cmds:
+      - poetry shell
 
   install:
     cmds:
-      - poetry install
+      - poetry config virtualenvs.in-project true
+      - poetry config virtualenvs.create true
+      - poetry config virtualenvs.prefer-active-python true
+      - poetry config virtualenvs.path .venv
+      - poetry install -vvv
 
   add:
     cmds:

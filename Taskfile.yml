@@ -44,15 +44,19 @@ tasks:
       - pipx ensurepath
       - pipx --version
 
-  install:tools:
+  install:poetry:
     cmds:
-      - pipx install cookiecutter
-      - cookiecutter --version
-      - pipx install poetry
+      - curl -sSL https://install.python-poetry.org | python3 -
+#      - pipx install poetry
       - poetry --version
       - poetry config virtualenvs.in-project true
       - poetry config --list
 
+  install:tools:
+    cmds:
+      - pipx install cookiecutter
+      - cookiecutter --version
+      - task: install:poetry
 
   install:
     cmds:
