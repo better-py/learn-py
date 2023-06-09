@@ -103,7 +103,7 @@ tasks:
   add:
     cmds:
       #- poetry remove nicegui
-      - poetry add click nicegui pystray loguru Pillow
+      - poetry add click nicegui pystray loguru Pillow pywebview
       - |
         poetry run \
           pip3 install numpy # fix for m1 mac

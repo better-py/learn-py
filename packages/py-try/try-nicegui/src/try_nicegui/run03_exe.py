@@ -1,14 +1,9 @@
-import sys
-from nicegui import ui
 from nicegui import app, ui
-ui.label('Hello from PyInstaller')
 
-# sys.stdout = open('logs.log', 'w')
 app.native.window_args['resizable'] = False
-app.native.start_args['debug'] = False
+app.native.start_args['debug'] = True
 
+ui.label('app running in native mode')
+ui.button('enlarge', on_click=lambda: app.native.main_window.resize(1000, 700))
 
-ui.run(
-    native=True,
-    window_size=(500, 400),
-)
+ui.run(native=True, window_size=(400, 300), fullscreen=False)
