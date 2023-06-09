@@ -27,7 +27,7 @@ tasks:
 
   add:
     cmds:
-      - poetry add click nicegui
+      - poetry add click nicegui pystray loguru Pillow
 
   add:dev:
     cmds:
