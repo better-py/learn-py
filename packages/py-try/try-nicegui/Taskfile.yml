@@ -29,6 +29,10 @@ tasks:
     cmds:
       - ./dist/myapp
 
+  clean:
+    cmds:
+      - rm -rf dist/
+      - rm -rf build/
 
   release:
     cmds:
