@@ -11,12 +11,12 @@ cmd = [
     '-m', 'PyInstaller',
     '--clean',
     '--noconfirm',
-    '-F',
+    # '-F',  # 启动慢，5秒，不建议使用
     '-w',
     app_file,  # your main file with ui.run()
     '--name', 'myapp',  # name of your app
-    '--onefile',
-    '-i', 'public/images/logo.ico',
+    # '--onefile', # one file
+    '-i', 'public/images/logo.ico',  # app icon
     '--windowed',  # prevent console appearing, only use with ui.run(native=True, ...)
     '--add-data', f'{Path(nicegui.__file__).parent}{os.pathsep}nicegui'
 ]
