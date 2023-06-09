@@ -20,6 +20,10 @@ tasks:
       - |
         python src/try_nicegui/main.py
 
+  run:tray:
+    cmds:
+      - |
+        python src/try_nicegui/run01_tray.py
 
   install:
     cmds:
