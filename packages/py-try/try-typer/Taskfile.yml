@@ -17,44 +17,12 @@ tasks:
     cmds:
       #      - source $(poetry env info --path)/bin/activate
       - |
-        python src/try_nicegui/run02_tpl.py --mode=native
+        python src/try_typer/main.py  --help
+      - |
+        python src/try_typer/main.py  Bob
   #      - deactivate
 
-  run3:
-    cmds:
-      #      - source $(poetry env info --path)/bin/activate
-      - |
-        python3 src/try_nicegui/run03_exe.py
-  #      - source $(poetry env info --path)/bin/activate
 
-  run:tray:
-    cmds:
-      - |
-        python src/try_nicegui/run01_tray.py
-
-  run:exe:
-    cmds:
-      - ./dist/myapp
-
-  clean:
-    cmds:
-      - rm -rf dist/
-      - rm -rf build/
-      - rm -rf .venv/
-      - poetry env remove --all
-    ignore_error: true
-
-  release:
-    cmds:
-      #      - poetry run pyinstaller -F -w -i ./public/images/logo.ico \
-      #        src/try_nicegui/run02_tpl.py \
-      #        --name myapp
-      #      - cp poetry.toml poetry.bak.toml
-      #      - cp poetry.rel.toml poetry.toml
-      - poetry install --directory=.
-      - poetry run python build.py
-      #      - cp poetry.bak.toml poetry.toml
-      - open ./dist
 
   ################################################################################################
 
@@ -104,12 +72,7 @@ tasks:
     cmds:
       #- poetry remove nicegui
       - |
-        poetry add "typer[all]" \
-          nicegui pystray \
-          loguru Pillow pywebview
-      - |
-        poetry run \
-          pip3 install numpy # fix for m1 mac
+        poetry add "typer[all]"
 
   add:dev:
     cmds:

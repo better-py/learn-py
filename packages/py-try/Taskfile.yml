@@ -21,6 +21,10 @@ includes:
     dir: try-nicegui/
     optional: true
 
+  typer:
+    taskfile: try-typer/
+    dir: try-typer/
+    optional: true
 
 
 #

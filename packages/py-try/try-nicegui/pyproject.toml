@@ -14,6 +14,7 @@ loguru = "^0.7.0"
 pillow = "^8.3.2"
 nicegui = "^1.2.17"
 pywebview = "^4.1"
+typer = {extras = ["all"], version = "^0.9.0"}
 
 
 [tool.poetry.group.dev.dependencies]
