@@ -15,12 +15,11 @@ env:
 tasks:
   run:
     cmds:
-      #      - source $(poetry env info --path)/bin/activate
-      - |
-        python src/try_typer/main.py  --help
-      - |
-        python src/try_typer/main.py  Bob
-  #      - deactivate
+      - python src/try_typer/main.py --help
+      - python src/try_typer/main.py Bob
+      - python src/try_typer/main02.py --help
+      - python src/try_typer/main02.py hello Bob
+      - python src/try_typer/main02.py goodbye Frank
 
 
 
