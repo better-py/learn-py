@@ -3,15 +3,15 @@ from nicegui import app, ui
 from loguru import logger
 
 
-@ui.page('/')
+@ui.page("/")
 def home():
     logger.debug("home page")
-    ui.label('app running in native mode')
-    ui.button('enlarge', on_click=lambda: app.native.main_window.resize(800, 600))
+    ui.label("app running in native mode")
+    ui.button("enlarge", on_click=lambda: app.native.main_window.resize(800, 600))
 
 
 @click.command()
-@click.option('--mode', default="native")
+@click.option("--mode", default="native")
 def main(mode: str = True):
     """命令行传参， 启动
 
@@ -21,8 +21,8 @@ def main(mode: str = True):
     if mode.lower() == "web":
         ui.run()
     elif mode.lower() == "native" or mode.lower() == "desktop":
-        app.native.window_args['resizable'] = False
-        app.native.start_args['debug'] = False
+        app.native.window_args["resizable"] = False
+        app.native.start_args["debug"] = False
 
         logger.debug("app running in native mode")
         ui.run(
@@ -30,7 +30,7 @@ def main(mode: str = True):
             window_size=(500, 400),
             fullscreen=False,
             reload=False,
-            show=False
+            show=True,
         )
 
     logger.debug("app exit...")
@@ -38,10 +38,10 @@ def main(mode: str = True):
 
 ui.run(
     native=True,
-    window_size=(500, 400),
+    window_size=(800, 600),
     fullscreen=False,
-    reload=False,
-    show=False
+    reload=True,
+    show=True,
 )
 
 # if __name__ == '__main__':
