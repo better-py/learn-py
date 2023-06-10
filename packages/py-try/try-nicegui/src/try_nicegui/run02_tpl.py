@@ -3,6 +3,8 @@ from typing import Optional, Callable
 import click
 from loguru import logger
 from nicegui import app, ui, Client
+from nicegui.elements.mixins.disableable_element import DisableableElement
+from nicegui.globals import get_slot
 
 
 def list_tile(
@@ -163,6 +165,29 @@ def new_menu_page():
     pass
 
 
+class MyTab(DisableableElement):
+
+    def __init__(self, name: str, label: Optional[str] = None, icon: Optional[str] = None) -> None:
+        """Tab
+
+        This element represents `Quasar's QTab <https://quasar.dev/vue-components/tabs#qtab-api>`_ component.
+        It is a child of a `Tabs` element.
+
+        :param name: name of the tab (the value of the `Tabs` element)
+        :param label: label of the tab (default: `None`, meaning the same as `name`)
+        :param icon: icon of the tab (default: `None`)
+        """
+        super().__init__(tag='q-tab')
+        self._props['inline-label'] = True
+        self._props['vertical'] = False
+
+        self._props['name'] = name
+        self._props['label'] = label if label is not None else name
+        if icon:
+            self._props['icon'] = icon
+        self.tabs = get_slot().parent
+
+
 @ui.page("/")
 def home(client: Client):
     logger.debug("home page")
@@ -175,14 +200,16 @@ def home(client: Client):
     # 顶部 header：
     add_header(menu)
 
-    tabs = ui.tabs().props("vertical")
-    tabs.tailwind().columns("1")
+    tabs = ui.tabs().props("vertical inline-label").classes(
+        "bg-teal text-yellow  shadow-2 ")  # 横向控制
 
     with tabs:
+        # list_tile()
+        # list_tile()
         ui.tab('Home', icon='home')
         ui.tab('About', icon='info')
 
-    panels = ui.tab_panels(tabs, value='Home').props("full-width vertical")
+    panels = ui.tab_panels(tabs, value='Home').props("vertical animated swipeable")
     panels.classes("p-8 bg-gray-100 rounded-lg shadow-lg")
     panels.tailwind().columns("1").vertical_align("middle")
 
