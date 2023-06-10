@@ -13,3 +13,14 @@ pip install "typer[all]"
 
 
 ```
+
+## 打包成 CLI 工具（安装包）：
+
+- https://typer.tiangolo.com/tutorial/package/#create-a-wheel-package
+
+```ruby
+
+poetry build
+
+```
+
