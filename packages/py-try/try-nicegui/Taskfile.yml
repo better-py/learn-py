@@ -112,6 +112,7 @@ tasks:
     cmds:
       - |
         poetry add --dev \
+          black pytest \
           pyinstaller
 
   update:
