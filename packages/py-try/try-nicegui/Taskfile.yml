@@ -15,17 +15,15 @@ env:
 tasks:
   run:
     cmds:
-      #      - source $(poetry env info --path)/bin/activate
-      - |
-        python src/try_nicegui/run02_tpl.py --mode=native
-  #      - deactivate
+      - python src/try_nicegui/run02_tpl.py --mode=native
+
+  run4:
+    cmds:
+      - python3 src/try_nicegui/run04_tpl.py
 
   run3:
     cmds:
-      #      - source $(poetry env info --path)/bin/activate
-      - |
-        python3 src/try_nicegui/run03_exe.py
-  #      - source $(poetry env info --path)/bin/activate
+      - python3 src/try_nicegui/run03_exe.py
 
   run:tray:
     cmds:
