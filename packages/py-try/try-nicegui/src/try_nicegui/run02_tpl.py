@@ -3,8 +3,6 @@ from typing import Optional, Callable
 import click
 from loguru import logger
 from nicegui import app, ui, Client
-from nicegui.elements.mixins.disableable_element import DisableableElement
-from nicegui.globals import get_slot
 
 
 def list_tile(
@@ -165,27 +163,47 @@ def new_menu_page():
     pass
 
 
-class MyTab(DisableableElement):
+def new_demo_view():
+    with ui.element('div').classes('columns-3 w-full gap-2'):
+        for i, height in enumerate([50, 50, 50, 150, 100, 50]):
+            tailwind = f'mb-2 p-2 h-[{height}px] bg-blue-100 break-inside-avoid'
+            with ui.card().classes(tailwind):
+                ui.label(f'Card #{i + 1}')
 
-    def __init__(self, name: str, label: Optional[str] = None, icon: Optional[str] = None) -> None:
-        """Tab
 
-        This element represents `Quasar's QTab <https://quasar.dev/vue-components/tabs#qtab-api>`_ component.
-        It is a child of a `Tabs` element.
+def new_tab_view():
+    div = ui.element('div').classes('w-full h-full')
 
-        :param name: name of the tab (the value of the `Tabs` element)
-        :param label: label of the tab (default: `None`, meaning the same as `name`)
-        :param icon: icon of the tab (default: `None`)
-        """
-        super().__init__(tag='q-tab')
-        self._props['inline-label'] = True
-        self._props['vertical'] = False
+    with ui.splitter() as splitter:
+        with splitter.before:
+            tabs = ui.tabs().props("vertical inline-label").classes(
+                "bg-teal text-yellow  shadow-2 w/1-4 ")  # 横向控制
+            tabs.tailwind().width("1/4").height("screen")
 
-        self._props['name'] = name
-        self._props['label'] = label if label is not None else name
-        if icon:
-            self._props['icon'] = icon
-        self.tabs = get_slot().parent
+            with tabs:
+                # list_tile()
+                # list_tile()
+                ui.tab('Home', icon='home')
+                ui.tab('About', icon='info')
+
+        with splitter.after:
+            panels = ui.tab_panels(tabs, value='Home').props("vertical animated swipeable")
+            panels.classes("p-8 bg-gray-100 flex")
+            panels.tailwind().columns("2").width("screen").height("screen")
+
+            with panels:
+                with ui.tab_panel('Home').classes("w-3/4 h-full"):
+                    new_demo_view()
+
+                    ui.label('This is the first tab')
+                with ui.tab_panel('About'):
+                    ui.label('This is the second tab')
+
+    # with ui.splitter() as splitter:
+    #     with splitter.before:
+    #         ui.label('This is some content on the left hand side.').classes('mr-2')
+    #     with splitter.after:
+    #         ui.label('This is some content on the right hand side.').classes('ml-2')
 
 
 @ui.page("/")
@@ -200,24 +218,32 @@ def home(client: Client):
     # 顶部 header：
     add_header(menu)
 
-    tabs = ui.tabs().props("vertical inline-label").classes(
-        "bg-teal text-yellow  shadow-2 ")  # 横向控制
+    # tabs = ui.tabs().props("vertical inline-label").classes(
+    #     "bg-teal text-yellow  shadow-2 ")  # 横向控制
 
-    with tabs:
-        # list_tile()
-        # list_tile()
-        ui.tab('Home', icon='home')
-        ui.tab('About', icon='info')
+    # with tabs:
+    #     # list_tile()
+    #     # list_tile()
+    #     ui.tab('Home', icon='home')
+    #     ui.tab('About', icon='info')
 
-    panels = ui.tab_panels(tabs, value='Home').props("vertical animated swipeable")
-    panels.classes("p-8 bg-gray-100 rounded-lg shadow-lg")
-    panels.tailwind().columns("1").vertical_align("middle")
+    # panels = ui.tab_panels(tabs, value='Home').props("vertical animated swipeable")
+    # panels.classes("p-8 bg-gray-100 rounded-lg shadow-lg")
+    # panels.tailwind().columns("1").vertical_align("middle")
 
-    with panels:
-        with ui.tab_panel('Home'):
-            ui.label('This is the first tab')
-        with ui.tab_panel('About'):
-            ui.label('This is the second tab')
+    # with panels:
+    #     with ui.tab_panel('Home'):
+    #         ui.label('This is the first tab')
+    #     with ui.tab_panel('About'):
+    #         ui.label('This is the second tab')
+
+    new_tab_view()
+
+    with ui.splitter() as splitter:
+        with splitter.before:
+            ui.label('This is some content on the left hand side.').classes('mr-2')
+        with splitter.after:
+            ui.label('This is some content on the right hand side.').classes('ml-2')
 
     #
     #
