@@ -2,6 +2,21 @@
 
 ## Examples:
 
+### APP UI Template:
+
+- ✅️ check [Taskfile.yml](Taskfile.yml), run scripts
+
+```ruby
+# git repo root dir:
+task try:nicegui:run
+
+```
+
+> preview:
+
+
+<img width="600" src="./public/images/img.png">
+
 ### Tray Menu:
 
 - ✅️ check [Taskfile.yml](Taskfile.yml), run scripts
@@ -42,7 +57,6 @@ create = false   # release app # todo x: 依赖！ [ poetry env use $(pyenv whic
 
 
 ```
-
 
 ## References:
 
