@@ -17,6 +17,10 @@ tasks:
     cmds:
       - python src/try_nicegui/run02_tpl.py --mode=native
 
+  run5:
+    cmds:
+      - python3 src/try_nicegui/run05_tpl.py
+
   run4:
     cmds:
       - python3 src/try_nicegui/run04_tpl.py
