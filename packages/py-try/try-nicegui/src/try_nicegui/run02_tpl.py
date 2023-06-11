@@ -164,7 +164,7 @@ def new_menu_page():
 
 
 def new_demo_view():
-    with ui.element('div').classes('columns-3 w-full gap-2'):
+    with ui.element('div').classes('columns-2 w-full gap-2'):
         for i, height in enumerate([50, 50, 50, 150, 100, 50]):
             tailwind = f'mb-2 p-2 h-[{height}px] bg-blue-100 break-inside-avoid'
             with ui.card().classes(tailwind):
@@ -172,32 +172,33 @@ def new_demo_view():
 
 
 def new_tab_view():
-    div = ui.element('div').classes('w-full h-full')
+    div = ui.element('div').classes('row w-full h-full')
 
-    with ui.splitter() as splitter:
-        with splitter.before:
-            tabs = ui.tabs().props("vertical inline-label").classes(
-                "bg-teal text-yellow  shadow-2 w/1-4 ")  # 横向控制
-            tabs.tailwind().width("1/4").height("screen")
+    with div:  # 控制单行
+        with ui.splitter(value=20) as splitter:  # value, 切分比例 2:8
+            with splitter.before:
+                tabs = ui.tabs().props("vertical inline-label")
+                tabs.classes("bg-teal text-yellow  shadow-2 col-4")  # 横向控制
+                # tabs.style("width: calc(80%) !important;")
 
-            with tabs:
-                # list_tile()
-                # list_tile()
-                ui.tab('Home', icon='home')
-                ui.tab('About', icon='info')
+                # tabs.tailwind().width("full").height("screen")
 
-        with splitter.after:
-            panels = ui.tab_panels(tabs, value='Home').props("vertical animated swipeable")
-            panels.classes("p-8 bg-gray-100 flex")
-            panels.tailwind().columns("2").width("screen").height("screen")
+                with tabs:
+                    ui.tab('Home', icon='home')
+                    ui.tab('About', icon='info')
 
-            with panels:
-                with ui.tab_panel('Home').classes("w-3/4 h-full"):
-                    new_demo_view()
+            with splitter.after:
+                panels = ui.tab_panels(tabs, value='Home').props("vertical animated swipeable")
+                panels.classes("p-8 bg-gray-100 col-4 q-pa-none")
+                panels.tailwind().columns("2").width("screen").height("screen")
 
-                    ui.label('This is the first tab')
-                with ui.tab_panel('About'):
-                    ui.label('This is the second tab')
+                with panels:
+                    with ui.tab_panel('Home').classes("w-3/4 h-full"):
+                        new_demo_view()
+
+                        ui.label('This is the first tab')
+                    with ui.tab_panel('About'):
+                        ui.label('This is the second tab')
 
     # with ui.splitter() as splitter:
     #     with splitter.before:
