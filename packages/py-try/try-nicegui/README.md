@@ -16,6 +16,9 @@ task try:nicegui:run
 
 - 对应示例5: [run05_tpl.py](./src/try_nicegui/run05_tpl.py)
 
+<img width="600" src="./public/images/img.gif">
+
+
 <img width="600" src="./public/images/img.png">
 
 ### Tray Menu:
