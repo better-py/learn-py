@@ -27,38 +27,76 @@ def new_tab_view():
                     ui.label("new view 1").classes("text-2xl text-red-500")
 
 
+def new_tab_view2():
+    d = ui.element('div')
+    # d = ui.element('q-page')
+    # d = ui.element('nicegui-content')
+    d.classes("bg-gray-900 w-full h-full")
+    # d.classes("center overflow-hidden")
+    # d.classes("bg-gray-900 flex flex-col w-full h-full center overflow-hidden")
+    d.classes("p-0 m-0 gap-0")
+
+    with d:
+        with ui.card().classes("p-10 m-10 flex-auto"):
+            ui.label("page 1 view ")
+
+
 @ui.page('/')
 def home_page(client: Client):
-    client.content.classes(remove='nicegui-content')  # 去除干扰样式！
+    # client.content.classes(remove='nicegui-content')  # 去除干扰样式！
+    # client.content.classes("bg-yellow-300")  # 背景色
 
-    div = ui.element('div')
-    div.classes("column p-0 m-0 gap-0")
-    div.tailwind().padding("0")
+    #
+    # 更改整个页面的样式:
+    #
+    client.layout.classes("bg-orange-200")  # 背景色, #21252B
+    client.layout.style("background-color: #fef6e4")  # 背景色, #21252B, #f9f4ef, #0f0e17, #232946, #f2f7f5,#fef6e4
+    # client.layout.tailwind.border_color("red-500")  # 边框颜色
+    # client.layout.tailwind.border_width("2").border_radius("md")  # 边框宽度
 
-    with div:
-        h = ui.header(value=True)
-        h.tailwind.align_items("center")  # 元素居中
-        drawer = ui.left_drawer().classes("bg-gray-900 text-white")  # 提前定义
+    div = ui.element('div')  # 如果指定了全局， 会干扰子元素的样式
 
-        with h:
-            ui.label('Header').classes("center")
-            ui.button(on_click=lambda: drawer.toggle()).props(
-                "flat color=white icon=menu round size=sm"
-            )
+    # ================================================================================
 
-            ui.link('Home', '/').classes("text-red-500 text-solid")
+    h = ui.header(value=True)
+    # h.classes('bg-slate-800')
+    # h.classes('bg-transparent')
+    h.style("background-color: #1F2744")  # #9C7AE6, F99B27, #231641, #0C102E, #1F2744
+    h.tailwind.align_items("center")  # 元素居中, [bg-slate-900, purple-600]
 
-        with drawer:  # top_corner=True, bottom_corner=True
-            ui.menu_item('Menu item 1', lambda: ui.open('/page1'))
-            ui.menu_item('Menu item 1', lambda: ui.notify("hi!", color="green", position="top"))
+    # drawer:
+    drawer = ui.left_drawer().classes("bg-slate-900 text-white")  # 提前定义, [bg-gray-900, ]
+    drawer.style("background-color: #1F2951")  # [#1F2951, 0C102E]
 
-        #
-        # main content:
-        #
-        new_tab_view()
+    with h:
+        ui.label('My App').classes("center")
+        ui.button(on_click=lambda: drawer.toggle()).props(
+            "flat color=white icon=menu round size=sm"
+        )
 
-        with ui.footer(value=True):
-            ui.label('Footer')
+        ui.link('Home', '/').classes("text-red-500 text-solid")
+
+    # ================================================================================
+
+    with drawer:  # top_corner=True, bottom_corner=True
+        ui.menu_item('Menu item 1', lambda: ui.open('/page1'))
+        ui.menu_item('Menu item 1', lambda: ui.notify("hi!", color="green", position="top"))
+
+    # ================================================================================
+
+    #
+    # main content:
+    #
+    new_tab_view2()
+
+    # ================================================================================
+
+    f = ui.footer(value=True)
+    f.classes('bg-slate-800')
+    f.style("background-color: #1F2744")  # #9C7AE6, F99B27, #231641, #0C102E, #1F2744
+
+    with f:
+        ui.label('Footer')
 
 
 def new_page1_view():
