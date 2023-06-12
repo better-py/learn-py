@@ -1,4 +1,5 @@
-from nicegui import ui, Client
+from loguru import logger
+from nicegui import ui, Client, app
 
 
 def new_tab_view():
@@ -28,6 +29,7 @@ def new_tab_view():
 
 
 def new_tab_view2():
+    app.title = "new tab view 2"
     d = ui.element('div')
     # d = ui.element('q-page')
     # d = ui.element('nicegui-content')
@@ -37,14 +39,31 @@ def new_tab_view2():
     d.classes("p-0 m-0 gap-0")
 
     with d:
-        with ui.card().classes("p-10 m-10 flex-auto"):
+        with ui.card().classes("p-10 m-10"):
             ui.label("page 1 view ")
+        with ui.card().classes("p-10 m-10"):
+            ui.label("card 2 ")
+        with ui.card().classes("p-10 m-10"):
+            ui.label("card 2 ")
+        with ui.card().classes("p-10 m-10"):
+            ui.label("card 2 ")
+        with ui.card().classes("p-10 m-10"):
+            ui.label("card 2 ")
+
+
+def page_template(client: Client):
+    client.content.classes(remove='nicegui-content')  # 去除干扰样式！
+    client.content.classes("flex flex-col w-full h-full")  # fix nicegui-content 样式
+
+    logger.debug(f"page info: {client.page.path}, {client.page.language}")
 
 
 @ui.page('/')
 def home_page(client: Client):
-    # client.content.classes(remove='nicegui-content')  # 去除干扰样式！
-    # client.content.classes("bg-yellow-300")  # 背景色
+    client.content.classes(remove='nicegui-content')  # 去除干扰样式！
+    client.content.classes("flex flex-col w-full h-full")  # fix nicegui-content 样式
+
+    logger.debug(f"main page div: {client.page.path}, {client.page.language}")
 
     #
     # 更改整个页面的样式:
@@ -53,6 +72,12 @@ def home_page(client: Client):
     client.layout.style("background-color: #fef6e4")  # 背景色, #21252B, #f9f4ef, #0f0e17, #232946, #f2f7f5,#fef6e4
     # client.layout.tailwind.border_color("red-500")  # 边框颜色
     # client.layout.tailwind.border_width("2").border_radius("md")  # 边框宽度
+
+    # ui.element('nicegui-content').tailwind.margin("0")  # 背景色
+
+    # client.content.classes("p-0 m-0")
+
+    # client.content.classes(replace="nicegui-content")  # 去除干扰样式！
 
     div = ui.element('div')  # 如果指定了全局， 会干扰子元素的样式
 
@@ -139,6 +164,7 @@ def new_page1(client: Client):
 
 
 ui.run(
+    title="My App",
     native=True,
     window_size=(1100, 700),
     fullscreen=False,
