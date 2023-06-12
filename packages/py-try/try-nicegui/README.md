@@ -14,6 +14,7 @@ task try:nicegui:run
 
 > preview:
 
+- 对应示例5: [run05_tpl.py](./src/try_nicegui/run05_tpl.py)
 
 <img width="600" src="./public/images/img.png">
 

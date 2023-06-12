@@ -189,11 +189,14 @@ def new_page_header(fn: Callable = None, drawer: ui.left_drawer | ui.drawer = No
     logger.debug(f"headerFn: {fn}, drawer: {drawer}")
 
     def new_default():
-        ui.button(on_click=lambda: drawer.toggle()).props(
-            "flat color=white icon=menu round size=sm"
-        ).classes()
-        ui.label('Header')
-        ui.link('Home', '/')
+        with ui.row().classes("items-center").on('click', lambda: ui.open("/")):
+            ui.icon('flutter_dash', color='yellow-400', size='md')
+            ui.label('Geek App').classes('text-h6 text-yellow-400')
+
+        uh.empty()
+        uh.empty()
+        with ui.row().classes("items-center").on('click', lambda: drawer.toggle()):
+            ui.icon('menu', color='green-400', size='sm')
 
     with e:
         fn and fn() or new_default()

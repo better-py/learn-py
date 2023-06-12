@@ -79,7 +79,7 @@ def new_page1(client: PageClient):
 
 
 ui.run(
-    title="My App",
+    title="Geek App",
     native=True,
     window_size=(1100, 700),
     fullscreen=False,
