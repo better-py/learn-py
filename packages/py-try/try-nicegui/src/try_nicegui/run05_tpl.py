@@ -21,7 +21,7 @@ def new_page1(client: PageClient):
 @ui.page('/page2')
 def new_page1(client: PageClient):
     def new_view():
-        with ui.card():
+        with ui.card().classes('m-5 bg-gray-300'):
             with ui.tabs() as tabs:
                 ui.tab('Home', icon='home')
                 ui.tab('About', icon='info')
@@ -38,7 +38,7 @@ def new_page1(client: PageClient):
 @ui.page('/page3')
 def new_page1(client: PageClient):
     def new_view():
-        with ui.card():
+        with ui.card().classes('m-5 bg-gray-300'):
             columns = [
                 {'name': 'name', 'label': 'Name', 'field': 'name', 'required': True, 'align': 'left'},
                 {'name': 'age', 'label': 'Age', 'field': 'age', 'sortable': True},
@@ -56,7 +56,7 @@ def new_page1(client: PageClient):
 @ui.page('/page4')
 def new_page1(client: PageClient):
     def new_view():
-        with ui.card():
+        with ui.card().classes('m-5 bg-gray-300'):
             ui.tree([
                 {'id': 'numbers', 'children': [{'id': '1'}, {'id': '2'}]},
                 {'id': 'letters', 'children': [{'id': 'A'}, {'id': 'B'}]},
@@ -68,7 +68,7 @@ def new_page1(client: PageClient):
 @ui.page('/page5')
 def new_page1(client: PageClient):
     def new_view():
-        with ui.card():
+        with ui.card().classes('m-5 bg-gray-300'):
             ui.mermaid('''
             graph LR;
                 A --> B;
