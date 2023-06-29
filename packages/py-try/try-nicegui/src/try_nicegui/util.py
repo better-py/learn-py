@@ -163,7 +163,7 @@ def new_page_drawer(
 
     def new_default():
         ui.menu_item('Menu item 1', lambda: ui.open('/page1'))
-        ui.menu_item('Menu item 2', lambda: ui.open('/page2'))
+        ui.menu_item('Menu item 2', lambda: ui.open('/two'))
         ui.menu_item('Menu item 3', lambda: ui.open('/page3'))
         ui.menu_item('Menu item 4', lambda: ui.open('/page4'))
         ui.menu_item('Menu item 5', lambda: ui.open('/page5'))
