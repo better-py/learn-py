@@ -18,8 +18,9 @@ tasks:
 
   run01:
     cmds:
-      - poetry run python run01.py
-    dir: src/try_playwright
+      - |
+        poetry run python \
+            src/try_playwright/run01.py
 
 
   install:
