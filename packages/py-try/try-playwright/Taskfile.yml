@@ -16,6 +16,12 @@ env:
 
 tasks:
 
+  run01:
+    cmds:
+      - poetry run python run01.py
+    dir: src/try_playwright
+
+
   install:
     cmds:
       - poetry install
@@ -23,6 +29,10 @@ tasks:
   add:
     cmds:
       - poetry add "typer[all]" playwright
+
+  i:
+    cmds:
+      - poetry run playwright install
 
   add:dev:
     cmds:

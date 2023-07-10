@@ -4,11 +4,30 @@
 - playwright 支持多种语言，包括 python、java、js 等等。
 - https://playwright.dev/python/docs/library
 
+## development
+
+- install:
+
 ```ruby
 
 pip install --upgrade pip
 pip install playwright
 playwright install
 
+
+# or:
+poetry add "typer[all]" playwright
+poetry run playwright install
+
+```
+
+- run: [Taskfile.yml](Taskfile.yml)
+
+```ruby
+
+cd repo-root/
+
+# run task
+task try:pw:run01
 
 ```
