@@ -22,6 +22,24 @@ tasks:
         poetry run python \
             src/try_playwright/run01.py
 
+  # geo = shanghai
+  gen:
+    cmds:
+      - |
+        poetry run python \
+          -m playwright codegen \
+          --target python \
+          --device "iPhone 11" \
+          --viewport-size  "1280, 720" \
+          --geolocation "31.224361, 121.469170" \
+          -o 'src/try_playwright/run02.py' \
+          -b chromium \
+          https://www.twitter.com
+
+
+  help:
+    cmds:
+      - poetry run python -m playwright codegen --help
 
   install:
     cmds:

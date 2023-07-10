@@ -30,4 +30,12 @@ cd repo-root/
 # run task
 task try:pw:run01
 
+# auto generate:
+task try:pw:gen
+
 ```
+
+## references
+
+- https://playwright.dev/python/docs/intro
+- https://developer.aliyun.com/article/835305
