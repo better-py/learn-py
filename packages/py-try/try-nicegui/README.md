@@ -62,6 +62,19 @@ create = false   # release app # todo x: 依赖！ [ poetry env use $(pyenv whic
 
 ```
 
+## release app:
+
+### with `cx_Freeze`:
+
+- https://cx-freeze.readthedocs.io/en/stable/installation.html
+- https://cx-freeze.readthedocs.io/en/stable/script.html
+
+```ruby
+
+pip install --upgrade cx_Freeze
+
+```
+
 ## References:
 
 > png to ico:

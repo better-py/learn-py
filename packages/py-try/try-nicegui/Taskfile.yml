@@ -50,6 +50,14 @@ tasks:
       - poetry env remove --all
     ignore_error: true
 
+  rel2:
+    cmds:
+      - |
+        poetry run cxfreeze -c src/try_nicegui/run05_tpl.py \
+            --target-name myapp \
+            --target-dir dist
+      - open ./dist
+
   release:
     cmds:
       #      - poetry run pyinstaller -F -w -i ./public/images/logo.ico \
@@ -122,7 +130,8 @@ tasks:
       - |
         poetry add --dev \
           black pytest \
-          pyinstaller
+          pyinstaller \
+          cx_Freeze
 
   update:
     cmds:
