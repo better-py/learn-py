@@ -4,6 +4,7 @@ from cx_Freeze import setup, Executable
 
 # Dependencies are automatically detected, but it might need fine tuning.
 build_exe_options = {
+    "path": sys.path + ["src/try_nicegui"],  # add your own path
     "excludes": ["tkinter", "unittest"],
     "includes": [
         "nicegui",
