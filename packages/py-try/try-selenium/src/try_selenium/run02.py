@@ -1,20 +1,23 @@
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.chrome.service import Service
+from selenium.webdriver import Chrome
+from selenium.webdriver import ChromeOptions
 from selenium.webdriver.common.by import By
 
 
 def scrape_zhihu_answers(username):
-    options = Options()
-    options.add_argument("--headless")  # 无界面模式运行
+    options = ChromeOptions()
+    # options.add_argument("--headless")  # 无界面模式运行
+
+    # fix for zhihu anti-spam, not working
+    options.add_experimental_option('excludeSwitches', ['enable-automation'])
 
     # mac chrome path:
-    chrome_path = "/Applications/Google\ Chrome.app"
+    # chrome_path = "/Applications/Google\ Chrome.app"
 
     # 替换为您的 Chrome 驱动路径
-    service = Service(chrome_path)
+    # service = Service(chrome_path)
 
-    driver = webdriver.Chrome(service=service, options=options)
+    # driver = webdriver.Chrome(service=service, options=options)
+    driver = Chrome(options=options)
 
     driver.get(f"https://www.zhihu.com/people/{username}/answers")
 
@@ -43,5 +46,5 @@ def scrape_zhihu_answers(username):
 
 
 # 替换为要抓取的知乎用户名
-username = "your_username"
+username = "your_username"  # your_username
 scrape_zhihu_answers(username)
