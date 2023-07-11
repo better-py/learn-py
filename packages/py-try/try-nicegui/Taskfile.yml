@@ -50,6 +50,14 @@ tasks:
       - poetry env remove --all
     ignore_error: true
 
+  rel3:
+    cmds:
+      #      - poetry run python build2.py bdist_msi  # build Windows installer
+      - poetry run python build2.py bdist_dmg # build macos installer
+      - open ./build
+      - open ./dist
+    ignore_error: true
+
   rel2:
     cmds:
       - |
