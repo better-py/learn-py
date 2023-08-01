@@ -50,3 +50,8 @@ tasks:
       - poetry cache list
       - poetry debug info
       - poetry debug resolve
+
+
+  run:
+    cmds:
+      - poetry run python src/try_spacy/run01.py
