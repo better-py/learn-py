@@ -22,11 +22,17 @@ tasks:
 
   add:
     cmds:
-      - poetry add click discord.py
+      - poetry add typer[all]
+      - poetry add spacy[apple] # macos + m1
 
   add:dev:
     cmds:
       - poetry add ${PACKAGE} --dev
+
+  download:
+    cmds:
+      - poetry run python -m spacy download en_core_web_sm   # english
+      - poetry run python -m spacy download ja_core_news_sm  # japanese
 
   update:
     cmds:

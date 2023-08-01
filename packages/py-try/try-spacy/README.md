@@ -5,9 +5,21 @@
 
 ## Quickstart:
 
-- TODO
+- 安装依赖:
 
-## Docs:
+```ruby
+
+# 安装:
+task try:spacy:add
+
+# 下载model
+task try:spacy:download
+
+```
+
+## Reference:
+
+### docs
 
 - https://spacy.io/usage
 
