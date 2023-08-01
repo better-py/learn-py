@@ -44,3 +44,7 @@ python -m spacy download ja_core_news_sm
 ### guide
 
 - https://course.spacy.io/zh/
+
+### 可视化
+
+- https://spacy.io/usage/visualizers#span

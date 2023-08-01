@@ -48,8 +48,25 @@ def nlp_print4():
     displacy.serve(doc, style="dep", host="127.0.0.1", auto_select_port=True)
 
 
+def nlp_print5():
+    from spacy.tokens import Span
+
+    text = "Welcome to the Bank of China."
+
+    nlp = spacy.blank("en")
+    doc = nlp(text)
+
+    doc.spans["sc"] = [
+        Span(doc, 3, 6, "ORG"),
+        Span(doc, 5, 6, "GPE"),
+    ]
+
+    displacy.serve(doc, style="span", host="127.0.0.1", auto_select_port=True)
+
+
 if __name__ == "__main__":
     nlp_print()
     nlp_print2()
     nlp_print3()
     # nlp_print4()
+    # nlp_print5()
