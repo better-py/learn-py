@@ -1,0 +1,23 @@
+[project]
+name = "try-rye-rs"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "hhstore", email = "hhglory@outlook.com" }
+]
+dependencies = []
+readme = "README.md"
+requires-python = ">= 3.10"
+
+[build-system]
+requires = ["maturin>=1.2,<2.0"]
+build-backend = "maturin"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[tool.maturin]
+python-source = "python"
+module-name = "try_rye_rs._lowlevel"
+features = ["pyo3/extension-module"]

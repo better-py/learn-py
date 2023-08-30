@@ -48,6 +48,11 @@ tasks:
     cmds:
       - env PYTHON_CONFIGURE_OPTS="--enable-shared" pyenv install 3.10.6 # fix for pyinstaller
 
+  install:rye:
+    cmds:
+      - curl -sSf https://rye-up.com/get | bash  # set shell env: export PATH="$HOME/.rye/bin:$PATH"
+      - rye --version
+
   install:poetry:
     cmds:
       - curl -sSL https://install.python-poetry.org | python3 -
@@ -90,10 +95,24 @@ tasks:
   new:
     cmds:
       - echo new ${NEW_PROJECT_DIR}${NEW_PROJECT_NAME}
-      - poetry new ${NEW_PROJECT_DIR}${NEW_PROJECT_NAME} --src
+      - rye init ${NEW_PROJECT_DIR}${NEW_PROJECT_NAME}
+      #- cd ${NEW_PROJECT_DIR}; rye init ${NEW_PROJECT_NAME}
+    dir: packages/
+
+  new:plugin: # rust plugin
+    cmds:
+      - echo new ${NEW_PROJECT_DIR}${NEW_PROJECT_NAME}
+      - rye init ${NEW_PROJECT_DIR}${NEW_PROJECT_NAME} --build-system maturin
+      #- cd ${NEW_PROJECT_DIR}; rye init ${NEW_PROJECT_NAME}
     dir: packages/
 
   new2:
+    cmds:
+      - echo new ${NEW_PROJECT_DIR}${NEW_PROJECT_NAME}
+      - poetry new ${NEW_PROJECT_DIR}${NEW_PROJECT_NAME} --src
+    dir: packages/
+
+  new3:
     dir: packages
     cmds:
       - cookiecutter gh:jacebrowning/template-python -f
