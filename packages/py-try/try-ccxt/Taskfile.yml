@@ -23,7 +23,7 @@ tasks:
   add:
     cmds:
       - poetry add click ccxt jupyterlab notebook ipython loguru "typer[all]"
-
+      - poetry add pandas matplotlib seaborn plotly
   add:dev:
     cmds:
       - poetry add ${PACKAGE} --dev
