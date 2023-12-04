@@ -46,6 +46,11 @@ includes:
     dir: try-ccxt/
     optional: true
 
+  flet:
+    taskfile: try-flet/
+    dir: try-flet/
+    optional: true
+
 
 #
 # global vars: https://taskfile.dev/#/usage?id=variables
