@@ -53,5 +53,5 @@ tasks:
 
   run:
     cmds:
-      - poetry run python3 -m __init__
+      - poetry run python3 -m tr_binance
     dir: ./src/try_ccxt
