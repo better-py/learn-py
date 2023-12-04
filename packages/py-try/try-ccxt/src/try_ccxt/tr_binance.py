@@ -25,4 +25,3 @@ def try_ccxt():
 
 if __name__ == '__main__':
     try_ccxt()
-    pass

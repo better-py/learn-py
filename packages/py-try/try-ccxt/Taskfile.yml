@@ -55,3 +55,8 @@ tasks:
     cmds:
       - poetry run python3 -m tr_binance
     dir: ./src/try_ccxt
+
+  run2:
+    cmds:
+      - poetry run python3 -m tr_binance_aio
+    dir: ./src/try_ccxt
