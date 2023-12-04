@@ -1,0 +1,61 @@
+version: "3"
+
+
+#
+# global vars: https://taskfile.dev/#/usage?id=variables
+#
+vars:
+  VAR1: "some-var"
+
+# global env:
+env:
+  ENV1: testing
+
+################################################################################################
+
+
+tasks:
+
+  install:
+    cmds:
+      - poetry install
+
+  add:
+    cmds:
+      - poetry add flet loguru "typer[all]"
+
+  add:dev:
+    cmds:
+      - poetry add ${PACKAGE} --dev
+
+  update:
+    cmds:
+      - poetry update
+
+  config:
+    cmds:
+      - poetry config virtualenvs.in-project false --local
+      - poetry config virtualenvs.create false --local
+
+  env:
+    cmds:
+      - poetry
+      - poetry env list
+      - poetry cache list
+      - poetry debug info
+      - poetry debug resolve
+
+  run:
+    cmds:
+      - poetry run python3 -m tr_binance
+    dir: ./src/try_ccxt
+
+  run2:
+    cmds:
+      - poetry run python3 -m tr_binance_aio
+    dir: ./src/try_ccxt
+
+  new:
+    cmds:
+      - poetry run flet create --help
+      - poetry run flet create --verbose --template counter --project-name demo .
