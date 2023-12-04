@@ -50,12 +50,29 @@ tasks:
       - poetry run python3 -m tr_binance
     dir: ./src/try_ccxt
 
-  run2:
+  run:demo:
     cmds:
-      - poetry run python3 -m tr_binance_aio
-    dir: ./src/try_ccxt
+      - poetry run flet run .
+    dir: ./demo
+
+  release:
+    cmds:
+      - poetry run flet pack --help
+      - |
+        poetry run flet pack main.py
+          --verbose \
+          --name pyApp \
+          --product-version 0.1.0 \
+          --company-name "TryBetterApp" \
+          --codesign-identity "com.trybetterapp" \
+          --bundle-id "com.trybetterapp.pyapp" \
+    dir: ./demo
+
+  help:
+    cmds:
+      - poetry run flet --help
 
   new:
     cmds:
       - poetry run flet create --help
-      - poetry run flet create --verbose --template counter --project-name demo .
+      - poetry run flet create --verbose --template counter --project-name demo demo
