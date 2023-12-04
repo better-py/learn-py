@@ -41,6 +41,11 @@ includes:
     dir: try-spacy/
     optional: true
 
+  ccxt:
+    taskfile: try-ccxt/
+    dir: try-ccxt/
+    optional: true
+
 
 #
 # global vars: https://taskfile.dev/#/usage?id=variables

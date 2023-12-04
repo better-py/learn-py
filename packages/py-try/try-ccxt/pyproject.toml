@@ -8,6 +8,8 @@ packages = [{include = "try_ccxt", from = "src"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
+click = "^8.1.7"
+ccxt = "^4.1.75"
 
 
 [build-system]
