@@ -13,6 +13,8 @@ ccxt = "^4.1.75"
 jupyterlab = "^4.0.9"
 ipython = "^8.18.1"
 notebook = "^7.0.6"
+loguru = "^0.7.2"
+typer = {extras = ["all"], version = "^0.9.0"}
 
 
 [build-system]

@@ -22,7 +22,7 @@ tasks:
 
   add:
     cmds:
-      - poetry add click ccxt jupyterlab notebook ipython
+      - poetry add click ccxt jupyterlab notebook ipython loguru "typer[all]"
 
   add:dev:
     cmds:
@@ -49,3 +49,9 @@ tasks:
   run:note:
     cmds:
       - poetry run jupyter notebook
+
+
+  run:
+    cmds:
+      - poetry run python3 -m __init__
+    dir: ./src/try_ccxt
