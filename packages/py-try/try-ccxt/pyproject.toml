@@ -10,6 +10,9 @@ packages = [{include = "try_ccxt", from = "src"}]
 python = "^3.10"
 click = "^8.1.7"
 ccxt = "^4.1.75"
+jupyterlab = "^4.0.9"
+ipython = "^8.18.1"
+notebook = "^7.0.6"
 
 
 [build-system]

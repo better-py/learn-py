@@ -22,7 +22,7 @@ tasks:
 
   add:
     cmds:
-      - poetry add click ccxt
+      - poetry add click ccxt jupyterlab notebook ipython
 
   add:dev:
     cmds:
@@ -44,3 +44,8 @@ tasks:
       - poetry cache list
       - poetry debug info
       - poetry debug resolve
+
+
+  run:note:
+    cmds:
+      - poetry run jupyter notebook
