@@ -48,6 +48,15 @@ tasks:
     cmds:
       - env PYTHON_CONFIGURE_OPTS="--enable-shared" pyenv install 3.10.6 # fix for pyinstaller
 
+  install:pdm:
+    cmds:
+      #      - curl -sSL https://pdm-project.org/install-pdm.py | python3 -
+      #      - brew install pdm  # 不要用, 会额外装一堆大便进来!
+      #      - pip install --user pdm
+      - pip install pipx       # 基于 pyenv
+      - pipx install pdm[all]  # 基于 pyenv
+      - pdm --version
+
   install:rye:
     cmds:
       - curl -sSf https://rye-up.com/get | bash  # set shell env: export PATH="$HOME/.rye/bin:$PATH"

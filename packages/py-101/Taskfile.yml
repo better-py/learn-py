@@ -56,3 +56,17 @@ tasks:
       - poetry cache list
       - poetry debug info
       - poetry debug resolve
+
+  pdm:init:
+    cmds:
+      - pdm init
+
+  pdm:env:
+    cmds:
+      - pdm info --env
+      - pdm info
+
+  pdm:add:
+    cmds:
+      - pdm add typer[all]
+      - pdm add ipython
