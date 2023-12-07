@@ -126,6 +126,11 @@ tasks:
     cmds:
       - cookiecutter gh:jacebrowning/template-python -f
 
+  new4:
+    cmds:
+      - pdm init --copier gh:pawamoy/copier-pdm --UNSAFE
+    dir: packages/
+
   ##################################################################################################
 
   quick:
