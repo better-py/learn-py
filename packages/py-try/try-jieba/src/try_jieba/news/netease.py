@@ -55,9 +55,47 @@ class NetEase(NewsBase):
         return news
 
     def get_news_content(self):
-        pass
+        result = {}
+        news = self.get_hot_news()
+
+        # 挑选 4 篇
+        count = 0
+        for item in news:
+            if count > 3:
+                break
+
+            count += 1
+            url = item.get("url")
+            news_id = url.split("/")[-1].strip(".html")
+            title = item.get("title")
+
+            r = requests.get(item.get("url"), headers=self.header)
+            soup = BeautifulSoup(r.text, 'html.parser')
+
+            el = soup.find('div', class_='post_info')
+            time = el.text.split("来源:")[0].strip() if el else None
+
+            # logger.info(soup.prettify())
+            # logger.info(f"发布时间: {time}")
+
+            # 新闻正文内容:
+            el = soup.find_all('div', class_='post_body')
+            content = ""
+            for e in el:
+                # logger.info(f"\t{e.text}")
+                content += e.text.strip()
+
+            result[news_id] = {
+                "title": title,
+                "url": url,
+                "time": time,
+                "content": content,
+            }
+            logger.info(f"新闻: {result[news_id]}")
+        return result
 
 
 if __name__ == '__main__':
     n = NetEase()
     n.get_hot_news()
+    n.get_news_content()
