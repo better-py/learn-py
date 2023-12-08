@@ -51,6 +51,12 @@ includes:
     dir: try-flet/
     optional: true
 
+  jieba:
+    aliases: [ "j" ]
+    taskfile: try-jieba/
+    dir: try-jieba/
+    optional: true
+
 
 #
 # global vars: https://taskfile.dev/#/usage?id=variables

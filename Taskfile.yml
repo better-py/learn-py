@@ -101,6 +101,13 @@ tasks:
 
   ##################################################################################################
 
+  # usage:
+  #   - task n -- py-try/try-jieba
+  n:
+    cmds:
+      - poetry new {{.CLI_ARGS}} --src
+    dir: packages/
+
   new:
     cmds:
       - echo new ${NEW_PROJECT_DIR}${NEW_PROJECT_NAME}
@@ -113,12 +120,6 @@ tasks:
       - echo new ${NEW_PROJECT_DIR}${NEW_PROJECT_NAME}
       - rye init ${NEW_PROJECT_DIR}${NEW_PROJECT_NAME} --build-system maturin
       #- cd ${NEW_PROJECT_DIR}; rye init ${NEW_PROJECT_NAME}
-    dir: packages/
-
-  new2:
-    cmds:
-      - echo new ${NEW_PROJECT_DIR}${NEW_PROJECT_NAME}
-      - poetry new ${NEW_PROJECT_DIR}${NEW_PROJECT_NAME} --src
     dir: packages/
 
   new3:
@@ -134,13 +135,18 @@ tasks:
   ##################################################################################################
 
   quick:
+    aliases: [ 'q' ]
+    cmds:
+      - task: cc
+      - task: push
+
+  cc:
     cmds:
       - task: commit
       - task: commit
-  #      - task: pull
-  #      - task: push
 
   commit:
+    aliases: [ 'c' ]
     cmds:
       - git add .
       - git commit -m "update"
