@@ -9,6 +9,10 @@
 
 - https://doc.qt.io/qtforpython-6/tutorials/index.html
 
+> examples:
+
+- 图表: https://doc.qt.io/qtforpython-6/examples/example_charts_chartthemes.html
+
 ### Install:
 
 ```ruby

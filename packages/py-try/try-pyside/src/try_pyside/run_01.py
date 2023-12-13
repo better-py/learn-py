@@ -18,6 +18,10 @@ from random import random, uniform
 
 
 class ThemeWidget(QWidget):
+    """
+    ref: https://doc.qt.io/qtforpython-6/examples/example_charts_chartthemes.html
+    """
+
     def __init__(self, parent):
         QWidget.__init__(self, parent)
         self.charts = []
