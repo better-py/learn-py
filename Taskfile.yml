@@ -7,6 +7,7 @@ includes:
     optional: true
 
   try:
+    aliases: [ 't' ]
     taskfile: packages/py-try/
     dir: packages/py-try/
     optional: true
