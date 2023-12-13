@@ -15,23 +15,31 @@ env:
 
 
 tasks:
+  run:
+    aliases: [ 'r' ]
+    cmds:
+      - poetry run python3 run.py
+    dir: ./src/try_pyside
+
+  r1:
+    aliases: [ 'r1' ]
+    cmds:
+      - pyside6-uic themewidget.ui -o ui_themewidget.py
+      - poetry run python3 run_01.py
+    dir: ./src/try_pyside
 
   install:
     cmds:
       - poetry install
 
-  add:all:
-    cmds:
-      - poetry add flet loguru "typer[all]"
-
   add:
     aliases: [ 'a' ]
     cmds:
-      - poetry add {{.CLI_ARGS}}
+      - poetry add {{.CLI_ARGS}}  # --dev
 
-  add:dev:
+  add:all:
     cmds:
-      - poetry add ${PACKAGE} --dev
+      - poetry add flet loguru "typer[all]"
 
   update:
     cmds:
@@ -50,34 +58,9 @@ tasks:
       - poetry debug info
       - poetry debug resolve
 
-  run:
-    cmds:
-      - poetry run python3 -m tr_binance
-    dir: ./src/try_ccxt
 
-  run:demo:
-    cmds:
-      - poetry run flet run .
-    dir: ./demo
 
-  release:
-    cmds:
-      - poetry run flet pack --help
-      - |
-        poetry run flet pack main.py
-          --verbose \
-          --name pyApp \
-          --product-version 0.1.0 \
-          --company-name "TryBetterApp" \
-          --codesign-identity "com.trybetterapp" \
-          --bundle-id "com.trybetterapp.pyapp" \
-    dir: ./demo
 
-  help:
-    cmds:
-      - poetry run flet --help
 
-  new:
-    cmds:
-      - poetry run flet create --help
-      - poetry run flet create --verbose --template counter --project-name demo demo
+
+
