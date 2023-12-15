@@ -20,7 +20,14 @@ tasks:
     aliases: [ 'r' ]
     cmds:
       - echo 'google gpt api key:' ${GOOGLE_GEMINI_API_KEY}
-      - poetry run python3 {{.SRC}}/run.py ${GOOGLE_GEMINI_API_KEY}
+      - poetry run python3 {{.SRC}}/run.py --help
+      - poetry run python3 {{.SRC}}/run.py chat ${GOOGLE_GEMINI_API_KEY}
+
+  r2:
+    cmds:
+      - echo 'google gpt api key:' ${GOOGLE_GEMINI_API_KEY}
+      - poetry run python3 {{.SRC}}/run.py chat2 # ${GOOGLE_GEMINI_API_KEY}
+
 
   run:note:
     cmds:

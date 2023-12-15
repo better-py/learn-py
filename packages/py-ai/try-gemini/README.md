@@ -9,3 +9,10 @@
 ## Reference:
 
 - https://github.com/google/generative-ai-python
+- https://cloud.google.com/vertex-ai/docs/start/install-sdk?hl=zh-cn
+
+```ruby
+
+pip install --upgrade google-cloud-aiplatform
+
+```
