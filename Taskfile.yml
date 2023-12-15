@@ -7,9 +7,16 @@ includes:
     optional: true
 
   try:
+    aliases: [ "t" ]
     taskfile: packages/py-try/
     dir: packages/py-try/
     optional: true
+
+  ai:
+    taskfile: packages/py-ai/
+    dir: packages/py-ai/
+    optional: true
+
 
 ################################################################################################
 
