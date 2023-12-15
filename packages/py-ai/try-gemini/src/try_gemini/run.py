@@ -67,7 +67,7 @@ def chat2(temperature: float = 0.2):
 
 
 @app.command()
-def generate_text(project_id: str, location: str) -> str:
+def generate_text2(project_id: str, location: str) -> str:
     # Initialize Vertex AI
     import vertexai
 
@@ -86,6 +86,29 @@ def generate_text(project_id: str, location: str) -> str:
             "what is shown in this image?",
             Part.from_uri(
                 "gs://generativeai-downloads/images/scones.jpg", mime_type="image/jpeg"
+            ),
+        ]
+    )
+    print(response)
+    return response.text
+
+
+@app.command("gen")
+def generate_text(project_id: str, location: str) -> str:
+    import vertexai
+
+    from vertexai.preview.generative_models import GenerativeModel, Part
+
+    # Initialize Vertex AI
+    vertexai.init(project=project_id, location=location)
+    # Load the model
+    vision_model = GenerativeModel("gemini-pro-vision")
+    # Generate text
+    response = vision_model.generate_content(
+        [
+            "What is in the video?",
+            Part.from_uri(
+                "gs://cloud-samples-data/video/animals.mp4", mime_type="video/mp4"
             ),
         ]
     )

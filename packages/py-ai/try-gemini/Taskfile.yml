@@ -26,8 +26,19 @@ tasks:
   r2:
     cmds:
       - echo 'google gpt api key:' ${GOOGLE_GEMINI_API_KEY}
-      - poetry run python3 {{.SRC}}/run.py chat2 # ${GOOGLE_GEMINI_API_KEY}
+      - poetry run python3 {{.SRC}}/run.py gen  "smiling-mark-408218" "asia-northeast1" # ${GOOGLE_GEMINI_API_KEY}
 
+  auth:gcp:
+    aliases: [ 'auth' ]
+    cmds:
+      - gcloud auth application-default login
+
+  # ref:
+  #   - https://cloud.google.com/sdk/docs/install?hl=zh-cn#mac
+  #   - https://cloud.google.com/sdk/docs/downloads-interactive?hl=zh-cn
+  install:gcp:
+    cmds:
+      - curl https://sdk.cloud.google.com | bash
 
   run:note:
     cmds:
