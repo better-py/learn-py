@@ -1,9 +1,10 @@
-from typing import Awaitable, Callable, Dict, Union
+from typing import Callable, Dict, Union
 
-from nicegui import background_tasks, ui
-from nicegui.dependencies import register_component
+from nicegui import background_tasks, helpers, ui
 
-register_component('router_frame', __file__, 'router_frame.js')
+
+class RouterFrame(ui.element, component='router_frame.js'):
+    pass
 
 
 class Router():
@@ -16,7 +17,6 @@ class Router():
         def decorator(func: Callable):
             self.routes[path] = func
             return func
-
         return decorator
 
     def open(self, target: Union[Callable, str]) -> None:
@@ -29,18 +29,17 @@ class Router():
 
         async def build() -> None:
             with self.content:
-                await ui.run_javascript(f'''
+                ui.run_javascript(f'''
                     if (window.location.pathname !== "{path}") {{
                         history.pushState({{page: "{path}"}}, "", "{path}");
                     }}
-                ''', respond=False)
+                ''')
                 result = builder()
-                if isinstance(result, Awaitable):
+                if helpers.is_coroutine_function(builder):
                     await result
-
         self.content.clear()
         background_tasks.create(build())
 
     def frame(self) -> ui.element:
-        self.content = ui.element('router_frame').on('open', lambda msg: self.open(msg['args']))
+        self.content = RouterFrame().on('open', lambda e: self.open(e.args))
         return self.content

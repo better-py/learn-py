@@ -13,11 +13,13 @@ env:
 ################################################################################################
 
 tasks:
-  run:
+  run2:
+    aliases: [ 'r' ]
     cmds:
       - python src/try_nicegui/run02_tpl.py --mode=native
 
   run6:
+    aliases: [ 'r6' ]
     cmds:
       - python3 src/try_nicegui/run06_tpl_spa.py
 
@@ -26,6 +28,7 @@ tasks:
       - python3 src/try_nicegui/run05_tpl.py
 
   run4:
+    aliases: [ 'r4' ]
     cmds:
       - python3 src/try_nicegui/run04_tpl.py
 
@@ -122,7 +125,19 @@ tasks:
     #      - poetry run pip3 install numpy
     ignore_error: true
 
+
+  poetry:
+    aliases: [ 'p' ]
+    cmds:
+      - poetry
+      - poetry {{.CLI_ARGS}}
+
   add:
+    aliases: [ 'a' ]
+    cmds:
+      - poetry add {{.CLI_ARGS}}
+
+  add:list:
     cmds:
       #- poetry remove nicegui
       - |
@@ -142,8 +157,9 @@ tasks:
           cx_Freeze
 
   update:
+    aliases: [ 'u' ]
     cmds:
-      - poetry update
+      - poetry update {{.CLI_ARGS}}
 
   config:
     cmds:
