@@ -13,8 +13,18 @@ env:
 ################################################################################################
 
 tasks:
-  run2:
+  run:
     aliases: [ 'r' ]
+    cmds:
+      - python3 src/try_nicegui/run05_tpl_spa.py
+
+  run7:
+    aliases: [ 'r7' ]
+    cmds:
+      - python3 src/try_nicegui/run07_spa.py
+
+  run2:
+    aliases: [ 'r2' ]
     cmds:
       - python src/try_nicegui/run02_tpl.py --mode=native
 
@@ -24,6 +34,7 @@ tasks:
       - python3 src/try_nicegui/run06_tpl_spa.py
 
   run5:
+    aliases: [ 'r5' ]
     cmds:
       - python3 src/try_nicegui/run05_tpl.py
 
