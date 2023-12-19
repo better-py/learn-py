@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from loguru import logger
 from nicegui import ui
 from nicegui import Client as PageClient
 from router import Router
@@ -138,6 +139,10 @@ if __name__ in {"__main__", "__mp_main__"}:
     # from multiprocessing import Process, freeze_support
     #
     # freeze_support()  # fix for macos + M1
+
+    from os import getpid, getppid
+
+    logger.info(f"module: {__name__}, pid: {getpid()}, parent pid: {getppid()}")
 
     ui.run(
         title="Geek App",
