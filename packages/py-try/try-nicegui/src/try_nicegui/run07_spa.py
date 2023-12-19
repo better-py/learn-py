@@ -130,6 +130,16 @@ if __name__ in {"__main__", "__mp_main__"}:
     # freeze_support()  # fix for macos + M1
 
     from os import getpid, getppid
+    # import multiprocessing
+    # import sys
+    #
+    # if sys.platform == "darwin":
+    #     ctx = multiprocessing.get_context("spawn")
+    #     Process = ctx.Process
+    #     Queue = ctx.Queue
+    # else:
+    #     Process = multiprocessing.Process
+    #     Queue = multiprocessing.Queue
 
     logger.info(f"module: {__name__}, pid: {getpid()}, parent pid: {getppid()}")
 
@@ -138,6 +148,6 @@ if __name__ in {"__main__", "__mp_main__"}:
         native=True,
         window_size=(1100, 700),
         fullscreen=False,
-        reload=False,   # todo x: fix for freeze_support()
+        reload=False,  # todo x: fix for freeze_support()
         show=True,
     )
