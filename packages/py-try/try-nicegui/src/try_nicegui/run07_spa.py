@@ -135,9 +135,9 @@ if __name__ in {"__main__", "__mp_main__"}:
     #
     # https://github.com/pyinstaller/pyinstaller/wiki/Recipe-Multiprocessing
     #
-    from multiprocessing import Process, freeze_support
-
-    freeze_support()  # fix for macos + M1
+    # from multiprocessing import Process, freeze_support
+    #
+    # freeze_support()  # fix for macos + M1
 
     ui.run(
         title="Geek App",
