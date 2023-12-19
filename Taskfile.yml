@@ -12,6 +12,12 @@ includes:
     dir: packages/py-try/
     optional: true
 
+  gui:
+    aliases: [ 'ui' ]
+    taskfile: packages/py-gui/
+    dir: packages/py-gui/
+    optional: true
+
   ai:
     taskfile: packages/py-ai/
     dir: packages/py-ai/

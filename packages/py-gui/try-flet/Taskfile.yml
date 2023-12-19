@@ -17,6 +17,7 @@ env:
 tasks:
 
   install:
+    aliases: [ "i" ]
     cmds:
       - poetry install
 
@@ -51,6 +52,7 @@ tasks:
     dir: ./src/try_ccxt
 
   run:demo:
+    aliases: [ 'rd' ]
     cmds:
       - poetry run flet run .
     dir: ./demo
