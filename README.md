@@ -18,22 +18,53 @@
 
 [//]: # (y23m01p01-xxx 项目编号规则)
 
-| 项目名称                                          | 项目描述                                                                                  | 说明        |  
-|:----------------------------------------------|:--------------------------------------------------------------------------------------|:----------| 
-| ✅️ [learn-py](./packages/learn-py)            | python 基础示例                                                                           | ⭐️⭐️      |
-| ✅️ [try-pywry](./packages/py-try/try-pywry)   | [pywry](https://github.com/OpenBB-finance/pywry) 是 基于 wry 的 GUI 框架，跨平台 desktop app 开发 | ⭐️⭐️⭐️⭐️  |
-| ✅️ [try-chroma](packages/py-try/try-chroma)   | [chroma](https://github.com/chroma-core/chroma) 是LLM 常用 `向量数据库`， 调研 & 测试              | ⭐️⭐️⭐️    |
-| ✅️ [try-autogpt](packages/py-try/try-autogpt) | [Auto-GPT](https://github.com/Significant-Gravitas/Auto-GPT) GPT 最火🔥️框架, 调研 & 测试     | ⭐️⭐️⭐⭐️⭐️ |
-| ✅️ [xxx]()                                    | xxx                                                                                   | xxx       |
-| ✅️ [xxx]()                                    | xxx                                                                                   | xxx       |
-| ✅️ [xxx]()                                    | xxx                                                                                   | xxx       |
+### 💡 [Python 基础](./packages/py-101)
+
+| 项目名称                           | 项目描述        | 说明   |  
+|:-------------------------------|:------------|:-----| 
+| ✅️ [py-101](./packages/py-101) | python 基础示例 | ⭐️⭐️ |
+
+### 🕷️ [Python 爬虫]((./packages/py-crawler))
+
+| 项目名称                                              | 项目描述  | 说明       |  
+|:--------------------------------------------------|:------|:---------|
+| ✅️ [selenium](./packages/py-try/try-selenium)     | 无头浏览器 | 🌟🌟🌟🌟 |
+| ✅️ [playwright](./packages/py-try/try-playwright) | 无头浏览器 | 🌟🌟🌟   | 
+| ✅️ [jieba](./packages/py-try/try-jieba)           | 中文分词库 | 🌟🌟🌟🌟 |
+
+### 🔥 [Python AI/LLM/GPT](./packages/py-ai)
+
+| 项目名称                                          | 项目描述                                                                              | 说明        |  
+|:----------------------------------------------|:----------------------------------------------------------------------------------|:----------| 
+| ✅️ [try-chroma](packages/py-try/try-chroma)   | [chroma](https://github.com/chroma-core/chroma) 是LLM 常用 `向量数据库`， 调研 & 测试          | ⭐️⭐️⭐️    |
+| ✅️ [try-autogpt](packages/py-try/try-autogpt) | [Auto-GPT](https://github.com/Significant-Gravitas/Auto-GPT) GPT 最火🔥️框架, 调研 & 测试 | ⭐️⭐️⭐⭐️⭐️ |
+| ✅️ [xxx]()                                    | xxx                                                                               | xxx       |
+| ✅️ [xxx]()                                    | xxx                                                                               | xxx       |
+| ✅️ [xxx]()                                    | xxx                                                                               | xxx       |
+
+### 📈 [Python Quant](./packages/py-quant)
+
+| 项目名称                                  | 项目描述     | 说明   |  
+|:--------------------------------------|:---------|:-----| 
+| ✅️ [ccxt](./packages/py-try/try-ccxt) | 数字货币交易框架 | ⭐️⭐️ |
+| ✅️ [xxx]()                            | xxx      | xxx  |
+
+### 💻 [Python GUI](./packages/py-gui)
+
+| 项目名称                                      | 项目描述                        | 说明       |  
+|:------------------------------------------|:----------------------------|:---------|
+| ✅️ [py-wry]()                             | 基于 `Tauri/Wry` 的 WebView 方案 | 🌟🌟🌟🌟 |
+| ✅️ [flet](./packages/py-gui/try-flet)     | 基于 `Flutter` 的 GUI 方案       | 🌟🌟🌟   |
+| ✅️ [pyside](./packages/py-gui/try-pyside) | 基于 `Qt` 的 GUI 方案            | 🌟🌟     |
+| ✅️ [xxx]()                                | xxx                         | xxx      |
+| ✅️ [xxx]()                                | xxx                         | xxx      |    
 
 ## Development
 
 > requirements:
 
 - ✅️ python3.10+
-- ✅️ [poetry](https://python-poetry.org/docs/)
+- ✅️ [poetry](https://python-poetry.org/docs/) or [PDM](https://pdm-project.org/latest/)
 - ✅️ pyenv
 - ✅️ [go-task](https://taskfile.dev/#/installation)
 
