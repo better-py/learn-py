@@ -121,17 +121,6 @@ def new_drawer(r: Router):
 # )
 
 
-def run_app():
-    ui.run(
-        title="Geek App",
-        native=True,
-        window_size=(1100, 700),
-        fullscreen=False,
-        reload=True,
-        show=True,
-    )
-
-
 if __name__ in {"__main__", "__mp_main__"}:
     #
     # https://github.com/pyinstaller/pyinstaller/wiki/Recipe-Multiprocessing
@@ -149,6 +138,6 @@ if __name__ in {"__main__", "__mp_main__"}:
         native=True,
         window_size=(1100, 700),
         fullscreen=False,
-        reload=True,
+        reload=False,   # todo x: fix for freeze_support()
         show=True,
     )
