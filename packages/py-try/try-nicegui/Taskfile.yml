@@ -73,6 +73,12 @@ tasks:
     cmds:
       - ./dist/myapp
 
+  cc:
+    cmds:
+      - task: c
+      - rm -rf build/
+    ignore_error: true
+
   clean:
     aliases: [ 'c' ]
     cmds:

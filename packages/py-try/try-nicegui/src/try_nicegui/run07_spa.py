@@ -118,3 +118,22 @@ ui.run(
     reload=True,
     show=True,
 )
+
+
+# if __name__ == "__main__":
+#     #
+#     # https://github.com/pyinstaller/pyinstaller/wiki/Recipe-Multiprocessing
+#     #
+#
+#     from multiprocessing import freeze_support
+#
+#     freeze_support()  # fix for macos + M1
+#
+#     ui.run(
+#         title="Geek App",
+#         native=True,
+#         window_size=(1100, 700),
+#         fullscreen=False,
+#         reload=True,
+#         show=True,
+#     )
