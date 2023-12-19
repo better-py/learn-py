@@ -20,10 +20,26 @@ def main(client: PageClient):
     def show_one():
         fix_page_layout(client)
 
-        ui.card().classes("p-5 m-5 bg-gray-300")
-        ui.card().classes("p-5 m-5 bg-gray-300")
+        def new_view():
+            with ui.card().classes("m-5 bg-gray-300"):
+                columns = [
+                    {
+                        "name": "name",
+                        "label": "Name",
+                        "field": "name",
+                        "required": True,
+                        "align": "left",
+                    },
+                    {"name": "age", "label": "Age", "field": "age", "sortable": True},
+                ]
+                rows = [
+                    {"name": "Alice", "age": 18},
+                    {"name": "Bob", "age": 21},
+                    {"name": "Carol"},
+                ]
+                ui.table(columns=columns, rows=rows, row_key="name")
 
-        ui.label("Content One").classes("text-2xl")
+        new_view()
 
     @r.add("/two")
     def show_two():
@@ -35,10 +51,18 @@ def main(client: PageClient):
     def show_three():
         fix_page_layout(client)
 
-        ui.card().classes("p-5 m-5 bg-gray-300")
-        ui.card().classes("p-5 m-5 bg-gray-300")
+        def new_view():
+            with ui.card().classes("m-5 bg-gray-300"):
+                ui.tree(
+                    [
+                        {"id": "numbers", "children": [{"id": "1"}, {"id": "2"}]},
+                        {"id": "letters", "children": [{"id": "A"}, {"id": "B"}]},
+                    ],
+                    label_key="id",
+                    on_select=lambda e: ui.notify(e.value),
+                )
 
-        ui.label("Content Three").classes("text-2xl")
+        new_view()
 
     # adding some navigation buttons to switch between the different pages
     # with ui.row():
@@ -47,7 +71,7 @@ def main(client: PageClient):
     #     ui.button("Three", on_click=lambda: r.open(show_three)).classes("w-32")
 
     # this places the content which should be displayed
-    r.frame().classes("w-full p-4 bg-gray-100")
+    r.frame().classes("w-full p-4")  # todo x: 影响全局样式!
 
 
 def new_drawer(r: Router):
