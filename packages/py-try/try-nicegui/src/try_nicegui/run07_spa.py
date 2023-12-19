@@ -110,30 +110,40 @@ def new_drawer(r: Router):
 # )
 
 
-ui.run(
-    title="Geek App",
-    native=True,
-    window_size=(1100, 700),
-    fullscreen=False,
-    reload=True,
-    show=True,
-)
+# ui.run(
+#     title="Geek App",
+#     native=True,
+#     window_size=(1100, 700),
+#     fullscreen=False,
+#     reload=True,
+#     show=True,
+# )
 
 
-# if __name__ == "__main__":
-#     #
-#     # https://github.com/pyinstaller/pyinstaller/wiki/Recipe-Multiprocessing
-#     #
-#
-#     from multiprocessing import freeze_support
-#
-#     freeze_support()  # fix for macos + M1
-#
-#     ui.run(
-#         title="Geek App",
-#         native=True,
-#         window_size=(1100, 700),
-#         fullscreen=False,
-#         reload=True,
-#         show=True,
-#     )
+def run_app():
+    ui.run(
+        title="Geek App",
+        native=True,
+        window_size=(1100, 700),
+        fullscreen=False,
+        reload=True,
+        show=True,
+    )
+
+
+if __name__ in {"__main__", "__mp_main__"}:
+    #
+    # https://github.com/pyinstaller/pyinstaller/wiki/Recipe-Multiprocessing
+    #
+    from multiprocessing import Process, freeze_support
+
+    freeze_support()  # fix for macos + M1
+
+    ui.run(
+        title="Geek App",
+        native=True,
+        window_size=(1100, 700),
+        fullscreen=False,
+        reload=True,
+        show=True,
+    )
