@@ -4,6 +4,9 @@ from nicegui import Client as PageClient
 from router import Router
 from util import fix_page_layout, new_page_header, new_tab_view2, uh
 
+# from multiprocessing import freeze_support
+# freeze_support()  # fix for macos + M1
+
 
 @ui.page(
     "/"

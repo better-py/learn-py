@@ -18,6 +18,23 @@ tasks:
     cmds:
       - python3 src/try_nicegui/run05_tpl_spa.py
 
+  pack:
+    cmds:
+      - rm -rf dist/
+      - poetry run python build3.py
+    ignore_error: true
+
+  pack2:
+    aliases: [ 'p2' ]
+    cmds:
+      - rm -rf /tmp/dist/
+#      - poetry run python -m nuitka  --onefile src/try_nicegui/run07_spa.py --static-libpython=no
+      - poetry run python -m nuitka  --onefile src/try_nicegui/run07_spa.py --macos-create-app-bundle --static-libpython=no
+
+  i:
+    cmds:
+      - env PYTHON_CONFIGURE_OPTS="--enable-shared"; pyenv install 3.10.9
+
   run7:
     aliases: [ 'r7' ]
     cmds:
@@ -57,11 +74,13 @@ tasks:
       - ./dist/myapp
 
   clean:
+    aliases: [ 'c' ]
     cmds:
       - rm -rf dist/
-      - rm -rf build/
-      - rm -rf .venv/
-      - poetry env remove --all
+      - rm -rf dist/
+    #      - rm -rf build/
+    #      - rm -rf .venv/
+    #      - poetry env remove --all
     ignore_error: true
 
   rel3:
