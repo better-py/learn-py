@@ -29,6 +29,7 @@ tasks:
     dir: ./src/try_pyside
 
   install:
+    aliases: [ 'i' ]
     cmds:
       - poetry install
 

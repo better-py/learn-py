@@ -7,6 +7,11 @@ includes:
     dir: try-flet/
     optional: true
 
+  pyside:
+    aliases: [ "ps", "p" ]
+    taskfile: try-pyside/
+    dir: try-pyside/
+    optional: true
 
 #
 # global vars: https://taskfile.dev/#/usage?id=variables
