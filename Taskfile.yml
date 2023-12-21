@@ -23,6 +23,12 @@ includes:
     dir: packages/py-gui/
     optional: true
 
+  crawler:
+    aliases: [ 'cr' ]
+    taskfile: packages/py-crawler/
+    dir: packages/py-crawler/
+    optional: true
+
   try:
     aliases: [ 't' ]
     taskfile: packages/py-try/
