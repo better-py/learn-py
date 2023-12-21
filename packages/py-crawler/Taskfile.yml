@@ -13,6 +13,12 @@ includes:
     dir: try-selenium/
     optional: true
 
+  twitter:
+    aliases: [ "tw", "x" ]
+    taskfile: try-twitter/
+    dir: try-twitter/
+    optional: true
+
 #
 # global vars: https://taskfile.dev/#/usage?id=variables
 #

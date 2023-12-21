@@ -1,0 +1,57 @@
+version: "3"
+
+
+#
+# global vars: https://taskfile.dev/#/usage?id=variables
+#
+vars:
+  VAR1: "some-var"
+
+# global env:
+env:
+  ENV1: testing
+
+################################################################################################
+
+
+tasks:
+
+  run:
+    aliases: [ 'r' ]
+    cmds:
+      - poetry run python src/try_twitter/run.py create --help
+      - echo 'csrf:' ${TWITTER_CSRF_TOKEN}
+      - echo 'Authorization:' ${TWITTER_Authorization}
+      - echo 'cookies:' ${TWITTER_COOKIES}
+      - poetry run python src/try_twitter/run.py create
+
+  run02:
+    cmds:
+      - mkdir dist/
+      - |
+        poetry run python \
+            src/try_selenium/run02.py
+    ignore_error: true
+
+  help:
+    cmds:
+      - poetry run python -m selenium --help
+
+  poetry:
+    aliases: [ 'p', 'pm' ]
+    cmds:
+      - poetry {{.CLI_ARGS}} # install, update
+
+  install:
+    aliases: [ 'i' ]
+    cmds:
+      - poetry install
+
+  add:
+    aliases: [ 'a' ]
+    cmds:
+      - poetry add {{.CLI_ARGS}} # --dev
+
+  add:all:
+    cmds:
+      - poetry add "typer[all]" selenium
