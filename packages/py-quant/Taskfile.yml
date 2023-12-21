@@ -1,20 +1,9 @@
 version: "3"
 
 includes:
-  gemini:
-    aliases: [ "g", "ge" ]
-    taskfile: try-gemini/
-    dir: try-gemini/
-    optional: true
-
-  chroma:
-    taskfile: try-chroma/
-    dir: try-chroma/
-    optional: true
-
-  autogpt:
-    taskfile: try-autogpt/
-    dir: try-autogpt/
+  ccxt:
+    taskfile: try-ccxt/
+    dir: try-ccxt/
     optional: true
 
 #
@@ -31,13 +20,16 @@ env:
 
 
 tasks:
-
-  install:
-    cmds:
-      - poetry install
-
   poetry:
     aliases: [ 'p' ]
     cmds:
       - poetry
       - poetry {{.CLI_ARGS}}
+
+  env:
+    cmds:
+      - poetry
+      - poetry env list
+      - poetry cache list
+      - poetry debug info
+      - poetry debug resolve

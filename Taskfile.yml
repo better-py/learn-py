@@ -6,10 +6,15 @@ includes:
     dir: packages/py-101/
     optional: true
 
-  try:
-    aliases: [ 't' ]
-    taskfile: packages/py-try/
-    dir: packages/py-try/
+  ai:
+    taskfile: packages/py-ai/
+    dir: packages/py-ai/
+    optional: true
+
+  quant:
+    aliases: [ 'trade' ]
+    taskfile: packages/py-quant/
+    dir: packages/py-quant/
     optional: true
 
   gui:
@@ -18,10 +23,13 @@ includes:
     dir: packages/py-gui/
     optional: true
 
-  ai:
-    taskfile: packages/py-ai/
-    dir: packages/py-ai/
+  try:
+    aliases: [ 't' ]
+    taskfile: packages/py-try/
+    dir: packages/py-try/
     optional: true
+
+
 
 
 ################################################################################################
