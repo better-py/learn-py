@@ -7,6 +7,11 @@ includes:
     dir: try-playwright/
     optional: true
 
+  selenium:
+    aliases: [ "se" ]
+    taskfile: try-selenium/
+    dir: try-selenium/
+    optional: true
 
 #
 # global vars: https://taskfile.dev/#/usage?id=variables
