@@ -17,6 +17,11 @@ includes:
     dir: try-autogpt/
     optional: true
 
+  spacy:
+    taskfile: try-spacy/
+    dir: try-spacy/
+    optional: true
+
 #
 # global vars: https://taskfile.dev/#/usage?id=variables
 #

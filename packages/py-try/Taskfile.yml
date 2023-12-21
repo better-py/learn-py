@@ -16,11 +16,6 @@ includes:
     dir: try-typer/
     optional: true
 
-  spacy:
-    taskfile: try-spacy/
-    dir: try-spacy/
-    optional: true
-
   jieba:
     aliases: [ "j" ]
     taskfile: try-jieba/
