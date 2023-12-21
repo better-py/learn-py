@@ -1,0 +1,35 @@
+version: "3"
+
+
+#
+# global vars: https://taskfile.dev/#/usage?id=variables
+#
+vars:
+  VAR1: "some-var"
+
+# global env:
+env:
+  ENV1: testing
+
+################################################################################################
+
+
+tasks:
+  poetry:
+    aliases: [ 'p', 'pm' ]
+    cmds:
+      - poetry {{.CLI_ARGS}} # install, update
+
+  install:
+    aliases: [ 'i' ]
+    cmds:
+      - poetry install
+
+  add:
+    aliases: [ 'a' ]
+    cmds:
+      - poetry add {{.CLI_ARGS}}
+
+  add:all:
+    cmds:
+      - poetry add click discord.py
