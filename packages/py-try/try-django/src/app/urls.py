@@ -43,12 +43,14 @@ urlpatterns = [
     path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
 ]
 
+DEBUG_TOOLBAR_URLS = [
+    path("__debug__/", include("debug_toolbar.urls")),
+]
 
 # development + openapi
 OPENAPI_URLS = [
     # YOUR PATTERNS
     path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
-
     #
     # Optional UI:
     #   - http://127.0.0.1:8000/api/schema/swagger-ui/
@@ -66,5 +68,6 @@ OPENAPI_URLS = [
     ),
 ]
 
+urlpatterns += DEBUG_TOOLBAR_URLS
 urlpatterns += OPENAPI_URLS
 urlpatterns += router.urls

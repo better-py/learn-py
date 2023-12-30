@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
-    "django.contrib.staticfiles",
+    "django.contrib.staticfiles",  # debug toolbar needs this
     #
     # add 3rd apps
     #
@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     # "rest_framework.authtoken",
     "drf_spectacular",  # OpenAPI
     "corsheaders",  # CORS
+    "debug_toolbar",
 ]
 
 INSTALLED_USER_APPS = [
@@ -65,6 +66,7 @@ MIDDLEWARE = [
     # add 3rd middleware
     #
     "corsheaders.middleware.CorsMiddleware",
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF = "app.urls"
@@ -133,7 +135,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL = "static/"  # debug_toolbar needs this
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -147,20 +149,24 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
     "PAGE_SIZE": 10,
-
     #
     # 3rd plugins
     #
-    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
 
 # drf-spectacular:
 SPECTACULAR_SETTINGS = {
-    'TITLE': 'Your Project API',
-    'DESCRIPTION': 'Your project description',
-    'VERSION': '1.0.0',
-    'SERVE_INCLUDE_SCHEMA': False,
+    "TITLE": "Your Project API",
+    "DESCRIPTION": "Your project description",
+    "VERSION": "1.0.0",
+    "SERVE_INCLUDE_SCHEMA": False,
     # OTHER SETTINGS
 }
 
-
+# debug-toolbar: https://django-debug-toolbar.readthedocs.io/en/latest/installation.html#configure-internal-ips
+INTERNAL_IPS = [
+    # ...
+    "127.0.0.1",  # localhost
+    # ...
+]
