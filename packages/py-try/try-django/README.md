@@ -6,6 +6,9 @@
 ## Features
 
 - [django-rest-framework](https://www.django-rest-framework.org/tutorial/quickstart/)
+    - token auth: [authentication](https://www.django-rest-framework.org/api-guide/authentication/)
+- [django-cors-headers](https://github.com/adamchainz/django-cors-headers)
+- [OpenAPI](https://github.com/tfranzel/drf-spectacular/)
 
 ## Quick start:
 
