@@ -19,7 +19,12 @@ tasks:
   run:
     aliases: [ 'r' ]
     cmds:
-      - poetry run python src/try_django/run.py
+      - poetry run python src/manage.py runserver
+
+  exec:
+    aliases: [ 'e' ]
+    cmds:
+      - poetry run python src/manage.py {{.CLI_ARGS}}
 
   run02:
     cmds:
@@ -51,3 +56,18 @@ tasks:
   add:all:
     cmds:
       - poetry add "typer[all]" selenium
+
+  new:project:
+    aliases: [ 'np' ]
+    cmds:
+      - poetry run django-admin startproject {{.CLI_ARGS}}
+#    dir: "src/try_django"
+
+  new:app:
+    aliases: [ 'na' ]
+    cmds:
+      - echo $(pwd)
+      - poetry run django-admin startapp {{.CLI_ARGS}}
+#      - poetry run python manage.py startapp {{.CLI_ARGS}}
+    dir: "app/modules"
+    ignore_error: true

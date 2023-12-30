@@ -2,3 +2,11 @@
 
 - 作为 Django 老用户, 很久没使用.
 - 验证一下最新版本的特性.
+
+## new project:
+
+```ruby
+
+django-admin startproject mysite
+
+```
