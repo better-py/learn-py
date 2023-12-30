@@ -3,6 +3,10 @@
 - 作为 Django 老用户, 很久没使用.
 - 验证一下最新版本的特性.
 
+## Features
+
+- [django-rest-framework](https://www.django-rest-framework.org/tutorial/quickstart/)
+
 ## Quick start:
 
 ### init db:
@@ -23,9 +27,7 @@ task init:user  # input: admin/admin
 task run
 ```
 
-
 ## Manual:
-
 
 ### new project:
 
