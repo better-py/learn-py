@@ -22,6 +22,12 @@ includes:
     dir: try-jieba/
     optional: true
 
+  django:
+    aliases: [ "dj" ]
+    taskfile: try-django/
+    dir: try-django/
+    optional: true
+
 
 #
 # global vars: https://taskfile.dev/#/usage?id=variables
