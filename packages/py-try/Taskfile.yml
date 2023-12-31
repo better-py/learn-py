@@ -28,6 +28,12 @@ includes:
     dir: try-django/
     optional: true
 
+  invoke:
+    aliases: [ "iv" ]
+    taskfile: try-invoke/
+    dir: try-invoke/
+    optional: true
+
 
 #
 # global vars: https://taskfile.dev/#/usage?id=variables
