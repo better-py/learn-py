@@ -30,6 +30,13 @@ tasks:
             src/try_selenium/run02.py
     ignore_error: true
 
+  r4:
+    cmds:
+      - |
+        poetry run python \
+            src/try_selenium/run04.py
+
+
   help:
     cmds:
       - poetry run python -m selenium --help
@@ -43,6 +50,13 @@ tasks:
     aliases: [ 'i' ]
     cmds:
       - poetry install
+      - which python
+      - poetry python -V
+
+  h:
+    cmds:
+      - poetry env info
+      - poetry env list
 
   add:
     aliases: [ 'a' ]
