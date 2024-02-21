@@ -98,7 +98,7 @@ tasks:
   kill:
     aliases: [ 'k' ]
     cmds:
-      - killall myapp
+      - killall myapp -9
       - sudo kill -s HUP 1 # kill all zombie process
 
 

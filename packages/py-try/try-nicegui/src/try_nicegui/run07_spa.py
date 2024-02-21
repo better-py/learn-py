@@ -115,10 +115,10 @@ def new_drawer(r: Router):
 
 ui.run(
     title="Geek App",
-    # native=True,
+    native=False,
     # port=native.find_open_port(),
     reload=False,
-    window_size=(1100, 700),
+    # window_size=(1100, 700),
     fullscreen=False,
     show=True,
 )
