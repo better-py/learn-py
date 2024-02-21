@@ -39,7 +39,7 @@ PUSH_USER = config['PUSHOVER']['PUSH_USER']
 LOCAL_USE = config['CHROMEDRIVER'].getboolean('LOCAL_USE')
 HUB_ADDRESS = config['CHROMEDRIVER']['HUB_ADDRESS']
 
-REGEX_CONTINUE = "//a[contains(text(),'Continuar')]"
+REGEX_CONTINUE = "//a[contains(text(),'Continue')]"
 
 
 # def MY_CONDITION(month, day): return int(month) == 11 and int(day) >= 5
@@ -140,6 +140,12 @@ def do_login_action():
     btn = driver.find_element(By.NAME, 'commit')
     btn.click()
     time.sleep(random.randint(1, 3))
+
+    time.sleep(60)  # todo x: debug; sleep 60 seconds
+
+    # get cookie:
+
+    print(f'login in ok!')
 
     Wait(driver, 60).until(
         EC.presence_of_element_located((By.XPATH, REGEX_CONTINUE)))
