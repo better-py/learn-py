@@ -4,7 +4,7 @@ version = "0.1.0"
 description = ""
 authors = ["Henry.Huang <hhglory@outlook.com>"]
 readme = "README.md"
-packages = [{include = "try_nicegui", from = "src"}]
+packages = [{ include = "try_nicegui", from = "src" }]
 
 [tool.poetry.dependencies]
 python = "^3.10,<3.12"
@@ -13,8 +13,8 @@ pystray = "^0.19.4"
 loguru = "^0.7.0"
 pillow = "^8.3.2"
 pywebview = "^4.1"
-typer = {extras = ["all"], version = "^0.9.0"}
-nicegui = "^1.4.6"
+typer = { extras = ["all"], version = "^0.9.0" }
+nicegui = "^1.4.15"
 
 
 [tool.poetry.group.dev.dependencies]

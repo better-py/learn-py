@@ -16,7 +16,7 @@ tasks:
   run:
     aliases: [ 'r' ]
     cmds:
-      - python3 src/try_nicegui/run05_tpl_spa.py
+      - python3 src/try_nicegui/run06_tpl_spa.py
 
   pack:
     cmds:
@@ -28,7 +28,7 @@ tasks:
     aliases: [ 'p2' ]
     cmds:
       - rm -rf /tmp/dist/
-#      - poetry run python -m nuitka  --onefile src/try_nicegui/run07_spa.py --static-libpython=no
+      #      - poetry run python -m nuitka  --onefile src/try_nicegui/run07_spa.py --static-libpython=no
       - poetry run python -m nuitka  --onefile src/try_nicegui/run07_spa.py --macos-create-app-bundle --static-libpython=no
 
   i:
@@ -87,6 +87,27 @@ tasks:
     #      - rm -rf build/
     #      - rm -rf .venv/
     #      - poetry env remove --all
+    ignore_error: true
+
+  exec4:
+    aliases: [ 'e4' ]
+    cmds:
+      #      - ./dist/myapp/myapp
+      - ./dist/myapp
+
+  kill:
+    aliases: [ 'k' ]
+    cmds:
+      - killall myapp
+      - sudo kill -s HUP 1 # kill all zombie process
+
+
+  # FIXME: mem leak!!! zombie process!!!
+  rel4:
+    cmds:
+      - poetry run python build3.py
+      - open ./dist
+      - open ./build
     ignore_error: true
 
   rel3:

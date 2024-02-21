@@ -1,13 +1,15 @@
 import os
 import subprocess
 from pathlib import Path
-import nicegui
 
+import nicegui
 
 app_file = "src/try_nicegui/run02_tpl.py"
 app_file = "src/try_nicegui/run07_spa.py"  # packages/py-try/try-nicegui/src/try_nicegui/run03_exe.py
 
-
+#
+# FIXME: mem leak!!!
+#
 cmd = [
     "python",
     "-m",
@@ -27,4 +29,8 @@ cmd = [
     "--add-data",
     f"{Path(nicegui.__file__).parent}{os.pathsep}nicegui",
 ]
+
 subprocess.call(cmd)
+
+# double check
+print(f"current dir: {Path.cwd()}")

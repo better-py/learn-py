@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-from loguru import logger
-from nicegui import ui
 from nicegui import Client as PageClient
+from nicegui import ui
+
 from router import Router
 from util import fix_page_layout, new_page_header, new_tab_view2, uh
+
 
 # from multiprocessing import freeze_support
 # freeze_support()  # fix for macos + M1
@@ -110,44 +111,46 @@ def new_drawer(r: Router):
 #     port=8001,
 # )
 
+# ui.run(reload=False, port=native.find_open_port())
 
-# ui.run(
-#     title="Geek App",
-#     native=True,
-#     window_size=(1100, 700),
-#     fullscreen=False,
-#     reload=True,
-#     show=True,
-# )
+ui.run(
+    title="Geek App",
+    # native=True,
+    # port=native.find_open_port(),
+    reload=False,
+    window_size=(1100, 700),
+    fullscreen=False,
+    show=True,
+)
 
-
-if __name__ in {"__main__", "__mp_main__"}:
-    #
-    # https://github.com/pyinstaller/pyinstaller/wiki/Recipe-Multiprocessing
-    #
-    # from multiprocessing import Process, freeze_support
-    #
-    # freeze_support()  # fix for macos + M1
-
-    from os import getpid, getppid
-    # import multiprocessing
-    # import sys
-    #
-    # if sys.platform == "darwin":
-    #     ctx = multiprocessing.get_context("spawn")
-    #     Process = ctx.Process
-    #     Queue = ctx.Queue
-    # else:
-    #     Process = multiprocessing.Process
-    #     Queue = multiprocessing.Queue
-
-    logger.info(f"module: {__name__}, pid: {getpid()}, parent pid: {getppid()}")
-
-    ui.run(
-        title="Geek App",
-        native=True,
-        window_size=(1100, 700),
-        fullscreen=False,
-        reload=False,  # todo x: fix for freeze_support()
-        show=True,
-    )
+# if __name__ in {"__main__", "__mp_main__"}:
+#     #
+#     # https://github.com/pyinstaller/pyinstaller/wiki/Recipe-Multiprocessing
+#     #
+#     # from multiprocessing import Process, freeze_support
+#     #
+#     # freeze_support()  # fix for macos + M1
+#
+#     from os import getpid, getppid
+#
+#     # import multiprocessing
+#     # import sys
+#     #
+#     # if sys.platform == "darwin":
+#     #     ctx = multiprocessing.get_context("spawn")
+#     #     Process = ctx.Process
+#     #     Queue = ctx.Queue
+#     # else:
+#     #     Process = multiprocessing.Process
+#     #     Queue = multiprocessing.Queue
+#
+#     logger.info(f"module: {__name__}, pid: {getpid()}, parent pid: {getppid()}")
+#
+#     ui.run(
+#         title="Geek App",
+#         native=True,
+#         window_size=(1100, 700),
+#         fullscreen=False,
+#         reload=False,  # todo x: fix for freeze_support()
+#         show=True,
+#     )
