@@ -10,6 +10,10 @@ LOGIN_CA_URL = "https://ais.usvisa-info.com/en-ca/niv/users/sign_in"
 USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
 
 
+def get_schedule_home(country_id: str, schedule_id: str):
+    return f"https://ais.usvisa-info.com/en-{country_id or 'ca'}/niv/schedule/{schedule_id}/appointment"
+
+
 def get_schedule_api(country_id: str, schedule_id: str, location_id: str):
     # ca = canada, gb = england
     # 95 = vancouver
@@ -28,7 +32,8 @@ def pre_login(lang_code, country_code):
     logger.info(f"login url: {host}")
 
     session = requests.Session()
-    resp = session.get(host, headers=headers).text
+    r = session.get(host, headers=headers)
+    resp = r.text
 
     pre_session = session.cookies
 
@@ -40,6 +45,7 @@ def pre_login(lang_code, country_code):
     csrf_token = soup.find("meta", {"name": "csrf-token"})['content']
 
     logger.info(f"http header csrf-token: {csrf_token}")
+    logger.info(f"http url csrf-token: {r.url}, {r.status_code}")
 
     # do login
 
@@ -101,18 +107,40 @@ def login(email, password, schedule_id, location_id):
     auth_cookies = dict_from_cookiejar(session.cookies)
     logger.info(f"login resp cookies: {auth_cookies}")
 
-    logger.info(f"login resp: {resp.status_code}, ")
+    logger.info(f"login resp: {resp.status_code}, url: {resp.url} ")
+
+    def parse_xsrf_token(html):
+        soup = BeautifulSoup(html, 'lxml')
+        return soup.find("meta", {"name": "csrf-token"})['content']
 
     #
     # check schedule
     #
-    check_url = get_schedule_api(country_code, 'SCHEDULE_ID', 'LOCATION_ID')
+    check_url = get_schedule_api(country_code, schedule_id, location_id)
+    home_url = get_schedule_home(country_code, schedule_id)
 
     logger.info(f"check url: {check_url}")
 
-    r = session.get(check_url, headers=headers)
+    r = session.get(home_url, headers=headers)
+
+    x_csrf_token = parse_xsrf_token(r.text)
+    check_headers = headers.copy()
+    check_headers['X-Xsrf-Token'] = x_csrf_token
+
+    logger.info(f"login x_csrf_token: {x_csrf_token}, url: {resp.url}")
 
     logger.info(f"check resp: {r.status_code}, {r.text}")
+    logger.info(f"check resp: {r.status_code}, {r.url}")
+
+    r2 = requests.request(
+        "GET",
+        check_url,
+        headers=check_headers,
+        cookies=session.cookies,
+    )
+
+    logger.info(f"check resp: {r2.status_code}, {r2.url}, {r2.json()}")
+    logger.info(f"check resp: {r2.status_code}, {r2.url}")
 
 
 def main():
