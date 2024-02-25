@@ -30,6 +30,15 @@ tasks:
             src/try_selenium/run02.py
     ignore_error: true
 
+
+  r6:
+    cmds:
+      - poetry run python src/try_selenium/run06.py
+
+  r5:
+    cmds:
+      - poetry run python src/try_selenium/run05.py
+
   r4:
     cmds:
       - |
