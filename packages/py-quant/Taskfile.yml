@@ -2,6 +2,7 @@ version: "3"
 
 includes:
   ccxt:
+    aliases: [ 'cc' ]
     taskfile: try-ccxt/
     dir: try-ccxt/
     optional: true

@@ -12,7 +12,7 @@ includes:
     optional: true
 
   quant:
-    aliases: [ 'trade' ]
+    aliases: [ 'trade', 'qt' ]
     taskfile: packages/py-quant/
     dir: packages/py-quant/
     optional: true
