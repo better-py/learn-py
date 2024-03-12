@@ -16,5 +16,14 @@ def test_all():
 
     now_at = datetime.datetime.now()
     now_ts = int(now_at.timestamp() * 1000)
-
     print(f"now at : {now_at}, now_ts: {now_ts}, {len(str(int(now_ts)))}")
+
+    since = 1515495600000
+    since_at = datetime.datetime.fromtimestamp(int(since) / 1000)
+    end_at = datetime.datetime.fromtimestamp(int(since + 3600000 * 24 * 30) / 1000)
+
+    print(f"since at: {since_at}, ts:{since}, end at: {end_at}")
+
+    ts = 1709138022902
+    ts_at = datetime.datetime.fromtimestamp(int(ts) / 1000)
+    print(f"ts {ts} at: {ts_at}")

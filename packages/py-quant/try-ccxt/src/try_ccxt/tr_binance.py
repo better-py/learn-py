@@ -1,4 +1,5 @@
 import datetime
+import json
 import os
 
 import ccxt
@@ -49,7 +50,8 @@ class BinanceDao:
             timestamp=kwargs['timestamp'],
             datetime=kwargs['datetime'],
         )
-        logger.info(f"saved order: order_id={order_id}, count={len(result)}")
+        logger.info(
+            f"saved order: order_id={order_id}, symbol={symbol}, datetime={kwargs['datetime']}, count={len(result)}")
         return result
 
 
@@ -95,6 +97,10 @@ class BinanceTrader:
         now_at = datetime.datetime.now()
         now_ts = int(now_at.timestamp() * 1000)
 
+        days_30 = 3600000 * 24 * 30  # 30 days
+        days_10 = 3600000 * 24 * 10  # 10 days
+        duration = days_10
+
         results = {}
         symbols = [
             "DOT/FDUSD",
@@ -103,16 +109,21 @@ class BinanceTrader:
         ]
 
         while True:
+            since_at = datetime.datetime.fromtimestamp(int(since) / 1000)
             if since >= now_ts:
                 break
 
             for symbol in symbols:
-                resp = self.ex.fetch_trades(symbol, since=since)
+                resp = self.ex.fetch_trades(symbol, since=since, limit=1000)
+                if len(resp) == 1000:
+                    logger.warning(
+                        f"{symbol}, since: {since}, date:{since_at}, may be more than 1000 trades, count: {len(resp)}")
+
                 results[symbol] = resp
-                logger.info(f"{symbol} trade history since: {since}, count: {len(resp)}")
+                logger.info(f"{symbol} trade history since: {since}, date:{since_at} , count: {len(resp)}")
 
             # query step:
-            since += 3600000  # last end ts
+            since += duration  # last end ts
 
         return results
 
@@ -124,6 +135,10 @@ class BinanceTrader:
     def save_orders(self):
         result = self.get_trade_history()
         logger.debug(f"all trades count: {len(result)}")
+
+        with open("tmp/trade_history.json", "w") as f:
+            json.dump(result, f)
+
         for k, v in result.items():
             for item in v:
                 self.dao.save_order(
@@ -139,58 +154,9 @@ class BinanceTrader:
                 )
 
 
-def new_bn_client(api_key, api_secret, use_proxy=True):
-    logger.info(f"binance api key {api_key}, secret {api_secret}")
-
-    return ccxt.binance({
-        'apiKey': api_key,
-        'secret': api_secret,
-        'enableRateLimit': True,
-        # 'verbose': True,
-        'timeout': 4000,  # 4s
-
-        # local proxy:
-        #   TODO X: 本地不要使用 HK Proxy, 用 JP/TW Proxy! 否则报 403 Forbidden
-        'proxies': {
-            'http': 'http://127.0.0.1:7890',
-            'https': 'http://127.0.0.1:7890',
-        } if use_proxy else None
-
-    })
-
-
-def try_ccxt():
-    ts = datetime.datetime.strftime(datetime.datetime.now(), '%Y%m%d_%H%M%S')
-    logger.add(f"tmp/try_ccxt_{ts}.log")  # todo x: log file
-
-    api_key = os.getenv("BINANCE_API_KEY")
-    api_secret = os.getenv("BINANCE_SECRET_KEY")
-
-    logger.info(f"binance api_key: {api_key}, api_secret: {api_secret}")
-
-    if not api_key or not api_secret:
-        logger.error("please set BINANCE_API_KEY and BINANCE_SECRET_KEY")
-        return
-
-    ex = new_bn_client(api_key, api_secret)
-
-    # get balance:
-    # logger.info(f"exchange: {exchange.describe()}")
-    res = ex.fetch_balance()
-
-    # logger.info(f"balance: {res}")
-
-    resp = ex.fetch_open_orders(symbol="DOT/FDUSD")
-    logger.info(f"open orders: {resp}")
-
-    # order books
-    # for symbol in ['BTC/USDT', 'ETH/BTC', 'ETH/USDT']:
-    #     ob = exchange.fetch_order_book(symbol, limit=10)
-    #     logger.info(f"order book: {ob}")
-
-
 def main():
     db.drop_tables([BinanceOrder, ])
+    db.create_tables([BinanceOrder, ])
 
     bt = BinanceTrader()
     # bt.get_balance()
