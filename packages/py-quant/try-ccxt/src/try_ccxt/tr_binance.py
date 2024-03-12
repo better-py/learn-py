@@ -1,6 +1,7 @@
 import datetime
 import json
 import os
+import time
 
 import ccxt
 from loguru import logger
@@ -89,41 +90,65 @@ class BinanceTrader:
         logger.info(f"balance: {res}")
         return res
 
-    def get_trade_history(self, symbol="DOT", since_at="2018-01-01 00:00:00"):
+    def get_all_trades(self, symbols: list = None, since_at="2018-01-01 00:00:00"):
+        symbols = symbols or [
+            "DOT/USDT",
+            "DOT/BUSD",
+            "DOT/FDUSD",
+        ]
 
+        for symbol in symbols:
+            results = self.get_trade_history(symbol, since_at)
+
+        return
+
+    def get_trade_history(self, symbol="DOT", since_at="2018-01-01 00:00:00"):
         since = int(datetime.datetime.strptime(since_at, "%Y-%m-%d %H:%M:%S").timestamp() * 1000)
         logger.info(f"fetching trade history since {since_at}, ts:{since}")
 
         now_at = datetime.datetime.now()
         now_ts = int(now_at.timestamp() * 1000)
 
-        days_30 = 3600000 * 24 * 30  # 30 days
+        days_40 = 3600000 * 24 * 40  # 40 days
         days_10 = 3600000 * 24 * 10  # 10 days
-        duration = days_10
 
-        results = {}
-        symbols = [
-            "DOT/FDUSD",
-            "DOT/USDT",
-            "DOT/BUSD",
-        ]
+        duration = days_40
+
+        results = []
 
         while True:
             since_at = datetime.datetime.fromtimestamp(int(since) / 1000)
             if since >= now_ts:
                 break
 
-            for symbol in symbols:
-                resp = self.ex.fetch_trades(symbol, since=since, limit=1000)
-                if len(resp) == 1000:
-                    logger.warning(
-                        f"{symbol}, since: {since}, date:{since_at}, may be more than 1000 trades, count: {len(resp)}")
+            resp = self.ex.fetch_trades(symbol, since=since, limit=1000)
+            time.sleep(0.1)  # s
 
-                results[symbol] = resp
-                logger.info(f"{symbol} trade history since: {since}, date:{since_at} , count: {len(resp)}")
+            #
+            # double check:
+            #
+            while len(resp) >= 1000:
+                logger.warning(f"{symbol}, since: {since}, date:{since_at}, may be more than 1000 trade! next step ")
+                since = int(since - duration / 2)
+                since_at = datetime.datetime.fromtimestamp(int(since) / 1000)
+
+                # retry:
+                resp = self.ex.fetch_trades(symbol, since=since, limit=1000)
+
+                if len(resp) < 1000:
+                    logger.debug(
+                        f"{symbol}, count: {len(resp)}, since: {since}, date:{since_at}, less than 1000 trade! break ")
+                    break
+
+            if len(resp) > 0:
+                logger.debug(f"{symbol}, batch: {resp}")
+                # save to json
+                self.save_orders(resp)
+                results.append(resp)
 
             # query step:
             since += duration  # last end ts
+            logger.info(f"trade history count: date:{since_at}, batch: {len(resp)}, total: {len(results)}")
 
         return results
 
@@ -132,26 +157,26 @@ class BinanceTrader:
         logger.info(f"open orders: {resp}")
         return resp
 
-    def save_orders(self):
-        result = self.get_trade_history()
-        logger.debug(f"all trades count: {len(result)}")
+    def save_orders(self, orders: list):
+        logger.debug(f"save batch trades count: {len(orders)}")
 
-        with open("tmp/trade_history.json", "w") as f:
-            json.dump(result, f)
+        now_at = datetime.datetime.now()
+        now_ts = int(now_at.timestamp() * 1000)
+        with open(f"tmp/trade_history_{now_ts}.json", "w") as f:
+            json.dump(orders, f)
 
-        for k, v in result.items():
-            for item in v:
-                self.dao.save_order(
-                    order_id=item['id'],
-                    symbol=item['symbol'],
-                    side=item['side'],
-                    price=item['price'],
-                    amount=item['amount'],
-                    cost=item['cost'],
-                    fee=0 if not item['fee'] else item['fee'],
-                    timestamp=item['timestamp'],
-                    datetime=item['datetime'],
-                )
+        for item in orders:
+            self.dao.save_order(
+                order_id=item['id'],
+                symbol=item['symbol'],
+                side=item['side'],
+                price=item['price'],
+                amount=item['amount'],
+                cost=item['cost'],
+                fee=0 if not item['fee'] else item['fee'],
+                timestamp=item['timestamp'],
+                datetime=item['datetime'],
+            )
 
 
 def main():
@@ -162,7 +187,7 @@ def main():
     # bt.get_balance()
     # bt.get_open_orders()
     # results = bt.get_trade_history()
-    bt.save_orders()
+    bt.get_all_trades()
 
 
 if __name__ == '__main__':
