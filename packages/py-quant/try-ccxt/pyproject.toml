@@ -20,6 +20,7 @@ matplotlib = "^3.8.2"
 seaborn = "^0.13.0"
 plotly = "^5.18.0"
 mplfinance = "^0.12.10b0"  # k 线图
+peewee = "^3.17.1"
 
 
 [build-system]

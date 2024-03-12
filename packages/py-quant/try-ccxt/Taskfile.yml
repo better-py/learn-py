@@ -22,8 +22,13 @@ tasks:
 
   add:
     cmds:
+      - poetry add {{.CLI_ARGS}}
+
+  add:all:
+    cmds:
       - poetry add click ccxt jupyterlab notebook ipython loguru "typer[all]"
       - poetry add pandas matplotlib seaborn plotly mplfinance
+
   add:dev:
     cmds:
       - poetry add ${PACKAGE} --dev
