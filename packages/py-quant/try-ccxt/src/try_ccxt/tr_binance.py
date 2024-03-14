@@ -23,8 +23,9 @@ class BinanceOrder(BaseModel):
     id = AutoField()
 
     # id parts
-    bn_id = CharField(index=True)
-    order_id = CharField(unique=True)
+    bn_id = CharField(index=True)  # todo x: 提供此ID, 是有原因的, 因为 order_id 不唯一!
+    order_id = CharField(index=True)  # todo x: 竟然有重复的 order_id!!! 需要另外设计唯一索引
+    order_uid = CharField(unique=True)  # todo x: mix(bn_id, order_id) = order_uid
 
     # order details
     symbol = CharField(index=True)  # symbol
@@ -34,12 +35,12 @@ class BinanceOrder(BaseModel):
     side = CharField(index=True)  # buy/sell
     taker_or_maker = CharField(index=True)  # taker/maker
     # fee
-    fees = TextField()  # todo x: json, []
+    fees = TextField(default="[]")  # todo x: json, []
 
     #
     # all trade info
     #
-    info = TextField()  # todo x: json, all order info
+    info = TextField(default="{}")  # todo x: json, all order info
     timestamp = TimestampField(index=True)
     datetime = DateTimeField(default=datetime.datetime.now, index=True)
 
@@ -55,20 +56,24 @@ class BinanceDao:
     def __init__(self):
         self.tb = BinanceOrder
 
-    def save_order(self, order_id, symbol, **kwargs):
+    def save_order(self, **kwargs):
         result = self.tb.get_or_create(
-            order_id=order_id,
-            symbol=symbol,
+            symbol=kwargs['symbol'],
+            bn_id=kwargs['id'],
+            order_id=kwargs['order'],
+            order_uid=f"{kwargs['id']}_{kwargs['order']}",
             side=kwargs['side'],
+            taker_or_maker=kwargs['takerOrMaker'],
             price=kwargs['price'],
             amount=kwargs['amount'],
             cost=kwargs['cost'],
-            fee=kwargs['fee'],
+            fees=kwargs['fees'],
+            info=kwargs['info'],
             timestamp=kwargs['timestamp'],
             datetime=kwargs['datetime'],
         )
         logger.info(
-            f"saved order: order_id={order_id}, symbol={symbol}, datetime={kwargs['datetime']}, count={len(result)}")
+            f"saved order item: symbol={kwargs['symbol']}, order_id={kwargs['order']}, datetime={kwargs['datetime']}")
         return result
 
 
@@ -105,6 +110,11 @@ class BinanceTrader:
         res = self.ex.fetch_balance()
         logger.info(f"balance: {res}")
         return res
+
+    def get_open_orders(self, symbol="DOT/FDUSD"):
+        resp = self.ex.fetch_open_orders(symbol=symbol)
+        logger.info(f"open orders: {resp}")
+        return resp
 
     def get_all_trades(self, symbols: list = None, since_at="2020-05-01 00:00:00"):
         symbols = symbols or [
@@ -152,7 +162,7 @@ class BinanceTrader:
 
                 # ok!
                 if 0 < len(resp) < 1000:
-                    self.save_orders(resp)
+                    self.save_db(resp)
                     results.append(resp)
                     logger.debug(f"{symbol}, ({start_at}, {end_at}) save batch: {resp}, total: {results}")
                     break
@@ -191,36 +201,51 @@ class BinanceTrader:
 
     def get_my_trades(self, symbol="DOT/USDT"):
         resp = self.ex.fetch_my_trades(symbol=symbol)
-        for item in resp:
-            logger.info(f"my trade: {item}")
         logger.info(f"my trades count: {len(resp)}")
         return resp
 
-    def get_open_orders(self, symbol="DOT/FDUSD"):
-        resp = self.ex.fetch_open_orders(symbol=symbol)
-        logger.info(f"open orders: {resp}")
-        return resp
+    def get_all_my_trades(self, coin="DOT"):
+        results = {}
+        symbols = [
+            f"{coin}/USDT",
+            f"{coin}/BUSD",
+            f"{coin}/FDUSD",
+        ]
 
-    def save_orders(self, orders: list):
-        logger.debug(f"save batch trades count: {len(orders)}")
+        # fetch all
+        for symbol in symbols:
+            resp = self.ex.fetch_my_trades(symbol=symbol)
+            results[symbol] = resp
+            logger.info(f"my trades count: {len(resp)}")
+        return results
+
+    @staticmethod
+    def save_json(orders: dict):
+        logger.debug(f"save my trades to json file, count: {len(orders)}")
 
         now_at = datetime.datetime.now()
         now_ts = int(now_at.timestamp() * 1000)
-        with open(f"tmp/trade_history_{now_ts}.json", "w") as f:
+        filename = f"tmp/trade_history_{now_ts}.json"
+        with open(filename, "w") as f:
             json.dump(orders, f)
 
-        for item in orders:
-            self.dao.save_order(
-                order_id=item['id'],
-                symbol=item['symbol'],
-                side=item['side'],
-                price=item['price'],
-                amount=item['amount'],
-                cost=item['cost'],
-                fee=0 if not item['fee'] else item['fee'],
-                timestamp=item['timestamp'],
-                datetime=item['datetime'],
-            )
+    @staticmethod
+    def read_json(filename):
+        with open(filename, "r") as f:
+            return json.load(f)
+
+    def save_db(self, orders: list | dict):
+        logger.debug(f"save my trades to db, count: {len(orders)}")
+
+        if isinstance(orders, dict):
+            for k, v in orders.items():
+                self.dao.save_order(**v)
+            return
+
+        if isinstance(orders, list):
+            for item in orders:
+                self.dao.save_order(**item)
+            return
 
 
 def main():
@@ -233,7 +258,9 @@ def main():
     # results = bt.get_trade_history()
     # bt.get_all_trades()
 
-    bt.get_my_trades()
+    results = bt.get_my_trades()
+    bt.save_json(results)
+    bt.save_db(results)
 
 
 if __name__ == '__main__':
