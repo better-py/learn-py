@@ -16,14 +16,30 @@ class BaseModel(Model):
 
 
 class BinanceOrder(BaseModel):
+    """
+    api:
+        - /api/v3/myTrades
+    """
     id = AutoField()
-    symbol = CharField(index=True)
+
+    # id parts
+    bn_id = CharField(index=True)
     order_id = CharField(unique=True)
-    side = CharField(index=True)
-    price = DecimalField(default=0)
-    amount = DecimalField(default=0)
-    cost = DecimalField(default=0)
-    fee = DecimalField(default=0)
+
+    # order details
+    symbol = CharField(index=True)  # symbol
+    price = DecimalField(default=0)  # 价格
+    amount = DecimalField(default=0)  # 数量
+    cost = DecimalField(default=0)  # 成本
+    side = CharField(index=True)  # buy/sell
+    taker_or_maker = CharField(index=True)  # taker/maker
+    # fee
+    fees = TextField()  # todo x: json, []
+
+    #
+    # all trade info
+    #
+    info = TextField()  # todo x: json, all order info
     timestamp = TimestampField(index=True)
     datetime = DateTimeField(default=datetime.datetime.now, index=True)
 
@@ -90,7 +106,7 @@ class BinanceTrader:
         logger.info(f"balance: {res}")
         return res
 
-    def get_all_trades(self, symbols: list = None, since_at="2018-01-01 00:00:00"):
+    def get_all_trades(self, symbols: list = None, since_at="2020-05-01 00:00:00"):
         symbols = symbols or [
             "DOT/USDT",
             "DOT/BUSD",
@@ -102,55 +118,83 @@ class BinanceTrader:
 
         return
 
-    def get_trade_history(self, symbol="DOT", since_at="2018-01-01 00:00:00"):
-        since = int(datetime.datetime.strptime(since_at, "%Y-%m-%d %H:%M:%S").timestamp() * 1000)
-        logger.info(f"fetching trade history since {since_at}, ts:{since}")
+    def get_trade_history(self, symbol="DOT", start_at="2017-01-01 00:00:00"):
+        since = int(datetime.datetime.strptime(start_at, "%Y-%m-%d %H:%M:%S").timestamp() * 1000)
+        logger.info(f"fetching trade history since {start_at}, ts:{since}")
 
         now_at = datetime.datetime.now()
         now_ts = int(now_at.timestamp() * 1000)
 
-        days_40 = 3600000 * 24 * 40  # 40 days
-        days_10 = 3600000 * 24 * 10  # 10 days
-
-        duration = days_40
+        days_1 = 3600000 * 24 * 1  # 1 days
+        duration = days_1
+        until = since + duration * 40  # end time
 
         results = []
 
         while True:
-            since_at = datetime.datetime.fromtimestamp(int(since) / 1000)
+            start_at = datetime.datetime.fromtimestamp(int(since) / 1000)
+            end_at = datetime.datetime.fromtimestamp(int(until) / 1000)
+
             if since >= now_ts:
                 break
 
-            resp = self.ex.fetch_trades(symbol, since=since, limit=1000)
-            time.sleep(0.1)  # s
+            while True:
+                resp = self.ex.fetch_trades(symbol, since=since, limit=1000, params={
+                    'until': until,
+                })
+                time.sleep(0.1)  # s
+
+                if len(resp) == 0:
+                    since = until  # update end
+
+                    logger.info(f"{symbol}, ({start_at}, {end_at}), total:{len(resp)} empty!")
+                    break
+
+                # ok!
+                if 0 < len(resp) < 1000:
+                    self.save_orders(resp)
+                    results.append(resp)
+                    logger.debug(f"{symbol}, ({start_at}, {end_at}) save batch: {resp}, total: {results}")
+                    break
+
+                if until < since:
+                    logger.error(f"invalid until {until} < since {since}")
+                    break
+
+                logger.warning(f"{symbol}, batch: {len(resp)},  ({start_at}, {end_at}) may be more than 1000!")
+
+                #
+                # retry!
+                #
+                until = int(until - duration)
+                end_at = datetime.datetime.fromtimestamp(int(until) / 1000)
+                logger.warning(f"{symbol}, retry batch ({start_at}, {end_at}), ({since}, {until})")
+
+                # double check
+                if since == until:
+                    until = int(since + duration / 6)
+                    end_at = datetime.datetime.fromtimestamp(int(until) / 1000)
+                    logger.error(f"{symbol}, double check: ({start_at}, {end_at}), ({since}, {until})")
+
+            # next step!
+            since = until
+            until = since + duration * 40  # 40 days
+            start_at = datetime.datetime.fromtimestamp(int(since) / 1000)
+            end_at = datetime.datetime.fromtimestamp(int(until) / 1000)
+            logger.info(f"{symbol}, next step: ({start_at}, {end_at}), total: {len(results)}")
 
             #
             # double check:
             #
-            while len(resp) >= 1000:
-                logger.warning(f"{symbol}, since: {since}, date:{since_at}, may be more than 1000 trade! next step ")
-                since = int(since - duration / 2)
-                since_at = datetime.datetime.fromtimestamp(int(since) / 1000)
-
-                # retry:
-                resp = self.ex.fetch_trades(symbol, since=since, limit=1000)
-
-                if len(resp) < 1000:
-                    logger.debug(
-                        f"{symbol}, count: {len(resp)}, since: {since}, date:{since_at}, less than 1000 trade! break ")
-                    break
-
-            if len(resp) > 0:
-                logger.debug(f"{symbol}, batch: {resp}")
-                # save to json
-                self.save_orders(resp)
-                results.append(resp)
-
-            # query step:
-            since += duration  # last end ts
-            logger.info(f"trade history count: date:{since_at}, batch: {len(resp)}, total: {len(results)}")
 
         return results
+
+    def get_my_trades(self, symbol="DOT/USDT"):
+        resp = self.ex.fetch_my_trades(symbol=symbol)
+        for item in resp:
+            logger.info(f"my trade: {item}")
+        logger.info(f"my trades count: {len(resp)}")
+        return resp
 
     def get_open_orders(self, symbol="DOT/FDUSD"):
         resp = self.ex.fetch_open_orders(symbol=symbol)
@@ -187,7 +231,9 @@ def main():
     # bt.get_balance()
     # bt.get_open_orders()
     # results = bt.get_trade_history()
-    bt.get_all_trades()
+    # bt.get_all_trades()
+
+    bt.get_my_trades()
 
 
 if __name__ == '__main__':
