@@ -15,6 +15,7 @@
 ## 项目列表：
 
 - ✅️ monorepo: [packages](./packages/)
+    - [rye](https://arc.net/l/quote/nfjcylkn) now suppport [workspace](https://rye-up.com/guide/workspaces/)
 
 [//]: # (y23m01p01-xxx 项目编号规则)
 
@@ -23,7 +24,6 @@
 | 项目名称                           | 项目描述        | 说明   |  
 |:-------------------------------|:------------|:-----| 
 | ✅️ [py-101](./packages/py-101) | python 基础示例 | ⭐️⭐️ |
-
 
 ### 🔥 [Python AI/LLM/GPT](./packages/py-ai)
 
@@ -40,7 +40,6 @@
 |:----------------------------------------|:---------|:-----| 
 | ✅️ [ccxt](./packages/py-quant/try-ccxt) | 数字货币交易框架 | ⭐️⭐️ |
 | ✅️ [xxx]()                              | xxx      | xxx  |
-
 
 ### 🕷️ [Python 爬虫](./packages/py-crawler)
 

@@ -4,12 +4,12 @@ version = "0.1.0"
 description = ""
 authors = ["Henry.Huang <hhglory@outlook.com>"]
 readme = "README.md"
-packages = [{include = "try_gemini", from = "src"}]
+packages = [{ include = "try_gemini", from = "src" }]
 
 [tool.poetry.dependencies]
 python = "^3.10"
 loguru = "^0.7.2"
-typer = {extras = ["all"], version = "^0.9.0"}
+typer = { extras = ["all"], version = "^0.9.0" }
 google-generativeai = "^0.3.1"
 google-cloud-aiplatform = "^1.38.1"
 
@@ -17,3 +17,15 @@ google-cloud-aiplatform = "^1.38.1"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+
+#
+# for rye:
+#
+[project]
+name = "try-gemini"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "Henry.Huang", email = "hhglory@outlook.com" }
+]
