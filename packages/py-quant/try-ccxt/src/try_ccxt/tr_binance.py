@@ -22,11 +22,6 @@ class BinanceOrder(BaseModel):
     """
     id = AutoField()
 
-    # id parts
-    bn_id = CharField(index=True)  # todo x: 提供此ID, 是有原因的, 因为 order_id 不唯一!
-    order_id = CharField(index=True)  # todo x: 竟然有重复的 order_id!!! 需要另外设计唯一索引
-    order_uid = CharField(unique=True)  # todo x: mix(bn_id, order_id) = order_uid
-
     # order details
     symbol = CharField(index=True)  # symbol
     price = DecimalField(default=0)  # 价格
@@ -37,12 +32,18 @@ class BinanceOrder(BaseModel):
     # fee
     fees = TextField(default="[]")  # todo x: json, []
 
+    timestamp = TimestampField(index=True)
+    datetime = DateTimeField(default=datetime.datetime.now, index=True)
+
+    # id parts
+    bn_id = CharField(index=True)  # todo x: 提供此ID, 是有原因的, 因为 order_id 不唯一!
+    order_id = CharField(index=True)  # todo x: 竟然有重复的 order_id!!! 需要另外设计唯一索引
+    order_uid = CharField(unique=True)  # todo x: mix(bn_id, order_id) = order_uid
+
     #
     # all trade info
     #
     info = TextField(default="{}")  # todo x: json, all order info
-    timestamp = TimestampField(index=True)
-    datetime = DateTimeField(default=datetime.datetime.now, index=True)
 
     class Meta:
         table_name = "binance_order"
