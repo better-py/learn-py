@@ -11,6 +11,7 @@
 -e file:packages/py-quant/try-ccxt
 -e file:packages/py-ai/try-chroma
 -e file:packages/py-ai/try-gemini
+-e file:packages/py-data/try-pandas
 -e file:packages/py-data/try-pygwalker
 -e file:packages/py-ai/try-spacy
 aiodns==3.1.1
@@ -233,6 +234,7 @@ langcodes==3.3.0
 loguru==0.7.2
     # via try-ccxt
     # via try-gemini
+    # via try-pygwalker
 markdown-it-py==3.0.0
     # via rich
 markupsafe==2.1.5

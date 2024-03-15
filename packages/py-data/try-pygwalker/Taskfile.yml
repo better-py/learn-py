@@ -23,6 +23,7 @@ tasks:
     aliases: [ 'a' ]
     cmds:
       - rye add {{.CLI_ARGS}}
+      - rye sync
 
   add:list:
     cmds:
