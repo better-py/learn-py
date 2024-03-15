@@ -1,0 +1,38 @@
+[project]
+name = "learn-py"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "Henry.Huang", email = "hhglory@outlook.com" }
+]
+dependencies = []
+readme = "README.md"
+requires-python = ">= 3.12"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+virtual = true
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/learn_py"]
+
+
+
+#
+# workspace
+#
+[tool.rye.workspace]
+members = [
+    #    "packages/py-try/try-*",
+    "packages/py-quant/try-*",
+    "packages/py-data/try-*",
+]
+

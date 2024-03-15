@@ -85,9 +85,17 @@ tasks:
       - pdm --version
 
   install:rye:
+    aliases: [ 'i:rye' ]
     cmds:
       - curl -sSf https://rye-up.com/get | bash  # set shell env: export PATH="$HOME/.rye/bin:$PATH"
       - rye --version
+
+  fix:fish:rye:
+    aliases: [ 'f:rye' ]
+    cmds:
+      - set -Ua fish_user_paths "$HOME/.rye/shims"
+      - rye --version
+
 
   install:poetry:
     cmds:
@@ -126,6 +134,10 @@ tasks:
     cmds:
       - cp .env.local .env
 
+  env:
+    cmds:
+      - rye pin 3.12 # use python 3.12
+
   ##################################################################################################
 
   # usage:
@@ -136,6 +148,11 @@ tasks:
     dir: packages/
 
   new:
+    cmds:
+      - rye init {{.CLI_ARGS}}
+    dir: packages/
+
+  new2:
     cmds:
       - echo new ${NEW_PROJECT_DIR}${NEW_PROJECT_NAME}
       - rye init ${NEW_PROJECT_DIR}${NEW_PROJECT_NAME}

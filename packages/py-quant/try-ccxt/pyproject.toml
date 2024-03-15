@@ -26,3 +26,15 @@ peewee = "^3.17.1"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+
+############
+
+
+[project]
+name = "learn-py"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "Henry.Huang", email = "hhglory@outlook.com" }
+]
