@@ -5,9 +5,11 @@ description = "Add your description here"
 authors = [
     { name = "Henry.Huang", email = "hhglory@outlook.com" }
 ]
-dependencies = []
+dependencies = [
+    "loguru>=0.7.2",
+]
 readme = "README.md"
-requires-python = ">= 3.10"
+requires-python = ">= 3.12"
 
 [build-system]
 requires = ["hatchling"]

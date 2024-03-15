@@ -34,6 +34,12 @@ includes:
     dir: packages/py-crawler/
     optional: true
 
+  data:
+    aliases: [ 'da', "data-analysis","big-data", "data-science" ]
+    taskfile: packages/py-data/
+    dir: packages/py-data/
+    optional: true
+
   try:
     aliases: [ 't' ]
     taskfile: packages/py-try/

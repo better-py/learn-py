@@ -1,0 +1,38 @@
+version: "3"
+
+
+#
+# global vars: https://taskfile.dev/#/usage?id=variables
+#
+vars:
+  VAR1: "some-var"
+
+# global env:
+env:
+  ENV1: testing
+
+################################################################################################
+
+
+tasks:
+  rye:
+    cmds:
+      - rye {{.CLI_ARGS}}
+
+  add:
+    aliases: [ 'a' ]
+    cmds:
+      - rye add {{.CLI_ARGS}}
+
+  add:list:
+    cmds:
+      - rye add loguru
+
+  sync:
+    aliases: [ 's' ]
+    cmds:
+      - rye sync {{.CLI_ARGS}}
+
+  venv:
+    cmds:
+      - rye pin 3.12 # use python 3.12
