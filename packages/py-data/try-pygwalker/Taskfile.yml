@@ -38,7 +38,7 @@ tasks:
   add:list:
     aliases: [ 'al' ]
     cmds:
-      - rye add loguru pygwalker streamlit gradio
+      - rye add loguru pygwalker streamlit gradio httpx[socks]
       - rye sync -v
 
   sync:

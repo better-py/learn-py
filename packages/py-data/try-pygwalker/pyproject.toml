@@ -10,6 +10,7 @@ dependencies = [
     "pygwalker>=0.4.7",
     "streamlit>=1.32.2",
     "gradio>=4.21.0",
+    "httpx[socks]>=0.27.0",
 ]
 readme = "README.md"
 requires-python = ">= 3.12"
@@ -37,3 +38,9 @@ packages = ["src/try_pygwalker"]
 run01 = "python src/try_pygwalker/run01.py"
 devserver-alt = ["flask", "run", "--app", "./hello.py", "--debug"]
 devserver-explicit = { cmd = "flask run --app ./hello.py --debug" }
+
+
+# lint
+lint = { chain = ["lint:black", "lint:flake8"] }
+"lint:black" = "black --check src"
+"lint:flake8" = "flake8 src"
