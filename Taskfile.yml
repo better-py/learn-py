@@ -1,6 +1,11 @@
 version: "3"
 
 includes:
+  dev:
+    taskfile: Taskfile.dev.yml
+    dir: .
+    optional: true
+
   py101:
     taskfile: packages/py-101/
     dir: packages/py-101/
@@ -57,32 +62,14 @@ dotenv:
 ################################################################################################
 
 tasks:
-  setup:
+  init:
     cmds:
-      - curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
-      - pyenv install 3.9.9
-      - pyenv virtualenv 3.9.9 py39-toolbox
-      - pyenv local py39-toolbox
-      - pip install --upgrade pip
-      - pip install -U pipx
-      - pipx ensurepath
-      - pipx --version
+      - task: init:env
+      - task: install
 
-  #
-  # fix: https://stackoverflow.com/questions/43067039/pyinstaller-error-oserror-python-library-not-found-libpython3-4mu-so-1-0-lib
-  #
-  install:py:
+  install:
     cmds:
-      - env PYTHON_CONFIGURE_OPTS="--enable-shared" pyenv install 3.10.6 # fix for pyinstaller
-
-  install:pdm:
-    cmds:
-      #      - curl -sSL https://pdm-project.org/install-pdm.py | python3 -
-      #      - brew install pdm  # 不要用, 会额外装一堆大便进来!
-      #      - pip install --user pdm
-      - pip install pipx       # 基于 pyenv
-      - pipx install pdm[all]  # 基于 pyenv
-      - pdm --version
+      - task: install:rye
 
   install:rye:
     aliases: [ 'i:rye' ]
@@ -96,45 +83,11 @@ tasks:
       - set -Ua fish_user_paths "$HOME/.rye/shims"
       - rye --version
 
-
-  install:poetry:
-    cmds:
-      - curl -sSL https://install.python-poetry.org | python3 -
-      #      - pipx install poetry
-      - poetry --version
-      - poetry config virtualenvs.in-project true
-      - poetry config --list
-
-  install:poetry:clean:
-    cmds:
-      - curl -sSL https://install.python-poetry.org | python3 - --uninstall
-      - curl -sSL https://install.python-poetry.org | python3 -
-      - poetry --version
-
-  install:tools:
-    cmds:
-      - pipx install cookiecutter
-      - cookiecutter --version
-      - task: install:poetry
-
-  install:
-    cmds:
-      - pip3 install -r requirements.txt
-
-  install:dev:
-    cmds:
-      - pip3 install -r requirements-dev.txt
-
-  init:
-    cmds:
-      - task init:env
-      - task install
-
   init:env:
     cmds:
       - cp .env.local .env
 
-  env:
+  venv:
     cmds:
       - rye pin 3.12 # use python 3.12
 
@@ -142,39 +95,12 @@ tasks:
 
   # usage:
   #   - task n -- py-try/try-jieba
-  n:
-    cmds:
-      - poetry new {{.CLI_ARGS}} --src
-    dir: packages/
-
   new:
+    aliases: [ 'n' ]
     cmds:
       - rye init {{.CLI_ARGS}}
     dir: packages/
 
-  new2:
-    cmds:
-      - echo new ${NEW_PROJECT_DIR}${NEW_PROJECT_NAME}
-      - rye init ${NEW_PROJECT_DIR}${NEW_PROJECT_NAME}
-      #- cd ${NEW_PROJECT_DIR}; rye init ${NEW_PROJECT_NAME}
-    dir: packages/
-
-  new:plugin: # rust plugin
-    cmds:
-      - echo new ${NEW_PROJECT_DIR}${NEW_PROJECT_NAME}
-      - rye init ${NEW_PROJECT_DIR}${NEW_PROJECT_NAME} --build-system maturin
-      #- cd ${NEW_PROJECT_DIR}; rye init ${NEW_PROJECT_NAME}
-    dir: packages/
-
-  new3:
-    dir: packages
-    cmds:
-      - cookiecutter gh:jacebrowning/template-python -f
-
-  new4:
-    cmds:
-      - pdm init --copier gh:pawamoy/copier-pdm --UNSAFE
-    dir: packages/
 
   ##################################################################################################
 
