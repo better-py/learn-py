@@ -293,6 +293,20 @@ class BinanceTrader:
         logger.info(f"my trades count: {len(resp)}")
         return resp
 
+    def clean_my_trades(self, symbol="DOT/USDT"):
+        orders = self.get_all_my_orders(symbol=symbol, from_id=None, order_id=None, results=None)
+        # unique_ids = set([f"{order['id']}_{order['order']}" for order in raw_orders])
+        unique_ids = set()
+
+        # remove duplicates
+        for order in orders:
+            if f"{order['id']}_{order['order']}" in unique_ids:
+                logger.warning(f"find duplicate order: {order}, remove it!")
+                orders.remove(order)
+            else:
+                unique_ids.add(f"{order['id']}_{order['order']}")
+        return orders
+
     # 写一个递归方法, 遍历查询所有的订单, 返回值==1000时, 继续递归请求, 直到返回值为 < 1000, 终止递归
     def get_all_my_orders(self, symbol="DOT/USDT", from_id=None, order_id=None, results=None):
         if results is None:
@@ -320,7 +334,9 @@ class BinanceTrader:
 
         if len(resp) == 1000:
             last_order_id = resp[-1]['order']  # TODO X: not work!!!
+            # last_from_id = resp[-1]['order']  # TODO X: from_id != order_id
             last_from_id = resp[-1]['id']
+
             logger.warning(f"{symbol}, last_order_id: {last_order_id}, last_from_id: {last_from_id}")
             logger.warning(f"{symbol}, count: {len(resp)}, {resp[-1]}")
 
@@ -409,9 +425,9 @@ def main():
 
     # query one coin
     bt = BinanceTrader()
-    results = []
-    ret = bt.get_all_my_orders(symbol="DOT/BUSD", order_id=None, from_id=None, results=results)
-    logger.info(f"query one coin, result count: {len(results)}")
+
+    # remove duplicates
+    ret = bt.clean_my_trades(symbol="DOT/BUSD")
     logger.info(f"query one coin, ret count: {len(ret)}")
 
 
