@@ -56,7 +56,29 @@ class BinanceDao:
     def __init__(self):
         self.tb = BinanceOrder
 
-    def calc_avg_buy_price(self, coin: str):
+    def calc_avg_price(self, coin):
+
+        buy = self.calc_raw_avg_price(coin, side="buy")
+        sell = self.calc_raw_avg_price(coin, side="sell")
+
+        keep_total_cost = buy["total"]["total_cost"] - sell["total"]["total_cost"]
+        keep_total_amount = buy["total"]["total_amount"] - sell["total"]["total_amount"]
+        keep_avg_price = keep_total_cost / keep_total_amount
+
+        # total:
+        result = {
+            "buy": buy,
+            "sell": sell,
+            "keep": {
+                "total_cost": keep_total_cost,
+                "total_amount": keep_total_amount,
+                "avg_price": keep_avg_price,
+            }
+        }
+        logger.info(f"{coin} keep avg calc: {result}")
+        return result
+
+    def calc_raw_avg_price(self, coin: str, side="buy"):
         result = {}
         symbols = [
             f"{coin}/USDT",
@@ -68,7 +90,7 @@ class BinanceDao:
             qs = self.tb.select(
                 fn.SUM(BinanceOrder.amount).alias("total_amount"),
                 fn.SUM(BinanceOrder.cost).alias("total_cost"),
-            ).where(BinanceOrder.side == "buy", BinanceOrder.symbol == symbol).get()
+            ).where(BinanceOrder.side == side, BinanceOrder.symbol == symbol).get()
 
             total_amount = qs.total_amount
             total_cost = qs.total_cost
@@ -294,7 +316,7 @@ class BinanceTrader:
         self.dao.save_orders(orders)
 
     def calc_avg_price(self, coin):
-        self.dao.calc_avg_buy_price(coin)
+        self.dao.calc_avg_price(coin)
 
 
 def save_one_trade_pair():
