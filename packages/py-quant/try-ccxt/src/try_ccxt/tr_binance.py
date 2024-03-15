@@ -61,8 +61,8 @@ class BinanceDao:
         buy = self.calc_raw_avg_price(coin, side="buy")
         sell = self.calc_raw_avg_price(coin, side="sell")
 
-        keep_total_cost = buy["total"]["total_cost"] - sell["total"]["total_cost"]
-        keep_total_amount = buy["total"]["total_amount"] - sell["total"]["total_amount"]
+        keep_total_cost = buy["all"]["total_cost"] - sell["all"]["total_cost"]
+        keep_total_amount = buy["all"]["total_amount"] - sell["all"]["total_amount"]
         keep_avg_price = keep_total_cost / keep_total_amount
 
         # total:
@@ -118,7 +118,7 @@ class BinanceDao:
             "total_amount": all_total_amount,
         }
 
-        logger.info(f"calc {coin} buy avg price: {result}")
+        logger.info(f"calc {coin} {side} avg price: {result}")
 
         return result
 
