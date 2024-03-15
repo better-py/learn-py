@@ -10,6 +10,9 @@ with gr.Blocks() as demo:
 
     df = pd.read_csv("https://kanaries-app.s3.ap-northeast-1.amazonaws.com/public-datasets/bike_sharing_dc.csv")
 
+    # save csv file
+    df.to_csv(f"{os.getcwd()}/tmp/gw_data.csv", index=False)
+
     filename = f"{os.getcwd()}/tmp/gw_config.json"
     if not os.path.exists(filename):
         # touch file
