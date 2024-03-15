@@ -15,6 +15,12 @@ env:
 
 
 tasks:
+  run:
+    aliases: [ 'r' ]
+    cmds:
+      - rye run run01
+
+
   rye:
     cmds:
       - rye {{.CLI_ARGS}}
@@ -23,11 +29,17 @@ tasks:
     aliases: [ 'a' ]
     cmds:
       - rye add {{.CLI_ARGS}}
-      - rye sync
+      - rye sync -v
+
+  lock:
+    cmds:
+      - rye lock -v
 
   add:list:
+    aliases: [ 'al' ]
     cmds:
-      - rye add loguru
+      - rye add loguru pygwalker streamlit gradio
+      - rye sync -v
 
   sync:
     aliases: [ 's' ]
