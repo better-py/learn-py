@@ -8,6 +8,7 @@ from loguru import logger
 from peewee import *
 
 db = SqliteDatabase('tmp/binance.db')
+logger.add("tmp/try_ccxt.log")
 
 
 class BaseModel(Model):
@@ -279,9 +280,62 @@ class BinanceTrader:
         return results
 
     def get_my_trades(self, symbol="DOT/USDT"):
-        resp = self.ex.fetch_my_trades(symbol=symbol)
+
+        resp = self.ex.fetch_my_trades(symbol=symbol, limit=1000)
+        if len(resp) == 0:
+            return []
+
+        if len(resp) == 1000:
+            # get last order id
+            last_order_id = resp[-1]['id']
+            resp = self.ex.fetch_my_trades(symbol=symbol, fromId=last_order_id, limit=1000)
+
         logger.info(f"my trades count: {len(resp)}")
         return resp
+
+    # 写一个递归方法, 遍历查询所有的订单, 返回值==1000时, 继续递归请求, 直到返回值为 < 1000, 终止递归
+    def get_all_my_orders(self, symbol="DOT/USDT", from_id=None, order_id=None, results=None):
+        if results is None:
+            results = []
+
+        resp = self.ex.fetch_my_trades(
+            symbol=symbol,
+            limit=1000,
+            params={
+                'fromId': from_id,
+                # 'orderId': order_id,  # TODO X: not work!!!
+            } if order_id and from_id else {},
+        )
+
+        # exit
+        if len(resp) == 0:
+            logger.info(f"no more orders, exit, count: {len(results)}")
+            return results
+
+        if len(resp) < 1000:
+            # combine
+            results.extend(resp)
+            logger.debug(f"{symbol}, resp count {len(resp)}, total count: {len(results)}")
+            return results
+
+        if len(resp) == 1000:
+            last_order_id = resp[-10]['order']
+            last_from_id = resp[-10]['id']
+            logger.warning(f"{symbol}, last_order_id: {last_order_id}, last_from_id: {last_from_id}")
+            logger.warning(f"{symbol}, count: {len(resp)}, {resp[-10]}")
+
+            # combine
+            results.extend(resp)
+
+            #
+            # 继续递归
+            #
+            return self.get_all_my_orders(
+                symbol,
+                from_id=last_from_id,
+                order_id=last_order_id,
+                results=results,
+            )
 
     def get_all_my_trades(self, coin="DOT"):
         results = {}
@@ -351,7 +405,14 @@ def main():
     # one coin all trades
     # save_one_coin_all_trades()
 
-    calc()
+    # calc()
+
+    # query one coin
+    bt = BinanceTrader()
+    results = []
+    ret = bt.get_all_my_orders(symbol="DOT/BUSD", order_id=None, from_id=None, results=results)
+    logger.info(f"query one coin, result count: {len(results)}")
+    logger.info(f"query one coin, ret count: {len(ret)}")
 
 
 if __name__ == '__main__':
