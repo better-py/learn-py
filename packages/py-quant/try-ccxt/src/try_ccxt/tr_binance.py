@@ -319,10 +319,10 @@ class BinanceTrader:
             return results
 
         if len(resp) == 1000:
-            last_order_id = resp[-10]['order']
-            last_from_id = resp[-10]['id']
+            last_order_id = resp[-1]['order']  # TODO X: not work!!!
+            last_from_id = resp[-1]['id']
             logger.warning(f"{symbol}, last_order_id: {last_order_id}, last_from_id: {last_from_id}")
-            logger.warning(f"{symbol}, count: {len(resp)}, {resp[-10]}")
+            logger.warning(f"{symbol}, count: {len(resp)}, {resp[-1]}")
 
             # combine
             results.extend(resp)
