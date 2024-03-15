@@ -56,12 +56,70 @@ class BinanceDao:
     def __init__(self):
         self.tb = BinanceOrder
 
+    def calc_avg_buy_price(self, coin: str):
+        result = {}
+        symbols = [
+            f"{coin}/USDT",
+            f"{coin}/BUSD",
+            f"{coin}/FDUSD",
+        ]
+
+        for symbol in symbols:
+            qs = self.tb.select(
+                fn.SUM(BinanceOrder.amount).alias("total_amount"),
+                fn.SUM(BinanceOrder.cost).alias("total_cost"),
+            ).where(BinanceOrder.side == "buy", BinanceOrder.symbol == symbol).get()
+
+            total_amount = qs.total_amount
+            total_cost = qs.total_cost
+
+            avg_price = total_cost / total_amount
+            result[symbol] = {
+                "avg_price": avg_price,
+                "total_cost": total_cost,
+                "total_amount": total_amount,
+            }
+            logger.info(
+                f"calc {symbol}  avg_price: {avg_price}, total_cost: {total_cost}, total_amount: {total_amount}")
+
+        # calc all avg:
+        all_total_cost = 0
+        all_total_amount = 0
+        for k, v in result.items():
+            all_total_cost += v["total_cost"]
+            all_total_amount += v["total_amount"]
+        all_avg_price = all_total_cost / all_total_amount
+
+        result["all"] = {
+            "avg_price": all_avg_price,
+            "total_cost": all_total_cost,
+            "total_amount": all_total_amount,
+        }
+
+        logger.info(f"calc {coin} buy avg price: {result}")
+
+        return result
+
+    def save_orders(self, orders: list | dict):
+        if isinstance(orders, dict):
+            for k, v in orders.items():
+                logger.debug(f"save orders to db, count: {len(v)}")
+                for item in v:
+                    self.save_order(**item)
+            return
+
+        if isinstance(orders, list):
+            logger.debug(f"save orders to db, count: {len(orders)}")
+            for item in orders:
+                self.save_order(**item)
+            return
+
     def save_order(self, **kwargs):
         result = self.tb.get_or_create(
             symbol=kwargs['symbol'],
             bn_id=kwargs['id'],
             order_id=kwargs['order'],
-            order_uid=f"{kwargs['id']}_{kwargs['order']}",
+            order_uid=f"{kwargs['symbol']}_{kwargs['id']}_{kwargs['order']}",
             side=kwargs['side'],
             taker_or_maker=kwargs['takerOrMaker'],
             price=kwargs['price'],
@@ -72,8 +130,6 @@ class BinanceDao:
             timestamp=kwargs['timestamp'],
             datetime=kwargs['datetime'],
         )
-        logger.info(
-            f"saved order item: symbol={kwargs['symbol']}, order_id={kwargs['order']}, datetime={kwargs['datetime']}")
         return result
 
 
@@ -214,9 +270,9 @@ class BinanceTrader:
 
         # fetch all
         for symbol in symbols:
-            resp = self.ex.fetch_my_trades(symbol=symbol)
+            resp = self.ex.fetch_my_trades(symbol=symbol, limit=1000)
             results[symbol] = resp
-            logger.info(f"my trades count: {len(resp)}")
+            logger.info(f"my trades: {symbol}, count: {len(resp)}")
         return results
 
     @staticmethod
@@ -235,32 +291,44 @@ class BinanceTrader:
             return json.load(f)
 
     def save_db(self, orders: list | dict):
-        logger.debug(f"save my trades to db, count: {len(orders)}")
+        self.dao.save_orders(orders)
 
-        if isinstance(orders, dict):
-            for k, v in orders.items():
-                self.dao.save_order(**v)
-            return
-
-        if isinstance(orders, list):
-            for item in orders:
-                self.dao.save_order(**item)
-            return
+    def calc_avg_price(self, coin):
+        self.dao.calc_avg_buy_price(coin)
 
 
-def main():
-    db.drop_tables([BinanceOrder, ])
-    db.create_tables([BinanceOrder, ])
+def save_one_trade_pair():
+    # db.drop_tables([BinanceOrder, ])
+    # db.create_tables([BinanceOrder, ])
 
     bt = BinanceTrader()
-    # bt.get_balance()
-    # bt.get_open_orders()
-    # results = bt.get_trade_history()
-    # bt.get_all_trades()
-
     results = bt.get_my_trades()
     bt.save_json(results)
     bt.save_db(results)
+
+
+def save_one_coin_all_trades():
+    # db.drop_tables([BinanceOrder, ])
+    # db.create_tables([BinanceOrder, ])
+
+    bt = BinanceTrader()
+    results = bt.get_all_my_trades()
+    bt.save_json(results)
+    bt.save_db(results)
+
+
+def calc():
+    bt = BinanceTrader()
+    bt.calc_avg_price("DOT")
+
+
+def main():
+    # save_one_trade_pair()
+
+    # one coin all trades
+    # save_one_coin_all_trades()
+
+    calc()
 
 
 if __name__ == '__main__':
