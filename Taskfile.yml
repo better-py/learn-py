@@ -16,6 +16,11 @@ includes:
     dir: packages/py-ai/
     optional: true
 
+  auto:
+    taskfile: packages/py-automation
+    dir: packages/py-automation
+    optional: true
+
   quant:
     aliases: [ 'trade', 'qt' ]
     taskfile: packages/py-quant/

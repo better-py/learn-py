@@ -6,482 +6,310 @@
 #   features: []
 #   all-features: false
 #   with-sources: false
+#   generate-hashes: false
 
--e file:packages/py-ai/try-autogpt
--e file:packages/py-quant/try-ccxt
--e file:packages/py-ai/try-chroma
--e file:packages/py-ai/try-gemini
+-e file:packages/py-automation/try-uiautodev
 -e file:packages/py-data/try-pandas
 -e file:packages/py-data/try-pygwalker
--e file:packages/py-ai/try-spacy
-aiodns==3.1.1
-    # via ccxt
+adbutils==2.7.2
+    # via uiautodev
+    # via uiautomator2
 aiofiles==23.2.1
     # via gradio
-aiohttp==3.9.3
-    # via ccxt
-aiosignal==1.3.1
-    # via aiohttp
-altair==5.2.0
+altair==5.3.0
     # via gradio
     # via streamlit
-annotated-types==0.6.0
+annotated-types==0.7.0
     # via pydantic
-anyio==4.3.0
+anyio==4.4.0
     # via httpx
-    # via jupyter-server
     # via starlette
+    # via watchfiles
+apkutils2==1.0.0
+    # via adbutils
 appdirs==1.4.4
     # via pygwalker
-appnope==0.1.4
-    # via ipykernel
-argon2-cffi==23.1.0
-    # via jupyter-server
-argon2-cffi-bindings==21.2.0
-    # via argon2-cffi
 arrow==1.3.0
-    # via isoduration
     # via pygwalker
 astor==0.8.1
     # via pygwalker
 asttokens==2.4.1
     # via stack-data
-async-lru==2.0.4
-    # via jupyterlab
 attrs==23.2.0
-    # via aiohttp
     # via jsonschema
     # via referencing
-babel==2.14.0
-    # via jupyterlab-server
 backoff==2.2.1
     # via kanaries-track
     # via segment-analytics-python
-beautifulsoup4==4.12.3
-    # via nbconvert
-bleach==6.1.0
-    # via nbconvert
-blinker==1.7.0
+blinker==1.8.2
     # via streamlit
-blis==0.7.11
-    # via thinc
+build==1.2.1
+    # via poetry
+cachecontrol==0.14.0
+    # via poetry
 cachetools==5.3.3
-    # via google-auth
     # via pygwalker
     # via streamlit
-catalogue==2.0.10
-    # via spacy
-    # via srsly
-    # via thinc
-ccxt==4.2.72
-    # via try-ccxt
-certifi==2024.2.2
-    # via ccxt
+certifi==2024.6.2
     # via httpcore
     # via httpx
     # via requests
 cffi==1.16.0
-    # via argon2-cffi-bindings
-    # via cryptography
-    # via pycares
+    # via xattr
 charset-normalizer==3.3.2
     # via requests
+cigam==0.0.3
+    # via apkutils2
+cleo==2.1.0
+    # via poetry
 click==8.1.7
     # via streamlit
-    # via try-ccxt
     # via typer
+    # via uiautodev
     # via uvicorn
-cloudpathlib==0.16.0
-    # via weasel
-colorama==0.4.6
-    # via typer
 comm==0.2.2
-    # via ipykernel
     # via ipywidgets
-confection==0.1.4
-    # via thinc
-    # via weasel
-contourpy==1.2.0
+construct==2.10.70
+    # via uiautodev
+    # via wdapy
+contourpy==1.2.1
     # via matplotlib
-cryptography==42.0.5
-    # via ccxt
+crashtest==0.4.1
+    # via cleo
+    # via poetry
 cycler==0.12.1
     # via matplotlib
-cymem==2.0.8
-    # via preshed
-    # via spacy
-    # via thinc
 dateutils==0.6.12
     # via kanaries-track
-debugpy==1.8.1
-    # via ipykernel
 decorator==5.1.1
     # via ipython
-defusedxml==0.7.1
-    # via nbconvert
-duckdb==0.10.0
+    # via retry
+deprecated==1.2.14
+    # via wdapy
+deprecation==2.1.0
+    # via adbutils
+distlib==0.3.8
+    # via virtualenv
+dnspython==2.6.1
+    # via email-validator
+duckdb==0.10.3
     # via pygwalker
+dulwich==0.21.7
+    # via poetry
+email-validator==2.1.1
+    # via fastapi
 executing==2.0.1
     # via stack-data
-fastapi==0.110.0
+fastapi==0.111.0
     # via gradio
+    # via uiautodev
+fastapi-cli==0.0.4
+    # via fastapi
 fastjsonschema==2.19.1
-    # via nbformat
+    # via poetry
 ffmpy==0.3.2
     # via gradio
-filelock==3.13.1
+filelock==3.14.0
+    # via cachecontrol
     # via huggingface-hub
-fonttools==4.49.0
+    # via virtualenv
+fonttools==4.53.0
     # via matplotlib
-fqdn==1.5.1
-    # via jsonschema
-frozenlist==1.4.1
-    # via aiohttp
-    # via aiosignal
-fsspec==2024.2.0
+fsspec==2024.6.0
     # via gradio-client
     # via huggingface-hub
 gitdb==4.0.11
     # via gitpython
-gitpython==3.1.42
+gitpython==3.1.43
     # via streamlit
-google-ai-generativelanguage==0.4.0
-    # via google-generativeai
-google-api-core==2.17.1
-    # via google-ai-generativelanguage
-    # via google-api-core
-    # via google-cloud-aiplatform
-    # via google-cloud-bigquery
-    # via google-cloud-core
-    # via google-cloud-resource-manager
-    # via google-cloud-storage
-    # via google-generativeai
-google-auth==2.28.2
-    # via google-api-core
-    # via google-cloud-aiplatform
-    # via google-cloud-bigquery
-    # via google-cloud-core
-    # via google-cloud-resource-manager
-    # via google-cloud-storage
-    # via google-generativeai
-google-cloud-aiplatform==1.44.0
-    # via try-gemini
-google-cloud-bigquery==3.19.0
-    # via google-cloud-aiplatform
-google-cloud-core==2.4.1
-    # via google-cloud-bigquery
-    # via google-cloud-storage
-google-cloud-resource-manager==1.12.3
-    # via google-cloud-aiplatform
-google-cloud-storage==2.15.0
-    # via google-cloud-aiplatform
-google-crc32c==1.5.0
-    # via google-cloud-storage
-    # via google-resumable-media
-google-generativeai==0.3.2
-    # via try-gemini
-google-resumable-media==2.7.0
-    # via google-cloud-bigquery
-    # via google-cloud-storage
-googleapis-common-protos==1.63.0
-    # via google-api-core
-    # via grpc-google-iam-v1
-    # via grpcio-status
-gradio==4.21.0
+gradio==4.33.0
     # via try-pygwalker
-gradio-client==0.12.0
+gradio-client==0.17.0
     # via gradio
-grpc-google-iam-v1==0.13.0
-    # via google-cloud-resource-manager
-grpcio==1.62.1
-    # via google-api-core
-    # via googleapis-common-protos
-    # via grpc-google-iam-v1
-    # via grpcio-status
-grpcio-status==1.62.1
-    # via google-api-core
-gw-dsl-parser==0.1.45a6
+gw-dsl-parser==0.1.49
     # via pygwalker
 h11==0.14.0
     # via httpcore
     # via uvicorn
-httpcore==1.0.4
+httpcore==1.0.5
     # via httpx
+httpretty==1.1.4
+    # via uiautodev
+httptools==0.6.1
+    # via uvicorn
 httpx==0.27.0
+    # via fastapi
     # via gradio
     # via gradio-client
-    # via httpx
-    # via jupyterlab
     # via try-pygwalker
-huggingface-hub==0.21.4
+    # via uiautodev
+huggingface-hub==0.23.3
     # via gradio
     # via gradio-client
-idna==3.6
+idna==3.7
     # via anyio
+    # via email-validator
     # via httpx
-    # via jsonschema
     # via requests
-    # via yarl
-importlib-resources==6.3.0
+importlib-resources==6.4.0
     # via gradio
-ipykernel==6.29.3
-    # via jupyterlab
-ipython==8.22.2
-    # via ipykernel
+    # via wasmtime
+installer==0.7.0
+    # via poetry
+ipython==8.25.0
     # via ipywidgets
     # via pygwalker
-    # via try-ccxt
-ipywidgets==8.1.2
+ipywidgets==8.1.3
     # via pygwalker
-isoduration==20.11.0
-    # via jsonschema
+jaraco-classes==3.4.0
+    # via keyring
 jedi==0.19.1
     # via ipython
-jinja2==3.1.3
+jinja2==3.1.4
     # via altair
+    # via fastapi
     # via gradio
-    # via jupyter-server
-    # via jupyterlab
-    # via jupyterlab-server
-    # via nbconvert
     # via pydeck
     # via pygwalker
-    # via spacy
-json5==0.9.22
-    # via jupyterlab-server
-jsonpointer==2.4
-    # via jsonschema
-jsonschema==4.21.1
+jsonschema==4.22.0
     # via altair
-    # via jupyter-events
-    # via jupyterlab-server
-    # via nbformat
 jsonschema-specifications==2023.12.1
     # via jsonschema
-jupyter-client==8.6.1
-    # via ipykernel
-    # via jupyter-server
-    # via nbclient
-jupyter-core==5.7.2
-    # via ipykernel
-    # via jupyter-client
-    # via jupyter-server
-    # via jupyterlab
-    # via nbclient
-    # via nbconvert
-    # via nbformat
-jupyter-events==0.9.1
-    # via jupyter-server
-jupyter-lsp==2.2.4
-    # via jupyterlab
-jupyter-server==2.13.0
-    # via jupyter-lsp
-    # via jupyterlab
-    # via jupyterlab-server
-    # via notebook
-    # via notebook-shim
-jupyter-server-terminals==0.5.3
-    # via jupyter-server
-jupyterlab==4.1.5
-    # via notebook
-    # via try-ccxt
-jupyterlab-pygments==0.3.0
-    # via nbconvert
-jupyterlab-server==2.25.4
-    # via jupyterlab
-    # via notebook
-jupyterlab-widgets==3.0.10
+jupyterlab-widgets==3.0.11
     # via ipywidgets
-kanaries-track==0.0.4
+kanaries-track==0.0.5
     # via pygwalker
+keyring==24.3.1
+    # via poetry
 kiwisolver==1.4.5
     # via matplotlib
-langcodes==3.3.0
-    # via spacy
 loguru==0.7.2
-    # via try-ccxt
-    # via try-gemini
     # via try-pygwalker
+lxml==5.2.2
+    # via uiautodev
+    # via uiautomator2
 markdown-it-py==3.0.0
     # via rich
 markupsafe==2.1.5
     # via gradio
     # via jinja2
-    # via nbconvert
-matplotlib==3.8.3
+matplotlib==3.9.0
     # via gradio
-    # via mplfinance
-    # via seaborn
-    # via try-ccxt
-matplotlib-inline==0.1.6
-    # via ipykernel
+matplotlib-inline==0.1.7
     # via ipython
 mdurl==0.1.2
     # via markdown-it-py
-mistune==3.0.2
-    # via nbconvert
 monotonic==1.6
     # via segment-analytics-python
-mplfinance==0.12.10b0
-    # via try-ccxt
-multidict==6.0.5
-    # via aiohttp
-    # via yarl
-murmurhash==1.0.10
-    # via preshed
-    # via spacy
-    # via thinc
-nbclient==0.10.0
-    # via nbconvert
-nbconvert==7.16.2
-    # via jupyter-server
-nbformat==5.10.3
-    # via jupyter-server
-    # via nbclient
-    # via nbconvert
-nest-asyncio==1.6.0
-    # via ipykernel
-notebook==7.1.2
-    # via try-ccxt
-notebook-shim==0.2.4
-    # via jupyterlab
-    # via notebook
+more-itertools==10.2.0
+    # via jaraco-classes
+msgpack==1.0.8
+    # via cachecontrol
 numpy==1.26.4
     # via altair
-    # via blis
     # via contourpy
     # via gradio
     # via matplotlib
     # via pandas
     # via pyarrow
     # via pydeck
-    # via seaborn
-    # via shapely
-    # via spacy
     # via streamlit
-    # via thinc
-    # via thinc-apple-ops
-orjson==3.9.15
+orjson==3.10.3
+    # via fastapi
     # via gradio
-overrides==7.7.0
-    # via jupyter-server
-packaging==23.2
+packaging==24.0
     # via altair
-    # via google-cloud-aiplatform
-    # via google-cloud-bigquery
+    # via build
+    # via deprecation
     # via gradio
     # via gradio-client
     # via huggingface-hub
-    # via ipykernel
-    # via jupyter-server
-    # via jupyterlab
-    # via jupyterlab-server
     # via matplotlib
-    # via nbconvert
-    # via plotly
-    # via spacy
+    # via poetry
+    # via pygwalker
     # via streamlit
-    # via thinc
-    # via weasel
-pandas==2.2.1
+pandas==2.2.2
     # via altair
     # via gradio
-    # via mplfinance
     # via pygwalker
-    # via seaborn
     # via streamlit
-    # via try-ccxt
-pandocfilters==1.5.1
-    # via nbconvert
-parso==0.8.3
+parso==0.8.4
     # via jedi
-peewee==3.17.1
-    # via try-ccxt
 pexpect==4.9.0
     # via ipython
-pillow==10.2.0
+    # via poetry
+pillow==10.3.0
+    # via adbutils
     # via gradio
     # via matplotlib
     # via streamlit
-platformdirs==4.2.0
-    # via jupyter-core
-plotly==5.20.0
-    # via try-ccxt
-preshed==3.0.9
-    # via spacy
-    # via thinc
-prometheus-client==0.20.0
-    # via jupyter-server
-prompt-toolkit==3.0.43
+    # via uiautodev
+    # via uiautomator2
+    # via wdapy
+pkginfo==1.11.0
+    # via poetry
+platformdirs==4.2.2
+    # via poetry
+    # via virtualenv
+poetry==1.8.3
+    # via poetry-plugin-export
+    # via uiautodev
+poetry-core==1.9.0
+    # via poetry
+    # via poetry-plugin-export
+poetry-plugin-export==1.8.0
+    # via poetry
+prompt-toolkit==3.0.46
     # via ipython
-proto-plus==1.23.0
-    # via google-ai-generativelanguage
-    # via google-cloud-aiplatform
-    # via google-cloud-resource-manager
 protobuf==4.25.3
-    # via google-ai-generativelanguage
-    # via google-api-core
-    # via google-cloud-aiplatform
-    # via google-cloud-resource-manager
-    # via google-generativeai
-    # via googleapis-common-protos
-    # via grpc-google-iam-v1
-    # via grpcio-status
-    # via proto-plus
     # via streamlit
 psutil==5.9.8
-    # via ipykernel
     # via pygwalker
 ptyprocess==0.7.0
     # via pexpect
-    # via terminado
 pure-eval==0.2.2
     # via stack-data
-pyarrow==15.0.1
+py==1.11.0
+    # via retry
+pyarrow==16.1.0
     # via pygwalker
     # via streamlit
-pyasn1==0.5.1
-    # via pyasn1-modules
-    # via rsa
-pyasn1-modules==0.3.0
-    # via google-auth
-pycares==4.4.0
-    # via aiodns
-pycparser==2.21
+pycparser==2.22
     # via cffi
-pydantic==2.6.4
-    # via confection
+pydantic==2.7.3
     # via fastapi
     # via gradio
     # via pygwalker
-    # via spacy
-    # via thinc
-    # via weasel
-pydantic-core==2.16.3
+    # via uiautodev
+pydantic-core==2.18.4
     # via pydantic
-pydeck==0.8.1b0
+pydeck==0.9.1
     # via streamlit
 pydub==0.25.1
     # via gradio
-pygments==2.17.2
+pyelftools==0.31
+    # via apkutils2
+pygments==2.18.0
     # via ipython
-    # via nbconvert
     # via rich
-pygwalker==0.4.7
+    # via uiautodev
+pygwalker==0.4.8.9
     # via try-pygwalker
 pyparsing==3.1.2
     # via matplotlib
+pyproject-hooks==1.1.0
+    # via build
+    # via poetry
 python-dateutil==2.9.0.post0
     # via arrow
     # via dateutils
-    # via google-cloud-bigquery
-    # via jupyter-client
     # via matplotlib
     # via pandas
     # via segment-analytics-python
-python-json-logger==2.0.7
-    # via jupyter-events
+python-dotenv==1.0.1
+    # via uvicorn
 python-multipart==0.0.9
+    # via fastapi
     # via gradio
 pytz==2024.1
     # via dateutils
@@ -490,64 +318,47 @@ pytz==2024.1
 pyyaml==6.0.1
     # via gradio
     # via huggingface-hub
-    # via jupyter-events
-pyzmq==25.1.2
-    # via ipykernel
-    # via jupyter-client
-    # via jupyter-server
-referencing==0.33.0
+    # via uvicorn
+rapidfuzz==3.9.3
+    # via cleo
+referencing==0.35.1
     # via jsonschema
     # via jsonschema-specifications
-    # via jupyter-events
-requests==2.31.0
-    # via ccxt
-    # via google-api-core
-    # via google-cloud-bigquery
-    # via google-cloud-storage
+requests==2.32.3
+    # via adbutils
+    # via cachecontrol
     # via huggingface-hub
-    # via jupyterlab-server
     # via kanaries-track
+    # via poetry
     # via pygwalker
+    # via requests-toolbelt
     # via segment-analytics-python
-    # via spacy
     # via streamlit
-    # via weasel
-rfc3339-validator==0.1.4
-    # via jsonschema
-    # via jupyter-events
-rfc3986-validator==0.1.1
-    # via jsonschema
-    # via jupyter-events
+    # via uiautomator2
+requests-toolbelt==1.0.0
+    # via poetry
+retry==0.9.2
+    # via adbutils
+    # via uiautomator2
+    # via wdapy
 rich==13.7.1
     # via streamlit
     # via typer
-rpds-py==0.18.0
+rpds-py==0.18.1
     # via jsonschema
     # via referencing
-rsa==4.9
-    # via google-auth
-ruff==0.3.2
+ruff==0.4.8
     # via gradio
-seaborn==0.13.2
-    # via try-ccxt
 segment-analytics-python==2.2.3
     # via pygwalker
 semantic-version==2.10.0
     # via gradio
-send2trash==1.8.2
-    # via jupyter-server
-shapely==2.0.3
-    # via google-cloud-aiplatform
 shellingham==1.5.4
+    # via poetry
     # via typer
 six==1.16.0
     # via asttokens
-    # via bleach
     # via python-dateutil
-    # via rfc3339-validator
-smart-open==6.4.0
-    # via spacy
-    # via weasel
 smmap==5.0.1
     # via gitdb
 sniffio==1.3.1
@@ -555,89 +366,43 @@ sniffio==1.3.1
     # via httpx
 socksio==1.0.0
     # via httpx
-soupsieve==2.5
-    # via beautifulsoup4
-spacy==3.7.4
-    # via spacy
-    # via try-spacy
-spacy-legacy==3.0.12
-    # via spacy
-spacy-loggers==1.0.5
-    # via spacy
-sqlalchemy==2.0.28
+sqlalchemy==2.0.30
     # via pygwalker
-sqlglot==22.5.0
+sqlglot==25.0.2
     # via pygwalker
-srsly==2.4.8
-    # via confection
-    # via spacy
-    # via thinc
-    # via weasel
 stack-data==0.6.3
     # via ipython
-starlette==0.36.3
+starlette==0.37.2
     # via fastapi
-streamlit==1.32.2
+streamlit==1.35.0
     # via try-pygwalker
-tenacity==8.2.3
-    # via plotly
+tenacity==8.3.0
     # via streamlit
-terminado==0.18.1
-    # via jupyter-server
-    # via jupyter-server-terminals
-thinc==8.2.3
-    # via spacy
-    # via thinc-apple-ops
-thinc-apple-ops==0.1.4
-    # via spacy
-tinycss2==1.2.1
-    # via nbconvert
 toml==0.10.2
     # via streamlit
 tomlkit==0.12.0
     # via gradio
+    # via poetry
 toolz==0.12.1
     # via altair
 tornado==6.4
-    # via ipykernel
-    # via jupyter-client
-    # via jupyter-server
-    # via jupyterlab
-    # via notebook
     # via streamlit
-    # via terminado
-tqdm==4.66.2
-    # via google-generativeai
+tqdm==4.66.4
     # via huggingface-hub
-    # via spacy
-traitlets==5.14.2
+traitlets==5.14.3
     # via comm
-    # via ipykernel
     # via ipython
     # via ipywidgets
-    # via jupyter-client
-    # via jupyter-core
-    # via jupyter-events
-    # via jupyter-server
-    # via jupyterlab
     # via matplotlib-inline
-    # via nbclient
-    # via nbconvert
-    # via nbformat
-typer==0.9.0
+trove-classifiers==2024.5.22
+    # via poetry
+typer==0.12.3
+    # via fastapi-cli
     # via gradio
-    # via spacy
-    # via try-ccxt
-    # via try-gemini
-    # via try-spacy
-    # via typer
-    # via weasel
-types-python-dateutil==2.9.0.20240315
+types-python-dateutil==2.9.0.20240316
     # via arrow
-typing-extensions==4.10.0
-    # via ccxt
+typing-extensions==4.12.1
     # via fastapi
-    # via google-generativeai
     # via gradio
     # via gradio-client
     # via huggingface-hub
@@ -649,37 +414,40 @@ typing-extensions==4.10.0
     # via typer
 tzdata==2024.1
     # via pandas
-uri-template==1.3.0
-    # via jsonschema
+uiautodev==0.4.0
+    # via try-uiautodev
+uiautomator2==3.1.0
+    # via uiautodev
+ujson==5.10.0
+    # via fastapi
 urllib3==2.2.1
-    # via requests
-uvicorn==0.28.0
+    # via dulwich
     # via gradio
-wasabi==1.1.2
-    # via spacy
-    # via thinc
-    # via weasel
-wasmtime==12.0.0
+    # via requests
+uvicorn==0.30.1
+    # via fastapi
+    # via gradio
+    # via uiautodev
+uvloop==0.19.0
+    # via uvicorn
+virtualenv==20.26.2
+    # via poetry
+wasmtime==21.0.0
     # via gw-dsl-parser
+watchfiles==0.22.0
+    # via uvicorn
 wcwidth==0.2.13
     # via prompt-toolkit
-weasel==0.3.4
-    # via spacy
-webcolors==1.13
-    # via jsonschema
-webencodings==0.5.1
-    # via bleach
-    # via tinycss2
-websocket-client==1.7.0
-    # via jupyter-server
+wdapy==0.2.3
+    # via uiautodev
 websockets==11.0.3
     # via gradio-client
-widgetsnbextension==4.0.10
+    # via uvicorn
+widgetsnbextension==4.0.11
     # via ipywidgets
-yarl==1.9.4
-    # via aiohttp
-    # via ccxt
-setuptools==69.2.0
-    # via ccxt
-    # via spacy
-    # via thinc
+wrapt==1.16.0
+    # via deprecated
+xattr==1.1.0
+    # via poetry
+xmltodict==0.13.0
+    # via apkutils2

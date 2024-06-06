@@ -1,11 +1,13 @@
 [project]
-name = "learn-py"
+name = "try-uiautodev"
 version = "0.1.0"
 description = "Add your description here"
 authors = [
     { name = "Henry.Huang", email = "hhglory@outlook.com" }
 ]
-dependencies = []
+dependencies = [
+    "uiautodev>=0.4.0",
+]
 readme = "README.md"
 requires-python = ">= 3.12"
 
@@ -15,26 +17,12 @@ build-backend = "hatchling.build"
 
 [tool.rye]
 managed = true
-dev-dependencies = []
-virtual = true
+dev-dependencies = [
+    "pytest>=8.2.2",
+]
 
 [tool.hatch.metadata]
 allow-direct-references = true
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/learn_py"]
-
-
-
-#
-# workspace
-#
-[tool.rye.workspace]
-members = [
-    #    "packages/py-try/try-*",
-    "packages/py-quant/try-*",
-    "packages/py-data/try-*",
-    "packages/py-ai/try-*",
-    "packages/py-automation/try-*",
-]
-
+packages = ["src/try_uiautodev"]

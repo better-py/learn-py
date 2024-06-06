@@ -1,0 +1,38 @@
+version: "3"
+
+includes:
+  uiautodev:
+    aliases: [ "uiauto", "ua" ]
+    taskfile: try-uiautodev/
+    dir: try-uiautodev/
+    optional: true
+
+#
+# global vars: https://taskfile.dev/#/usage?id=variables
+#
+vars:
+  VAR1: "some-var"
+
+# global env:
+env:
+  ENV1: testing
+
+################################################################################################
+
+
+tasks:
+  hello:
+    cmds:
+      - echo hello
+
+  setup:
+    cmds:
+      - pyenv update
+      - pyenv install --list | grep 3.12
+      - pyenv install 3.12.3
+
+  env:
+    cmds:
+      - rye -h
+      - rye toolchain list
+      - python -v

@@ -1,0 +1,40 @@
+version: "3"
+
+
+#
+# global vars: https://taskfile.dev/#/usage?id=variables
+#
+vars:
+  VAR1: "some-var"
+
+# global env:
+env:
+  ENV1: testing
+
+################################################################################################
+
+
+tasks:
+  install:
+    aliases: [ 'i' ]
+    cmds:
+      - rye sync --no-lock
+
+  rye:
+    cmds:
+      - rye {{.CLI_ARGS}} # install, update
+
+  add:
+    aliases: [ 'a' ]
+    cmds:
+      - rye add {{.CLI_ARGS}}  # --dev
+
+  add:dev:
+    aliases: [ 'ad' ]
+    cmds:
+      - rye add --dev {{.CLI_ARGS}}  # --dev
+
+  add:all:
+    aliases: [ 'aa' ]
+    cmds:
+      - rye add click discord.py
