@@ -38,3 +38,9 @@ tasks:
     aliases: [ 'aa' ]
     cmds:
       - rye add click discord.py
+
+
+  tool:
+    cmds:
+      - |
+        uiauto.dev # source .venv/bin/activate.fish
