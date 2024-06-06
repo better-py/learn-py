@@ -1,6 +1,7 @@
 # python Automation:
 
 - Python 自动化相关生态库 & 项目 验证(调研)
+- Android App Debug 自动化 & 测试
 
 ## Projects
 
