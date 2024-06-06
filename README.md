@@ -63,12 +63,17 @@
 
 > requirements:
 
-- ✅️ python3.10+
-- ✅️ [poetry](https://python-poetry.org/docs/) or [PDM](https://pdm-project.org/latest/)
-- ✅️ pyenv
-- ✅️ [go-task](https://taskfile.dev/#/installation)
+- ✅️ python3.10+: 推荐 `python 3.12+`
+- ✅ [rye](https://github.com/astral-sh/rye): 包管理工具
+    - ❌ [poetry](https://python-poetry.org/docs/) or [PDM](https://pdm-project.org/latest/)
+    - 默认不再使用 poetry, 虽然也是支持 poetry 装包的
+- ✅️ pyenv: python 版本管理
+- ✅️ [go-task](https://taskfile.dev/#/installation): 运行脚本
 
 ```bash
+
+# 查看所有项目的运行脚本:
+task --list-all
 
 ```
 
