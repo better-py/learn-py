@@ -39,6 +39,12 @@ tasks:
     aliases: [ 'aa' ]
     cmds:
       - rye add weditor
+      - rye add uiautomator2
+
+  run:
+    aliases: [ 'r' ]
+    cmds:
+      - python src/try_weditor/run.py
 
   tool:
     cmds:

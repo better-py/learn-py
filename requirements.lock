@@ -792,6 +792,7 @@ tzdata==2024.1
 uiautodev==0.4.0
     # via try-uiautodev
 uiautomator2==3.1.0
+    # via try-weditor
     # via uiautodev
     # via weditor
 ujson==5.10.0
