@@ -1,6 +1,12 @@
 version: "3"
 
 includes:
+  weditor:
+    aliases: [ "we" ]
+    taskfile: try-weditor/
+    dir: try-weditor/
+    optional: true
+
   uiautodev:
     aliases: [ "uiauto", "ua" ]
     taskfile: try-uiautodev/
