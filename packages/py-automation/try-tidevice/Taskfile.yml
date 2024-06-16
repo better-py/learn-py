@@ -85,6 +85,7 @@ tasks:
     cmds:
       - tidevice list
       - tidevice list --json
+      - tidevice info
 
   ios:packages:
     aliases: [ 'ios:p' ]
@@ -103,6 +104,16 @@ tasks:
       - ./tmp/WebDriverAgent/Scripts/build.sh
     ignore_error: true
 
+
+  #
+  # todo x: 需要使用 xcode 编译, 在设置里, 更改 Product Bundle Identifier
+  #
+  ios:driver:build:
+    aliases: [ "ios:b" ]
+    cmds:
+      - npm i
+      - npm run bundle # todo x: 默认构建的是 iOS 模拟器版本
+    dir: tmp/WebDriverAgent
 
   #
   # https://appium.io/docs/en/latest/ecosystem/drivers/
