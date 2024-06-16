@@ -47,13 +47,13 @@ tasks:
     aliases: [ 'r' ]
     cmds:
       - which python
-      - python src/try_uiautomator2/run.py
+      - python src/try_tidevice/run.py
 
   run2:
     aliases: [ 'r2' ]
     cmds:
       - which python
-      - python src/try_uiautomator2/run_02.py
+      - python src/try_tidevice/run_02.py
 
   tool:
     cmds:
@@ -70,3 +70,19 @@ tasks:
     cmds:
       - adb shell pm list packages # 所有包
       - adb shell pm list packages -3 # 第三方包
+
+  ios:devices:
+    aliases: [ 'ios:d' ]
+    cmds:
+      - tidevice list
+      - tidevice list --json
+
+  ios:packages:
+    aliases: [ 'ios:p' ]
+    cmds:
+      - tidevice applist
+
+  check:
+    aliases: [ 'env', 'doctor' ]
+    cmds:
+      - tidevice version
