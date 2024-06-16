@@ -6,9 +6,12 @@ authors = [
     { name = "Henry.Huang", email = "hhglory@outlook.com" }
 ]
 dependencies = [
-    "tidevice[openssl]>=0.12.10",
+    "tidevice[openssl]==0.12.9",
     "facebook-wda>=1.4.7",
     "tidevice3>=0.11.3",
+    "urllib3==1.21.1",
+    "uiautodev<=0.3.7",
+    "poetry<=1.8.2",
 ]
 readme = "README.md"
 requires-python = ">= 3.12"

@@ -35,6 +35,6 @@ members = [
     "packages/py-quant/try-*",
     "packages/py-data/try-*",
     "packages/py-ai/try-*",
-    "packages/py-automation/try-*",
+    #    "packages/py-automation/try-*",
 ]
 

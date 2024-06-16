@@ -1,3 +1,11 @@
+[project]
+name = "try-nicegui"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "Henry.Huang", email = "hhglory@outlook.com" }
+]
+
 [tool.poetry]
 name = "try-nicegui"
 version = "0.1.0"

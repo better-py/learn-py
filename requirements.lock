@@ -12,21 +12,13 @@
 -e file:packages/py-ai/try-chroma
 -e file:packages/py-ai/try-gemini
 -e file:packages/py-ai/try-spacy
--e file:packages/py-automation/try-tidevice
--e file:packages/py-automation/try-uiautodev
--e file:packages/py-automation/try-uiautomator2
--e file:packages/py-automation/try-weditor
 -e file:packages/py-data/try-pandas
 -e file:packages/py-data/try-pygwalker
 -e file:packages/py-quant/try-ccxt
-adbutils==2.7.2
-    # via uiautodev
-    # via uiautomator2
 aiodns==3.2.0
     # via ccxt
 aiofiles==23.2.1
     # via gradio
-    # via pymobiledevice3
 aiohttp==3.9.5
     # via ccxt
 aiosignal==1.3.1
@@ -41,12 +33,8 @@ anyio==4.4.0
     # via jupyter-server
     # via starlette
     # via watchfiles
-apkutils2==1.0.0
-    # via adbutils
 appdirs==1.4.4
     # via pygwalker
-apple-compress==0.2.3
-    # via pyimg4
 appnope==0.1.4
     # via ipykernel
 argon2-cffi==23.1.0
@@ -55,12 +43,7 @@ argon2-cffi-bindings==21.2.0
     # via argon2-cffi
 arrow==1.3.0
     # via isoduration
-    # via opack
     # via pygwalker
-    # via pymobiledevice3
-asn1==2.7.0
-    # via pyimg4
-    # via pymobiledevice3
 astor==0.8.1
     # via pygwalker
 asttokens==2.4.1
@@ -80,23 +63,10 @@ beautifulsoup4==4.12.3
     # via nbconvert
 bleach==6.1.0
     # via nbconvert
-blessed==1.20.0
-    # via inquirer3
 blinker==1.8.2
     # via streamlit
 blis==0.7.11
     # via thinc
-bpylist2==4.1.1
-    # via pymobiledevice3
-build==1.2.1
-    # via poetry
-cachecontrol==0.14.0
-    # via poetry
-cached-property==1.5.2
-    # via facebook-wda
-    # via ipsw-parser
-    # via pycrashreport
-    # via weditor
 cachetools==5.3.3
     # via google-auth
     # via pygwalker
@@ -105,7 +75,7 @@ catalogue==2.0.10
     # via spacy
     # via srsly
     # via thinc
-ccxt==4.3.41
+ccxt==4.3.46
     # via try-ccxt
 certifi==2024.6.2
     # via ccxt
@@ -116,118 +86,59 @@ cffi==1.16.0
     # via argon2-cffi-bindings
     # via cryptography
     # via pycares
-    # via xattr
 charset-normalizer==3.3.2
     # via requests
-cigam==0.0.3
-    # via apkutils2
-cleo==2.1.0
-    # via poetry
 click==8.1.7
-    # via apple-compress
-    # via ipsw-parser
-    # via pycrashreport
-    # via pygnuutils
-    # via pyimg4
-    # via pykdebugparser
-    # via pymobiledevice3
     # via streamlit
-    # via tidevice3
     # via try-ccxt
     # via typer
-    # via uiautodev
     # via uvicorn
 cloudpathlib==0.18.1
     # via weasel
-colored==2.2.4
-    # via tidevice
-coloredlogs==15.0.1
-    # via ipsw-parser
-    # via pymobiledevice3
 comm==0.2.2
     # via ipykernel
     # via ipywidgets
 confection==0.1.5
     # via thinc
     # via weasel
-construct==2.10.70
-    # via ipsw-parser
-    # via opack
-    # via pykdebugparser
-    # via pymobiledevice3
-    # via uiautodev
-    # via wdapy
 contourpy==1.2.1
     # via matplotlib
-crashtest==0.4.1
-    # via cleo
-    # via poetry
 cryptography==42.0.8
     # via ccxt
-    # via pymobiledevice3
-    # via pyopenssl
 cycler==0.12.1
     # via matplotlib
 cymem==2.0.8
     # via preshed
     # via spacy
     # via thinc
-daemonize==2.5.0
-    # via pymobiledevice3
 dateutils==0.6.12
     # via kanaries-track
 debugpy==1.8.1
     # via ipykernel
 decorator==5.1.1
     # via ipython
-    # via retry
 defusedxml==0.7.1
     # via nbconvert
-deprecated==1.2.14
-    # via facebook-wda
-    # via wdapy
-deprecation==2.1.0
-    # via adbutils
-    # via tidevice
-developer-disk-image==0.0.2
-    # via pymobiledevice3
-distlib==0.3.8
-    # via virtualenv
 dnspython==2.6.1
     # via email-validator
 docstring-parser==0.16
     # via google-cloud-aiplatform
 duckdb==0.10.3
     # via pygwalker
-dulwich==0.21.7
-    # via poetry
-editor==1.6.6
-    # via inquirer3
 email-validator==2.1.1
     # via fastapi
-enum-compat==0.0.3
-    # via asn1
 executing==2.0.1
     # via stack-data
-facebook-wda==1.4.7
-    # via try-tidevice
-    # via weditor
 fastapi==0.111.0
     # via gradio
-    # via pymobiledevice3
-    # via tidevice3
-    # via uiautodev
 fastapi-cli==0.0.4
     # via fastapi
-fastjsonschema==2.19.1
+fastjsonschema==2.20.0
     # via nbformat
-    # via poetry
 ffmpy==0.3.2
     # via gradio
-filelock==3.14.0
-    # via cachecontrol
+filelock==3.15.1
     # via huggingface-hub
-    # via virtualenv
 fonttools==4.53.0
     # via matplotlib
 fqdn==1.5.1
@@ -252,7 +163,7 @@ google-api-core==2.19.0
     # via google-cloud-resource-manager
     # via google-cloud-storage
     # via google-generativeai
-google-auth==2.29.0
+google-auth==2.30.0
     # via google-api-core
     # via google-cloud-aiplatform
     # via google-cloud-bigquery
@@ -260,7 +171,7 @@ google-auth==2.29.0
     # via google-cloud-resource-manager
     # via google-cloud-storage
     # via google-generativeai
-google-cloud-aiplatform==1.53.0
+google-cloud-aiplatform==1.55.0
     # via try-gemini
 google-cloud-bigquery==3.24.0
     # via google-cloud-aiplatform
@@ -269,25 +180,23 @@ google-cloud-core==2.4.1
     # via google-cloud-storage
 google-cloud-resource-manager==1.12.3
     # via google-cloud-aiplatform
-google-cloud-storage==2.16.0
+google-cloud-storage==2.17.0
     # via google-cloud-aiplatform
 google-crc32c==1.5.0
     # via google-cloud-storage
     # via google-resumable-media
 google-generativeai==0.3.2
     # via try-gemini
-google-resumable-media==2.7.0
+google-resumable-media==2.7.1
     # via google-cloud-bigquery
     # via google-cloud-storage
 googleapis-common-protos==1.63.1
     # via google-api-core
     # via grpc-google-iam-v1
     # via grpcio-status
-gpxpy==1.5.0
-    # via pymobiledevice3
-gradio==4.33.0
+gradio==4.36.1
     # via try-pygwalker
-gradio-client==0.17.0
+gradio-client==1.0.1
     # via gradio
 grpc-google-iam-v1==0.13.0
     # via google-cloud-resource-manager
@@ -303,13 +212,8 @@ gw-dsl-parser==0.1.49
 h11==0.14.0
     # via httpcore
     # via uvicorn
-    # via wsproto
-hexdump==3.3
-    # via pymobiledevice3
 httpcore==1.0.5
     # via httpx
-httpretty==1.1.4
-    # via uiautodev
 httptools==0.6.1
     # via uvicorn
 httpx==0.27.0
@@ -318,14 +222,9 @@ httpx==0.27.0
     # via gradio-client
     # via jupyterlab
     # via try-pygwalker
-    # via uiautodev
-huggingface-hub==0.23.3
+huggingface-hub==0.23.4
     # via gradio
     # via gradio-client
-humanfriendly==10.0
-    # via coloredlogs
-hyperframe==6.0.1
-    # via pymobiledevice3
 idna==3.7
     # via anyio
     # via email-validator
@@ -333,38 +232,20 @@ idna==3.7
     # via jsonschema
     # via requests
     # via yarl
-ifaddr==0.2.0
-    # via pymobiledevice3
-    # via zeroconf
-imageio==2.34.1
-    # via tidevice3
-imageio-ffmpeg==0.5.1
-    # via imageio
 importlib-resources==6.4.0
     # via gradio
     # via wasmtime
-inquirer3==0.6.0
-    # via pymobiledevice3
-installer==0.7.0
-    # via poetry
-ipsw-parser==1.2.3
-    # via pymobiledevice3
 ipykernel==6.29.4
     # via jupyterlab
 ipython==8.25.0
     # via ipykernel
     # via ipywidgets
     # via pygwalker
-    # via pymobiledevice3
     # via try-ccxt
 ipywidgets==8.1.3
     # via pygwalker
 isoduration==20.11.0
     # via jsonschema
-itsdangerous==2.2.0
-    # via fastapi
-jaraco-classes==3.4.0
-    # via keyring
 jedi==0.19.1
     # via ipython
 jinja2==3.1.4
@@ -380,7 +261,7 @@ jinja2==3.1.4
     # via spacy
 json5==0.9.25
     # via jupyterlab-server
-jsonpointer==2.4
+jsonpointer==3.0.0
     # via jsonschema
 jsonschema==4.22.0
     # via altair
@@ -413,7 +294,7 @@ jupyter-server==2.14.1
     # via notebook-shim
 jupyter-server-terminals==0.5.3
     # via jupyter-server
-jupyterlab==4.2.1
+jupyterlab==4.2.2
     # via notebook
     # via try-ccxt
 jupyterlab-pygments==0.3.0
@@ -425,27 +306,16 @@ jupyterlab-widgets==3.0.11
     # via ipywidgets
 kanaries-track==0.0.5
     # via pygwalker
-keyring==24.3.1
-    # via poetry
 kiwisolver==1.4.5
     # via matplotlib
-la-panic==0.4.9
-    # via pycrashreport
 langcodes==3.4.0
     # via spacy
 language-data==1.2.0
     # via langcodes
 loguru==0.7.2
-    # via apple-compress
     # via try-ccxt
     # via try-gemini
     # via try-pygwalker
-logzero==1.7.0
-    # via tidevice
-    # via weditor
-lxml==5.2.2
-    # via uiautodev
-    # via uiautomator2
 marisa-trie==1.2.0
     # via language-data
 markdown-it-py==3.0.0
@@ -468,12 +338,8 @@ mistune==3.0.2
     # via nbconvert
 monotonic==1.6
     # via segment-analytics-python
-more-itertools==10.2.0
-    # via jaraco-classes
 mplfinance==0.12.10b0
     # via try-ccxt
-msgpack==1.0.8
-    # via cachecontrol
 multidict==6.0.5
     # via aiohttp
     # via yarl
@@ -491,8 +357,7 @@ nbformat==5.10.4
     # via nbconvert
 nest-asyncio==1.6.0
     # via ipykernel
-    # via pymobiledevice3
-notebook==7.2.0
+notebook==7.2.1
     # via try-ccxt
 notebook-shim==0.2.4
     # via jupyterlab
@@ -502,7 +367,6 @@ numpy==1.26.4
     # via blis
     # via contourpy
     # via gradio
-    # via imageio
     # via matplotlib
     # via pandas
     # via pyarrow
@@ -513,18 +377,13 @@ numpy==1.26.4
     # via streamlit
     # via thinc
     # via thinc-apple-ops
-    # via tidevice3
-opack==0.1.0
-    # via pymobiledevice3
-orjson==3.10.3
+orjson==3.10.5
     # via fastapi
     # via gradio
 overrides==7.7.0
     # via jupyter-server
-packaging==24.0
+packaging==24.1
     # via altair
-    # via build
-    # via deprecation
     # via google-cloud-aiplatform
     # via google-cloud-bigquery
     # via gradio
@@ -537,13 +396,10 @@ packaging==24.0
     # via matplotlib
     # via nbconvert
     # via plotly
-    # via poetry
     # via pygwalker
-    # via pymobiledevice3
     # via spacy
     # via streamlit
     # via thinc
-    # via tidevice
     # via weasel
 pandas==2.2.2
     # via altair
@@ -555,55 +411,27 @@ pandas==2.2.2
     # via try-ccxt
 pandocfilters==1.5.1
     # via nbconvert
-parameter-decorators==0.0.2
-    # via pymobiledevice3
 parso==0.8.4
     # via jedi
 peewee==3.17.5
     # via try-ccxt
 pexpect==4.9.0
     # via ipython
-    # via poetry
 pillow==10.3.0
-    # via adbutils
-    # via facebook-wda
     # via gradio
-    # via imageio
     # via matplotlib
-    # via pymobiledevice3
     # via streamlit
-    # via tidevice
-    # via tidevice3
-    # via uiautodev
-    # via uiautomator2
-    # via wdapy
-    # via weditor
-pkginfo==1.11.0
-    # via poetry
 platformdirs==4.2.2
     # via jupyter-core
-    # via poetry
-    # via virtualenv
 plotly==5.22.0
     # via try-ccxt
-plumbum==1.8.3
-    # via ipsw-parser
-poetry==1.8.3
-    # via poetry-plugin-export
-    # via uiautodev
-poetry-core==1.9.0
-    # via poetry
-    # via poetry-plugin-export
-poetry-plugin-export==1.8.0
-    # via poetry
 preshed==3.0.9
     # via spacy
     # via thinc
 prometheus-client==0.20.0
     # via jupyter-server
-prompt-toolkit==3.0.46
+prompt-toolkit==3.0.47
     # via ipython
-    # via pymobiledevice3
 proto-plus==1.23.0
     # via google-ai-generativelanguage
     # via google-api-core
@@ -621,85 +449,48 @@ protobuf==4.25.3
     # via proto-plus
     # via streamlit
 psutil==5.9.8
-    # via imageio
     # via ipykernel
     # via pygwalker
-    # via pymobiledevice3
 ptyprocess==0.7.0
     # via pexpect
     # via terminado
 pure-eval==0.2.2
     # via stack-data
-py==1.11.0
-    # via retry
 pyarrow==16.1.0
     # via pygwalker
     # via streamlit
 pyasn1==0.6.0
     # via pyasn1-modules
     # via rsa
-    # via tidevice
 pyasn1-modules==0.4.0
     # via google-auth
 pycares==4.4.0
     # via aiodns
 pycparser==2.22
     # via cffi
-pycrashreport==1.2.3
-    # via pymobiledevice3
-pycryptodome==3.20.0
-    # via pyimg4
-pydantic==2.7.3
+pydantic==2.7.4
     # via confection
     # via fastapi
     # via google-cloud-aiplatform
     # via gradio
-    # via pydantic-extra-types
-    # via pydantic-settings
     # via pygwalker
     # via spacy
     # via thinc
-    # via tidevice3
-    # via uiautodev
     # via weasel
 pydantic-core==2.18.4
     # via pydantic
-pydantic-extra-types==2.8.2
-    # via fastapi
-pydantic-settings==2.3.3
-    # via fastapi
 pydeck==0.9.1
     # via streamlit
 pydub==0.25.1
     # via gradio
-pyelftools==0.31
-    # via apkutils2
 pygments==2.18.0
     # via ipython
     # via nbconvert
-    # via pykdebugparser
-    # via pymobiledevice3
     # via rich
-    # via uiautodev
-pygnuutils==0.1.1
-    # via pymobiledevice3
 pygwalker==0.4.8.9
     # via try-pygwalker
-pyimg4==0.8.5
-    # via ipsw-parser
-pykdebugparser==1.2.4
-    # via pymobiledevice3
-pylzss==0.3.8
-    # via pyimg4
-pymobiledevice3==4.9.5
-    # via tidevice3
-pyopenssl==24.1.0
-    # via tidevice
 pyparsing==3.1.2
     # via matplotlib
-pyproject-hooks==1.1.0
-    # via build
-    # via poetry
 python-dateutil==2.9.0.post0
     # via arrow
     # via dateutils
@@ -709,25 +500,17 @@ python-dateutil==2.9.0.post0
     # via pandas
     # via segment-analytics-python
 python-dotenv==1.0.1
-    # via pydantic-settings
     # via uvicorn
 python-json-logger==2.0.7
     # via jupyter-events
 python-multipart==0.0.9
     # via fastapi
     # via gradio
-python-pcapng==2.1.1
-    # via pymobiledevice3
-pytun-pmd3==2.0.8
-    # via pymobiledevice3
 pytz==2024.1
     # via dateutils
     # via pandas
     # via pygwalker
-pyusb==1.2.1
-    # via pymobiledevice3
 pyyaml==6.0.1
-    # via fastapi
     # via gradio
     # via huggingface-hub
     # via jupyter-events
@@ -736,50 +519,23 @@ pyzmq==26.0.3
     # via ipykernel
     # via jupyter-client
     # via jupyter-server
-qh3==1.0.8
-    # via pymobiledevice3
-rapidfuzz==3.9.3
-    # via cleo
-readchar==4.1.0
-    # via inquirer3
 referencing==0.35.1
     # via jsonschema
     # via jsonschema-specifications
     # via jupyter-events
-remotezip==0.12.3
-    # via pymobiledevice3
 requests==2.32.3
-    # via adbutils
-    # via cachecontrol
     # via ccxt
-    # via developer-disk-image
-    # via facebook-wda
     # via google-api-core
     # via google-cloud-bigquery
     # via google-cloud-storage
     # via huggingface-hub
     # via jupyterlab-server
     # via kanaries-track
-    # via poetry
     # via pygwalker
-    # via pymobiledevice3
-    # via remotezip
-    # via requests-toolbelt
     # via segment-analytics-python
     # via spacy
     # via streamlit
-    # via tidevice
-    # via tidevice3
-    # via uiautomator2
     # via weasel
-requests-toolbelt==1.0.0
-    # via poetry
-retry==0.9.2
-    # via adbutils
-    # via facebook-wda
-    # via tidevice
-    # via uiautomator2
-    # via wdapy
 rfc3339-validator==0.1.4
     # via jsonschema
     # via jupyter-events
@@ -794,10 +550,8 @@ rpds-py==0.18.1
     # via referencing
 rsa==4.9
     # via google-auth
-ruff==0.4.8
+ruff==0.4.9
     # via gradio
-runs==1.2.2
-    # via editor
 seaborn==0.13.2
     # via try-ccxt
 segment-analytics-python==2.2.3
@@ -808,28 +562,19 @@ send2trash==1.8.3
     # via jupyter-server
 setuptools==70.0.0
     # via ccxt
-    # via imageio-ffmpeg
+    # via jupyterlab
     # via marisa-trie
     # via spacy
     # via thinc
 shapely==2.0.4
     # via google-cloud-aiplatform
 shellingham==1.5.4
-    # via poetry
     # via typer
-simple-tornado==0.2.2
-    # via tidevice
-simplejson==3.19.2
-    # via tidevice
 six==1.16.0
     # via asttokens
     # via bleach
-    # via blessed
-    # via facebook-wda
     # via python-dateutil
     # via rfc3339-validator
-    # via srptools
-    # via weditor
 smart-open==7.0.4
     # via weasel
 smmap==5.0.1
@@ -849,31 +594,22 @@ spacy-loggers==1.0.5
     # via spacy
 sqlalchemy==2.0.30
     # via pygwalker
-sqlglot==25.0.2
+sqlglot==25.1.0
     # via pygwalker
-srptools==1.0.1
-    # via pymobiledevice3
 srsly==2.4.8
     # via confection
     # via spacy
     # via thinc
     # via weasel
-sslpsk-pmd3==1.0.3
-    # via pymobiledevice3
 stack-data==0.6.3
     # via ipython
 starlette==0.37.2
     # via fastapi
-    # via pymobiledevice3
 streamlit==1.35.0
     # via try-pygwalker
-tabulate==0.9.0
-    # via tidevice
 tenacity==8.3.0
     # via plotly
     # via streamlit
-termcolor==2.4.0
-    # via pykdebugparser
 terminado==0.18.1
     # via jupyter-server
     # via jupyter-server-terminals
@@ -882,34 +618,25 @@ thinc==8.2.4
     # via thinc-apple-ops
 thinc-apple-ops==0.1.5
     # via spacy
-tidevice==0.12.10
-    # via try-tidevice
-tidevice3==0.11.3
-    # via try-tidevice
 tinycss2==1.3.0
     # via nbconvert
 toml==0.10.2
     # via streamlit
 tomlkit==0.12.0
     # via gradio
-    # via poetry
 toolz==0.12.1
     # via altair
-tornado==6.4
+tornado==6.4.1
     # via ipykernel
     # via jupyter-client
     # via jupyter-server
     # via jupyterlab
     # via notebook
-    # via simple-tornado
     # via streamlit
     # via terminado
-    # via tidevice
-    # via weditor
 tqdm==4.66.4
     # via google-generativeai
     # via huggingface-hub
-    # via pymobiledevice3
     # via spacy
 traitlets==5.14.3
     # via comm
@@ -925,8 +652,6 @@ traitlets==5.14.3
     # via nbclient
     # via nbconvert
     # via nbformat
-trove-classifiers==2024.5.22
-    # via poetry
 typer==0.12.3
     # via fastapi-cli
     # via gradio
@@ -937,7 +662,7 @@ typer==0.12.3
     # via weasel
 types-python-dateutil==2.9.0.20240316
     # via arrow
-typing-extensions==4.12.1
+typing-extensions==4.12.2
     # via ccxt
     # via fastapi
     # via google-generativeai
@@ -952,30 +677,18 @@ typing-extensions==4.12.1
     # via typer
 tzdata==2024.1
     # via pandas
-uiautodev==0.4.0
-    # via try-uiautodev
-uiautomator2==3.1.0
-    # via try-uiautomator2
-    # via try-weditor
-    # via uiautodev
-    # via weditor
 ujson==5.10.0
     # via fastapi
 uri-template==1.3.0
     # via jsonschema
 urllib3==2.2.1
-    # via dulwich
     # via gradio
     # via requests
 uvicorn==0.30.1
     # via fastapi
     # via gradio
-    # via pymobiledevice3
-    # via uiautodev
 uvloop==0.19.0
     # via uvicorn
-virtualenv==20.26.2
-    # via poetry
 wasabi==1.1.3
     # via spacy
     # via thinc
@@ -985,10 +698,7 @@ wasmtime==21.0.0
 watchfiles==0.22.0
     # via uvicorn
 wcwidth==0.2.13
-    # via blessed
     # via prompt-toolkit
-wdapy==0.2.3
-    # via uiautodev
 weasel==0.4.1
     # via spacy
 webcolors==24.6.0
@@ -1001,27 +711,10 @@ websocket-client==1.8.0
 websockets==11.0.3
     # via gradio-client
     # via uvicorn
-weditor==0.7.3
-    # via try-weditor
 widgetsnbextension==4.0.11
     # via ipywidgets
 wrapt==1.16.0
-    # via deprecated
     # via smart-open
-wsproto==1.2.0
-    # via pymobiledevice3
-xattr==1.1.0
-    # via poetry
-xmltodict==0.13.0
-    # via apkutils2
-xmod==1.8.1
-    # via editor
-    # via runs
-xonsh==0.16.0
-    # via pymobiledevice3
 yarl==1.9.4
     # via aiohttp
     # via ccxt
-zeroconf==0.132.2
-    # via pymobiledevice3
-    # via tidevice3

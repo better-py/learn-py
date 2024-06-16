@@ -1,10 +1,18 @@
+[project]
+name = "try-pywry"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "Henry.Huang", email = "hhglory@outlook.com" }
+]
+
 [tool.poetry]
 name = "try-pywry"
 version = "0.1.0"
 description = ""
 authors = ["Henry.Huang <hhglory@outlook.com>"]
 readme = "README.md"
-packages = [{include = "try_pywry", from = "src"}]
+packages = [{ include = "try_pywry", from = "src" }]
 
 [tool.poetry.dependencies]
 python = "^3.10"

@@ -1,13 +1,22 @@
+[project]
+name = "try-django"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "Henry.Huang", email = "hhglory@outlook.com" }
+]
+
+
 [tool.poetry]
 name = "try-django"
 version = "0.1.0"
 description = ""
 authors = ["Henry.Huang <hhglory@outlook.com>"]
 readme = "README.md"
-packages = [{include = ".", from = "src"}]
+packages = [{ include = ".", from = "src" }]
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.12"
 django = "^5.0"
 djangorestframework = "^3.14.0"
 django-cors-headers = "^4.3.1"
