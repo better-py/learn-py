@@ -65,6 +65,10 @@ tasks:
       - |
         uiauto.dev # source .venv/bin/activate.fish
 
+  start:appium:
+    cmds:
+      - appium
+
   android:devices:
     aliases: [ 'devices', "adb", "adb:d" ]
     cmds:
@@ -93,9 +97,26 @@ tasks:
       - tidevice version
 
   install:driver:
-    aliases: [ 'i:d' ]
     cmds:
       - mkdir -p tmp/
       - git clone https://github.com/appium/WebDriverAgent tmp/WebDriverAgent
       - ./tmp/WebDriverAgent/Scripts/build.sh
     ignore_error: true
+
+
+  #
+  # https://appium.io/docs/en/latest/ecosystem/drivers/
+  #
+  appium:install:driver:
+    aliases: [ 'i:d' ]
+    cmds:
+      - appium driver install xcuitest # iOS(Native, Hybrid, Web)
+      - appium driver install mac2 # Mac(Native)
+      - appium driver install uiautomator2 # Android(Native, Hybrid, Web)
+      - appium driver list
+    ignore_error: true
+
+
+  driver:list:
+    cmds:
+      - appium driver list

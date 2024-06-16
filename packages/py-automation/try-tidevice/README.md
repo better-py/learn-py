@@ -59,4 +59,11 @@ iOS 16的手机需要手工开启开发者选项。
 
 > docs:
 
+- https://appium.io/docs/en/latest/quickstart/install/
+    - [安装 driver](https://appium.io/docs/en/latest/ecosystem/drivers/)
 - [iOS 真机如何安装 WebDriverAgent](https://testerhome.com/topics/7220)
+
+> appium drivers:
+
+- https://github.com/appium/appium-mac2-driver
+- https://github.com/appium/appium-xcuitest-driver
