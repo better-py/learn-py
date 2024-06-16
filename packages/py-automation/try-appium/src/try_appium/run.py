@@ -1,4 +1,7 @@
+import time
+
 from appium import webdriver
+from appium.options.android import UiAutomator2Options
 
 
 def main():
@@ -10,7 +13,7 @@ def main():
     appID = "cn.damai.iphone"
 
     # 配置 Appium 服务器和 iOS 设备的能力
-    desired_caps = {
+    capabilities = {
         'platformName': 'iOS',
         'platformVersion': '15.8.2',  # 你的设备的 iOS 版本
         'deviceName': 'iPhone 7',  # 你的设备名称
@@ -21,10 +24,10 @@ def main():
     }
 
     # 创建 WebDriver 实例
-    driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
+    driver = webdriver.Remote(appium_server_url, options=UiAutomator2Options().load_capabilities(capabilities))
 
     # 等待应用启动
-    time.sleep(5)
+    time.sleep(1)
 
     # 示例操作：打印当前应用的页面源代码
     page_source = driver.page_source
