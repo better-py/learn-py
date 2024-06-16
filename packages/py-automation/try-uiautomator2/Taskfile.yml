@@ -1,0 +1,57 @@
+version: "3"
+
+
+#
+# global vars: https://taskfile.dev/#/usage?id=variables
+#
+vars:
+  VAR1: "some-var"
+
+# global env:
+env:
+  ENV1: testing
+
+################################################################################################
+
+
+tasks:
+  install:
+    aliases: [ 'i' ]
+    cmds:
+      - rye install weditor
+      - rye sync --no-lock
+
+  rye:
+    cmds:
+      - rye {{.CLI_ARGS}} # install, update
+
+  add:
+    aliases: [ 'a' ]
+    cmds:
+      - rye add {{.CLI_ARGS}}  # --dev
+
+  add:dev:
+    aliases: [ 'ad' ]
+    cmds:
+      - rye add --dev {{.CLI_ARGS}}  # --dev
+
+  add:all:
+    aliases: [ 'aa' ]
+    cmds:
+      #      - rye add weditor
+      - rye add uiautomator2
+
+  run:
+    aliases: [ 'r' ]
+    cmds:
+      - python src/try_uiautomator2/run.py
+
+  tool:
+    cmds:
+      - |
+        weditor # source .venv/bin/activate.fish
+
+  android:devices:
+    aliases: [ 'devices', "adb" ]
+    cmds:
+      - adb devices -l

@@ -13,6 +13,7 @@
 -e file:packages/py-ai/try-gemini
 -e file:packages/py-ai/try-spacy
 -e file:packages/py-automation/try-uiautodev
+-e file:packages/py-automation/try-uiautomator2
 -e file:packages/py-automation/try-weditor
 -e file:packages/py-data/try-pandas
 -e file:packages/py-data/try-pygwalker
@@ -798,6 +799,7 @@ tzdata==2024.1
 uiautodev==0.4.0
     # via try-uiautodev
 uiautomator2==3.1.0
+    # via try-uiautomator2
     # via try-weditor
     # via uiautodev
     # via weditor

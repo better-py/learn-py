@@ -7,6 +7,12 @@ includes:
     dir: try-weditor/
     optional: true
 
+  uiautomator2:
+    aliases: [ "ua2" ]
+    taskfile: try-uiautomator2/
+    dir: try-uiautomator2/
+    optional: true
+
   uiautodev:
     aliases: [ "uiauto", "ua" ]
     taskfile: try-uiautodev/
