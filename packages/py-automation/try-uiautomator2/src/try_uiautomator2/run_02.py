@@ -1,4 +1,5 @@
 import os
+import random
 import time
 
 import uiautomator2 as u2
@@ -63,12 +64,13 @@ def search_star(d, star="周杰伦", city="南京"):
     search_editId = "cn.damai:id/channel_search_text"
     search_btnId = "cn.damai:id/homepage_header_search_btn"
     search_inputId = "cn.damai:id/header_search_v2_input"
-    search_resultId = "cn.damai:id/tv_word"
+    search_keywordId = "cn.damai:id/tv_word"  # 搜索关键词
+    search_resultId = "cn.damai:id/tv_project_name"  # 搜索匹配结果列表
 
     # open search view
     d(resourceId=search_btnId).click()
     # 等待搜索框出现
-    d(resourceId=search_inputId).wait(timeout=1)
+    d(resourceId=search_inputId).wait(timeout=1)  # todo x: 必须加等待
 
     # 输入搜索关键词“周杰伦”
     search_input = d(resourceId=search_inputId)
@@ -77,13 +79,44 @@ def search_star(d, star="周杰伦", city="南京"):
     time.sleep(1)  # wait 1s
 
     # 遍历搜索结果列表
-    results = d(resourceId=search_resultId)
-    print(f"Search result: {results.count}")
-    for item in results:
-        print(f"search result: {item}, {item.info}")
-
+    ret_keyword = d(resourceId=search_keywordId)
+    print(f"Search keyword count: {ret_keyword.count}")
+    for item in ret_keyword:
+        # print(f"search result: {item}, {item.info}")
         if item.info['text'] == star:
             item.click()
+            break
+
+    #
+    # 匹配演唱会结果: (明星+城市)
+    #
+    d(resourceId=search_resultId).wait(timeout=1)  # todo x: 必须加等待
+    ret = d(resourceId=search_resultId)
+    print(f"Search result count: {ret.count}")
+    for item in ret:
+        print(f"search result: {item.info['text']}")
+        if star in item.info['text'] and city in item.info['text']:
+            print(f"匹配到演唱会: {item.info['text']}, bounds: {item.info['bounds']}")
+
+            # 获取目标组件的父组件
+            # p = item.parent()
+            p = item
+
+            # 获取父组件的 bounds
+            bounds = p.info['bounds']
+            left = bounds['left']
+            top = bounds['top']
+            right = bounds['right']
+            bottom = bounds['bottom']
+            x_half = (left - right) / 2  # 增加一点偏移, 避开左边的场地信息, 防止误触
+
+            # 计算随机点击位置
+            random_x = random.randint(left, right)
+            random_y = random.randint(top, bottom)
+
+            print(f"演唱会随机点击坐标: {random_x}, {random_y}")
+            # 在随机位置点击
+            d.click(random_x, random_y)
             break
 
 
