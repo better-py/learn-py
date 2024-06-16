@@ -85,7 +85,7 @@ tasks:
   install:rye:
     aliases: [ 'i:rye' ]
     cmds:
-      - curl -sSf https://rye-up.com/get | bash  # set shell env: export PATH="$HOME/.rye/bin:$PATH"
+      - curl -sSf https://rye.astral.sh/get | bash # set shell env: export PATH="$HOME/.rye/bin:$PATH"
       - rye --version
 
   fix:fish:rye:

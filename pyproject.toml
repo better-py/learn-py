@@ -27,14 +27,14 @@ packages = ["src/learn_py"]
 
 
 #
-# workspace
+# todo x: workspace, 目前还不适合使用, 容易出现版本冲突.
 #
-[tool.rye.workspace]
-members = [
-    #    "packages/py-try/try-*",
-    "packages/py-quant/try-*",
-    "packages/py-data/try-*",
-    "packages/py-ai/try-*",
-    #    "packages/py-automation/try-*",
-]
-
+#[tool.rye.workspace]
+#members = [
+#    #    "packages/py-try/try-*",
+#    "packages/py-quant/try-*",
+#    "packages/py-data/try-*",
+#    "packages/py-ai/try-*",
+#    "packages/py-automation/try-*",
+#]
+#

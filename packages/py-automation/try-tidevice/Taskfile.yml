@@ -44,13 +44,19 @@ tasks:
     aliases: [ 'aa' ]
     cmds:
       #      - rye add weditor
-      - rye add "uiautodev<=0.3.7" # fix version
+      #      - rye add "uiautodev<=0.3.7" # fix version
       - rye add "tidevice[openssl]==0.12.9"
       - rye add facebook-wda
       - rye add tidevice3
-      - rye add "poetry<=1.8.2" # todo x: fix for openssl bug
+  #      - rye add "poetry<=1.8.2" # todo x: fix for openssl bug
   #      - rye add urllib3==1.21.1 # todo x: fix openssl bug
 
+
+  poetry:
+    cmds:
+      - poetry add "tidevice[openssl]==0.12.9"
+      - poetry add facebook-wda
+      - poetry add tidevice3
 
   run:
     aliases: [ 'r' ]

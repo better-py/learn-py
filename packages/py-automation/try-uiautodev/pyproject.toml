@@ -6,7 +6,7 @@ authors = [
     { name = "Henry.Huang", email = "hhglory@outlook.com" }
 ]
 dependencies = [
-    "uiautodev<=0.3.7", # todo x: fix for wda / openssl errors
+    #    "uiautodev<=0.3.7", # todo x: fix for wda / openssl errors
 ]
 readme = "README.md"
 requires-python = ">= 3.12"
