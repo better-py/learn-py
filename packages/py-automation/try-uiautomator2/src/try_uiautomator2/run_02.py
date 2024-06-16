@@ -24,6 +24,69 @@ def task(appName):
     print(f"current: {ret}")
 
 
+def buy_damai_ticket(d):
+    #
+    #
+    #
+    app_package = 'cn.damai'
+    app_activity = app_package + ".homepage.MainActivity"
+    search_editId = "cn.damai:id/channel_search_text"
+    search_btnId = "cn.damai:id/homepage_header_search_btn"
+    search_inputId = "cn.damai:id/header_search_v2_input"
+    search_resultId = "cn.damai:id/tv_word"
+
+    #
+    #
+    #
+    star = "周杰伦"
+    city = "南京"
+
+    # 打开 app:
+    open_damai(d)
+
+    # 搜索 明星 + 城市
+    search_star(d, star=star, city=city)
+
+
+def open_damai(d):
+    app_package = 'cn.damai'
+    app_activity = app_package + ".homepage.MainActivity"
+
+    # 启动大麦 app
+    d.app_start(app_package, app_activity)
+
+    # 等待 app 启动完成
+    d.wait_activity(app_activity, timeout=1)
+
+
+def search_star(d, star="周杰伦", city="南京"):
+    search_editId = "cn.damai:id/channel_search_text"
+    search_btnId = "cn.damai:id/homepage_header_search_btn"
+    search_inputId = "cn.damai:id/header_search_v2_input"
+    search_resultId = "cn.damai:id/tv_word"
+
+    # open search view
+    d(resourceId=search_btnId).click()
+    # 等待搜索框出现
+    d(resourceId=search_inputId).wait(timeout=1)
+
+    # 输入搜索关键词“周杰伦”
+    search_input = d(resourceId=search_inputId)
+    search_input.send_keys(star)
+
+    time.sleep(1)  # wait 1s
+
+    # 遍历搜索结果列表
+    results = d(resourceId=search_resultId)
+    print(f"Search result: {results.count}")
+    for item in results:
+        print(f"search result: {item}, {item.info}")
+
+        if item.info['text'] == star:
+            item.click()
+            break
+
+
 def main():
     # set env
     os.environ["ANDROID_SERIAL"] = deviceID
@@ -41,54 +104,15 @@ def main():
     # print(f"start app: {appID}, {app.app_info(appID)}")
 
     #
+    # do task:
     #
-    #
-    app_package = 'cn.damai'
-    app_activity = app_package + ".homepage.MainActivity"
-    search_editId = "cn.damai:id/channel_search_text"
-    search_btnId = "cn.damai:id/homepage_header_search_btn"
-    search_inputId = "cn.damai:id/header_search_v2_input"
-    search_resultId = "cn.damai:id/tv_word"
-
-    #
-    #
-    #
-
-    # 启动大麦 app
-    d.app_start(app_package, app_activity)
-
-    # 等待 app 启动完成
-    d.wait_activity(app_activity, timeout=1)
-
-    # open search view
-    d(resourceId=search_btnId).click()
-    # 等待搜索框出现
-    d(resourceId=search_inputId).wait(timeout=1)
-    # 输入搜索关键词“周杰伦”
-    search_input = d(resourceId=search_inputId)
-    search_input.send_keys("周杰伦")
-
-    time.sleep(1)  # wait 1s
-
-    # 遍历搜索结果列表
-    results = d(resourceId=search_resultId)
-    print(f"Search result: {results.count}")
-    for item in results:
-        print(f"search result: {item}")
-
-        if item.info['text'] == "周杰伦":
-            item.click()
-            break
+    buy_damai_ticket(d)
 
     # 等待搜索结果加载
     time.sleep(5)
 
     # 关闭大麦 app
     # d.app_stop(app_package)
-
-    #
-    # do task:
-    #
 
 
 if __name__ == '__main__':
