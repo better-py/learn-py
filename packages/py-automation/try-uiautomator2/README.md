@@ -1,6 +1,6 @@
 # try-uiautomator2
 
-Describe your project here.
+- android 自动化控制方案
 
 ## Quickstart
 
