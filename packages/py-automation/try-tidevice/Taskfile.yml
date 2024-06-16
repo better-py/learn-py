@@ -157,11 +157,12 @@ tasks:
 
   xcuitest:
     cmds:
-      - tidevice xcuitest -B com.facebook.IntegrationAppTba
+      - tidevice xcuitest -B com.facebook.IntegrationAppTba -e USE_PORT:8200 --debug
+
 
   relay:
     cmds:
-      - tidevice relay -x 8100 8100
+      - tidevice relay -x 8200 8200
 
 
   pair:

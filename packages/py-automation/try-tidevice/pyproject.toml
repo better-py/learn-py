@@ -39,6 +39,7 @@ python = "^3.10"
 tidevice = {version = "0.12.9", extras = ["openssl"]}
 facebook-wda = "^1.4.7"
 pyopenssl = "23.1.1"
+pysocks = "^1.7.1"
 
 
 
