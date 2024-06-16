@@ -67,3 +67,12 @@ iOS 16的手机需要手工开启开发者选项。
 
 - https://github.com/appium/appium-mac2-driver
 - https://github.com/appium/appium-xcuitest-driver
+
+## fix errors
+
+### tidevice pair
+
+- https://github.com/JinjunHan/iOSDeviceSupport/issues/14
+- https://github.com/iGhibli/iOS-DeviceSupport
+
+

@@ -54,13 +54,17 @@ tasks:
   #      - rye add "poetry<=1.8.2" # todo x: fix for openssl bug
 
 
-  poetry:
+  poetry:add:
     cmds:
       - poetry add "tidevice[openssl]==0.12.9"
       #      - poetry add "tidevice==0.12.9"
       - poetry add facebook-wda
       #      - poetry add tidevice3
       - poetry add "pyopenssl==23.1.1"
+
+  poetry:
+    cmds:
+      - poetry {{.CLI_ARGS}}
 
   run:
     aliases: [ 'r' ]
