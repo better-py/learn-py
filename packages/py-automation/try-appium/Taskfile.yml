@@ -1,0 +1,166 @@
+version: "3"
+
+
+#
+# global vars: https://taskfile.dev/#/usage?id=variables
+#
+vars:
+  VAR1: "some-var"
+
+# global env:
+env:
+  ENV1: testing
+
+################################################################################################
+
+
+tasks:
+  setup:
+    cmds:
+      - npm install -g appium
+      - appium setup
+
+  install:
+    aliases: [ 'i' ]
+    cmds:
+      - rye install weditor
+      - rye sync --no-lock
+
+  rye:
+    cmds:
+      - rye {{.CLI_ARGS}} # install, update
+
+  add:
+    aliases: [ 'a' ]
+    cmds:
+      - rye add {{.CLI_ARGS}}  # --dev
+
+  add:dev:
+    aliases: [ 'ad' ]
+    cmds:
+      - rye add --dev {{.CLI_ARGS}}  # --dev
+
+  add:all:
+    aliases: [ 'aa' ]
+    cmds:
+      #      - rye add weditor
+      #      - rye add "uiautodev<=0.3.7" # fix version
+      #      - rye add "tidevice[openssl]==0.12.9"
+      - poetry add Appium-Python-Client
+
+
+  poetry:add:
+    cmds:
+      - poetry add "tidevice[openssl]==0.12.9"
+      #      - poetry add "tidevice==0.12.9"
+      - poetry add facebook-wda
+      #      - poetry add tidevice3
+      - poetry add "pyopenssl==23.1.1"
+
+  poetry:
+    cmds:
+      - poetry {{.CLI_ARGS}}
+
+  run:
+    aliases: [ 'r' ]
+    cmds:
+      - which python
+      - python src/try_appium/run.py
+
+  run2:
+    aliases: [ 'r2' ]
+    cmds:
+      - which python
+      - python src/try_appium/run_02.py
+
+  tool:
+    cmds:
+      - |
+        uiauto.dev # source .venv/bin/activate.fish
+
+  start:appium:
+    cmds:
+      - appium
+
+  android:devices:
+    aliases: [ 'devices', "adb", "adb:d" ]
+    cmds:
+      - adb devices -l
+
+  android:packages:
+    aliases: [ 'packages', 'adb:p' ]
+    cmds:
+      - adb shell pm list packages # 所有包
+      - adb shell pm list packages -3 # 第三方包
+
+  ios:devices:
+    aliases: [ 'ios:d' ]
+    cmds:
+      - tidevice list
+      - tidevice list --json
+      - tidevice info
+
+  ios:packages:
+    aliases: [ 'ios:p' ]
+    cmds:
+      - tidevice applist
+
+  check:
+    aliases: [ 'env', 'doctor' ]
+    cmds:
+      - tidevice version
+
+  install:driver:
+    cmds:
+      - mkdir -p tmp/
+      - git clone https://github.com/appium/WebDriverAgent tmp/WebDriverAgent
+      - ./tmp/WebDriverAgent/Scripts/build.sh
+    ignore_error: true
+
+
+  #
+  # todo x: 需要使用 xcode 编译, 在设置里, 更改 Product Bundle Identifier
+  #
+  ios:driver:build:
+    aliases: [ "ios:b" ]
+    cmds:
+      - npm i
+      - npm run bundle # todo x: 默认构建的是 iOS 模拟器版本
+      - open .
+    dir: tmp/WebDriverAgent
+
+  #
+  # https://appium.io/docs/en/latest/ecosystem/drivers/
+  #
+  appium:install:driver:
+    aliases: [ 'i:d' ]
+    cmds:
+      - appium driver install xcuitest # iOS(Native, Hybrid, Web)
+      - appium driver install mac2 # Mac(Native)
+      - appium driver install uiautomator2 # Android(Native, Hybrid, Web)
+      - appium driver list
+    ignore_error: true
+
+
+  driver:list:
+    cmds:
+      - appium driver list
+
+  proxy:
+    cmds:
+      - tidevice wdaproxy -B com.facebook.IntegrationAppTba --port 8200 # todo x: 源码报错, 2处 assert 要注释掉
+
+  xcuitest:
+    cmds:
+      - tidevice xcuitest -B com.facebook.IntegrationAppTba -e USE_PORT:8200 --debug
+
+
+  relay:
+    cmds:
+      - tidevice relay -x 8200 8200
+
+
+  pair:
+    cmds:
+      - which tidevice
+      - tidevice pair

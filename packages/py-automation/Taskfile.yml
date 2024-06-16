@@ -1,6 +1,12 @@
 version: "3"
 
 includes:
+  appium:
+    aliases: [ "ap" ]
+    taskfile: try-appium/
+    dir: try-appium/
+    optional: true
+
   tidevice:
     aliases: [ "td" ]
     taskfile: try-tidevice/

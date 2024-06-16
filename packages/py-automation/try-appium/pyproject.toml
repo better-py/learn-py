@@ -7,11 +7,11 @@ authors = [
 ]
 dependencies = []
 readme = "README.md"
-requires-python = ">= 3.12"
+requires-python = ">= 3.10"
 
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+#[build-system]
+#requires = ["hatchling"]
+#build-backend = "hatchling.build"
 
 [tool.rye]
 managed = true
@@ -22,3 +22,22 @@ allow-direct-references = true
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/try_appium"]
+
+
+[tool.poetry]
+name = "try-appium"
+version = "0.1.0"
+description = ""
+authors = ["Henry.Huang <hhglory@outlook.com>"]
+readme = "README.md"
+packages = [{ include = "try_appium", from = "src" }]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+appium-python-client = "^4.0.0"
+
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
