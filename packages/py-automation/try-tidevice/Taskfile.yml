@@ -113,6 +113,7 @@ tasks:
     cmds:
       - npm i
       - npm run bundle # todo x: 默认构建的是 iOS 模拟器版本
+      - open .
     dir: tmp/WebDriverAgent
 
   #
