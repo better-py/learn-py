@@ -36,9 +36,10 @@ packages = [{ include = "try_tidevice", from = "src" }]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-tidevice = { version = "0.12.9", extras = ["openssl"] }
+tidevice = "0.12.9"
 facebook-wda = "^1.4.7"
-tidevice3 = "^0.11.3"
+pyopenssl = "23.1.1"
+
 
 
 [build-system]
