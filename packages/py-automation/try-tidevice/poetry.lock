@@ -443,6 +443,17 @@ files = [
 ]
 
 [[package]]
+name = "pyasn1"
+version = "0.6.0"
+description = "Pure-Python implementation of ASN.1 types and DER/BER/CER codecs (X.208)"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "pyasn1-0.6.0-py2.py3-none-any.whl", hash = "sha256:cca4bb0f2df5504f02f6f8a775b6e416ff9b0b3b16f7ee80b5a3153d9b804473"},
+    {file = "pyasn1-0.6.0.tar.gz", hash = "sha256:3a35ab2c4b5ef98e17dfdec8ab074046fbda76e281c5a706ccd82328cfc8f64c"},
+]
+
+[[package]]
 name = "pycparser"
 version = "2.22"
 description = "C parser in Python"
@@ -670,6 +681,8 @@ deprecation = "*"
 logzero = "*"
 packaging = "*"
 Pillow = "*"
+pyasn1 = {version = "*", optional = true, markers = "extra == \"openssl\""}
+pyOpenSSL = {version = "*", optional = true, markers = "extra == \"openssl\""}
 requests = "*"
 retry = "*"
 simple-tornado = ">=0.2.2"
@@ -799,4 +812,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "368b0d92137abf7f31dd15d6cb9f46fd3eb3774436fe1f3130d03720702a4d8a"
+content-hash = "9e27a67754e2930b064ffe6fe103ba1c03f599c977095ececf9167efd744065a"
