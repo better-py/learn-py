@@ -1,3 +1,5 @@
+import time
+
 from appium import webdriver
 from appium.options.android import UiAutomator2Options
 from appium.webdriver.common.appiumby import AppiumBy
@@ -24,14 +26,17 @@ def main():
         options=UiAutomator2Options().load_capabilities(capabilities),
     )
 
-    el = driver.find_element(by=AppiumBy.XPATH, value='//*[@text="Battery"]')
+    time.sleep(1)
+
+    el = driver.find_element(by=AppiumBy.XPATH, value='//*[@text="Display"]')
     el.click()
+
+    time.sleep(5)
 
     #
     #
     #
-    driver.quit()
-    pass
+    # driver.quit()
 
 
 if __name__ == '__main__':
