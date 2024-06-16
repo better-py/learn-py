@@ -16,7 +16,7 @@ def main():
     capabilities = {
         'platformName': 'iOS',
         'platformVersion': '15.8.2',  # 你的设备的 iOS 版本
-        'deviceName': 'iPhone 7',  # 你的设备名称
+        'deviceName': 'HH-iPhone7',  # 你的设备名称
         'udid': 'f9d3ab4de8ffbc4b188286a9623df43726d5495c',  # 你的设备 UDID
         'automationName': 'XCUITest',
         'bundleId': appID,  # 大麦 app 的 bundleId
