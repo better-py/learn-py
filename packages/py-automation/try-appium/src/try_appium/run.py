@@ -24,7 +24,10 @@ def main():
     }
 
     # 创建 WebDriver 实例
-    driver = webdriver.Remote(appium_server_url, options=UiAutomator2Options().load_capabilities(capabilities))
+    driver = webdriver.Remote(
+        appium_server_url,
+        options=UiAutomator2Options().load_capabilities(capabilities),
+    )
 
     # 等待应用启动
     time.sleep(1)
