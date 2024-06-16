@@ -4,6 +4,15 @@
 
 ## Quickstart
 
+- setup:
+
+```bash
+
+task auto:td:setup
+
+
+```
+
 ### Requirements
 
 - python3.8+
@@ -33,6 +42,9 @@ iOS 16的手机需要手工开启开发者选项。
 
 ```
 
+- 安装 WebDriverAgent
+    - https://github.com/appium/WebDriverAgent
+
 ## References
 
 > projects:
@@ -47,4 +59,4 @@ iOS 16的手机需要手工开启开发者选项。
 
 > docs:
 
-- https://testerhome.com/topics/7220
+- [iOS 真机如何安装 WebDriverAgent](https://testerhome.com/topics/7220)

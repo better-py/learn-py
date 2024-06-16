@@ -15,6 +15,11 @@ env:
 
 
 tasks:
+  setup:
+    cmds:
+      - npm install -g appium
+      - appium setup
+
   install:
     aliases: [ 'i' ]
     cmds:
@@ -86,3 +91,11 @@ tasks:
     aliases: [ 'env', 'doctor' ]
     cmds:
       - tidevice version
+
+  install:driver:
+    aliases: [ 'i:d' ]
+    cmds:
+      - mkdir -p tmp/
+      - git clone https://github.com/appium/WebDriverAgent tmp/WebDriverAgent
+      - ./tmp/WebDriverAgent/Scripts/build.sh
+    ignore_error: true
