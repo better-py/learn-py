@@ -1,0 +1,72 @@
+version: "3"
+
+
+#
+# global vars: https://taskfile.dev/#/usage?id=variables
+#
+vars:
+  VAR1: "some-var"
+
+# global env:
+env:
+  ENV1: testing
+
+################################################################################################
+
+
+tasks:
+  install:
+    aliases: [ 'i' ]
+    cmds:
+      - rye install weditor
+      - rye sync --no-lock
+
+  rye:
+    cmds:
+      - rye {{.CLI_ARGS}} # install, update
+
+  add:
+    aliases: [ 'a' ]
+    cmds:
+      - rye add {{.CLI_ARGS}}  # --dev
+
+  add:dev:
+    aliases: [ 'ad' ]
+    cmds:
+      - rye add --dev {{.CLI_ARGS}}  # --dev
+
+  add:all:
+    aliases: [ 'aa' ]
+    cmds:
+      #      - rye add weditor
+      - rye add "tidevice[openssl]"
+      - rye add facebook-wda
+      - rye add tidevice3
+
+  run:
+    aliases: [ 'r' ]
+    cmds:
+      - which python
+      - python src/try_uiautomator2/run.py
+
+  run2:
+    aliases: [ 'r2' ]
+    cmds:
+      - which python
+      - python src/try_uiautomator2/run_02.py
+
+  tool:
+    cmds:
+      - |
+        uiauto.dev # source .venv/bin/activate.fish
+
+  android:devices:
+    aliases: [ 'devices', "adb", "adb:d" ]
+    cmds:
+      - adb devices -l
+
+  android:packages:
+    aliases: [ 'packages', 'adb:p' ]
+    cmds:
+      - adb shell pm list packages # 所有包
+      - adb shell pm list packages -3 # 第三方包

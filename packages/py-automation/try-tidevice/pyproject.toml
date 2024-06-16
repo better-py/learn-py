@@ -5,7 +5,11 @@ description = "Add your description here"
 authors = [
     { name = "Henry.Huang", email = "hhglory@outlook.com" }
 ]
-dependencies = []
+dependencies = [
+    "tidevice[openssl]>=0.12.10",
+    "facebook-wda>=1.4.7",
+    "tidevice3>=0.11.3",
+]
 readme = "README.md"
 requires-python = ">= 3.12"
 

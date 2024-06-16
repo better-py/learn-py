@@ -1,6 +1,12 @@
 version: "3"
 
 includes:
+  tidevice:
+    aliases: [ "td" ]
+    taskfile: try-tidevice/
+    dir: try-tidevice/
+    optional: true
+
   weditor:
     aliases: [ "we" ]
     taskfile: try-weditor/

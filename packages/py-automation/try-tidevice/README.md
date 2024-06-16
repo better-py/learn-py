@@ -17,6 +17,8 @@ pip3 install -U "tidevice[openssl]"   # Recommend
 # ios 17+
 pip install tidevice3
 
+
+pip install facebook-wda
 ```    
 
 - 打开 iOS 开发者选项:
@@ -33,7 +35,16 @@ iOS 16的手机需要手工开启开发者选项。
 
 ## References
 
+> projects:
+
 - https://github.com/alibaba/tidevice
     - 支持 iOS 16
 - https://github.com/codeskyblue/tidevice3
-    - iOS >= 17 
+    - iOS >= 17
+- https://github.com/openatx
+- https://github.com/openatx/facebook-wda
+    - https://pypi.org/project/facebook-wda/
+
+> docs:
+
+- https://testerhome.com/topics/7220
