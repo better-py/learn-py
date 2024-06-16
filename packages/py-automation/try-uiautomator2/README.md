@@ -23,3 +23,4 @@ Describe your project here.
 ## References
 
 - https://github.com/openatx/uiautomator2
+    - 示例: https://github.com/openatx/uiautomator2/blob/master/QUICK_REFERENCE.md
