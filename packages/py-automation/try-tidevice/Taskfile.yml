@@ -153,4 +153,18 @@ tasks:
 
   proxy:
     cmds:
-      - tidevice wdaproxy -B com.facebook.IntegrationAppTba --port 8200
+      - tidevice wdaproxy -B com.facebook.IntegrationAppTba --port 8200 # todo x: 源码报错, 2处 assert 要注释掉
+
+  xcuitest:
+    cmds:
+      - tidevice xcuitest -B com.facebook.IntegrationAppTba
+
+  relay:
+    cmds:
+      - tidevice relay -x 8100 8100
+
+
+  pair:
+    cmds:
+      - which tidevice
+      - tidevice pair
