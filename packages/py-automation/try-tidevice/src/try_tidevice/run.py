@@ -5,10 +5,13 @@ import wda
 from tidevice._perf import DataType
 
 app_id = "cn.damai.iphone"
+wda.DEBUG = True  # default False
+wda.HTTP_TIMEOUT = 60.0  # default 60.0 seconds
 
 
 def main():
-    use_tidevice()
+    use_wda()
+    # use_tidevice()
 
 
 def cb(typ, val):
@@ -16,10 +19,36 @@ def cb(typ, val):
 
 
 def use_wda():
-    c = wda.Client("http://localhost:8200")
+    # c = wda.Client("http://localhost:8200")
+    # c = wda.Client()
+
+    #
+    # todo x: 核心参数, 自定义
+    #
+    wda_bundle_id = "com.a24z.wda"
+
+    c = wda.USBClient(wda_bundle_id=wda_bundle_id)
+    # c = wda.USBClient(
+    #     "f9d3ab4de8ffbc4b188286a9623df43726d5495c",
+    #     port=8100,
+    #     wda_bundle_id=wda_bundle_id,
+    # )
+
+    # 也支持通过DEVICE_URL访问
+    # c = wda.Client("usbmux://{udid}:8100".format(udid="f9d3ab4de8ffbc4b188286a9623df43726d5495c"))
+    print(c.window_size())
+
+    print(f"iphone window size: {c.window_size()}")
+
+    c.app_start(app_id)
+
+    # s = c.session(app_id)  # 启动应用
+
+    # open app
+    # s.app_start(app_id)
 
     print(f"iphone :{c}, {c.__dict__}")
-    print(c.info)
+    # print(c.info)
 
 
 def pref_info(d):

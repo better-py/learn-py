@@ -95,8 +95,16 @@ tasks:
 
   ios:fix:
     cmds:
+      #      - appium-doctor
       - brew install carthage
       - brew install libimobiledevice
+      - brew install lyft/formulae/set-simulator-location
+      - brew tap wix/brew
+      - brew install applesimutils
+      - brew tap facebook/fb
+      - brew install idb-companion
+      - pip install fb-idb
+    ignore_error: true
 
   ios:check:
     cmds:
