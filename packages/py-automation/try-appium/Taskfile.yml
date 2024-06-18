@@ -93,6 +93,16 @@ tasks:
       - adb shell pm list packages # 所有包
       - adb shell pm list packages -3 # 第三方包
 
+  ios:fix:
+    cmds:
+      - brew install carthage
+      - brew install libimobiledevice
+
+  ios:check:
+    cmds:
+      - npm install appium-doctor -g
+      - appium-doctor --ios
+
   ios:devices:
     aliases: [ 'ios:d' ]
     cmds:

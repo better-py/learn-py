@@ -5,22 +5,28 @@ from appium.options.android import UiAutomator2Options
 
 
 def main():
-    appium_server_url = 'http://localhost:4723'
+    appium_server_url = 'http://127.0.0.1:4723'
+    # command_executor = 'http://0.0.0.0:4723/wd/hub',
 
     #
     # 大麦 app
     #
-    appID = "cn.damai.iphone"
+    app_id = "cn.damai.iphone"
+    app_id = "com.a24z.wda"
 
     # 配置 Appium 服务器和 iOS 设备的能力
     capabilities = {
         'platformName': 'iOS',
         'platformVersion': '15.8.2',  # 你的设备的 iOS 版本
-        'deviceName': 'HH-iPhone7',  # 你的设备名称
+        # 'deviceName': 'iPhone7',  # 你的设备名称
         'udid': 'f9d3ab4de8ffbc4b188286a9623df43726d5495c',  # 你的设备 UDID
         'automationName': 'XCUITest',
-        'bundleId': appID,  # 大麦 app 的 bundleId
+        'bundleId': app_id,  # 大麦 app 的 bundleId
         'noReset': True,
+        "autoAcceptAlerts": "true",
+        # "xcodeSigningId": "iPhone Developer",
+        # "xcodeOrgId": "your-email-address",
+        "showXcodeLog": "true",
     }
 
     # 创建 WebDriver 实例
