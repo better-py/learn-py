@@ -40,6 +40,11 @@ tasks:
     cmds:
       - rye add --dev {{.CLI_ARGS}}  # --dev
 
+  pip:install:
+    aliases: [ 'p:i' ]
+    cmds:
+      - pip install appium-python-client
+
   add:all:
     aliases: [ 'aa' ]
     cmds:
@@ -72,6 +77,13 @@ tasks:
     cmds:
       - which python
       - python src/try_appium/run_02.py
+
+  run3:
+    aliases: [ 'r3' ]
+    cmds:
+      - which python
+      - python src/try_appium/run_03.py
+
 
   tool:
     cmds:
