@@ -55,8 +55,10 @@ def main():
     # 等待 2 秒
     time.sleep(2)
 
+    driver.terminate_app(app_id="com.apple.Preferences")  # todo x: 退出应用
+    driver.back()  # 返回
     # 退出测试并关闭应用
-    # driver.quit()
+    driver.quit()
 
 
 if __name__ == '__main__':
