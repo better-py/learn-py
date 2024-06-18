@@ -20,11 +20,11 @@ def main():
     # 配置 Appium 服务器和 iOS 设备的能力
     capabilities = {
         'platformName': 'iOS',
-        'platformVersion': '15.5',  # 你的设备的 iOS 版本
-        # 'deviceName': 'iPhone7',  # 你的设备名称
+        'platformVersion': '15.5',  # todo x: 必填. <你的设备的 iOS 版本>
+        # 'deviceName': 'iPhone7',  # todo x: 可不填. <你的设备名称>
         'udid': device_id,  # 你的设备 UDID
         'automationName': 'XCUITest',
-        'bundleId': app_id,  # 大麦 app 的 bundleId
+        # 'bundleId': app_id,  # todo x: 可不填. 要打开的应用 bundleId
         'noReset': True,
         "autoAcceptAlerts": "true",
         # "xcodeSigningId": "iPhone Developer",
@@ -38,18 +38,25 @@ def main():
         options=UiAutomator2Options().load_capabilities(capabilities),
     )
 
+    print(f"battery info: {driver.battery_info}")
+
     # 等待应用启动
     time.sleep(1)
 
     # 示例操作：打印当前应用的页面源代码
-    page_source = driver.page_source
-    print(page_source)
+    # page_source = driver.page_source
+    # print(page_source)
+
+    #
+    #
+    #
+    driver.activate_app(app_id="com.apple.Preferences")  # todo x: 打开系统设置
 
     # 等待 2 秒
     time.sleep(2)
 
     # 退出测试并关闭应用
-    driver.quit()
+    # driver.quit()
 
 
 if __name__ == '__main__':
