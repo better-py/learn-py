@@ -36,6 +36,8 @@ def buy_damai_ticket(d):
     search_inputId = "cn.damai:id/header_search_v2_input"
     search_resultId = "cn.damai:id/tv_word"
 
+    homepage_popup_id = "cn.damai:id/homepage_popup_window_image"
+
     #
     #
     #
@@ -49,15 +51,29 @@ def buy_damai_ticket(d):
     search_star(d, star=star, city=city)
 
 
-def open_damai(d):
-    app_package = 'cn.damai'
-    app_activity = app_package + ".homepage.MainActivity"
+def open_damai(d, app_package_id="cn.damai"):
+    # 主窗口
+    app_activity = app_package_id + ".homepage.MainActivity"
+    # 首页随机弹窗页:
+    homepage_popup_id = "cn.damai:id/homepage_popup_window_image"
 
+    #
     # 启动大麦 app
-    d.app_start(app_package, app_activity)
+    #
+    d.app_start(app_package_id, app_activity)
 
     # 等待 app 启动完成
     d.wait_activity(app_activity, timeout=1)
+
+    # 判断组件是否存在
+    if d(resourceId=homepage_popup_id).exists:
+        print(f"首页弹窗存在, 关闭掉...")
+        # 组件存在，点击
+        close_id = "cn.damai:id/homepage_popup_window_close_btn"
+        d(resourceId=close_id).click()
+    else:
+        # 组件不存在，做其他处理
+        print("首页弹窗不存在, 忽略...")
 
 
 def search_star(d, star="周杰伦", city="南京"):

@@ -37,7 +37,7 @@ tasks:
   add:all:
     aliases: [ 'aa' ]
     cmds:
-      - rye add click discord.py
+      - pip install uiautodev
 
 
   tool:
