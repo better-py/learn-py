@@ -6,7 +6,7 @@
 
 ### Requirements
 
-- python 3.8+
+- python 3.12+: 低版本遇到 `lxml` 安装报错.
 - `uiautomator2`
 - `android`: 模拟器 or 真机
 

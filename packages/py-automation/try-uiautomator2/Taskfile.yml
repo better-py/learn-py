@@ -39,7 +39,7 @@ tasks:
     aliases: [ 'aa' ]
     cmds:
       #      - rye add weditor
-      - rye add uiautomator2
+      - poetry add uiautomator2
 
   run:
     aliases: [ 'r' ]
@@ -47,10 +47,24 @@ tasks:
       - which python
       - python src/try_uiautomator2/run.py
 
+  poetry:
+    cmds:
+      - echo "{{.CLI_ARGS}}"
+      - poetry {{.CLI_ARGS}}
+
+  setup:
+    cmds:
+      - pip install poetry
+      - poetry env use 3.12.4
+      - poetry env info
+      #      - poetry run python -m pip install --no-cache-dir --use-pep517 lxml
+      - poetry install
+
   run2:
     aliases: [ 'r2' ]
     cmds:
       - which python
+      - python -V
       - python src/try_uiautomator2/run_02.py
 
   tool:
