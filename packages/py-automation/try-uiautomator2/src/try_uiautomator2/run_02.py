@@ -4,6 +4,9 @@ import time
 
 import uiautomator2 as u2
 
+# 调试开关:
+debug = True
+
 #
 #
 #
@@ -45,13 +48,19 @@ def buy_damai_ticket(d):
     city = "南京"
 
     # 打开 app:
-    open_damai(d)
+    open_damai_app(d)
+
+    # 打开 我的页面, 检查用户是否登录
+    open_me_view(d)
 
     # 搜索 明星 + 城市
-    search_star(d, star=star, city=city)
+    open_search_view(d, star=star, city=city)
 
 
-def open_damai(d, app_package_id="cn.damai"):
+def open_damai_app(d, app_package_id="cn.damai"):
+    """
+    打开 大麦 app
+    """
     # 主窗口
     app_activity = app_package_id + ".homepage.MainActivity"
     # 首页随机弹窗页:
@@ -76,7 +85,11 @@ def open_damai(d, app_package_id="cn.damai"):
         print("首页弹窗不存在, 忽略...")
 
 
-def search_star(d, star="周杰伦", city="南京"):
+def open_search_view(d, star="周杰伦", city="南京"):
+    """
+    打开搜索页面, 执行搜索动作
+    """
+
     search_editId = "cn.damai:id/channel_search_text"
     search_btnId = "cn.damai:id/homepage_header_search_btn"
     search_inputId = "cn.damai:id/header_search_v2_input"
@@ -134,6 +147,95 @@ def search_star(d, star="周杰伦", city="南京"):
             # 在随机位置点击
             d.click(random_x, random_y)
             break
+
+
+def open_me_view(d):
+    """
+    打开我的页面
+    """
+    me_id = "cn.damai:id/tab_text"
+    me_text = "我的"
+
+    # bottom_bar_id = "cn.damai:id/mine_activity_bottomsheet_container"
+
+    # 匹配按钮
+    me_btn = d(resourceId=me_id, text=me_text)
+
+    # skip
+    if not me_btn.exists:
+        print(f"未找到 我的按钮, 页面不正常!!!")
+        return
+
+    # find:
+    # 获取按钮边界
+    bounds = me_btn.info['bounds']
+
+    # bottom_bar = d(resourceId=bottom_bar_id)
+    # bottom_bar_bounds = bottom_bar.bounds()
+    # top_y = bottom_bar_bounds["top"]
+    # bottom_y = bottom_bar_bounds["bottom"]
+
+    # 获取屏幕宽度
+    width = d.info["displayWidth"]
+    print(f"屏幕宽度: {width}")
+
+    # 计算目标按钮点击范围
+    target_width = width / 4
+    left_x = int(width - target_width)
+    right_x = int(width)
+
+    # 随机生成点击坐标
+    x = random.randint(left_x, right_x)
+    # y = random.randint(top_y, bottom_y)
+
+    # 计算点击坐标
+    # x = (bounds["left"] + bounds["right"]) / 2
+    y = (bounds["top"] + bounds["bottom"]) / 2
+    y = int(y)
+    print(f"点击 我的(随机): {x}, {y}")
+
+    # 点击按钮, 进入我的页面
+    d.click(x, y)
+
+    if debug:
+        time.sleep(2)
+
+    # 检查是否需要登录
+    open_login_view(d)
+
+
+def open_login_view(d):
+    """
+    打开登录页面
+    """
+    # 未登录
+    un_auth_id = "cn.damai:id/mine_center_header_user_name"
+    un_auth_text = "立即登录"
+
+    it = d(resourceId=un_auth_id, text=un_auth_text)
+
+    if not it.exists:
+        print(f"未找到 {un_auth_text}, 用户已经登录!")
+        d.press("back")
+        return
+
+    # do login:
+    it.click()
+
+    #
+    # todo x: 暂时未实现
+    #
+
+    if debug:
+        time.sleep(1)
+
+    # 需要返回 2 次
+    d.press("back")
+    d.press("back")
+
+
+def wait_or_buy_tickets():
+    pass
 
 
 def main():
