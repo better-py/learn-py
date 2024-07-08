@@ -26,7 +26,7 @@ async def to_cron(body: str, msg: NatsMessage):
     TODO X: 定时任务
     """
     logger.debug(f"subscriber batch: {body}")
-    logger.debug(f"subscriber batch: msg: {msg}")
+    logger.debug(f"subscriber batch: msg id: {msg.message_id}")
 
 
 @broker.subscriber("test-workers", "workers")
