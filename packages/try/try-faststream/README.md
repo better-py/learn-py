@@ -12,3 +12,8 @@
 - https://taskiq-python.github.io/
 - https://pypi.org/project/taskiq-nats/
 - https://pypi.org/project/taskiq-redis/
+
+> 定时任务:
+
+- https://rocketry.readthedocs.io/en/stable/tutorial/basic.html
+    - 不活跃, 近 1 年未修复 bug. 有部分依赖版本有问题.

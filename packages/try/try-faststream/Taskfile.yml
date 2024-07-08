@@ -32,6 +32,11 @@ tasks:
       - python run_pub.py
     dir: src/try_faststream/
 
+  run:pub:cron:
+    aliases: [ 'rc', 'cron', 'pub:cron' ]
+    cmds:
+      - python run_pub_cron.py
+    dir: src/try_faststream/
 
   docs:
     cmds:
