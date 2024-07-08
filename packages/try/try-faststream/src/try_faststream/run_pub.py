@@ -24,12 +24,25 @@ async def pub():
         #
         # todo x: 批量发布, 防止重复消费, to one worker:
         #
-        for i in range(10):
+        for i in range(5):
             msg = f"msg {i}"
             logger.debug(f"publish message: {msg}")
             await broker.publish(
                 msg,
                 subject="test-workers",
+            )
+
+        # --------------------------------------------------------------------------
+
+        #
+        # todo x: pull stream 模式
+        #
+        for i in range(3):
+            msg = f"msg {i}"
+            logger.warning(f"publish stream message: {msg}")
+            await broker.publish(
+                msg,
+                subject="test-stream",
             )
 
         # --------------------------------------------------------------------------
@@ -42,7 +55,7 @@ async def pub():
         kv = await broker.key_value(bucket=bk)
         for i in range(4):
             msg = f"value: {i}"
-            logger.debug(f"Nats KV Store({bk}), put({key}, {msg})")
+            logger.info(f"Nats KV Store({bk}), put({key}, {msg})")
             await kv.put(key, msg.encode())
 
 
