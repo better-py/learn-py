@@ -47,8 +47,8 @@ includes:
 
   try:
     aliases: [ 't' ]
-    taskfile: packages/py-try/
-    dir: packages/py-try/
+    taskfile: packages/try/
+    dir: packages/try/
     optional: true
 
 
@@ -105,7 +105,7 @@ tasks:
   ##################################################################################################
 
   # usage:
-  #   - task n -- py-try/try-jieba
+  #   - task n -- try/try-jieba
   new:
     aliases: [ 'n' ]
     cmds:
