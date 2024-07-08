@@ -35,8 +35,16 @@ tasks:
   run:pub:cron:
     aliases: [ 'rc', 'cron', 'pub:cron' ]
     cmds:
+      - taskiq scheduler run_pub_cron:scheduler
+    dir: src/try_faststream/
+
+  run:pub:cron2:
+    aliases: [ 'rc2', 'cron2', 'pub:cron2' ]
+    cmds:
       - python run_pub_cron.py
     dir: src/try_faststream/
+
+
 
   docs:
     cmds:
@@ -61,6 +69,6 @@ tasks:
       #      - rye add weditor
       - pdm add fastapi "uvicorn[standard]" sqlmodel
       - pdm add loguru pydantic-settings
-      - pdm add faststream[nats] taskiq taskiq-nats taskiq-redis
+      - pdm add faststream[nats] taskiq taskiq-nats taskiq-redis taskiq-faststream
       - pdm add fastapi_amis_admin[sqlmodel] aiosqlite greenlet
       - pdm add --dev isort pytest mypy ruff watchfiles

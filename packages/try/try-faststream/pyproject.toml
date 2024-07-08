@@ -11,6 +11,7 @@ dependencies = [
     "pydantic-settings>=2.3.4",
     "taskiq>=0.11.6",
     "taskiq-nats>=0.4.0",
+    "taskiq-faststream>=0.1.8",
 ]
 requires-python = ">=3.12"
 readme = "README.md"

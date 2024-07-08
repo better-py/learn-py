@@ -1,29 +1,48 @@
-import asyncio
-
+from faststream import FastStream
 from faststream.nats import NatsBroker
 from loguru import logger
-from rocketry import Rocketry
-from rocketry.args import Arg
-
-app = Rocketry(execution="async")
+from taskiq.schedule_sources import LabelScheduleSource
+from taskiq_faststream import AppWrapper
+from taskiq_faststream import StreamScheduler
 
 host = "nats://localhost:4222"
-broker = NatsBroker(host)  # regular broker
-app.params(broker=broker)
+broker = NatsBroker(host)
+app = FastStream(broker)
 
 
-async def start_app():
-    async with broker:  # connect broker
-        await app.serve()  # run rocketry
+@app.on_startup
+async def on_startup():
+    logger.debug("on_startup: connecting broker")
+    await broker.connect()
 
 
-@app.task("every 2 second", execution="async")
-async def publish(br: NatsBroker = Arg("broker")):
-    import time
-    ts = time.time()
-    logger.debug(f"cron publish: {br}, {ts}")
-    await br.publish(f"Hi, Rocketry! {ts}", "test")
+@app.on_shutdown
+async def on_shutdown():
+    logger.debug("on_shutdown: closing broker")
+    await broker.close()
 
 
-if __name__ == "__main__":
-    asyncio.run(start_app())
+# taskiq_broker = BrokerWrapper(broker)
+taskiq_broker = AppWrapper(app)
+
+
+async def gen_cron_data() -> str:
+    for i in range(10):
+        yield f"cron data {i}"
+
+
+#
+# todo x: 定时任务
+#
+taskiq_broker.task(
+    message=gen_cron_data,
+    subject="test-cron",
+    schedule=[{
+        "cron": "*/2 * * * * *",  # TODO X: 每2秒执行一次
+    }],
+)
+
+scheduler = StreamScheduler(
+    broker=taskiq_broker,
+    sources=[LabelScheduleSource(taskiq_broker)],
+)

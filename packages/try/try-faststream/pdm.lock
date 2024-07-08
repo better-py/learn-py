@@ -5,7 +5,7 @@
 groups = ["default", "dev"]
 strategy = ["cross_platform", "inherit_metadata"]
 lock_version = "4.4.2"
-content_hash = "sha256:32015b3b32ced02b0f9d23b4af9124b888530b58ea66eabb1148f6e7afcaf614"
+content_hash = "sha256:f8d0d5e450cfbf389bca186c05c85daae74be9e5f7c72b2f4a4b56019f0cf5dc"
 
 [[package]]
 name = "annotated-types"
@@ -539,6 +539,21 @@ groups = ["default"]
 files = [
     {file = "taskiq_dependencies-1.5.3-py3-none-any.whl", hash = "sha256:ffa81997b8d6f4be0b2e08280b241dc3cecd9b49ff1fd259688e244d977cadd4"},
     {file = "taskiq_dependencies-1.5.3.tar.gz", hash = "sha256:ee52d01e6683cafbeb0a0b0e4abf58b2d304d7db0769e024fe0a0e8bcedadc57"},
+]
+
+[[package]]
+name = "taskiq-faststream"
+version = "0.1.8"
+requires_python = ">=3.8"
+summary = "FastStream - taskiq integration to schedule FastStream tasks"
+groups = ["default"]
+dependencies = [
+    "faststream<0.6.0,>=0.3.14",
+    "taskiq<1.0.0,>=0.10.0",
+]
+files = [
+    {file = "taskiq_faststream-0.1.8-py3-none-any.whl", hash = "sha256:44c50a4808f8bb4657eceb21cf22c8fc1905b248e10de94fed85172909266262"},
+    {file = "taskiq_faststream-0.1.8.tar.gz", hash = "sha256:d93a57409f3cabb908ac356e26b04bfb3f289247d8b8c6e58cf87ee2117579b0"},
 ]
 
 [[package]]

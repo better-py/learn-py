@@ -9,13 +9,20 @@
 
 ## Requirements
 
-- https://taskiq-python.github.io/
-- https://pypi.org/project/taskiq-nats/
-- https://pypi.org/project/taskiq-redis/
+### 定时任务:
 
-> 定时任务:
+> Taskiq 定时任务:
+
+- https://github.com/taskiq-python/taskiq
+    - https://taskiq-python.github.io/
+    - https://pypi.org/project/taskiq-nats/
+    - https://pypi.org/project/taskiq-redis/
+- 定时任务: https://taskiq-python.github.io/guide/scheduling-tasks.html
+- 集成: https://taskiq-python.github.io/framework_integrations/faststream.html
+
+> rocketry:
 
 - https://rocketry.readthedocs.io/en/stable/tutorial/basic.html
-    - 不活跃, 近 1 年未修复 bug. 有部分依赖 Pydantic v2 有冲突.
-    - 问题: https://github.com/Miksus/rocketry/issues/210
-    - 替代: https://github.com/ManiMozaffar/aioclock
+- 不活跃, 近 1 年未修复 bug. 有部分依赖 Pydantic v2 有冲突.
+- 问题: https://github.com/Miksus/rocketry/issues/210
+- 替代: https://github.com/ManiMozaffar/aioclock

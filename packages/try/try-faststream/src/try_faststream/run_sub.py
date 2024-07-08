@@ -20,6 +20,15 @@ async def to_batch(body: str, msg: NatsMessage):
     logger.debug(f"subscriber batch: msg: {msg}")
 
 
+@broker.subscriber("test-cron")
+async def to_cron(body: str, msg: NatsMessage):
+    """
+    TODO X: 定时任务
+    """
+    logger.debug(f"subscriber batch: {body}")
+    logger.debug(f"subscriber batch: msg: {msg}")
+
+
 @broker.subscriber("test-workers", "workers")
 async def to_one(body: str, msg: NatsMessage):
     """
