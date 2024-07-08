@@ -23,7 +23,7 @@ tasks:
   run:sub:
     aliases: [ 'rs', 'sub' ]
     cmds:
-      - faststream run run_sub:app {{.CLI_ARGS}}  # --workers 2
+      - faststream run run_sub:app --reload {{.CLI_ARGS}}  # --workers 2
     dir: src/try_faststream/
 
   run:pub:
@@ -58,4 +58,4 @@ tasks:
       - pdm add loguru pydantic-settings
       - pdm add faststream[nats] taskiq taskiq-nats taskiq-redis
       - pdm add fastapi_amis_admin[sqlmodel] aiosqlite greenlet
-      - pdm add --dev isort pytest mypy ruff
+      - pdm add --dev isort pytest mypy ruff watchfiles
