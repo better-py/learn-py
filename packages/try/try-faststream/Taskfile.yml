@@ -21,15 +21,15 @@ tasks:
       - task: ra
 
   run:sub:
-    aliases: [ 'rs' ]
+    aliases: [ 'rs', 'sub' ]
     cmds:
-      - faststream run serve:app
+      - faststream run run_sub:app {{.CLI_ARGS}}  # --workers 2
     dir: src/try_faststream/
 
   run:pub:
-    aliases: [ 'rp' ]
+    aliases: [ 'rp', 'pub' ]
     cmds:
-      - faststream run serve:pub
+      - python run_pub.py
     dir: src/try_faststream/
 
 
