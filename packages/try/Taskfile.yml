@@ -28,6 +28,12 @@ includes:
     dir: try-django/
     optional: true
 
+  faststream:
+    aliases: [ "fs" ]
+    taskfile: try-faststream/
+    dir: try-faststream/
+    optional: true
+
   invoke:
     aliases: [ "iv" ]
     taskfile: try-invoke/

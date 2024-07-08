@@ -46,7 +46,7 @@ includes:
     optional: true
 
   try:
-    aliases: [ 't' ]
+    aliases: [ 't', 'tr' ]
     taskfile: packages/try/
     dir: packages/try/
     optional: true
