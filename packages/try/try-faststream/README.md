@@ -16,4 +16,6 @@
 > 定时任务:
 
 - https://rocketry.readthedocs.io/en/stable/tutorial/basic.html
-    - 不活跃, 近 1 年未修复 bug. 有部分依赖版本有问题.
+    - 不活跃, 近 1 年未修复 bug. 有部分依赖 Pydantic v2 有冲突.
+    - 问题: https://github.com/Miksus/rocketry/issues/210
+    - 替代: https://github.com/ManiMozaffar/aioclock
