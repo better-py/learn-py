@@ -24,7 +24,7 @@ async def to_batch(body: str, msg: NatsMessage):
     TODO X: 一条消息, 如果有多个实例, 会多次消费(重复消费)
     """
     logger.debug(f"subscriber batch: {body}")
-    logger.debug(f"subscriber batch: msg: {msg}")
+    logger.debug(f"subscriber batch: msg: {msg.correlation_id}")
 
 
 @broker.subscriber("test-cron", "cron")
@@ -32,7 +32,7 @@ async def to_cron(body: str, msg: NatsMessage):
     """
     TODO X: 定时任务
     """
-    logger.debug(f"subscriber cron one: {body}, {msg.message_id}")
+    logger.debug(f"subscriber cron one: {body}, {msg.correlation_id}")
 
 
 @broker.subscriber("test-cron2")

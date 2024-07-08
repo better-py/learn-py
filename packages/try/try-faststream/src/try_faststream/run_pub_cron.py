@@ -13,7 +13,7 @@ broker = NatsBroker(host)  # regular broker
 group = Group()
 
 
-@group.task(trigger=Every(seconds=5))
+@group.task(trigger=Every(seconds=10))
 async def every():
     msg = f"cron one: at {int(time.time())}"
     logger.debug(f"cron one: pub msg: {msg}")
@@ -24,7 +24,7 @@ async def every():
     )
 
 
-@group.task(trigger=Every(seconds=5))
+@group.task(trigger=Every(seconds=15))
 async def every():
     msg = f"cron batch: at {int(time.time())}"
     logger.debug(f"cron batch, pub msg: {msg}")
