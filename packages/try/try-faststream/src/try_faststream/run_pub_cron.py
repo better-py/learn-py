@@ -15,12 +15,23 @@ group = Group()
 
 @group.task(trigger=Every(seconds=5))
 async def every():
-    msg = f"cron task: at {time.time()}"
-    logger.debug(f"Every 5 seconds, Publish msg to Nats, msg: {msg}")
+    msg = f"cron one: at {int(time.time())}"
+    logger.debug(f"cron one: pub msg: {msg}")
 
     await broker.publish(
         msg,
         subject="test-cron",
+    )
+
+
+@group.task(trigger=Every(seconds=5))
+async def every():
+    msg = f"cron batch: at {int(time.time())}"
+    logger.debug(f"cron batch, pub msg: {msg}")
+
+    await broker.publish(
+        msg,
+        subject="test-cron2",
     )
 
 

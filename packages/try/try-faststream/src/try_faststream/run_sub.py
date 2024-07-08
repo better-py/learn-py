@@ -1,3 +1,5 @@
+import os
+
 import anyio
 from faststream import FastStream
 from faststream.nats import NatsBroker, PullSub
@@ -5,6 +7,11 @@ from faststream.nats import NatsMessage
 from loguru import logger
 
 host = "nats://localhost:4222"
+
+# logger file, 进程 id
+
+
+logger.add(f"tmp/nats_pub_{os.getpid()}.log", rotation="10 MB", retention="10 days")
 
 broker = NatsBroker(host)
 
@@ -20,13 +27,20 @@ async def to_batch(body: str, msg: NatsMessage):
     logger.debug(f"subscriber batch: msg: {msg}")
 
 
-@broker.subscriber("test-cron")
+@broker.subscriber("test-cron", "cron")
 async def to_cron(body: str, msg: NatsMessage):
     """
     TODO X: 定时任务
     """
-    logger.debug(f"subscriber batch: {body}")
-    logger.debug(f"subscriber batch: msg id: {msg.message_id}")
+    logger.debug(f"subscriber cron one: {body}, {msg.message_id}")
+
+
+@broker.subscriber("test-cron2")
+async def to_cron(body: str, msg: NatsMessage):
+    """
+    TODO X: 定时任务
+    """
+    logger.debug(f"subscriber cron batch: {body}, {msg.message_id}")
 
 
 @broker.subscriber("test-workers", "workers")
