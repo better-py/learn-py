@@ -25,21 +25,16 @@ async def on_shutdown():
 # taskiq_broker = BrokerWrapper(broker)
 taskiq_broker = AppWrapper(app)
 
-
-async def gen_cron_data() -> str:
-    for i in range(10):
-        yield f"cron data {i}"
-
-
 #
 # todo x: 定时任务
 #
 taskiq_broker.task(
-    message=gen_cron_data,
+    message="cron data: test",
     subject="test-cron",
     schedule=[{
-        "cron": "*/2 * * * * *",  # TODO X: 每2秒执行一次
+        "cron": "* * * * *",  # TODO X: 每2秒执行一次
     }],
+
 )
 
 scheduler = StreamScheduler(
