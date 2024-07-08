@@ -20,6 +20,19 @@ tasks:
     cmds:
       - task: ra
 
+  run:sub:
+    aliases: [ 'rs' ]
+    cmds:
+      - faststream run serve:app
+    dir: src/try_faststream/
+
+  run:pub:
+    aliases: [ 'rp' ]
+    cmds:
+      - faststream run serve:pub
+    dir: src/try_faststream/
+
+
   docs:
     cmds:
       - open "http://127.0.0.1:8000/docs"
@@ -42,6 +55,7 @@ tasks:
     cmds:
       #      - rye add weditor
       - pdm add fastapi "uvicorn[standard]" sqlmodel
-      - pdm add loguru
+      - pdm add loguru pydantic-settings
+      - pdm add faststream[nats] taskiq taskiq-nats taskiq-redis
       - pdm add fastapi_amis_admin[sqlmodel] aiosqlite greenlet
       - pdm add --dev isort pytest mypy ruff

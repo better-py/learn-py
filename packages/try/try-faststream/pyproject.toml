@@ -8,6 +8,9 @@ authors = [
 dependencies = [
     "faststream[nats]>=0.5.14",
     "loguru>=0.7.2",
+    "pydantic-settings>=2.3.4",
+    "taskiq>=0.11.6",
+    "taskiq-nats>=0.4.0",
 ]
 requires-python = ">=3.12"
 readme = "README.md"
