@@ -1,0 +1,32 @@
+// Folder-specific settings
+//
+// For a full list of overridable settings, and general information on folder-specific settings,
+// see the documentation: https://zed.dev/docs/configuring-zed#folder-specific-settings
+{
+  "languages": {
+    "Python": {
+      "formatter": {
+        "external": {
+          "command": "black",
+          "arguments": ["-"]
+        }
+      },
+      "format_on_save": "on"
+    }
+  },
+  "lsp": {
+    "pyright": {
+      "settings": {
+        "python.analysis": {
+          "diagnosticMode": "workspace",
+          "typeCheckingMode": "strict"
+        },
+        "python": {
+          // "pythonPath": "packages/py-automation/try-uiautomator2/.venv/bin/python"
+          // "pythonPath": "packages/py-crawler/try-selenium/.venv/bin/python"
+          "pythonPath": "/Users/dev/.pyenv/shims/python"
+        }
+      }
+    }
+  }
+}
