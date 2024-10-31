@@ -21,45 +21,6 @@ tasks:
       - rye run python3 run01.py
     dir: ./src/try_beeware
 
-
-  install:
-    aliases: [ 'i' ]
-    cmds:
-      - poetry install
-
   pkg:
     cmds:
       - rye {{ .CLI_ARGS }}
-
-  add:
-    aliases: [ 'a' ]
-    cmds:
-      - poetry add {{.CLI_ARGS}}  # --dev
-
-  add:all:
-    cmds:
-      - poetry add flet loguru "typer[all]"
-
-  update:
-    cmds:
-      - poetry update
-
-  config:
-    cmds:
-      - poetry config virtualenvs.in-project false --local
-      - poetry config virtualenvs.create false --local
-
-  env:
-    cmds:
-      - poetry
-      - poetry env list
-      - poetry cache list
-      - poetry debug info
-      - poetry debug resolve
-
-
-
-
-
-
-
