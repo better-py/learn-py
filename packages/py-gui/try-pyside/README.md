@@ -22,4 +22,8 @@ pip install pyside6
 
 ```
 
+## Ref
 
+- https://github.com/zhiyiYo/PyQt-Fluent-Widgets
+- https://github.com/UN-GCPDS/qt-material
+- https://github.com/ChinaIceF/PyQt-SiliconUI
