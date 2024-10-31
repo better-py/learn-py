@@ -6,8 +6,9 @@ authors = [
     { name = "hhglory", email = "hhglory@outlook.com" }
 ]
 dependencies = [
-    "kivymd>=1.2.0",
     "kivy[full]>=2.3.0",
+    #    "kivymd2>=2.0.1",
+    "kivymd @ git+https://github.com/kivymd/KivyMD", # v2.0 master
 ]
 readme = "README.md"
 requires-python = ">= 3.8"

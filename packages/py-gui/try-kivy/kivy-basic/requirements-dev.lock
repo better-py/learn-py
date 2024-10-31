@@ -10,12 +10,20 @@
 #   universal: false
 
 -e file:.
+asyncgui==0.6.3
+    # via asynckivy
+    # via kivymd2
+asynckivy==0.6.4
+    # via kivymd
+    # via kivymd2
 certifi==2024.8.30
     # via requests
 charset-normalizer==3.4.0
     # via requests
 docutils==0.21.2
     # via kivy
+exceptiongroup==1.2.2
+    # via kivymd2
 ffpyplayer==4.5.2
     # via kivy
 idna==3.10
@@ -23,13 +31,20 @@ idna==3.10
 kivy==2.3.0
     # via kivy-basic
     # via kivymd
+    # via kivymd2
 kivy-garden==0.1.5
     # via kivy
-kivymd==1.2.0
+kivymd @ git+https://github.com/kivymd/KivyMD@5ff9d0de78260383fae0737716879781257155a8
     # via kivy-basic
+kivymd2==2.0.1
+    # via kivy-basic
+materialyoucolor==2.0.9
+    # via kivymd
+    # via kivymd2
 pillow==10.4.0
     # via kivy
     # via kivymd
+    # via kivymd2
 pygments==2.18.0
     # via kivy
 requests==2.32.3

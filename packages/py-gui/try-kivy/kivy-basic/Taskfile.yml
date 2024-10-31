@@ -19,6 +19,10 @@ tasks:
     cmds:
       - rye {{ .CLI_ARGS }}
 
+  add:
+    cmds:
+      - rye add kivymd --git https://github.com/kivymd/KivyMD
+
   run:
     aliases: [ 'r', 'r1' ]
     cmds:
