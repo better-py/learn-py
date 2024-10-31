@@ -24,7 +24,13 @@ tasks:
       - rye add kivymd --git https://github.com/kivymd/KivyMD
 
   run:
-    aliases: [ 'r', 'r1' ]
+    aliases: [ 'r' ]
+    cmds:
+      - rye run python3 run0{{ .CLI_ARGS }}.py
+    dir: ./src/kivy_basic
+
+  run01:
+    aliases: [ r1' ]
     cmds:
       - rye run python3 run01.py
     dir: ./src/kivy_basic
@@ -36,7 +42,7 @@ tasks:
       - rye run python3 run02.py
     dir: ./src/kivy_basic
 
-  # Canvas
+  # Theme
   run03:
     aliases: [ 'r3' ]
     cmds:
