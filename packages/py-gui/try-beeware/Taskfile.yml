@@ -15,12 +15,18 @@ env:
 
 
 tasks:
+  pkg:
+    cmds:
+      - rye {{ .CLI_ARGS }}
+
   run:
     aliases: [ 'r' ]
     cmds:
       - rye run python3 run01.py
     dir: ./src/try_beeware
 
-  pkg:
+  run02:
+    aliases: [ 'r2' ]
     cmds:
-      - rye {{ .CLI_ARGS }}
+      - rye run python3 run02_btn.py
+    dir: ./src/try_beeware
