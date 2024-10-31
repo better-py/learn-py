@@ -30,3 +30,9 @@ tasks:
     cmds:
       - rye run python3 run02_btn.py
     dir: ./src/try_beeware
+
+  run03:
+    aliases: [ 'r3' ]
+    cmds:
+      - rye run python3 run03.py
+    dir: ./src/try_beeware
