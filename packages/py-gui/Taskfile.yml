@@ -7,6 +7,12 @@ includes:
     dir: try-flet/
     optional: true
 
+  kivy-basic:
+    aliases: [ "kb" ]
+    taskfile: try-kivy/kivy-basic/
+    dir: try-kivy/kivy-basic/
+    optional: true
+
   beeware:
     aliases: [ "bw" ]
     taskfile: try-beeware/

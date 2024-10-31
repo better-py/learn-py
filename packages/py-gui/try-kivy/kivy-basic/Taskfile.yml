@@ -1,0 +1,47 @@
+version: "3"
+
+
+#
+# global vars: https://taskfile.dev/#/usage?id=variables
+#
+vars:
+  VAR1: "some-var"
+
+# global env:
+env:
+  ENV1: testing
+
+################################################################################################
+
+
+tasks:
+  pkg:
+    cmds:
+      - rye {{ .CLI_ARGS }}
+
+  run:
+    aliases: [ 'r', 'r1' ]
+    cmds:
+      - rye run python3 run01.py
+    dir: ./src/kivy_basic
+
+  # Button
+  run02:
+    aliases: [ 'r2' ]
+    cmds:
+      - rye run python3 run02.py
+    dir: ./src/kivy_basic
+
+  # Canvas
+  run03:
+    aliases: [ 'r3' ]
+    cmds:
+      - rye run python3 run03.py
+    dir: ./src/kivy_basic
+
+  # Dialog
+  run04:
+    aliases: [ 'r4' ]
+    cmds:
+      - rye run python3 run04.py
+    dir: ./src/kivy_basic
