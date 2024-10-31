@@ -1,23 +1,5 @@
 version: "3"
 
-includes:
-  flet:
-    aliases: [ "f", "fl" ]
-    taskfile: try-flet/
-    dir: try-flet/
-    optional: true
-
-  beeware:
-    aliases: [ "bw" ]
-    taskfile: try-beeware/
-    dir: try-beeware/
-    optional: true
-
-  pyside:
-    aliases: [ "ps", "p" ]
-    taskfile: try-pyside/
-    dir: try-pyside/
-    optional: true
 
 #
 # global vars: https://taskfile.dev/#/usage?id=variables
@@ -33,18 +15,30 @@ env:
 
 
 tasks:
+  run:
+    aliases: [ 'r' ]
+    cmds:
+      - rye run python3 run01.py
+    dir: ./src/try_beeware
+
 
   install:
+    aliases: [ 'i' ]
     cmds:
       - poetry install
 
-  add:
+  pkg:
     cmds:
-      - poetry add click discord.py
+      - rye {{ .CLI_ARGS }}
 
-  add:dev:
+  add:
+    aliases: [ 'a' ]
     cmds:
-      - poetry add ${PACKAGE} --dev
+      - poetry add {{.CLI_ARGS}}  # --dev
+
+  add:all:
+    cmds:
+      - poetry add flet loguru "typer[all]"
 
   update:
     cmds:
@@ -62,3 +56,10 @@ tasks:
       - poetry cache list
       - poetry debug info
       - poetry debug resolve
+
+
+
+
+
+
+
