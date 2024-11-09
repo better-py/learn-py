@@ -1,0 +1,37 @@
+[project]
+name = "flet-template"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "hhglory", email = "hhglory@outlook.com" }
+]
+dependencies = [
+    "flet>=0.24.1",
+]
+readme = "README.md"
+requires-python = ">= 3.8"
+
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+#
+# rye run app
+# rye run web
+#
+[tool.rye.scripts]
+app = "flet run main.py"
+web = "flet run --web main.py"
+build-macos = "flet build macos"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+
+[tool.hatch.build.targets.wheel]
+packages = ["."] # TODO X: fix this
