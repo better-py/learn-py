@@ -19,6 +19,12 @@ tasks:
     cmds:
       - rye {{ .CLI_ARGS }}
 
+  dev:
+    aliases: [ 'd' ]
+    cmds:
+      - rye run dev
+    dir: ./flet-template/
+
   run:app:
     aliases: [ 'ra' ]
     cmds:
@@ -29,12 +35,14 @@ tasks:
     aliases: [ 'rw' ]
     cmds:
       - rye run web
+      - open build/web/
     dir: ./flet-template/
 
   build:macos:
     aliases: [ 'bm', ]
     cmds:
       - rye run build-macos
+      - open build/macos/
     dir: ./flet-template/
 
   build:android:
