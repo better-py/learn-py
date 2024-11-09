@@ -19,16 +19,16 @@ tasks:
     cmds:
       - rye {{ .CLI_ARGS }}
 
-  run:template:
-    aliases: [ 'rt' ]
+  run:app:
+    aliases: [ 'ra' ]
     cmds:
-      - rye run flet run src/flet_template/main.py
+      - rye run app
     dir: ./flet-template/
 
   run:web:
     aliases: [ 'rw' ]
     cmds:
-      - rye run flet run --web src/flet_template/main.py
+      - rye run web
     dir: ./flet-template/
 
   build:macos:
@@ -49,6 +49,11 @@ tasks:
       - rye run build-web
     dir: ./flet-template/
 
+  serve:web:
+    aliases: [ 'sw', ]
+    cmds:
+      - rye run serve-web
+    dir: ./flet-template/
 
   release:
     aliases: [ 'rel' ]
