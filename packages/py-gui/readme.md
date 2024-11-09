@@ -2,6 +2,11 @@
 
 ## Choices
 
+> Native Style:
+
+- ✅ [flet](https://pypi.org/project/flet/): Base on `Flutter`.
+- ✅ [kivy](https://github.com/kivy/kivy): Base on `python`.
+
 > Web Based: (HTML5)
 
 - ✅ [nicegui](https://pypi.org/project/nicegui/): Base on `VueJS` + `Quasar` + `FastAPI`.
@@ -14,10 +19,6 @@
 - ✅ [PySide6](https://pypi.org/project/PySide6/)
 - ✅ [PyQt5](https://pypi.org/project/PyQt5/)
 - ✅ [PyQt6](https://pypi.org/project/PyQt6/)
-
-> Native Style:
-
-- ✅ [flet](https://pypi.org/project/flet/): Base on `Flutter`.
 
 
 

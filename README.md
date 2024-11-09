@@ -51,15 +51,15 @@
 
 ### 💻 [Python GUI](./packages/py-gui)
 
-| 项目名称                                        | 项目描述                                        | 说明       |  
-|:--------------------------------------------|:--------------------------------------------|:---------|
-| ✅️ [kivy](./packages/py-gui/try-kivy)       | 原生, 跨平台(Windows/macOS/Linux/iOS/Android) 方案 | 🌟🌟🌟🌟 |
-| ✅️ [beeware](./packages/py-gui/try-beeware) | 原生, 跨平台(Windows/macOS/Linux/iOS/Android) 方案 | 🌟🌟🌟   |
-| ✅️ [py-wry]()                               | 基于 `Tauri/Wry` 的 WebView 方案                 | 🌟🌟🌟🌟 |
-| ✅️ [flet](./packages/py-gui/try-flet)       | 基于 `Flutter` 的 GUI 方案                       | 🌟🌟🌟   |
-| ✅️ [pyside](./packages/py-gui/try-pyside)   | 基于 `Qt` 的 GUI 方案                            | 🌟🌟     |
-| ✅️ [xxx]()                                  | xxx                                         | xxx      |
-| ✅️ [xxx]()                                  | xxx                                         | xxx      |    
+| 项目名称                                        | 项目描述                                        | 说明         |  
+|:--------------------------------------------|:--------------------------------------------|:-----------|
+| ✅️ [flet](./packages/py-gui/try-flet)       | 基于 `Flutter` 的 GUI 方案                       | 🌟🌟🌟🌟🌟 | 
+| ✅️ [kivy](./packages/py-gui/try-kivy)       | 原生, 跨平台(Windows/macOS/Linux/iOS/Android) 方案 | 🌟🌟🌟🌟   |
+| ✅️ [beeware](./packages/py-gui/try-beeware) | 原生, 跨平台(Windows/macOS/Linux/iOS/Android) 方案 | 🌟🌟🌟     |
+| ✅️ [py-wry]()                               | 基于 `Tauri/Wry` 的 WebView 方案                 | 🌟🌟🌟🌟   |
+| ✅️ [pyside](./packages/py-gui/try-pyside)   | 基于 `Qt` 的 GUI 方案                            | 🌟🌟       |
+| ✅️ [xxx]()                                  | xxx                                         | xxx        |
+| ✅️ [xxx]()                                  | xxx                                         | xxx        |    
 
 ## Development
 
