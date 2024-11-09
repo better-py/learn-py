@@ -28,6 +28,12 @@ dev-dependencies = []
 app = "flet run main.py"
 web = "flet run --web main.py"
 build-macos = "flet build macos"
+build-linux = "flet build linux"
+build-windows = "flet build windows"
+build-android = "flet build apk"
+build-ios = "flet build ipa"
+build-web = "flet build web"
+
 
 [tool.hatch.metadata]
 allow-direct-references = true

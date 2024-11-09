@@ -31,11 +31,24 @@ tasks:
       - rye run flet run --web src/flet_template/main.py
     dir: ./flet-template/
 
-  rel:macos:
-    aliases: [ 'rel:mac', ]
+  build:macos:
+    aliases: [ 'bm', ]
     cmds:
-      - rye run flet build macos src/flet_template/main.py
+      - rye run build-macos
     dir: ./flet-template/
+
+  build:android:
+    aliases: [ 'ba', ]
+    cmds:
+      - rye run build-android
+    dir: ./flet-template/
+
+  build:web:
+    aliases: [ 'bw', ]
+    cmds:
+      - rye run build-web
+    dir: ./flet-template/
+
 
   release:
     aliases: [ 'rel' ]
