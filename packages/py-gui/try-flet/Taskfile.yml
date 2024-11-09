@@ -25,9 +25,17 @@ tasks:
       - rye run flet run src/flet_template/main.py
     dir: ./flet-template/
 
-  rel:macos:
+  run:web:
+    aliases: [ 'rw' ]
     cmds:
-      - rye run flet build macos
+      - rye run flet run --web src/flet_template/main.py
+    dir: ./flet-template/
+
+  rel:macos:
+    aliases: [ 'rel:mac', ]
+    cmds:
+      - rye run flet build macos src/flet_template/main.py
+    dir: ./flet-template/
 
   release:
     aliases: [ 'rel' ]
@@ -41,7 +49,7 @@ tasks:
           --company-name "TryBetterApp" \
           --codesign-identity "com.trybetterapp" \
           --bundle-id "com.trybetterapp.pyapp" \
-    dir: ./demo
+    dir: ./case01
 
   new:
     cmds:
