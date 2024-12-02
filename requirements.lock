@@ -9,3 +9,119 @@
 #   generate-hashes: false
 #   universal: false
 
+annotated-types==0.7.0
+    # via pydantic
+anyio==4.6.2.post1
+    # via httpx
+    # via starlette
+    # via watchfiles
+arrow==1.3.0
+    # via cookiecutter
+binaryornot==0.4.4
+    # via cookiecutter
+certifi==2024.8.30
+    # via httpcore
+    # via httpx
+    # via requests
+chardet==5.2.0
+    # via binaryornot
+charset-normalizer==3.4.0
+    # via requests
+click==8.1.7
+    # via cookiecutter
+    # via uvicorn
+cookiecutter==2.6.0
+    # via flet-cli
+fastapi==0.115.5
+    # via flet-web
+flet==0.25.1
+    # via flet-cli
+    # via flet-desktop
+    # via flet-web
+flet-cli==0.25.1
+    # via flet
+flet-desktop==0.25.1
+    # via flet
+flet-web==0.25.1
+    # via flet
+h11==0.14.0
+    # via httpcore
+    # via uvicorn
+httpcore==1.0.7
+    # via httpx
+httptools==0.6.4
+    # via uvicorn
+httpx==0.28.0
+    # via flet
+idna==3.10
+    # via anyio
+    # via httpx
+    # via requests
+jinja2==3.1.4
+    # via cookiecutter
+markdown-it-py==3.0.0
+    # via rich
+markupsafe==3.0.2
+    # via jinja2
+mdurl==0.1.2
+    # via markdown-it-py
+oauthlib==3.2.2
+    # via flet
+packaging==24.2
+    # via flet-cli
+pip==24.3.1
+pydantic==2.10.2
+    # via fastapi
+pydantic-core==2.27.1
+    # via pydantic
+pygments==2.18.0
+    # via rich
+pypng==0.20220715.0
+    # via qrcode
+python-dateutil==2.9.0.post0
+    # via arrow
+python-dotenv==1.0.1
+    # via uvicorn
+python-slugify==8.0.4
+    # via cookiecutter
+pyyaml==6.0.2
+    # via cookiecutter
+    # via uvicorn
+qrcode==7.4.2
+    # via flet-cli
+repath==0.9.0
+    # via flet
+requests==2.32.3
+    # via cookiecutter
+rich==13.9.4
+    # via cookiecutter
+six==1.16.0
+    # via python-dateutil
+    # via repath
+sniffio==1.3.1
+    # via anyio
+starlette==0.41.3
+    # via fastapi
+text-unidecode==1.3
+    # via python-slugify
+toml==0.10.2
+    # via flet-cli
+types-python-dateutil==2.9.0.20241003
+    # via arrow
+typing-extensions==4.12.2
+    # via fastapi
+    # via pydantic
+    # via pydantic-core
+    # via qrcode
+urllib3==2.2.3
+    # via requests
+uvicorn==0.32.1
+    # via flet-web
+uvloop==0.21.0
+    # via uvicorn
+watchdog==4.0.2
+    # via flet-cli
+watchfiles==1.0.0
+    # via uvicorn
+websockets==14.1
+    # via uvicorn

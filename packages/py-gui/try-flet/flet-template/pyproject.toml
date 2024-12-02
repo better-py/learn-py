@@ -6,7 +6,7 @@ authors = [
     { name = "hhglory", email = "hhglory@outlook.com" }
 ]
 dependencies = [
-    "flet>=0.25.1",
+    "flet[all]>=0.25.1",
 ]
 readme = "README.md"
 requires-python = ">= 3.8"
@@ -28,7 +28,7 @@ dev-dependencies = []
 [tool.rye.scripts]
 dev = "flet run -d -r"  # https://flet.dev/docs/getting-started/running-app#hot-reload
 app = "flet run main.py"
-web = "flet run --web main.py"
+web = "flet run -d -r --web main.py"
 
 build-macos = "flet build macos"
 build-linux = "flet build linux"

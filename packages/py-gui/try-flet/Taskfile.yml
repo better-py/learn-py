@@ -18,6 +18,8 @@ tasks:
   pkg:
     cmds:
       - rye {{ .CLI_ARGS }}
+    dir: flet-template/
+
 
   dev:
     aliases: [ 'd' ]
@@ -35,7 +37,6 @@ tasks:
     aliases: [ 'rw' ]
     cmds:
       - rye run web
-      - open build/web/
     dir: ./flet-template/
 
   build:macos:
