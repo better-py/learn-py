@@ -39,4 +39,5 @@ def main(page: ft.Page):
     page.update()
 
 
-ft.app(main, port=8000, view=ft.AppView.WEB_BROWSER)
+# ft.app(main, port=8000, view=ft.AppView.WEB_BROWSER)  # run web mode
+ft.app(main)  # run app mode
