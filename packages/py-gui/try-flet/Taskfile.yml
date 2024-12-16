@@ -16,6 +16,7 @@ env:
 
 tasks:
   pkg:
+    aliases: [ "pm" ]
     cmds:
       - rye {{ .CLI_ARGS }}
     dir: flet-template/

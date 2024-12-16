@@ -1,4 +1,7 @@
 import flet as ft
+import flet_easy as fs
+
+from core.app import app
 
 
 class TodoApp(ft.Column):
@@ -26,7 +29,8 @@ class TodoApp(ft.Column):
         self.update()
 
 
-def todo_view(page: ft.Page):
+@app.page(route="/todo")
+def todo_view(data: fs.Datasy):
     appbar_items = [
         ft.PopupMenuItem(text="Login"),
         ft.PopupMenuItem(),  # divider
@@ -38,9 +42,9 @@ def todo_view(page: ft.Page):
 
         [
             ft.Row([
-                ft.ElevatedButton("Visit Store", on_click=lambda _: page.go("/store")),
-                ft.ElevatedButton("Visit Home", on_click=lambda _: page.go("/home")),
-                ft.ElevatedButton("Visit Todo", on_click=lambda _: page.go("/todo")),
+                ft.ElevatedButton("Visit Store", on_click=data.go("/store")),
+                ft.ElevatedButton("Visit Home", on_click=data.go("/home")),
+                ft.ElevatedButton("Visit Todo", on_click=data.go("/todo")),
             ]),
 
             TodoApp(),

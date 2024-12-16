@@ -1,5 +1,6 @@
 import flet as ft
 
+from core.app import app
 from core.views import home_view, HomeView
 from core.views import store_view
 from core.views import todo_view
@@ -40,4 +41,7 @@ def main(page: ft.Page):
 
 
 # ft.app(main, port=8000, view=ft.AppView.WEB_BROWSER)  # run web mode
-ft.app(main)  # run app mode
+# ft.app(main)  # run app mode
+
+# We run the application
+app.run()

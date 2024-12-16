@@ -1,7 +1,25 @@
 import flet as ft
+import flet_easy as fs
+
+from core.app import app
 
 
-def home_view(page: ft.Page):
+# We add a page
+@app.page(route="/flet-easy", title="Flet-Easy")
+def index_page(data: fs.Datasy):
+    return ft.View(
+        controls=[
+            ft.Text("Home page"),
+            ft.FilledButton("Go to Counter", on_click=data.go("/counter")),
+        ],
+        vertical_alignment="center",
+        horizontal_alignment="center",
+    )
+
+
+@app.page(route="/")
+@app.page(route="/home")
+def home_view(data: fs.Datasy):
     appbar_items = [
         ft.PopupMenuItem(text="Login"),
         ft.PopupMenuItem(),  # divider
@@ -14,9 +32,10 @@ def home_view(page: ft.Page):
         [
 
             ft.Row([
-                ft.ElevatedButton("Visit Store", on_click=lambda _: page.go("/store")),
-                ft.ElevatedButton("Visit Home", on_click=lambda _: page.go("/home")),
-                ft.ElevatedButton("Visit Todo", on_click=lambda _: page.go("/todo")),
+                ft.ElevatedButton("Visit Store", on_click=data.go("/store")),
+                ft.ElevatedButton("Visit Home", on_click=data.go("/")),
+                ft.ElevatedButton("Visit Todo", on_click=data.go("/todo")),
+                ft.ElevatedButton("Visit Counter", on_click=data.go("/counter")),
             ])
 
         ],

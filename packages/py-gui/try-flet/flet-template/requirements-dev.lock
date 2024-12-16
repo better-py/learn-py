@@ -33,17 +33,23 @@ click==8.1.7
     # via uvicorn
 cookiecutter==2.6.0
     # via flet-cli
+    # via flet-easy
 fastapi==0.115.5
     # via flet-web
 flet==0.25.1
     # via flet-cli
     # via flet-desktop
+    # via flet-easy
     # via flet-template
     # via flet-web
 flet-cli==0.25.1
     # via flet
+flet-core==0.24.1
+    # via flet-template
 flet-desktop==0.25.1
     # via flet
+flet-easy==0.2.7
+    # via flet-template
 flet-web==0.25.1
     # via flet
 h11==0.14.0
@@ -71,12 +77,16 @@ oauthlib==3.2.2
     # via flet
 packaging==24.2
     # via flet-cli
+pyasn1==0.6.1
+    # via rsa
 pydantic==2.10.2
     # via fastapi
 pydantic-core==2.27.1
     # via pydantic
 pygments==2.18.0
     # via rich
+pyjwt==2.10.1
+    # via flet-easy
 pypng==0.20220715.0
     # via qrcode
 python-dateutil==2.9.0.post0
@@ -92,10 +102,16 @@ qrcode==7.4.2
     # via flet-cli
 repath==0.9.0
     # via flet
+    # via flet-core
 requests==2.32.3
     # via cookiecutter
 rich==13.9.4
     # via cookiecutter
+    # via rich-argparse
+rich-argparse==1.6.0
+    # via flet-easy
+rsa==4.9
+    # via flet-easy
 six==1.16.0
     # via python-dateutil
     # via repath
