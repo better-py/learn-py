@@ -9,6 +9,7 @@ def layout_view(data: fs.Datasy, title: str = None, controls: Sequence[ft.Contro
         open=True,
         visible=True,
         selected_index=1,
+        # bgcolor=ft.Colors.PINK_300,
         controls=[
 
             ft.CircleAvatar(
@@ -50,7 +51,7 @@ def layout_view(data: fs.Datasy, title: str = None, controls: Sequence[ft.Contro
             ),
 
             ft.ListTile(
-                leading=ft.Icon(ft.Icons.SETTINGS, color=ft.Colors.ORANGE, size=30),
+                leading=ft.Icon(ft.Icons.INFO, color=ft.Colors.PINK_300, size=30),
                 title=ft.Text("About"),
                 on_click=data.go("/about"),
             ),
@@ -64,8 +65,9 @@ def layout_view(data: fs.Datasy, title: str = None, controls: Sequence[ft.Contro
     ]
 
     appbar = ft.AppBar(
+
         leading=ft.IconButton(icon=ft.icons.MENU, on_click=lambda _: data.page.open(drawer)),
-        title=ft.Text(title if title else "Home View", size=24, text_align="start"),
+        title=ft.Text(title if title else "Home", size=24, text_align="start"),
         center_title=False,
         # toolbar_height=75,
         bgcolor=ft.Colors.LIGHT_BLUE_ACCENT_700,
@@ -79,18 +81,122 @@ def layout_view(data: fs.Datasy, title: str = None, controls: Sequence[ft.Contro
         ],
     )
 
+    rail = ft.NavigationRail(
+        selected_index=0,
+        label_type=ft.NavigationRailLabelType.ALL,
+        # extended=True,
+        min_width=100,
+        min_extended_width=400,
+        leading=ft.FloatingActionButton(icon=ft.Icons.CREATE, text="Add"),
+        group_alignment=-0.9,
+        destinations=[
+            ft.NavigationRailDestination(
+                icon=ft.Icons.FAVORITE_BORDER, selected_icon=ft.Icons.FAVORITE, label="First"
+            ),
+            ft.NavigationRailDestination(
+                icon=ft.Icon(ft.Icons.BOOKMARK_BORDER),
+                selected_icon=ft.Icon(ft.Icons.BOOKMARK),
+                label="Second",
+            ),
+            ft.NavigationRailDestination(
+                icon=ft.Icons.SETTINGS_OUTLINED,
+                selected_icon=ft.Icon(ft.Icons.SETTINGS),
+                label_content=ft.Text("Settings"),
+            ),
+        ],
+        # on_change=lambda e: print("Selected destination:", e.control.selected_index),
+        # on_change=lambda e: update_index(e.control.selected_index, data),
+        on_change=lambda e: update_body(e.control.selected_index),
+
+    )
+
+    # Initialize main content area
+    main_content = ft.Column(expand=True)
+
+    # Function to update body content with cards for classes
+    def update_body(selected_index):
+        if selected_index == 0:  # Classes
+            body_content = ft.Column([
+                # Class 1: Python Basics
+                ft.Card(
+                    content=ft.Column([
+                        ft.Text("Class 1: Python Basics", size=20, weight=ft.FontWeight.BOLD),
+                        ft.Text("Learn the fundamentals of Python programming."),
+                    ]),
+                ),
+            ],
+                scroll="auto",
+            )
+        elif selected_index == 1:  # About
+            body_content = ft.Column([
+                # Class 1: Python Basics
+                ft.Card(
+                    content=ft.Column([
+                        ft.Text("Page2", size=20, weight=ft.FontWeight.BOLD),
+                        ft.Text("Learn the fundamentals of Python programming."),
+                    ]),
+                ),
+            ], )
+        elif selected_index == 2:
+            body_content = ft.Column([
+                # Class 1: Python Basics
+                ft.Card(
+                    content=ft.Column([
+                        ft.Text("store view", size=20, weight=ft.FontWeight.BOLD),
+                    ]),
+                ),
+            ], )
+        else:
+            body_content = ft.Column([ft.Text("Select a destination!")])
+
+        # Clear and update main content area
+        main_content.controls.clear()  # Clear existing controls
+        main_content.controls.append(body_content)  # Add new content
+        main_content.update()  # Refresh main content
+        data.page.update()  # Refresh the page to reflect changes
+
+    def new_controls(index: int):
+        print("real control index", index)
+
+        if index == 0:
+            # new controls for home
+            return [
+                ft.Text("Home View"),
+            ]
+        elif index == 1:
+            # new controls for todo
+            return [
+                ft.Text("Todo View"),
+            ]
+        elif index == 2:
+            # new controls for counter
+            return [
+                ft.Text("Counter View"),
+            ]
+        elif index == 3:
+            # new controls for store
+            return [
+                ft.Text("Store View"),
+            ]
+        else:
+            return [ft.Text("Not found")]
+
     return ft.View(
         "/",
 
         # controls
-        controls=controls if controls else [
+        controls=[
             ft.Row([
-                ft.ElevatedButton("Visit Store", on_click=data.go("/store")),
-                ft.ElevatedButton("Visit Home", on_click=data.go("/")),
-                ft.ElevatedButton("Visit Todo", on_click=data.go("/todo")),
-                ft.ElevatedButton("Visit Counter", on_click=data.go("/counter")),
-            ])
+                rail,
+                ft.VerticalDivider(width=1),
 
+                #
+                #
+                #
+                ft.Card(
+                    main_content,
+                )
+            ], expand=True),
         ],
 
         # drawer
