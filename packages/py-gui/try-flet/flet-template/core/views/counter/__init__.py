@@ -2,6 +2,7 @@ import flet as ft
 import flet_easy as fs
 
 from core.app import app
+from core.layout import layout_view
 
 
 # We add a second page
@@ -19,7 +20,9 @@ def counter_page(data: fs.Datasy):
         txt_number.value = str(int(txt_number.value) + 1)
         page.update()
 
-    return ft.View(
+    return layout_view(
+        data,
+        title="Counter",
         controls=[
             ft.Row(
                 [
@@ -29,7 +32,9 @@ def counter_page(data: fs.Datasy):
                 ],
                 alignment="center",
             ),
-            ft.FilledButton("Go to Home", on_click=data.go("/")),
+
+            ft.IconButton(ft.Icons.HOME, on_click=data.go("/home"), icon_color=ft.Colors.GREEN),
+
         ],
         vertical_alignment="center",
         horizontal_alignment="center",
