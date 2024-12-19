@@ -1,4 +1,4 @@
 from app.views import app
 
 # run
-app.run(port=8000)
+app.run(name="Flet Mobile Template")
