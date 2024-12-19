@@ -29,6 +29,7 @@ def home_view(data: fs.Datasy):
                     ft.Card(
                         ft.Column(
                             [
+
                                 ft.Row(
                                     [
                                         ft.ElevatedButton(
