@@ -3,6 +3,8 @@ from typing import Sequence
 import flet as ft
 import flet_easy as fs
 
+from core.widgets.home import home_widget
+
 
 def layout_view(data: fs.Datasy, title: str = None, controls: Sequence[ft.Control] | None = None, **kwargs) -> ft.View:
     drawer = ft.NavigationDrawer(
@@ -65,8 +67,7 @@ def layout_view(data: fs.Datasy, title: str = None, controls: Sequence[ft.Contro
     ]
 
     appbar = ft.AppBar(
-
-        leading=ft.IconButton(icon=ft.icons.MENU, on_click=lambda _: data.page.open(drawer)),
+        leading=ft.IconButton(icon=ft.Icons.MENU, on_click=lambda _: data.page.open(drawer)),
         title=ft.Text(title if title else "Home", size=24, text_align="start"),
         center_title=False,
         # toolbar_height=75,
@@ -87,7 +88,7 @@ def layout_view(data: fs.Datasy, title: str = None, controls: Sequence[ft.Contro
         # extended=True,
         min_width=100,
         min_extended_width=400,
-        leading=ft.FloatingActionButton(icon=ft.Icons.CREATE, text="Add"),
+        leading=ft.FloatingActionButton(icon=ft.Icons.CREATE, bgcolor=ft.Colors.RED, text="Add"),
         group_alignment=-0.9,
         destinations=[
             ft.NavigationRailDestination(
@@ -106,7 +107,7 @@ def layout_view(data: fs.Datasy, title: str = None, controls: Sequence[ft.Contro
         ],
         # on_change=lambda e: print("Selected destination:", e.control.selected_index),
         # on_change=lambda e: update_index(e.control.selected_index, data),
-        on_change=lambda e: update_body(e.control.selected_index),
+        on_change=lambda e: update_body(e.control.selected_index, data),
 
     )
 
@@ -114,10 +115,13 @@ def layout_view(data: fs.Datasy, title: str = None, controls: Sequence[ft.Contro
     main_content = ft.Column(expand=True)
 
     # Function to update body content with cards for classes
-    def update_body(selected_index):
+    def update_body(selected_index, data: fs.Datasy = None):
         if selected_index == 0:  # Classes
             body_content = ft.Column([
                 # Class 1: Python Basics
+
+                home_widget(data),
+
                 ft.Card(
                     content=ft.Column([
                         ft.Text("Class 1: Python Basics", size=20, weight=ft.FontWeight.BOLD),
