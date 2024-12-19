@@ -1,8 +1,4 @@
-import flet as ft
+from app.views import app
 
-
-def main(page: ft.Page):
-    page.add(ft.SafeArea(ft.Text("Hello, Flet!")))
-
-
-ft.app(main)
+# run
+app.run(port=8000)
