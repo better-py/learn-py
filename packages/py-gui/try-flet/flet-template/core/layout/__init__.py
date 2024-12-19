@@ -83,6 +83,7 @@ def layout_view(data: fs.Datasy, title: str = None, controls: Sequence[ft.Contro
     )
 
     rail = ft.NavigationRail(
+
         selected_index=0,
         label_type=ft.NavigationRailLabelType.ALL,
         # extended=True,
@@ -119,15 +120,7 @@ def layout_view(data: fs.Datasy, title: str = None, controls: Sequence[ft.Contro
         if selected_index == 0:  # Classes
             body_content = ft.Column([
                 # Class 1: Python Basics
-
                 home_widget(data),
-
-                ft.Card(
-                    content=ft.Column([
-                        ft.Text("Class 1: Python Basics", size=20, weight=ft.FontWeight.BOLD),
-                        ft.Text("Learn the fundamentals of Python programming."),
-                    ]),
-                ),
             ],
                 scroll="auto",
             )
