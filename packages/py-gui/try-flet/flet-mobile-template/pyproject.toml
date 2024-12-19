@@ -7,6 +7,8 @@ authors = [
 ]
 dependencies = [
     "flet[all]>=0.25.2",
+    "flet-easy[all]>=0.2.7",
+    "flet-core>=0.24.1",
 ]
 readme = "README.md"
 requires-python = ">= 3.8"
@@ -18,6 +20,30 @@ build-backend = "hatchling.build"
 [tool.rye]
 managed = true
 dev-dependencies = []
+
+
+#
+# rye run dev
+# rye run app
+# rye run web
+#
+[tool.rye.scripts]
+dev = "flet run -d -r"  # https://flet.dev/docs/getting-started/running-app#hot-reload
+app = "flet run main.py"
+web = "flet run -d -r --web main.py -p 8000"
+
+build-macos = "flet build macos"
+build-linux = "flet build linux"
+build-windows = "flet build windows"
+build-android = "flet build apk"
+build-ios = "flet build ipa"
+
+# https://flet.dev/docs/publish/web/static-website#web-renderer
+build-web = "flet build web --web-renderer html"  # flet build web
+
+serve-web = "python -m http.server --directory build/web"
+
+
 
 [tool.hatch.metadata]
 allow-direct-references = true

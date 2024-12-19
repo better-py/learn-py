@@ -1,13 +1,6 @@
 version: "3"
 
 
-includes:
-  flet-mobile:
-    aliases: [ "fm" ]
-    taskfile: flet-mobile-template/
-    dir: flet-mobile-template/
-    optional: true
-
 #
 # global vars: https://taskfile.dev/#/usage?id=variables
 #
@@ -26,51 +19,44 @@ tasks:
     aliases: [ "pm" ]
     cmds:
       - rye {{ .CLI_ARGS }}
-    dir: flet-template/
 
 
   dev:
     aliases: [ 'd' ]
     cmds:
       - rye run dev
-    dir: ./flet-template/
 
   run:app:
     aliases: [ 'ra' ]
     cmds:
       - rye run app
-    dir: ./flet-template/
+
 
   run:web:
     aliases: [ 'rw' ]
     cmds:
       - rye run web
-    dir: ./flet-template/
 
   build:macos:
     aliases: [ 'bm', ]
     cmds:
       - rye run build-macos
       - open build/macos/
-    dir: ./flet-template/
 
   build:android:
     aliases: [ 'ba', ]
     cmds:
       - rye run build-android
-    dir: ./flet-template/
 
   build:web:
     aliases: [ 'bw', ]
     cmds:
       - rye run build-web
-    dir: ./flet-template/
 
   serve:web:
     aliases: [ 'sw', ]
     cmds:
       - rye run serve-web
-    dir: ./flet-template/
 
   release:
     aliases: [ 'rel' ]
@@ -84,7 +70,6 @@ tasks:
           --company-name "TryBetterApp" \
           --codesign-identity "com.trybetterapp" \
           --bundle-id "com.trybetterapp.pyapp" \
-    dir: ./case01
 
   new:
     cmds:
