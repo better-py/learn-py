@@ -91,6 +91,28 @@ def layout_view(
         ft.PopupMenuItem(text="Settings"),
     ]
 
+    def change_theme(e):
+        #
+        # todo x: change icon
+        #
+        e.control.selected = not e.control.selected
+        e.control.update()
+
+        # todo x: change theme
+        if not data.page:
+            return
+
+        # change to light
+        if data.page.theme_mode == ft.ThemeMode.DARK or data.page.theme_mode == ft.ThemeMode.SYSTEM:
+            data.page.theme_mode = ft.ThemeMode.LIGHT
+            data.page.update()
+            return
+
+        # change to dark
+        data.page.theme_mode = ft.ThemeMode.DARK
+        data.page.update()
+        return
+
     appbar = ft.AppBar(
         #
         # open drawer
@@ -108,14 +130,23 @@ def layout_view(
         # end open
         #
         actions=[
+
+            #
+            # todo x: change theme
+            #
+            ft.IconButton(
+                icon=ft.Icons.LIGHT_MODE,
+                selected_icon=ft.Icons.DARK_MODE,
+                on_click=lambda e: change_theme(e)),
+
             ft.Container(
                 content=ft.PopupMenuButton(items=appbar_items, bgcolor=ft.Colors.BLUE_ACCENT_400),
-                margin=ft.margin.only(left=50, right=25),
+                margin=ft.margin.only(left=10, right=10),
             )
         ],
     )
 
-    return ft.View(
+    v = ft.View(
         "/",
         # controls
         controls if controls else [],
@@ -162,3 +193,9 @@ def layout_view(
 
         **kwargs,
     )
+
+    # if v.page:
+    #     v.page.theme_mode = ft.ThemeMode.LIGHT
+    #     v.page.update()
+
+    return v
