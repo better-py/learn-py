@@ -1,8 +1,8 @@
 import flet as ft
 import flet_easy as fs
 
-from core.app import app
-from core.layout import layout_view
+from app.core import app
+from app.layout import layout_view
 
 
 class TodoApp(ft.Column):

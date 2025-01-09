@@ -3,12 +3,12 @@ from typing import Sequence
 import flet as ft
 import flet_easy as fs
 
-from core.widgets.home import home_widget
+from app.widgets.home import home_widget
 
 
 def layout_view(data: fs.Datasy, title: str = None, controls: Sequence[ft.Control] | None = None, **kwargs) -> ft.View:
     drawer = ft.NavigationDrawer(
-        open=True,
+        open=False,
         visible=True,
         selected_index=1,
         # bgcolor=ft.Colors.PINK_300,
