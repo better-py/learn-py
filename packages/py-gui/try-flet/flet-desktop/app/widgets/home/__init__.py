@@ -97,19 +97,33 @@ def home_widget(data: fs.Datasy):
     chart = new_chart()
 
     return ft.Container(
-        ft.SafeArea(
-            ft.Card(
-                ft.Container(
-                    ft.Column([
-                        ft.Text("Class 1: Python Basics", size=20, weight=ft.FontWeight.BOLD),
-                        ft.Text("Learn the fundamentals of Python programming."),
-                    ])
-                ),
+        ft.Column([
+            ft.Text("Class 1: Python Basics", size=20, weight=ft.FontWeight.BOLD),
+            ft.Text("Learn the fundamentals of Python programming."),
+
+            ft.Container(
+                bgcolor=ft.colors.GREEN_200,
                 expand=True,
-                width=1000,  # 如何铺满窗口?
-            )
-        ),
-        padding=10,
+            ),
+
+            ft.Text("Learn the fundamentals of Python programming."),
+
+            # ft.ListView(
+            #     [
+            #         ft.ListTile(trailing=ft.Icon(ft.Icons.BUILD),
+            #                     title=ft.Text("list2")),
+            #         ft.ListTile(trailing=ft.Icon(ft.Icons.BOOK),
+            #                     title=ft.Text("list2")),
+            #         ft.ListTile(trailing=ft.Icon(ft.Icons.BADGE),
+            #                     title=ft.Text("list2")),
+            #
+            #     ]
+            # )
+
+        ]),
+
+        alignment=ft.alignment.center,
+        # expand=True,
     )
 
     return ft.Card(
