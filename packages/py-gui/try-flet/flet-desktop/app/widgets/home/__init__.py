@@ -99,33 +99,51 @@ def home_widget(data: fs.Datasy):
     return ft.Container(
         ft.SafeArea(
             ft.Card(
-                ft.Column([
-                    ft.Row([
-                        ft.ElevatedButton("Store", on_click=data.go("/store")),
-                        ft.ElevatedButton("Home", on_click=data.go("/home")),
-                        ft.ElevatedButton("Todo", on_click=lambda _: data.page.go("/todo")),
-                        ft.ElevatedButton("Counter", on_click=lambda _: data.page.go("/counter")),
-                    ]),
+                ft.Container(
+                    ft.Column([
+                        ft.Text("Class 1: Python Basics", size=20, weight=ft.FontWeight.BOLD),
+                        ft.Text("Learn the fundamentals of Python programming."),
+                    ])
+                ),
+                expand=True,
+                width=1000,  # 如何铺满窗口?
+            )
+        ),
+        padding=10,
+    )
 
-                    ft.Card(
-                        content=ft.Column([
-                            ft.Text("Class 1: Python Basics", size=20, weight=ft.FontWeight.BOLD),
-                            ft.Text("Learn the fundamentals of Python programming."),
-                        ], ),
-                        expand=True,
-                        margin=10,
-                    ),
+    return ft.Card(
+        ft.Column([
+            ft.Row([
+                ft.ElevatedButton("Store", on_click=data.go("/store")),
+                ft.ElevatedButton("Home", on_click=data.go("/home")),
+                ft.ElevatedButton("Todo", on_click=lambda _: data.page.go("/todo")),
+                ft.ElevatedButton("Counter", on_click=lambda _: data.page.go("/counter")),
+            ]),
 
-                    ft.Card(chart, ),
+            ft.Card(
+                content=ft.Column([
+                    ft.Text("Class 1: Python Basics", size=20, weight=ft.FontWeight.BOLD),
+                    ft.Text("Learn the fundamentals of Python programming."),
+                ], ),
+                expand=True,
+                margin=10,
+            ),
 
-                    ft.ListView([
-                        ft.ListTile(trailing=ft.Icon(ft.Icons.BUILD),
-                                    title=ft.Text("list2")),
-                        ft.ListTile(trailing=ft.Icon(ft.Icons.BOOK),
-                                    title=ft.Text("list2")),
-                        ft.ListTile(trailing=ft.Icon(ft.Icons.BADGE),
-                                    title=ft.Text("list2")),
-                        ft.ListTile(trailing=ft.Icon(ft.Icons.BOY),
-                                    title=ft.Text("list2")),
-                    ]),
-                ]), )), padding=10)
+            ft.Card(chart, ),
+
+            ft.ListView([
+                ft.ListTile(trailing=ft.Icon(ft.Icons.BUILD),
+                            title=ft.Text("list2")),
+                ft.ListTile(trailing=ft.Icon(ft.Icons.BOOK),
+                            title=ft.Text("list2")),
+                ft.ListTile(trailing=ft.Icon(ft.Icons.BADGE),
+                            title=ft.Text("list2")),
+                ft.ListTile(trailing=ft.Icon(ft.Icons.BOY),
+                            title=ft.Text("list2")),
+            ]),
+        ]), margin=10, expand=True, )
+
+    # return ft.Container(
+    #     ft.SafeArea(
+    #         , padding=10)

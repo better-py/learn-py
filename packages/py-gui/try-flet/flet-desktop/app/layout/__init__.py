@@ -87,24 +87,50 @@ def layout_view(data: fs.Datasy, title: str = None, controls: Sequence[ft.Contro
         selected_index=0,
         label_type=ft.NavigationRailLabelType.ALL,
         # extended=True,
-        min_width=100,
+        min_width=50,
         min_extended_width=400,
-        leading=ft.FloatingActionButton(icon=ft.Icons.CREATE, bgcolor=ft.Colors.RED, text="Add"),
-        group_alignment=-0.9,
+        # leading=ft.FloatingActionButton(
+        #     icon=ft.Icons.CREATE, bgcolor=ft.Colors.RED,
+        #     on_click=lambda _: data.page.go("/store")),
+        # trailing=ft.FloatingActionButton(
+        #     icon=ft.Icons.CREATE, bgcolor=ft.Colors.RED,
+        #     on_click=lambda _: data.page.go("/counter")),
+        # group_alignment=-0.9,
         destinations=[
             ft.NavigationRailDestination(
-                icon=ft.Icons.FAVORITE_BORDER, selected_icon=ft.Icons.FAVORITE, label="First"
+                icon=ft.Icon(ft.Icons.HOME_OUTLINED, color=ft.Colors.BLUE),
+                selected_icon=ft.Icon(ft.Icons.HOME, color=ft.Colors.BLUE),
+                label_content=ft.Text("Home"),
             ),
             ft.NavigationRailDestination(
-                icon=ft.Icon(ft.Icons.BOOKMARK_BORDER),
-                selected_icon=ft.Icon(ft.Icons.BOOKMARK),
-                label="Second",
+                icon=ft.Icon(ft.Icons.NOTES_OUTLINED, color=ft.Colors.RED),
+                selected_icon=ft.Icon(ft.Icons.NOTES, color=ft.Colors.RED),
+                label_content=ft.Text("Todo"),
             ),
             ft.NavigationRailDestination(
-                icon=ft.Icons.SETTINGS_OUTLINED,
-                selected_icon=ft.Icon(ft.Icons.SETTINGS),
+                icon=ft.Icon(ft.Icons.CALCULATE_OUTLINED, color=ft.Colors.GREEN),
+                selected_icon=ft.Icon(ft.Icons.CALCULATE, color=ft.Colors.GREEN),
+                label_content=ft.Text("Counter"),
+            ),
+            ft.NavigationRailDestination(
+                icon=ft.Icon(ft.Icons.STORE_OUTLINED, color=ft.Colors.RED),
+                selected_icon=ft.Icon(ft.Icons.STORE, color=ft.Colors.RED),
+                label_content=ft.Text("Store"),
+            ),
+            ft.NavigationRailDestination(
+                icon=ft.Icon(ft.Icons.SETTINGS_OUTLINED, color=ft.Colors.ORANGE_300),
+                selected_icon=ft.Icon(ft.Icons.SETTINGS, color=ft.Colors.ORANGE_300),
                 label_content=ft.Text("Settings"),
             ),
+            ft.NavigationRailDestination(
+                icon=ft.Icon(ft.Icons.INFO_OUTLINED, color=ft.Colors.PINK_300),
+                selected_icon=ft.Icon(ft.Icons.INFO, color=ft.Colors.PINK_300),
+                label_content=ft.Text("About"),
+            ),
+            # ft.NavigationRailDestination(
+            #     icon=ft.Row([ft.Icon(ft.Icons.SETTINGS_OUTLINED), ft.Text("Settings"), ]),
+            #     selected_icon_content=ft.Row([ft.Icon(ft.Icons.SETTINGS), ft.Text("Settings"), ]),
+            # ),
         ],
         # on_change=lambda e: print("Selected destination:", e.control.selected_index),
         # on_change=lambda e: update_index(e.control.selected_index, data),
@@ -118,12 +144,7 @@ def layout_view(data: fs.Datasy, title: str = None, controls: Sequence[ft.Contro
     # Function to update body content with cards for classes
     def update_body(selected_index, data: fs.Datasy = None):
         if selected_index == 0:  # Classes
-            body_content = ft.Column([
-                # Class 1: Python Basics
-                home_widget(data),
-            ],
-                scroll="auto",
-            )
+            body_content = home_widget(data)
         elif selected_index == 1:  # About
             body_content = ft.Column([
                 # Class 1: Python Basics
@@ -185,7 +206,7 @@ def layout_view(data: fs.Datasy, title: str = None, controls: Sequence[ft.Contro
         controls=[
             ft.Row([
                 rail,
-                ft.VerticalDivider(width=1),
+                # ft.VerticalDivider(width=1),
 
                 #
                 #

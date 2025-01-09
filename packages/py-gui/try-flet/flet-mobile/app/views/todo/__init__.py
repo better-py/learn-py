@@ -2,7 +2,7 @@ import flet as ft
 import flet_easy as fs
 
 from app.core import app
-from app.layout import layout_view
+from app.layout import page_layout
 
 
 class TodoApp(ft.Column):
@@ -32,7 +32,7 @@ class TodoApp(ft.Column):
 
 @app.page(route="/todo")
 def todo_view(data: fs.Datasy):
-    return layout_view(
+    return page_layout(
         data,
         title="Todo",
         controls=[

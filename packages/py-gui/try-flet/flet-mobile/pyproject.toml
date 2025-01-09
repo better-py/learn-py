@@ -30,7 +30,7 @@ dev-dependencies = []
 [tool.rye.scripts]
 dev = "flet run -d -r"  # https://flet.dev/docs/getting-started/running-app#hot-reload
 app = "flet run main.py"
-web = "flet run -d -r --web main.py -p 8000"
+web = "flet run -d -r --web main.py -p 8001"
 
 build-macos = "flet build macos"
 build-linux = "flet build linux"
