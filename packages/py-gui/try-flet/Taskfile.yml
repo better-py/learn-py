@@ -4,8 +4,8 @@ version: "3"
 includes:
   flet-mobile:
     aliases: [ "fm" ]
-    taskfile: flet-mobile-template/
-    dir: flet-mobile-template/
+    taskfile: flet-mobile/
+    dir: flet-mobile/
     optional: true
 
 #
