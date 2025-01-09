@@ -92,7 +92,7 @@ def new_chart():
 
 
 def home_widget(data: fs.Datasy):
-    logger.debug("data: {}", data.__dict__)
+    logger.debug(f"data: {data.__dict__}")
 
     chart = new_chart()
 
