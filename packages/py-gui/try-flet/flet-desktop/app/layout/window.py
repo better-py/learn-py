@@ -109,22 +109,62 @@ def new_appbar(data: fs.Datasy, drawer, title: str = None) -> ft.AppBar:
         ft.PopupMenuItem(text="Settings")
     ]
 
+    def change_theme(e):
+        #
+        # todo x: change icon
+        #
+        e.control.selected = not e.control.selected
+        e.control.update()
+
+        # todo x: change theme
+        if not data.page:
+            return
+
+        # change to light
+        if data.page.theme_mode == ft.ThemeMode.DARK or data.page.theme_mode == ft.ThemeMode.SYSTEM:
+            data.page.theme_mode = ft.ThemeMode.LIGHT
+            data.page.update()
+            return
+
+        # change to dark
+        data.page.theme_mode = ft.ThemeMode.DARK
+        data.page.update()
+        return
+
     # 顶部导航栏
     appbar = ft.AppBar(
-        leading=ft.IconButton(icon=ft.Icons.MENU, on_click=lambda _: data.page.open(drawer)),
-        title=ft.Text(title if title else "Home", size=24, text_align="start"),
-        center_title=False,
+        #
+        # open drawer
+        #
+        leading=ft.IconButton(
+            icon=ft.Icons.MENU, on_click=lambda _: data.page.open(drawer)
+        ),
+
+        title=ft.Text(title if title else "Home", ),
+        center_title=True,
         # toolbar_height=75,
-        bgcolor=ft.Colors.LIGHT_BLUE_ACCENT_700,
+        bgcolor=ft.Colors.ORANGE_ACCENT_400,
+
+        #
+        # end open
+        #
         actions=[
+
+            #
+            # todo x: change theme
+            #
+            ft.IconButton(
+                icon=ft.Icons.LIGHT_MODE,
+                selected_icon=ft.Icons.DARK_MODE,
+                on_click=lambda e: change_theme(e)),
+
             ft.Container(
-                content=ft.PopupMenuButton(
-                    items=appbar_items
-                ),
-                margin=ft.margin.only(left=50, right=25)
+                content=ft.PopupMenuButton(items=appbar_items, bgcolor=ft.Colors.BLUE_ACCENT_400),
+                margin=ft.margin.only(left=10, right=10),
             )
         ],
     )
+
     return appbar
 
 
