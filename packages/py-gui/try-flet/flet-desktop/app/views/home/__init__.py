@@ -2,7 +2,7 @@ import flet as ft
 import flet_easy as fs
 
 from app.core import app
-from app.layout import layout_view
+from app.layout import window_layout
 
 
 # We add a page
@@ -21,7 +21,7 @@ def index_page(data: fs.Datasy):
 @app.page(route="/")
 @app.page(route="/home")
 def home_view(data: fs.Datasy):
-    return layout_view(data, controls=[
+    return window_layout(data, controls=[
         ft.Container(
             ft.SafeArea(
                 ft.Card(

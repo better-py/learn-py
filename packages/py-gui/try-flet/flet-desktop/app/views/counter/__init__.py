@@ -2,7 +2,7 @@ import flet as ft
 import flet_easy as fs
 
 from app.core import app
-from app.layout import layout_view
+from app.layout import window_layout
 
 
 # We add a second page
@@ -20,7 +20,7 @@ def counter_page(data: fs.Datasy):
         txt_number.value = str(int(txt_number.value) + 1)
         page.update()
 
-    return layout_view(
+    return window_layout(
         data,
         title="Counter",
         controls=[

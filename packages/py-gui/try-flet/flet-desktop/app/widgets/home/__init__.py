@@ -96,6 +96,56 @@ def home_widget(data: fs.Datasy):
 
     chart = new_chart()
 
+    l = ft.ListView(
+        [
+            ft.ListTile(
+                leading=ft.Icon(ft.Icons.BUILD, color=ft.Colors.RED),
+                title=ft.Text("list2"),
+                subtitle=ft.Text("sub"),
+                trailing=ft.Icon(ft.Icons.CHECK, color=ft.Colors.GREEN),
+            ),
+            ft.ListTile(
+                leading=ft.Icon(ft.Icons.BOOK, color=ft.Colors.GREEN),
+                title=ft.Text("list2"),
+                subtitle=ft.Text("sub"),
+                expand=True,
+                trailing=ft.Icon(ft.Icons.CHECK, color=ft.Colors.GREEN),
+            ),
+            ft.ListTile(
+                leading=ft.Icon(ft.Icons.BADGE, color=ft.Colors.BLUE),
+                title=ft.Text("list2"),
+                subtitle=ft.Text("sub"),
+                trailing=ft.Icon(ft.Icons.CHECK, color=ft.Colors.GREEN),
+            ),
+        ],
+        padding=10,
+        expand=True,
+        adaptive=True,
+    )
+
+    return ft.Container(
+        ft.Column([
+            ft.Card(
+                ft.Container(
+                    content=ft.Column(
+                        [
+                            ft.Text("Class 1: Python Basics", size=20, weight=ft.FontWeight.BOLD),
+                            ft.Text("Learn the fundamentals of Python programming."),
+
+                            l,
+                        ],
+                        adaptive=True,
+                    ),
+                    padding=10,
+                    expand_loose=True,
+                    expand=True,
+                ),
+                expand=True,
+
+            )
+        ]),
+    )
+
     return ft.Container(
         ft.Column([
             ft.Text("Class 1: Python Basics", size=20, weight=ft.FontWeight.BOLD),
@@ -122,7 +172,7 @@ def home_widget(data: fs.Datasy):
 
         ]),
 
-        alignment=ft.alignment.center,
+        # alignment=ft.alignment.center,
         # expand=True,
     )
 
