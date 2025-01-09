@@ -1,5 +1,6 @@
 import flet as ft
 import flet_easy as fs
+from loguru import logger
 
 
 def new_chart():
@@ -91,7 +92,7 @@ def new_chart():
 
 
 def home_widget(data: fs.Datasy):
-    print("data: ", data.__dict__)
+    logger.debug("data: {}", data.__dict__)
 
     chart = new_chart()
 
