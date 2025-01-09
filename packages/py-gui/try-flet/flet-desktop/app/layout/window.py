@@ -4,6 +4,7 @@ import flet as ft
 import flet_easy as fs
 
 from app.widgets.home import home_widget
+from loguru import logger
 
 
 #
@@ -108,6 +109,8 @@ def new_appbar(data: fs.Datasy, drawer, title: str = None) -> ft.AppBar:
         ft.PopupMenuItem(),  # divider
         ft.PopupMenuItem(text="Settings")
     ]
+
+    logger.debug(f"page locale: {data.page.locale_configuration}")
 
     def change_theme(e):
         #
