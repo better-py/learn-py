@@ -59,7 +59,7 @@ tasks:
   run:
     aliases: [ 'r' ]
     cmds:
-      - rye run python3 -m tr_binance
+      - poetry run python3 -m tr_binance
     dir: ./src/try_ccxt
 
   run2:

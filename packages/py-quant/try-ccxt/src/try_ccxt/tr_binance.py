@@ -424,11 +424,14 @@ def main():
     # calc()
 
     # query one coin
-    bt = BinanceTrader()
+    bt = BinanceTrader(use_proxy=False)
+
+    # 查看余额
+    bt.get_balance()
 
     # remove duplicates
-    ret = bt.clean_my_trades(symbol="DOT/BUSD")
-    logger.info(f"query one coin, ret count: {len(ret)}")
+    # ret = bt.clean_my_trades(symbol="DOT/BUSD")
+    # logger.info(f"query one coin, ret count: {len(ret)}")
 
 
 if __name__ == '__main__':
