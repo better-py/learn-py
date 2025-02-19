@@ -99,13 +99,15 @@ tasks:
 
   docs:
     cmds:
+      - uv sync --group=docs
       - uv run mkdocs serve --open --watch=docs --watch=mkdocs.yml --dev-addr=localhost:5002
 
   docs:deploy:
     aliases: [ "docs:d" ]
     cmds:
+      - uv sync --group=docs
       - uv run mkdocs gh-deploy # build and create gh-pages branch
-      - git push open gh-pages:gh-pages --force # push to public repo
+      - git push origin gh-pages:gh-pages --force # push to public repo
 
 
   ##################################################################################################
