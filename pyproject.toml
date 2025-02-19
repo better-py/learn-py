@@ -5,8 +5,8 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-   "loguru>=0.7.3",
-   "typer[all]>=0.15.1",
+    "loguru>=0.7.3",
+    "typer[all]>=0.15.1",
 ]
 
 [dependency-groups]
@@ -24,4 +24,8 @@ docs = [
 ]
 
 [tool.uv.workspace]
-members = ["packages/py-quant/try-gatews"]
+members = [
+    "packages/py-quant/try-gatews",
+    "packages/py-quant/try-ccxt",
+    "packages/py-gui/try-beeware",
+]
