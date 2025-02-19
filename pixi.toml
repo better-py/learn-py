@@ -8,7 +8,15 @@ version = "0.1.0"
 [tasks]
 
 [dependencies]
+python = ">=3.13.2,<3.14"
 
 [feature.docs.pypi-dependencies]
-mkdocs = "*"
-mkdocs-material = "*"
+mkdocs = ">=1.6.1, <2"
+mkdocs-material = ">=9.6.4, <10"
+
+[feature.dev.pypi-dependencies]
+ipython = ">=8.32.0, <9"
+
+[environments]
+dev = ["dev"]
+docs = ["docs"]
