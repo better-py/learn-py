@@ -2,6 +2,29 @@
 
 - 数字货币 + 量化交易策略
 
+## Guide:
+
+### run
+
+```ruby
+
+# .env file, set api-key 
+BINANCE_API_KEY=
+BINANCE_SECRET_KEY=
+   
+# install
+uv sync     
+
+# then, run
+task quant:ccxt:run -- tr_binance.py
+ 
+# or 
+cd this-dir/
+task run -- tr_binance.py
+ 
+       
+```
+
 ## FAQ:
 
 ### 请求超时问题:

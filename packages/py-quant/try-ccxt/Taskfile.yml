@@ -10,5 +10,5 @@ tasks:
     aliases: [ 'r' ]
     cmds:
       - uv run {{.CLI_ARGS}}
-    dir: src/
+    dir: src/try_ccxt/
 
