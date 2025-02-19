@@ -1,5 +1,7 @@
 # pixi
 
+- 包管理工具
+
 ## reference
 
 - pycharm: https://pixi.sh/dev/ide_integration/pycharm/#how-to-use

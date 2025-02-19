@@ -5,7 +5,11 @@ site_name: Learning Python
 # todo x: docs 目录
 #
 nav:
-  - 首页: index.md
+  - 首页:
+      - 首页: index.md
+      - 指南: guide/index.md
+      - 量化交易: quant/index.md
+      - 工具: tools/index.md
   - 指南:
       - guide/index.md
       - libs:
@@ -16,6 +20,7 @@ nav:
       - quant/binance.md
       - quant/gateio.md
   - 工具:
+      - tools/index.md
       - tools/uv.md
       - tools/pixi.md
       - tools/mkdocs.md
