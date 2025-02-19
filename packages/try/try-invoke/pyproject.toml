@@ -2,25 +2,8 @@
 name = "try-invoke"
 version = "0.1.0"
 description = "Add your description here"
-authors = [
-    { name = "Henry.Huang", email = "hhglory@outlook.com" }
-]
-
-[tool.poetry]
-name = "try-invoke"
-version = "0.1.0"
-description = ""
-authors = ["Henry.Huang <hhglory@outlook.com>"]
 readme = "README.md"
-packages = [{ include = "try_invoke", from = "src" }]
-
-[tool.poetry.dependencies]
-python = "^3.10"
-invoke = "^2.2.0"
-loguru = "^0.7.2"
-typer = { extras = ["all"], version = "^0.9.0" }
-
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires-python = ">=3.12"
+dependencies = [
+    "invoke>=2.2.0",
+]

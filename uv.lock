@@ -4275,19 +4275,13 @@ requires-dist = [
 [[package]]
 name = "try-invoke"
 version = "0.1.0"
-source = { editable = "packages/try/try-invoke" }
+source = { virtual = "packages/try/try-invoke" }
 dependencies = [
     { name = "invoke" },
-    { name = "loguru" },
-    { name = "typer", extra = ["all"] },
 ]
 
 [package.metadata]
-requires-dist = [
-    { name = "invoke", specifier = ">=2.2.0,<3.0.0" },
-    { name = "loguru", specifier = ">=0.7.2,<0.8.0" },
-    { name = "typer", extras = ["all"], specifier = ">=0.9.0,<0.10.0" },
-]
+requires-dist = [{ name = "invoke", specifier = ">=2.2.0" }]
 
 [[package]]
 name = "try-jieba"
