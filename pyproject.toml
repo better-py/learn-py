@@ -33,10 +33,11 @@ docs = [
 members = [
     "packages/py-101",
     "packages/try/*",
-    "packages/py-ai/*",
-    "packages/py-quant/*",
-    "packages/py-data/*",
-    "packages/py-crawler/*",
+    "packages/py-ai/*", # ai
+    "packages/py-quant/*", # 量化交易
+    "packages/py-data/*", # 大数据
+    "packages/py-crawler/*", # 爬虫
+    "packages/py-automation/*", # 爬虫
     "packages/py-gui/try-beeware",
     "packages/py-gui/try-nicegui",
     "packages/py-gui/try-kivy/kivy-basic",
