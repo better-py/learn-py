@@ -2,27 +2,12 @@
 name = "kivy-basic"
 version = "0.1.0"
 description = "Add your description here"
-authors = [
-    { name = "hhglory", email = "hhglory@outlook.com" }
-]
-dependencies = [
-    "kivy[full]>=2.3.0",
-    #    "kivymd2>=2.0.1",
-    "kivymd @ git+https://github.com/kivymd/KivyMD", # v2.0 master
-]
 readme = "README.md"
-requires-python = ">= 3.8"
+requires-python = ">=3.12.3"
+dependencies = [
+    "kivy[full]>=2.3.1",
+    "kivymd", # "kivymd @ git+https://github.com/kivymd/KivyMD", # v2.0 master
+]
 
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
-
-[tool.rye]
-managed = true
-dev-dependencies = []
-
-[tool.hatch.metadata]
-allow-direct-references = true
-
-[tool.hatch.build.targets.wheel]
-packages = ["src/kivy_basic"]
+[tool.uv.sources]
+kivymd = { git = "https://github.com/kivymd/KivyMD" }

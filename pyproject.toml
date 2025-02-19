@@ -28,4 +28,5 @@ members = [
     "packages/py-quant/try-gatews",
     "packages/py-quant/try-ccxt",
     "packages/py-gui/try-beeware",
+    "packages/py-gui/try-kivy/kivy-basic",
 ]
