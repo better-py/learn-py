@@ -12,6 +12,10 @@
 
 - python 一些库的调研 & 实践
 
+## 项目文档:
+
+- https://better-py.github.io/learn-py/
+
 ## 项目列表：
 
 - ✅️ monorepo: [packages](./packages/)
