@@ -2,13 +2,24 @@
 authors = ["hhglory <hhglory@outlook.com>"]
 channels = ["conda-forge"]
 name = "learn-py"
-platforms = ["osx-arm64"]
+
+# https://pixi.sh/dev/features/multi_platform_configuration/
+platforms = ["win-64", "linux-64", "osx-64", "osx-arm64"]
+preview = ["pixi-build"]
+
 version = "0.1.0"
 
 [tasks]
 
 [dependencies]
 python = ">=3.13.2,<3.14"
+
+
+#
+# workspace: https://pixi.sh/dev/build/workspace/#lets-get-started
+#
+
+
 
 [feature.docs.pypi-dependencies]
 mkdocs = ">=1.6.1, <2"
@@ -17,6 +28,13 @@ mkdocs-material = ">=9.6.4, <10"
 [feature.dev.pypi-dependencies]
 ipython = ">=8.32.0, <9"
 
+[feature.dev.dependencies]
+pixi-pycharm = ">=0.0.8,<0.0.9"
+
+
+#
+# https://pixi.sh/dev/features/multi_environment/#feature-environment-set-definitions
+#
 [environments]
 dev = ["dev"]
 docs = ["docs"]
