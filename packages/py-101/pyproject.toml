@@ -1,39 +1,7 @@
-[tool.poetry]
-name = "py-101"
-version = "0.1.0"
-description = ""
-authors = ["Henry.Huang <hhglory@outlook.com>"]
-readme = "README.md"
-packages = [{ include = "py_101", from = "src" }]
-
-[tool.poetry.dependencies]
-python = "^3.9"
-
-
-#[build-system]
-#requires = ["poetry-core"]
-#build-backend = "poetry.core.masonry.api"
-
-
-[tool.pdm.build]
-includes = ["src/py_101"]
-[build-system]
-requires = ["pdm-backend"]
-build-backend = "pdm.backend"
-
-
 [project]
 name = "py-101"
 version = "0.1.0"
-description = ""
-authors = [
-    { name = "Henry.Huang", email = "hhglory@outlook.com" },
-]
-dependencies = [
-    "typer[all]>=0.12.0",
-    "ipython>=8.18.1",
-]
-requires-python = ">=3.9,<4.0"
+description = "Add your description here"
 readme = "README.md"
-license = { text = "MIT" }
-
+requires-python = ">=3.12"
+dependencies = []

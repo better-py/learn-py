@@ -31,6 +31,7 @@ docs = [
 #
 [tool.uv.workspace]
 members = [
+    "packages/py-101",
     "packages/try/*",
     "packages/py-ai/*",
     "packages/py-quant/try-gatews",

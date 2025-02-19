@@ -17,6 +17,7 @@ members = [
     "flet-desktop",
     "kivy-basic",
     "learn-py",
+    "py-101",
     "try-autogpt",
     "try-beeware",
     "try-ccxt",
@@ -2805,6 +2806,11 @@ sdist = { url = "https://files.pythonhosted.org/packages/cd/05/0a34433a064256a57
 wheels = [
     { url = "https://files.pythonhosted.org/packages/8e/37/efad0257dc6e593a18957422533ff0f87ede7c9c6ea010a2177d738fb82f/pure_eval-0.2.3-py3-none-any.whl", hash = "sha256:1db8e35b67b3d218d818ae653e27f06c3aa420901fa7b081ca98cbedc874e0d0", size = 11842 },
 ]
+
+[[package]]
+name = "py-101"
+version = "0.1.0"
+source = { virtual = "packages/py-101" }
 
 [[package]]
 name = "pyasn1"
