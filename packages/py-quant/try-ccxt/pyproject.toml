@@ -6,7 +6,6 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "ccxt>=4.4.61",
-    "click>=8.1.8",
     "ipython>=8.32.0",
     "jupyterlab>=4.3.5",
     "loguru>=0.7.3",
@@ -17,5 +16,4 @@ dependencies = [
     "peewee>=3.17.9",
     "plotly>=6.0.0",
     "seaborn>=0.13.2",
-    "typer[all]>=0.15.1",
 ]

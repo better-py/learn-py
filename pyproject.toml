@@ -6,7 +6,8 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "loguru>=0.7.3",
-    "typer[all]>=0.15.1",
+    #    "typer[all]>=0.9.4",
+    "typer[all]>=0.9.4",
 ]
 
 [dependency-groups]
@@ -26,13 +27,21 @@ docs = [
 
 #
 # workspace
+#   - https://docs.astral.sh/uv/concepts/projects/workspaces/#workspace-sources
 #
 [tool.uv.workspace]
 members = [
     "packages/py-quant/try-gatews",
     "packages/py-quant/try-ccxt",
     "packages/py-gui/try-beeware",
+    "packages/py-gui/try-nicegui",
     "packages/py-gui/try-kivy/kivy-basic",
     "packages/py-ai/try-chroma",
     "packages/py-ai/try-gemini",
+    "packages/try/*",
+    #    "packages/py-gui/try-flet/flet-desktop",
+]
+
+exclude = [
+    "packages/py-gui/try-flet/flet-desktop",
 ]

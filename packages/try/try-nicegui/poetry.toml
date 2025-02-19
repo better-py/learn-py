@@ -1,4 +1,0 @@
-[virtualenvs]
-prefer-active-python = true  # 核心
-in-project = false # release app  # todo x: 核心参数！！
-create = false   # release app # todo x: poetry env use $(pyenv which python3) # 依赖此参数
