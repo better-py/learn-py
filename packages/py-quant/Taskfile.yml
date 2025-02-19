@@ -7,30 +7,9 @@ includes:
     dir: try-ccxt/
     optional: true
 
-#
-# global vars: https://taskfile.dev/#/usage?id=variables
-#
-vars:
-  VAR1: "some-var"
+  gate:
+    aliases: [ 'gatews' ]
+    taskfile: try-gatews/
+    dir: try-gatews/
+    optional: true
 
-# global env:
-env:
-  ENV1: testing
-
-################################################################################################
-
-
-tasks:
-  poetry:
-    aliases: [ 'p' ]
-    cmds:
-      - poetry
-      - poetry {{.CLI_ARGS}}
-
-  env:
-    cmds:
-      - poetry
-      - poetry env list
-      - poetry cache list
-      - poetry debug info
-      - poetry debug resolve
