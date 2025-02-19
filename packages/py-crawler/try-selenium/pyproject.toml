@@ -1,22 +1,14 @@
-[tool.poetry]
+[project]
 name = "try-selenium"
 version = "0.1.0"
-description = ""
-authors = ["Henry.Huang <hhglory@outlook.com>"]
+description = "Add your description here"
 readme = "README.md"
-packages = [{include = "try_selenium", from = "src"}]
-
-[tool.poetry.dependencies]
-python = "^3.10"
-typer = {extras = ["all"], version = "^0.9.0"}
-selenium = "^4.10.0"
-webdriver-manager = "^4.0.1"
-sendgrid = "^6.11.0"
-beautifulsoup4 = "^4.12.3"
-lxml = "^5.1.0"
-loguru = "^0.7.2"
-
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires-python = ">=3.12"
+dependencies = [
+    "beautifulsoup4>=4.13.3",
+    "loguru>=0.7.3",
+    "lxml>=5.3.1",
+    "selenium>=4.28.1",
+    "sendgrid>=6.11.0",
+    "webdriver-manager>=4.0.2",
+]
