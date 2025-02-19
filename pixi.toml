@@ -1,0 +1,14 @@
+[project]
+authors = ["hhglory <hhglory@outlook.com>"]
+channels = ["conda-forge"]
+name = "learn-py"
+platforms = ["osx-arm64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+
+[feature.docs.pypi-dependencies]
+mkdocs = "*"
+mkdocs-material = "*"
