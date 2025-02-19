@@ -26,25 +26,13 @@ def gen_sign(channel, event, timestamp):
 
 
 def ws_api():
-    request = {
-        'id': int(time.time() * 1e6),
-        'time': int(time.time()),
-        'channel': 'spot.orders',
-        'event': 'subscribe',
-        'payload': ["BTC_USDT", "GT_USDT"]
-    }
-    request['auth'] = gen_sign(request['channel'], request['event'], request['time'])
-    print(json.dumps(request))
-
     ws = create_connection("wss://api.gateio.ws/ws/v4/")
-    request = {
+    ws.send(json.dumps({
         "time": int(time.time()),
-        "channel": "spot.balances",
+        "channel": "spot.tickers",
         "event": "subscribe",  # "unsubscribe" for unsubscription
-    }
-    # refer to Authentication section for gen_sign implementation
-    request['auth'] = gen_sign(request['channel'], request['event'], request['time'])
-    ws.send(json.dumps(request))
+        "payload": ["BTC_USDT"]
+    }))
     print(ws.recv())
 
 
