@@ -1,14 +1,17 @@
-import os
-import time
-import json
-from os import getenv
 # pip install websocket_client
+import hashlib
+import hmac
+import json
+import time
+from os import getenv
+
+from loguru import logger
 from websocket import create_connection
 
-# example WebSocket signature calculation implementation in Python
-import hmac, hashlib, json, time
-from loguru import logger
 
+#
+# ref: https://www.gate.io/docs/developers/apiv4/ws/zh_CN/#websocket-api-%E6%A6%82%E8%BF%B0
+#
 
 def gen_sign(channel, event, timestamp):
     # GateAPIv4 key pair
@@ -22,19 +25,19 @@ def gen_sign(channel, event, timestamp):
     return {'method': 'api_key', 'KEY': api_key, 'SIGN': sign}
 
 
-# request = {
-#     'id': int(time.time() * 1e6),
-#     'time': int(time.time()),
-#     'channel': 'spot.orders',
-#     'event': 'subscribe',
-#     'payload': ["BTC_USDT", "GT_USDT"]
-# }
-# request['auth'] = gen_sign(request['channel'], request['event'], request['time'])
-# print(json.dumps(request))
+def ws_api():
+    # request = {
+    #     'id': int(time.time() * 1e6),
+    #     'time': int(time.time()),
+    #     'channel': 'spot.orders',
+    #     'event': 'subscribe',
+    #     'payload': ["BTC_USDT", "GT_USDT"]
+    # }
+    # request['auth'] = gen_sign(request['channel'], request['event'], request['time'])
+    # print(json.dumps(request))
 
-
-def get_spot_balance():
     ws = create_connection("wss://api.gateio.ws/ws/v4/")
+
     request = {
         "time": int(time.time()),
         "channel": "spot.balances",
@@ -43,12 +46,8 @@ def get_spot_balance():
     # refer to Authentication section for gen_sign implementation
     request['auth'] = gen_sign(request['channel'], request['event'], request['time'])
     ws.send(json.dumps(request))
-
-    #
-    #
-    #
     print(ws.recv())
 
 
 if __name__ == '__main__':
-    get_spot_balance()
+    ws_api()
