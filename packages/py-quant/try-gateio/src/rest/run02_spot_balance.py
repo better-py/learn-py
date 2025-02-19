@@ -52,7 +52,11 @@ def restapi():
     sign_headers = gen_sign('GET', prefix + url, query_param)
     headers.update(sign_headers)
     r = requests.request('GET', host + prefix + url, headers=headers)
+
+    logger.debug(f"get balance: {type(r.json())}")
     print(r.json())
+    for item in r.json():
+        logger.info(f"balance: {item}")
 
 
 if __name__ == '__main__':
