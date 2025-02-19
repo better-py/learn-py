@@ -23,10 +23,16 @@ docs = [
     "mkdocs-material>=9.6.4",
 ]
 
+
+#
+# workspace
+#
 [tool.uv.workspace]
 members = [
     "packages/py-quant/try-gatews",
     "packages/py-quant/try-ccxt",
     "packages/py-gui/try-beeware",
     "packages/py-gui/try-kivy/kivy-basic",
+    "packages/py-ai/try-chroma",
+    "packages/py-ai/try-gemini",
 ]
