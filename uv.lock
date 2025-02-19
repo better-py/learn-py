@@ -25,7 +25,7 @@ members = [
     "try-chroma",
     "try-django",
     "try-faststream",
-    "try-gatews",
+    "try-gateio",
     "try-gemini",
     "try-invoke",
     "try-jieba",
@@ -5227,9 +5227,9 @@ requires-dist = [
 ]
 
 [[package]]
-name = "try-gatews"
+name = "try-gateio"
 version = "0.1.0"
-source = { virtual = "packages/py-quant/try-gatews" }
+source = { virtual = "packages/py-quant/try-gateio" }
 dependencies = [
     { name = "gate-ws" },
 ]
