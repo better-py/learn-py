@@ -4364,13 +4364,13 @@ requires-dist = [{ name = "spacy", specifier = ">=3.8.4" }]
 [[package]]
 name = "try-typer"
 version = "0.1.0"
-source = { editable = "packages/try/try-typer" }
+source = { virtual = "packages/try/try-typer" }
 dependencies = [
     { name = "typer", extra = ["all"] },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "typer", extras = ["all"], specifier = ">=0.9.0,<0.10.0" }]
+requires-dist = [{ name = "typer", extras = ["all"], specifier = ">=0.9.4" }]
 
 [[package]]
 name = "typer"
