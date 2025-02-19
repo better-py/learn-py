@@ -1,0 +1,89 @@
+site_name: Learning Python
+
+##############################################################
+#
+# todo x: docs 目录
+#
+nav:
+  - 首页: index.md
+  - 指南:
+      - guide/index.md
+      - libs:
+          - libs/quant.md
+          - libs/gui.md
+  - 工具:
+      - tools/uv.md
+      - tools/pixi.md
+      - tools/mkdocs.md
+
+
+
+##############################################################
+
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - pymdownx.details
+  - attr_list
+  - md_in_html
+  - pymdownx.blocks.caption
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+
+
+theme:
+  name: material
+  language: zh
+  features:
+    - header.autohide
+    - navigation.tabs  # TODO X: 导航栏
+    - navigation.instant
+    - navigation.path
+    - navigation.top
+    - navigation.instant.preview
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    - navigation.footer
+    - navigation.expand  # todo x: 文档目录展开
+    - toc.follow
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal  # todo x: 颜色
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal  # todo x: 颜色, deep purple, teal, deep orange
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+plugins:
+  - search
+
+extra:
+  alternate: # todo x: 多语言, https://squidfunk.github.io/mkdocs-material/setup/changing-the-language/#site-language-selector
+    - name: English
+      link: /en/
+      lang: en
+
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/better-py
+    - icon: fontawesome/brands/telegram
+      link: https://t.me/better_py
+
+copyright: Copyright &copy; 2025 - 2025 BetterPython. All rights reserved.
