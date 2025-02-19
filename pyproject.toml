@@ -31,17 +31,16 @@ docs = [
 #
 [tool.uv.workspace]
 members = [
+    "packages/try/*",
+    "packages/py-ai/*",
     "packages/py-quant/try-gatews",
     "packages/py-quant/try-ccxt",
     "packages/py-gui/try-beeware",
     "packages/py-gui/try-nicegui",
     "packages/py-gui/try-kivy/kivy-basic",
-    "packages/py-ai/try-chroma",
-    "packages/py-ai/try-gemini",
-    "packages/try/*",
-    #    "packages/py-gui/try-flet/flet-desktop",
+    "packages/py-gui/try-flet/flet-desktop",
 ]
 
 exclude = [
-    "packages/py-gui/try-flet/flet-desktop",
+    #    "packages/py-gui/try-flet/flet-desktop",
 ]
