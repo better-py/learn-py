@@ -8,8 +8,8 @@ includes:
     optional: true
 
   gate:
-    aliases: [ 'gatews' ]
-    taskfile: try-gatews/
-    dir: try-gatews/
+    aliases: [ 'gateio' ]
+    taskfile: try-gateio/
+    dir: try-gateio/
     optional: true
 
