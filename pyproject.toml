@@ -4,7 +4,10 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+   "loguru>=0.7.3",
+   "typer[all]>=0.15.1",
+]
 
 [dependency-groups]
 dev = [
@@ -19,3 +22,6 @@ docs = [
     "mkdocs>=1.6.1",
     "mkdocs-material>=9.6.4",
 ]
+
+[tool.uv.workspace]
+members = ["packages/py-quant/try-gatews"]
