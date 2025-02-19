@@ -1,19 +1,6 @@
 version: "3"
 
 
-#
-# global vars: https://taskfile.dev/#/usage?id=variables
-#
-vars:
-  VAR1: "some-var"
-
-# global env:
-env:
-  ENV1: testing
-
-################################################################################################
-
-
 tasks:
   uv:
     aliases: [ "pm", "pkg" ]

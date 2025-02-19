@@ -11,4 +11,3 @@ tasks:
     cmds:
       - uv run {{.CLI_ARGS}}
     dir: src/
-
