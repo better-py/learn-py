@@ -37,7 +37,7 @@ members = [
     "packages/py-quant/*", # 量化交易
     "packages/py-data/*", # 大数据
     "packages/py-crawler/*", # 爬虫
-    "packages/py-automation/*", # 爬虫
+    "packages/py-automation/*", # Android 自动化测试框架
     "packages/py-gui/try-beeware",
     "packages/py-gui/try-nicegui",
     "packages/py-gui/try-kivy/kivy-basic",
