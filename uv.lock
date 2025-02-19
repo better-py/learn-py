@@ -1211,6 +1211,21 @@ wheels = [
 ]
 
 [[package]]
+name = "gate-api"
+version = "4.83.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "certifi" },
+    { name = "python-dateutil" },
+    { name = "six" },
+    { name = "urllib3" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/f0/c7/fa06d195f53ae3031823b7550f44aae4a24440b06e476b7a94b92e7b7f16/gate_api-4.83.0.tar.gz", hash = "sha256:edd6ab01d40699a63e6618aabcab29df91c47ff467013c90c0267402662c7de1", size = 336664 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/e5/e4/c677e2079011782ad6b8da98068be48bd29569d12906e8e3100e3173eb43/gate_api-4.83.0-py3-none-any.whl", hash = "sha256:d9f0b8631d1e4ceb28949982ce2fd42887a5b03aebb8e8ed71133d26ff509dff", size = 655471 },
+]
+
+[[package]]
 name = "gate-ws"
 version = "0.3.1"
 source = { registry = "https://pypi.org/simple" }
@@ -5319,6 +5334,7 @@ source = { virtual = "packages/py-quant/try-gateio" }
 dependencies = [
     { name = "aiohttp" },
     { name = "asciimatics" },
+    { name = "gate-api" },
     { name = "gate-ws" },
     { name = "sortedcontainers" },
 ]
@@ -5327,6 +5343,7 @@ dependencies = [
 requires-dist = [
     { name = "aiohttp", specifier = ">=3.10.11" },
     { name = "asciimatics", specifier = ">=1.15.0" },
+    { name = "gate-api", specifier = ">=4.83.0" },
     { name = "gate-ws", specifier = ">=0.3.1" },
     { name = "sortedcontainers", specifier = ">=2.4.0" },
 ]
