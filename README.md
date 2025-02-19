@@ -12,14 +12,22 @@
 
 - python 一些库的调研 & 实践
 
-## 项目文档:
+## 文档
 
 - https://better-py.github.io/learn-py/
 
-## 项目列表：
+## 开发环境
+
+- ✅ python: 3.12+
+- ✅ 包管理工具: [uv](https://github.com/astral-sh/uv)
+- ✅ 构建工具: [go-task](https://github.com/go-task/task)
+    - ✅️ [Taskfile.yml](./Taskfile.yml): 包含所有的`子项目`启动脚本
+
+## 项目列表
 
 - ✅️ monorepo: [packages](./packages/)
-    - [rye](https://arc.net/l/quote/nfjcylkn) now suppport [workspace](https://rye-up.com/guide/workspaces/)
+    - [uv](https://github.com/astral-sh/uv) now suppport [workspace](https://rye-up.com/guide/workspaces/)
+- ✅ 并未列举全部`子项目`, 请自行查看每个`子目录`了解.
 
 [//]: # (y23m01p01-xxx 项目编号规则)
 
@@ -64,26 +72,4 @@
 | ✅️ [pyside](./packages/py-gui/try-pyside)   | 基于 `Qt` 的 GUI 方案                            | 🌟🌟       |
 | ✅️ [xxx]()                                  | xxx                                         | xxx        |
 | ✅️ [xxx]()                                  | xxx                                         | xxx        |    
-
-## Development
-
-> requirements:
-
-- ✅️ python3.10+: 推荐 `python 3.12+`
-- ✅ [rye](https://github.com/astral-sh/rye): 包管理工具
-    - ❌ [poetry](https://python-poetry.org/docs/) or [PDM](https://pdm-project.org/latest/)
-    - 默认不再使用 poetry, 虽然也是支持 poetry 装包的
-- ✅️ pyenv: python 版本管理
-- ✅️ [go-task](https://taskfile.dev/#/installation): 运行脚本
-
-```bash
-
-# 查看所有项目的运行脚本:
-task --list-all
-
-```
-
-> run scripts:
-
-- ✅️ [Taskfile.yml](./Taskfile.yml): 包含所有的项目启动脚本
 
