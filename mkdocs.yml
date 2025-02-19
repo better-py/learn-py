@@ -11,6 +11,10 @@ nav:
       - libs:
           - libs/quant.md
           - libs/gui.md
+  - 量化交易:
+      - quant/index.md
+      - quant/binance.md
+      - quant/gateio.md
   - 工具:
       - tools/uv.md
       - tools/pixi.md
