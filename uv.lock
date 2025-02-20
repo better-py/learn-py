@@ -5246,12 +5246,14 @@ source = { virtual = "packages/py-quant/try-binance" }
 dependencies = [
     { name = "binance-connector" },
     { name = "binance-futures-connector" },
+    { name = "loguru" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "binance-connector", specifier = ">=3.12.0" },
     { name = "binance-futures-connector", specifier = ">=4.1.0" },
+    { name = "loguru", specifier = ">=0.7.3" },
 ]
 
 [[package]]

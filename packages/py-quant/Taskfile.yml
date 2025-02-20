@@ -13,3 +13,8 @@ includes:
     dir: try-gateio/
     optional: true
 
+  binance:
+    aliases: [ 'bn' ]
+    taskfile: try-binance/
+    dir: try-binance/
+    optional: true

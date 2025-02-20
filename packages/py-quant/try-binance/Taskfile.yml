@@ -9,5 +9,6 @@ tasks:
   run:
     aliases: [ 'r' ]
     cmds:
+      - uv sync
       - uv run {{.CLI_ARGS}}
     dir: src/
