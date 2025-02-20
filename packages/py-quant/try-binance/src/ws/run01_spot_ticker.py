@@ -29,4 +29,7 @@ def spot_ticker():
 
 
 if __name__ == '__main__':
+    # write to log file
+    logger.add(f"tmp/binance-spot-ws-{time.strftime('%Y%m%d_%H%M%S')}.log")
+
     spot_ticker()

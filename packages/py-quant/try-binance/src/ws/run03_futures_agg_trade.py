@@ -27,4 +27,7 @@ def futures_agg_trade(symbol="bnbusdt"):
 
 
 if __name__ == '__main__':
+    # write to log file
+    logger.add(f"tmp/binance-futures-ws-{time.strftime('%Y%m%d_%H%M%S')}.log")
+
     futures_agg_trade()

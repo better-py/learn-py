@@ -1,5 +1,5 @@
 import os
-
+import time
 from binance.spot import Spot
 from loguru import logger
 
@@ -56,4 +56,7 @@ def get_account():
 
 
 if __name__ == '__main__':
+    # write to log file
+    logger.add(f"tmp/binance-spot-{time.strftime('%Y%m%d_%H%M%S')}.log")
+
     get_account()
