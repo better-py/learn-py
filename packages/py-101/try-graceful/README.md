@@ -21,7 +21,21 @@
 
 ## reference
 
-> golang
+- https://github.com/topics/graceful-shutdown?o=desc&s=
+
+### python
+
+- https://github.com/aliev/aioshutdown
+    - 支持异步 `aio + graceful shutdown`
+- https://github.com/zifter/graceful-shutdown-py
+- https://github.com/wbenny/python-graceful-shutdown/tree/master
+
+### rust
+
+- https://github.com/cloudflare/shellflip
+    - cloudflare 开发, 高质量库
+
+### golang
 
 - https://juejin.cn/post/6854573220810391560
 - https://blog.wu-boy.com/2020/02/what-is-graceful-shutdown-in-golang/
