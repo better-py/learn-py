@@ -3,6 +3,19 @@
 - 优雅退出
 - 监听 `os.signals.SIGINT, SIGTERM` 退出信号, 在退出时做清理工作
 
+## 原理
+
+- https://cloud.tencent.com/developer/article/2301220
+- 操作系统 OS 层面: 提供了 `kill -9 （SIGKILL）`和 `kill -15（SIGTERM）` 两种停机策略.
+- `SIGKILL` 信号是一个不能被阻塞、处理或忽略的信号，它会立即终止目标进程.
+- `SIGTERM` 信号是一个可以被阻塞、处理或忽略的信号，它也可以通知目标进程终止，但是它相对于 SIGKILL 信号来说更加温和，目标进程可以在接收到 SIGTERM 信号时进行一些清理操作，例如保存数据、关闭文件、释放资源等，然后再终止进程
+
+> Docker 处理机制
+
+- 在 Docker 中，执行 docker stop 命令时，它会向容器中的主进程 (pid=1)发送 SIGTERM 信号.
+- 如果容器中的进程不响应 SIGTERM 信号，Docker 会等待一定的时间（默认为 10 秒），然后向容器中的所有进程发送 SIGKILL 信号，以强制结束容器中的进程.
+- 如果我们需要修改 SIGTERM 信号等待的时间，可以在 docker run 命令中使用 --stop-timeout 参数来更改默认的停止超时时间(单位: s)
+
 ## 解决问题
 
 - 避免代码进程被 `强制 kill` 掉时, 程序出现不一致. (程序外, 被终止运行)
@@ -23,6 +36,19 @@
 
 - https://github.com/topics/graceful-shutdown?o=desc&s=
 
+### docker
+
+> 进程管理
+
+- ✅ [tini](https://github.com/krallin/tini): 搭配 docker 使用, 首选
+- ✅ [dumb-init](https://github.com/Yelp/dumb-init)
+
+> web ui 管理工具
+
+- https://github.com/portainer/portainer
+- https://github.com/dyrector-io/dyrectorio
+- https://github.com/SelfhostedPro/Yacht
+
 ### python
 
 - https://github.com/aliev/aioshutdown
@@ -40,3 +66,5 @@
 - https://juejin.cn/post/6854573220810391560
 - https://blog.wu-boy.com/2020/02/what-is-graceful-shutdown-in-golang/
 - https://dev.to/antonkuklin/golang-graceful-shutdown-3n6d
+
+
