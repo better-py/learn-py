@@ -21,6 +21,9 @@ task quant:bn:r -- ws/run03_futures_agg_trade.py
 # restapi + spot
 task quant:bn:r -- rest/run01_spot.py
 
+# restapi + futures
+task quant:bn:r -- rest/run02_futures.py
+
 ```
 
 ## python sdk
