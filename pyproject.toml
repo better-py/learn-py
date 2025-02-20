@@ -31,13 +31,21 @@ docs = [
 #
 [tool.uv.workspace]
 members = [
-    "packages/py-101",
-    "packages/try/*",
+    "packages/py-101/*", # python 语法特性
+
+    #
+    # 热门领域
+    #
     "packages/py-ai/*", # ai
     "packages/py-quant/*", # 量化交易
     "packages/py-data/*", # 大数据
     "packages/py-crawler/*", # 爬虫
     "packages/py-automation/*", # Android 自动化测试框架
+
+    #
+    # 热门包调研
+    #
+    "packages/try/*",
     "packages/py-gui/try-beeware",
     "packages/py-gui/try-nicegui",
     "packages/py-gui/try-kivy/kivy-basic",

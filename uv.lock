@@ -17,7 +17,7 @@ members = [
     "flet-desktop",
     "kivy-basic",
     "learn-py",
-    "py-101",
+    "try-101",
     "try-appium",
     "try-autogpt",
     "try-beeware",
@@ -28,6 +28,7 @@ members = [
     "try-faststream",
     "try-gateio",
     "try-gemini",
+    "try-graceful",
     "try-invoke",
     "try-jieba",
     "try-nicegui",
@@ -3398,11 +3399,6 @@ wheels = [
 ]
 
 [[package]]
-name = "py-101"
-version = "0.1.0"
-source = { virtual = "packages/py-101" }
-
-[[package]]
 name = "pyarrow"
 version = "19.0.1"
 source = { registry = "https://pypi.org/simple" }
@@ -5218,6 +5214,11 @@ wheels = [
 ]
 
 [[package]]
+name = "try-101"
+version = "0.1.0"
+source = { virtual = "packages/py-101/try-101" }
+
+[[package]]
 name = "try-appium"
 version = "0.1.0"
 source = { editable = "packages/py-automation/try-appium" }
@@ -5366,6 +5367,11 @@ requires-dist = [
     { name = "loguru", specifier = ">=0.7.3" },
     { name = "typer", extras = ["all"] },
 ]
+
+[[package]]
+name = "try-graceful"
+version = "0.1.0"
+source = { virtual = "packages/py-101/try-graceful" }
 
 [[package]]
 name = "try-invoke"
