@@ -36,6 +36,14 @@ task quant:bn:r -- rest/run02_futures.py
 
 ```
 
+## 币安合约
+
+- 币安合约提供两种类型的期货合约：币安保证金合约和美元保证金合约。
+- https://www.binance.com/zh-CN/blog/futures/coinmargined-or-usd%E2%93%A2margined-what-futures-contract-suits-you-421499824684903739
+- COIN-Margined or USDⓈ-Margined
+- 对应 sdk 里面的 `CM-Futures` vs `UM-Futures`
+- `币本位合约` vs `USDT 本位合约`
+
 ## python sdk
 
 - https://github.com/binance/binance-signature-examples
