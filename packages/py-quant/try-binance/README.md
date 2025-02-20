@@ -4,6 +4,16 @@
 
 ## usage
 
+- 设置 api-key 到 `.env` 文件, 参见根目录的 `.env.local`
+
+```ruby
+
+BINANCE_API_KEY="your_binance_api_key"
+BINANCE_SECRET_KEY="your_binance_secret_key"
+BINANCE_TESTNET=
+
+
+```
 
 - 运行(下面的运行脚本, 会自动安装依赖包):
 
