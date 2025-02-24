@@ -8,6 +8,7 @@
 
 > topic
 
+- https://github.com/topics/trading-strategies
 - https://github.com/topics/algorithmic-trading
 - https://github.com/topics/hft
 - https://github.com/topics/high-frequency-trading
@@ -15,14 +16,21 @@
 
 > awesome
 
+- https://github.com/wilsonfreitas/awesome-quant
 - https://github.com/paperswithbacktest/awesome-systematic-trading
 
 ### Python
 
+- https://github.com/ccxt/ccxt
 - https://github.com/bmoscon/cryptofeed
 - https://github.com/jesse-ai/jesse
 - https://github.com/quantopian/zipline
 - https://github.com/zvtvz/zvt
+
+> strategies
+
+- https://github.com/paperswithbacktest/awesome-systematic-trading#strategies
+- https://github.com/freqtrade/freqtrade-strategies
 
 > backtesting
 
@@ -32,6 +40,8 @@
 
 > tools
 
+- https://github.com/dask/dask
+    - https://www.dask.org/
 - https://github.com/TA-Lib/ta-lib-python
 
 > docs:
