@@ -29,6 +29,7 @@ members = [
     "try-gateio",
     "try-gemini",
     "try-graceful",
+    "try-hftbacktest",
     "try-invoke",
     "try-jieba",
     "try-nicegui",
@@ -1661,6 +1662,35 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/f5/38/3af3d3633a34a3316095b39c8e8fb4853a28a536e55d347bd8d8e9a14b03/h11-0.14.0.tar.gz", hash = "sha256:8f19fbbe99e72420ff35c00b27a34cb9937e902a8b810e2c88300c6f0a3b699d", size = 100418 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/95/04/ff642e65ad6b90db43e668d70ffb6736436c7ce41fcc549f4e9472234127/h11-0.14.0-py3-none-any.whl", hash = "sha256:e3fe4ac4b851c468cc8363d500db52c2ead036020723024a109d37346efaa761", size = 58259 },
+]
+
+[[package]]
+name = "hftbacktest"
+version = "2.2.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/ec/3d/3a70af85bdf7e72bb4cc0010ea9aabd3f4b1038b11bcc66b34d340e0dc44/hftbacktest-2.2.0.tar.gz", hash = "sha256:0c3ed8b51d4092d2bd880f79d7a8d866627c498e3d8407d095234d83802b0d8a", size = 4211559 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/96/fc/9e7343f10fb82969f11dd93bba00ab7531f86fb518013b18718f72d74ae9/hftbacktest-2.2.0-cp312-cp312-macosx_10_12_x86_64.whl", hash = "sha256:afc5eaab27db71b8f355480b2838c20f72ec140932825620f23bc3b3db014b66", size = 1397658 },
+    { url = "https://files.pythonhosted.org/packages/35/ae/441096aa612997b70b281fb1547373c3d7f350cd8d3e94f6b4646a1aebfe/hftbacktest-2.2.0-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:f5ae0cebcd02dff94299195016cda4519f5000b55b20c5bca78eae6cd46dd648", size = 1020532 },
+    { url = "https://files.pythonhosted.org/packages/6a/54/653e77bc4e3ba17436eed5f19141036781da2ef881e86b143b3e9966501d/hftbacktest-2.2.0-cp312-cp312-manylinux_2_24_aarch64.whl", hash = "sha256:9afde68f203184667c5b7646df0fdb0deb5bdd890828b2b1b6920f4e656143d2", size = 1107912 },
+    { url = "https://files.pythonhosted.org/packages/c4/cc/9c6400ecf906d14793f10ac0b47dbe2e90f953fdbe70b61700b33259d6d1/hftbacktest-2.2.0-cp312-cp312-manylinux_2_24_armv7l.whl", hash = "sha256:34b3b5aea2f503534c36f252cb2b9b99cefdb41cef17e7bac62593d6d7f75c84", size = 1754024 },
+    { url = "https://files.pythonhosted.org/packages/87/9b/8739c5c942c169329b822d61848740f344239ef4ff7821dc9404851aee2f/hftbacktest-2.2.0-cp312-cp312-musllinux_1_2_aarch64.whl", hash = "sha256:9b2e8fc6ba80063db9ee82374b548b8391eb6d6f28ae557d8945742490f82b44", size = 1271509 },
+    { url = "https://files.pythonhosted.org/packages/2b/36/ba997fc59e1919b921c877b24e5c13a8cffdb948ed32cdc143e708da8ec7/hftbacktest-2.2.0-cp312-cp312-musllinux_1_2_armv7l.whl", hash = "sha256:306cb15b0fa7ef22600867aa11d797ee5377b080107eddef1244a46df6bf1d62", size = 1974353 },
+    { url = "https://files.pythonhosted.org/packages/9e/39/4353f85401f6acfcc4edb4de8500fa04bf1958534d32bc54ff15f9adbfc3/hftbacktest-2.2.0-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "sha256:219fe0f71ea3525aeafc0ee9b53fcdd798865764202b8522ad608c970993f12e", size = 1602023 },
+    { url = "https://files.pythonhosted.org/packages/bf/9f/440a7ff1e271ff11ca04638f6d479b53bf8b9d6083b16f40e30edd44c084/hftbacktest-2.2.0-cp312-cp312-win_amd64.whl", hash = "sha256:49a155dbaf2bd613925243d8d65a22b0fe10c06527517b9b8afdb05cdf65ca9e", size = 1074588 },
+    { url = "https://files.pythonhosted.org/packages/cb/b6/72c0564922ff11cbbf0f256fe64dfe0dce5a96e73a8ec98f6a69cc1053ae/hftbacktest-2.2.0-cp313-cp313-macosx_10_12_x86_64.whl", hash = "sha256:1d0d3c550ffbcde04a98d0679dfcfdc42ce2b2ca4a3d49b2f05280775b3aef70", size = 1397616 },
+    { url = "https://files.pythonhosted.org/packages/09/ea/88c4d7fc7def4f327605ea0ab6707906c0415acd69c7e7aa1e12d1d6e612/hftbacktest-2.2.0-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:178558a3cdb94110fa9930644182c158fde32d5e203067b84618cf3629222bca", size = 1020122 },
+    { url = "https://files.pythonhosted.org/packages/30/41/8cdedb641c4d69bce686bb4049e7dfff5ef0e343ad105826c9a6982cc4df/hftbacktest-2.2.0-cp313-cp313-manylinux_2_24_aarch64.whl", hash = "sha256:d6e1e286804937a06221815707310e27f4790b6d7a43a888e5d99121b0b40c9c", size = 1107497 },
+    { url = "https://files.pythonhosted.org/packages/50/83/bb04032cf3a44cb402a8b36a58d95dda5dd9d3a926ce8ee5f14b8a980f6b/hftbacktest-2.2.0-cp313-cp313-manylinux_2_24_armv7l.whl", hash = "sha256:ea673a59e4f3b020ecbc688977c332c4ec630b6582be9dae64472ffcbd4262b3", size = 1753897 },
+    { url = "https://files.pythonhosted.org/packages/b3/42/57e82a8a3e1c885b0a377bceac302bcdd39595b9f5d08c4d8013c4e74b78/hftbacktest-2.2.0-cp313-cp313-musllinux_1_2_aarch64.whl", hash = "sha256:9ea3c09b251f2b5c3ab2e77323eeaef2a6da3fd9c03cbccd0fd9c649f6611022", size = 1271517 },
+    { url = "https://files.pythonhosted.org/packages/3c/2c/0bc91f3e821ec031bcd97b8d01689cb2e47ebcefeed824491f92faf17937/hftbacktest-2.2.0-cp313-cp313-musllinux_1_2_armv7l.whl", hash = "sha256:63974808465e2d04e373d1f38572a79ab292f4cb3e59ca92db951e85f0ddc45a", size = 1974184 },
+    { url = "https://files.pythonhosted.org/packages/26/25/101e1ddbe7dd59059f373032b94271f1abc55ae1d9b15ce571289ae469a9/hftbacktest-2.2.0-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "sha256:22631cba234140aedfff8a08d1d6bbc950856495087187adf318f44b90335bb8", size = 1601681 },
+    { url = "https://files.pythonhosted.org/packages/2c/f7/178e7ca15a0d65519ac5af03c4602da1ee0120f61fb8b84b86f34b9a477a/hftbacktest-2.2.0-cp313-cp313-win_amd64.whl", hash = "sha256:a2926315c257dd87236ba19a9b967afd96231a3e6bed15b8999c04fdc211cb06", size = 1074233 },
+    { url = "https://files.pythonhosted.org/packages/f6/f7/9e22d8ad6855afb4e232467daa157eaf067f589ddb72179979cad4c31b7e/hftbacktest-2.2.0-cp313-cp313t-manylinux_2_24_aarch64.whl", hash = "sha256:552b8a0d57b7e4caa7df306d1150a02da8cc0592ad61d7f426d1a0afc09d39d5", size = 1106615 },
+    { url = "https://files.pythonhosted.org/packages/da/40/a9992849ec831ce3803a99affd37c648311e6833aae50e0b440431b3f17a/hftbacktest-2.2.0-cp313-cp313t-manylinux_2_24_armv7l.whl", hash = "sha256:79ce1f53797c7660664c54f868bf0b49b31122a8aa30c2f776db870d4544dbe8", size = 1746990 },
+    { url = "https://files.pythonhosted.org/packages/0d/80/e56d96d9ce830d393a637e43ddcaeb42380b460892d3d2235398c5871005/hftbacktest-2.2.0-cp313-cp313t-musllinux_1_2_aarch64.whl", hash = "sha256:de1c877b7cb5231b173a083a0d35c0f98c8ccfcdedeeda3511e39737be70f930", size = 1270819 },
+    { url = "https://files.pythonhosted.org/packages/0b/67/c350a99f8ed83dd21fac53953fecab8f498bbecd805fbe823a0142da3df6/hftbacktest-2.2.0-cp313-cp313t-musllinux_1_2_armv7l.whl", hash = "sha256:b71588fc4a960c8e5836352a819c01f29638b0efca89e0e2d4f95c0a54b0dc07", size = 1966938 },
+    { url = "https://files.pythonhosted.org/packages/65/6d/51313818e39b6fe00392d0cd27564c0dbd2b836890e6f01c06df8846477c/hftbacktest-2.2.0-cp313-cp313t-musllinux_1_2_x86_64.whl", hash = "sha256:21b81d83e9f269c56edae679955d7c8b0b5ed3afd00a675c58eb2438f8daf7c8", size = 1601772 },
 ]
 
 [[package]]
@@ -5374,6 +5404,17 @@ requires-dist = [
 name = "try-graceful"
 version = "0.1.0"
 source = { virtual = "packages/py-101/try-graceful" }
+
+[[package]]
+name = "try-hftbacktest"
+version = "0.1.0"
+source = { virtual = "packages/py-quant/try-hftbacktest" }
+dependencies = [
+    { name = "hftbacktest" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "hftbacktest", specifier = ">=2.2.0" }]
 
 [[package]]
 name = "try-invoke"

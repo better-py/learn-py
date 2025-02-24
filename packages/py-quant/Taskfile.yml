@@ -7,6 +7,12 @@ includes:
     dir: try-ccxt/
     optional: true
 
+  hftbacktest:
+    aliases: [ 'hft' ]
+    taskfile: try-hftbacktest/
+    dir: try-hftbacktest/
+    optional: true
+
   gate:
     aliases: [ 'gateio' ]
     taskfile: try-gateio/
