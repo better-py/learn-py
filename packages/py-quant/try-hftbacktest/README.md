@@ -16,3 +16,8 @@
 
 - https://mp.weixin.qq.com/s/8emR2DjVjc7Gy8sJHEAxIQ
 - https://numba.pydata.org/
+
+> tools
+
+- https://numba.readthedocs.io/en/stable/user/installing.html
+- https://jupyter.org/install

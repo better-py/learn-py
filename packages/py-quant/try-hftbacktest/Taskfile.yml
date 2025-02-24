@@ -12,3 +12,27 @@ tasks:
       - uv sync
       - uv run {{.CLI_ARGS}}
     dir: src/
+
+
+  jupyter:
+    aliases: [ 'j', "book", "note" ]
+    cmds:
+      - uv run jupyter notebook {{.CLI_ARGS}}
+
+  dl:
+    aliases: [ 'd', "down" ]
+    cmds:
+      - mkdir -p tmp/mexc/
+      - wget -c -P tmp/mexc/ https://raw.githubusercontent.com/nkaz001/hftbacktest/6bcae676da517bec6486ddc0d0a7cfe702888679/examples/mexc/btcusdt_20250126.gz
+    #      - wget --recursive --no-parent --level=1 \
+    #        https://github.com/nkaz001/hftbacktest/raw/6bcae676da517bec6486ddc0d0a7cfe702888679/examples/mexc/btcusdt_20250126.gz         -P tmp/mexc/
+    ignore_error: true
+
+
+  r01:
+    aliases: [ 'r01' ]
+    cmds:
+      - echo $(pwd)
+      - task: dl
+      - task: j -- src/try01.ipynb
+    ignore_error: true

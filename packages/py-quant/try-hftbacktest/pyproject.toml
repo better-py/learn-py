@@ -6,4 +6,10 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "hftbacktest>=2.2.0",
+    "matplotlib>=3.10.0",
+    "notebook>=7.3.2",
+    "numba>=0.61.0",
+    "numpy>=1.26.4",
+    "pandas>=2.2.3",
+    "polars>=1.23.0",
 ]
