@@ -23,7 +23,11 @@ tasks:
     aliases: [ 'd', "down" ]
     cmds:
       - mkdir -p tmp/mexc/
+      - mkdir -p tmp/spot/
       - wget -c -P tmp/mexc/ https://raw.githubusercontent.com/nkaz001/hftbacktest/6bcae676da517bec6486ddc0d0a7cfe702888679/examples/mexc/btcusdt_20250126.gz
+      - wget -c -P tmp/spot/ https://raw.githubusercontent.com/nkaz001/hftbacktest/6bcae676da517bec6486ddc0d0a7cfe702888679/examples/spot/btcusdt_20240809.gz
+      - wget -c -P tmp/spot/ https://raw.githubusercontent.com/nkaz001/hftbacktest/6bcae676da517bec6486ddc0d0a7cfe702888679/examples/usdm/btcusdt_20240809.npz
+      - wget -c -P tmp/spot/ https://raw.githubusercontent.com/nkaz001/hftbacktest/6bcae676da517bec6486ddc0d0a7cfe702888679/examples/usdm/btcusdt_20240808_eod.npz
     #      - wget --recursive --no-parent --level=1 \
     #        https://github.com/nkaz001/hftbacktest/raw/6bcae676da517bec6486ddc0d0a7cfe702888679/examples/mexc/btcusdt_20250126.gz         -P tmp/mexc/
     ignore_error: true
