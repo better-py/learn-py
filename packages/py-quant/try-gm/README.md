@@ -10,6 +10,7 @@
 ## SDK
 
 - https://pypi.org/project/gm/
+- 只支持 `windows` 和 `linux`, 不支持 `macOS`
 
 ```ruby
 
