@@ -21,3 +21,5 @@ tasks:
       - uv add ta-lib numpy
       - uv add vnpy vnpy_ctastrategy vnpy_ctabacktester vnpy_datamanager vnpy_sqlite vnpy_rqdata
       - uv add vnpy_ctp
+      - uv add vnpy_riskmanager vnpy_optionmaster vnpy_scripttrader vnpy_algotrading vnpy_portfoliostrategy
+      - uv add vnpy_paperaccount vnpy_chartwizard

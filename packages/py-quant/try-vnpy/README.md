@@ -3,6 +3,15 @@
 - 量化交易框架
 - https://github.com/vnpy/vnpy
 
+## 策略模块
+
+- 价差交易: https://github.com/vnpy/vnpy_spreadtrading
+- 期权波动率交易: https://github.com/vnpy/vnpy_optionmaster
+- https://github.com/vnpy/vnpy_portfoliostrategy
+- https://github.com/vnpy/vnpy_algotrading
+- https://github.com/vnpy/vnpy_scripttrader
+- https://github.com/vnpy/vnpy_riskmanager
+
 ## Development
 
 ### Requirements

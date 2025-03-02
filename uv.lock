@@ -1099,6 +1099,23 @@ wheels = [
 ]
 
 [[package]]
+name = "exchange-calendars"
+version = "4.9"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "korean-lunar-calendar" },
+    { name = "numpy" },
+    { name = "pandas" },
+    { name = "pyluach" },
+    { name = "toolz" },
+    { name = "tzdata" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/12/fc/dfd7663462f45398ed4b69749789c555f46f40c65acfdab2f6b76d11672f/exchange_calendars-4.9.tar.gz", hash = "sha256:df4f1be94a028d7d856ba5ccf31c48e8f3bdd52c86ec39361d26b80828f44c60", size = 3873957 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/e0/c8/44938b46428995db8cc6491ea8e4a245b5c30e0e93aa446af722989ad338/exchange_calendars-4.9-py3-none-any.whl", hash = "sha256:291adb2b15be150e83b7c07cef91bfde718c44d8e60cf73d45e0c32a16f7556e", size = 198038 },
+]
+
+[[package]]
 name = "executing"
 version = "2.2.0"
 source = { registry = "https://pypi.org/simple" }
@@ -2507,6 +2524,15 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/05/f9/27e94c1b3eb29e6933b6986ffc5fa1177d2cd1f0c8efc5f02c91c9ac61de/kiwisolver-1.4.8-cp313-cp313t-musllinux_1_2_ppc64le.whl", hash = "sha256:151dffc4865e5fe6dafce5480fab84f950d14566c480c08a53c663a0020504b6", size = 2390661 },
     { url = "https://files.pythonhosted.org/packages/d9/d4/3c9735faa36ac591a4afcc2980d2691000506050b7a7e80bcfe44048daa7/kiwisolver-1.4.8-cp313-cp313t-musllinux_1_2_s390x.whl", hash = "sha256:577facaa411c10421314598b50413aa1ebcf5126f704f1e5d72d7e4e9f020d90", size = 2546710 },
     { url = "https://files.pythonhosted.org/packages/4c/fa/be89a49c640930180657482a74970cdcf6f7072c8d2471e1babe17a222dc/kiwisolver-1.4.8-cp313-cp313t-musllinux_1_2_x86_64.whl", hash = "sha256:be4816dc51c8a471749d664161b434912eee82f2ea66bd7628bd14583a833e85", size = 2349213 },
+]
+
+[[package]]
+name = "korean-lunar-calendar"
+version = "0.3.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/5a/93/a0bd2bd53ab19330e83ecc5652b7774ae86fd2fee19bc05ad220cf9db08b/korean_lunar_calendar-0.3.1.tar.gz", hash = "sha256:eb2c485124a061016926bdea6d89efdf9b9fdbf16db55895b6cf1e5bec17b857", size = 9877 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/9c/96/30f3fe51b336bb6da4714f4fdad7bbdce8f13af79af2eb75e22908f3f9f4/korean_lunar_calendar-0.3.1-py3-none-any.whl", hash = "sha256:392757135c492c4f42a604e6038042953c35c6f449dda5f27e3f86a7f9c943e5", size = 9033 },
 ]
 
 [[package]]
@@ -3973,6 +3999,15 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/70/09/59419c21d7e1abada1f9311cd5c37fa76b33d135c1989357c25eecf7bf28/pygwalker-0.4.9.14.tar.gz", hash = "sha256:505dd8412bb8711e232dea65fad13394ffb365bf17f542fd66de7699b9f02ddd", size = 4583918 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/b0/96/12173badebcde0a7cb722b62e5e88ac0e5e54696e68a0c014ee7111a13a7/pygwalker-0.4.9.14-py3-none-any.whl", hash = "sha256:79815e33c0d194bdf508ace75c79e8bef1de3305d5da8a69fef454294f42ee75", size = 4491010 },
+]
+
+[[package]]
+name = "pyluach"
+version = "2.2.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/eb/fc/4567068be2c78ac09339201f4a1adfd9e95f6f873f6f37f6fafb5648363e/pyluach-2.2.0.tar.gz", hash = "sha256:9063a25387cd7624276fd0656508bada08aa8a6f22e8db352844cd858e69012b", size = 26198 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/4f/83/2e585d06d49e0320050b3d7d8ae0dfbd1459e976ff9f4b4d8bcca983d474/pyluach-2.2.0-py3-none-any.whl", hash = "sha256:d1eb49d6292087e9290f4661ae01b60c8c933704ec8c9cef82673b349ff96adf", size = 25037 },
 ]
 
 [[package]]
@@ -5514,6 +5549,15 @@ wheels = [
 ]
 
 [[package]]
+name = "toolz"
+version = "1.0.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/8a/0b/d80dfa675bf592f636d1ea0b835eab4ec8df6e9415d8cfd766df54456123/toolz-1.0.0.tar.gz", hash = "sha256:2c86e3d9a04798ac556793bced838816296a2f085017664e4995cb40a1047a02", size = 66790 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/03/98/eb27cc78ad3af8e302c9d8ff4977f5026676e130d28dd7578132a457170c/toolz-1.0.0-py3-none-any.whl", hash = "sha256:292c8f1c4e7516bf9086f8850935c799a874039c8bcf959d47b600e4c44a6236", size = 56383 },
+]
+
+[[package]]
 name = "tornado"
 version = "6.4.2"
 source = { registry = "https://pypi.org/simple" }
@@ -6003,11 +6047,17 @@ dependencies = [
     { name = "rqdatac" },
     { name = "ta-lib" },
     { name = "vnpy" },
+    { name = "vnpy-algotrading" },
+    { name = "vnpy-chartwizard" },
     { name = "vnpy-ctabacktester" },
     { name = "vnpy-ctastrategy" },
-    { name = "vnpy-ctp" },
     { name = "vnpy-datamanager" },
+    { name = "vnpy-optionmaster" },
+    { name = "vnpy-paperaccount" },
+    { name = "vnpy-portfoliostrategy" },
+    { name = "vnpy-riskmanager" },
     { name = "vnpy-rqdata" },
+    { name = "vnpy-scripttrader" },
     { name = "vnpy-spreadtrading" },
     { name = "vnpy-sqlite" },
 ]
@@ -6018,11 +6068,17 @@ requires-dist = [
     { name = "rqdatac", specifier = ">=3.1.4" },
     { name = "ta-lib", specifier = ">=0.6.3" },
     { name = "vnpy", specifier = ">=3.9.4" },
+    { name = "vnpy-algotrading", specifier = ">=1.0.7" },
+    { name = "vnpy-chartwizard", specifier = ">=1.0.4" },
     { name = "vnpy-ctabacktester", specifier = ">=1.1.6" },
     { name = "vnpy-ctastrategy", specifier = ">=1.2.0" },
-    { name = "vnpy-ctp", specifier = ">=6.7.2.1" },
     { name = "vnpy-datamanager", specifier = ">=1.1.1" },
+    { name = "vnpy-optionmaster", specifier = ">=1.1.0" },
+    { name = "vnpy-paperaccount", specifier = ">=1.0.6" },
+    { name = "vnpy-portfoliostrategy", specifier = ">=1.1.2" },
+    { name = "vnpy-riskmanager", specifier = ">=1.0.4" },
     { name = "vnpy-rqdata", specifier = ">=3.0.2.1" },
+    { name = "vnpy-scripttrader", specifier = ">=1.0.2" },
     { name = "vnpy-spreadtrading", specifier = ">=1.2.5" },
     { name = "vnpy-sqlite", specifier = ">=1.0.1" },
 ]
@@ -6239,6 +6295,30 @@ wheels = [
 ]
 
 [[package]]
+name = "vnpy-algotrading"
+version = "1.0.7"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "importlib-metadata" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/a6/b1/3311f99f0390115739b92b202b53b3e845747d27879e24893dea5e380f16/vnpy_algotrading-1.0.7.tar.gz", hash = "sha256:f5cd82904579c205d9b43d702d18258149c2f48cb9ce239dfddbbb8062aee9a0", size = 19549 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/b4/ec/b18d03bd0092123625b041eb4bb5ba86709eb407bfa3a4e983a906e32de1/vnpy_algotrading-1.0.7-py3-none-any.whl", hash = "sha256:7b3c9eedd8b57cdc721b68598566797f1f96f479c5b329350e5543cdc9338615", size = 24468 },
+]
+
+[[package]]
+name = "vnpy-chartwizard"
+version = "1.0.4"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "pyqtgraph" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/00/20/6f9650bf758285f584ca17b70ad3ba45ee8257fa48610ecc36aab1d97790/vnpy_chartwizard-1.0.4.tar.gz", hash = "sha256:8feccc161967e01c08a1a455b4145093e29c8ec19c56e322b2ec1ab1424721ff", size = 10058 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/1b/25/0ead47c6dd682d000f9f23f0a6518881088d613a38f724c654493dd81cb4/vnpy_chartwizard-1.0.4-py3-none-any.whl", hash = "sha256:63ac395c82e612721ae6739b28c5a3cb44d13cd6adeb2151d5c51f55de955cd5", size = 10191 },
+]
+
+[[package]]
 name = "vnpy-ctabacktester"
 version = "1.1.6"
 source = { registry = "https://pypi.org/simple" }
@@ -6264,21 +6344,60 @@ wheels = [
 ]
 
 [[package]]
-name = "vnpy-ctp"
-version = "6.7.2.1"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "importlib-metadata" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/df/3a/4d43efe7816a3d5fb945db89025a954ff0efc40bb276189c023c39bda91d/vnpy_ctp-6.7.2.1.tar.gz", hash = "sha256:833a3c575f998769c00d55b176938ecea60889dcdc702a1e07cacd52144b43b3", size = 12858210 }
-
-[[package]]
 name = "vnpy-datamanager"
 version = "1.1.1"
 source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/83/c7/48daf2f7c81791079530a82c52f7f9d8eef145bccd7277e2f18385d98546/vnpy_datamanager-1.1.1.tar.gz", hash = "sha256:54a0e92e8e860eb6443443a92522360240b274e6419ddbbd4ad63484b238aab0", size = 15220 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/ec/53/32ff6740ed897d2e5fa4487ddd2db0466e04e248be129c6592d9d72a9f19/vnpy_datamanager-1.1.1-py3-none-any.whl", hash = "sha256:b823cfc0b3020c73a3ee2f75c68507fc9b475ba0aacd42ea556fa6336807e9fa", size = 15385 },
+]
+
+[[package]]
+name = "vnpy-optionmaster"
+version = "1.1.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "exchange-calendars" },
+    { name = "matplotlib" },
+    { name = "scipy" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/8f/4f/5ba20abfe14eb9cf78a9433e2e4832435ee4fbc478cf08d183ce58214ff0/vnpy_optionmaster-1.1.0.tar.gz", hash = "sha256:d5486c2680a45fab988b3dc7243d2c7ebcf538b44f67ec8a39ae2b0fa34f091e", size = 166350 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/85/b4/7a574c344f0ecd8db6b6a495e63b8bd0d1dc9f6e710a35faf90cffb4d8a8/vnpy_optionmaster-1.1.0-py3-none-any.whl", hash = "sha256:37d1ec81d95341d339c82d785b63a9bbc3c2987cd8f00180a4dfcd6a6deb91ba", size = 169913 },
+]
+
+[[package]]
+name = "vnpy-paperaccount"
+version = "1.0.6"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "importlib-metadata" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/de/75/9c310f2614525bc7f4ec07863acbbe8c87b0371776c18a449c396070a12e/vnpy_paperaccount-1.0.6.tar.gz", hash = "sha256:f34fec29279b45426d3e47d498d88beff6a0032330812a30a2e18e038420eaa0", size = 14793 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/76/b4/1c6d9fc29027d933f29d2f45c23b9ba0cb0c28d0d512407c845f622e5038/vnpy_paperaccount-1.0.6-py3-none-any.whl", hash = "sha256:c3ae0cb402dd2ac4ed0357530962f59c0f9be7f8d1c016c8390a0bc817cf6005", size = 14930 },
+]
+
+[[package]]
+name = "vnpy-portfoliostrategy"
+version = "1.1.2"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "pandas" },
+    { name = "plotly" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/ea/92/b94f4780e82c99accfc87a5fff0b753e09a0478008c26a751936a5f5c30c/vnpy_portfoliostrategy-1.1.2.tar.gz", hash = "sha256:3a4787474138e2e7d798792f5972a60f130997fc448fefd3b0f90dcfe8cd43eb", size = 39579 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/13/06/b9e2f338178c7dffd631e9b25b1ad758cd4883a556b2a1409e52e0fe8372/vnpy_portfoliostrategy-1.1.2-py3-none-any.whl", hash = "sha256:81e4cd7bae46549222f886df6fd73f2062bee147e7c81777fdb091e6001dff8a", size = 45859 },
+]
+
+[[package]]
+name = "vnpy-riskmanager"
+version = "1.0.4"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/f5/f1/c4d5f898f826fd77989b81585e96cfb501d233bae9dd4e08bd9b9be2d65c/vnpy_riskmanager-1.0.4.tar.gz", hash = "sha256:29c9a970701b109c29b3c97b55c3a428d2528df50cb733663db63e07447cf8c8", size = 12316 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/13/4c/396eb363c83cd91729d0ad1463f5d605f61a43a9fcf757ade6a3d277a803/vnpy_riskmanager-1.0.4-py3-none-any.whl", hash = "sha256:28db0cb6266874c61e8daccda70886cf5e992b8bb88a342ce9aeb695376595f0", size = 12497 },
 ]
 
 [[package]]
@@ -6292,6 +6411,19 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/d8/50/95e00f23a5672f5cc894d4050731c70575910e7aa6a6732321af831d74ac/vnpy_rqdata-3.0.2.1.tar.gz", hash = "sha256:6fba6c1406b91e6e149c64d09d326306042b8a83b8024a7811920580f2b7e62e", size = 9982 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/49/6a/9ebc9abbaf78e558c46390ad229dca57bed5dee785c4c930e179967b69bd/vnpy_rqdata-3.0.2.1-py3-none-any.whl", hash = "sha256:f17478f22840cf983341bef27f8c1c9187101ed855066078378a5cf63d69ed59", size = 10276 },
+]
+
+[[package]]
+name = "vnpy-scripttrader"
+version = "1.0.2"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "importlib-metadata" },
+    { name = "pandas" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/03/7c/394a490907039e7f08472e80f61a79a12c346e15c52df048f9131435d2e0/vnpy_scripttrader-1.0.2.tar.gz", hash = "sha256:2f06c2695928849087020f50b549a709a031bee55cc6d32cb5d0ff0a97145073", size = 13610 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/0c/9b/f0f6d542bde726c82a8df3c202a924af99dbc1bb0ea08480fb2c08e2605f/vnpy_scripttrader-1.0.2-py3-none-any.whl", hash = "sha256:6161f916f221945cde6fda12939876177840ea27f631afe68ee2fc3a594ba970", size = 13913 },
 ]
 
 [[package]]

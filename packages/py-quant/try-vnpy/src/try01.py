@@ -1,8 +1,15 @@
 from vnpy.event import EventEngine
 from vnpy.trader.engine import MainEngine
 from vnpy.trader.ui import MainWindow, create_qapp
+from vnpy_algotrading import AlgoTradingApp
+from vnpy_chartwizard import ChartWizardApp
 from vnpy_ctabacktester import CtaBacktesterApp
 from vnpy_ctastrategy import CtaStrategyApp
+from vnpy_optionmaster import OptionMasterApp
+from vnpy_paperaccount import PaperAccountApp
+from vnpy_portfoliostrategy import PortfolioStrategyApp
+from vnpy_riskmanager import RiskManagerApp
+from vnpy_scripttrader import ScriptTraderApp
 from vnpy_spreadtrading import SpreadTradingApp
 
 
@@ -10,7 +17,10 @@ from vnpy_spreadtrading import SpreadTradingApp
 
 
 def main():
-    """Start VeighNa Trader"""
+    """Start VeighNa Trader
+    基于 Qt 实现的 GUI 交易工具
+
+    """
     qapp = create_qapp()
 
     event_engine = EventEngine()
@@ -18,9 +28,19 @@ def main():
 
     # main_engine.add_gateway(CtpGateway)  # TODO X: macos fix, https://github.com/vnpy/vnpy_ctp
     main_engine.add_app(CtaStrategyApp)
-    main_engine.add_app(SpreadTradingApp)
     main_engine.add_app(CtaBacktesterApp)
+    main_engine.add_app(SpreadTradingApp)
+    main_engine.add_app(OptionMasterApp)
+    main_engine.add_app(PortfolioStrategyApp)
+    main_engine.add_app(AlgoTradingApp)
+    main_engine.add_app(ScriptTraderApp)
+    main_engine.add_app(PaperAccountApp)
+    main_engine.add_app(ChartWizardApp)
+    main_engine.add_app(RiskManagerApp)
 
+    #
+    # QT GUI Window
+    #
     main_window = MainWindow(main_engine, event_engine)
     main_window.showMaximized()
 
