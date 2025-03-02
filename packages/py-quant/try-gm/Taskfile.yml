@@ -2,13 +2,18 @@ version: "3"
 
 tasks:
   uv:
-    aliases: [ "pm", "pkg" ]
+    aliases: ["pm", "pkg"]
     cmds:
       - uv {{.CLI_ARGS}}
 
+  add:
+    aliases: ["a"]
+    cmds:
+      - uv add {{.CLI_ARGS}}
+      - uv add gm -U -i https://pypi.tuna.tsinghua.edu.cn/simple
+
   run:
-    aliases: [ 'r' ]
+    aliases: ["r"]
     cmds:
       - uv run {{.CLI_ARGS}}
     dir: src/
-
