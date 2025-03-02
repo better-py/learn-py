@@ -1,0 +1,14 @@
+version: "3"
+
+tasks:
+  uv:
+    aliases: [ "pm", "pkg" ]
+    cmds:
+      - uv {{.CLI_ARGS}}
+
+  run:
+    aliases: [ 'r' ]
+    cmds:
+      - uv run {{.CLI_ARGS}}
+    dir: src/
+
