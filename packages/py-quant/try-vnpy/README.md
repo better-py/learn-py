@@ -21,6 +21,18 @@ uv add vnpy vnpy_ctastrategy vnpy_ctabacktester vnpy_datamanager vnpy_sqlite vnp
 
 ### Run
 
+- 运行示例, 会显示 vnpy 的图形化界面(基于 Qt(pyside6) 实现)
+
+```ruby
+
+cd git-repo-root-dir/
+  
+# run 
+task quant:vn:r -- try01.py
+
+   
+ ```
+
 ## References
 
 > docs

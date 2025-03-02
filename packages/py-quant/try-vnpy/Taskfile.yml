@@ -20,3 +20,4 @@ tasks:
       - export TA_LIBRARY_PATH="$(brew --prefix ta-lib)/lib"
       - uv add ta-lib numpy
       - uv add vnpy vnpy_ctastrategy vnpy_ctabacktester vnpy_datamanager vnpy_sqlite vnpy_rqdata
+      - uv add vnpy_ctp

@@ -7,11 +7,13 @@ requires-python = ">=3.12"
 dependencies = [
     "numpy>=1.26.4",
     "rqdatac>=3.1.4", # 米筐RQData客户端
-    "ta-lib>=0.6.3", # fix for m1 mac: https://github.com/TA-Lib/ta-lib-python/issues/418#issuecomment-826129619
+    "ta-lib>=0.6.3", # TODO X: macos fix: https://github.com/TA-Lib/ta-lib-python/issues/418#issuecomment-826129619
     "vnpy>=3.9.4", # 包很大,基于 PyQt(pyside6==6.8.2.1) 实现了 GUI 的策略开发环境
     "vnpy-ctabacktester>=1.1.6",
     "vnpy-ctastrategy>=1.2.0",
+    # "vnpy-ctp>=6.7.2.1", # TODO X: macos fix, https://github.com/vnpy/vnpy_ctp
     "vnpy-datamanager>=1.1.1",
     "vnpy-rqdata>=3.0.2.1",
+    "vnpy-spreadtrading>=1.2.5",
     "vnpy-sqlite>=1.0.1",
 ]

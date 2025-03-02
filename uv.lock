@@ -6005,8 +6005,10 @@ dependencies = [
     { name = "vnpy" },
     { name = "vnpy-ctabacktester" },
     { name = "vnpy-ctastrategy" },
+    { name = "vnpy-ctp" },
     { name = "vnpy-datamanager" },
     { name = "vnpy-rqdata" },
+    { name = "vnpy-spreadtrading" },
     { name = "vnpy-sqlite" },
 ]
 
@@ -6018,8 +6020,10 @@ requires-dist = [
     { name = "vnpy", specifier = ">=3.9.4" },
     { name = "vnpy-ctabacktester", specifier = ">=1.1.6" },
     { name = "vnpy-ctastrategy", specifier = ">=1.2.0" },
+    { name = "vnpy-ctp", specifier = ">=6.7.2.1" },
     { name = "vnpy-datamanager", specifier = ">=1.1.1" },
     { name = "vnpy-rqdata", specifier = ">=3.0.2.1" },
+    { name = "vnpy-spreadtrading", specifier = ">=1.2.5" },
     { name = "vnpy-sqlite", specifier = ">=1.0.1" },
 ]
 
@@ -6260,6 +6264,15 @@ wheels = [
 ]
 
 [[package]]
+name = "vnpy-ctp"
+version = "6.7.2.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "importlib-metadata" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/df/3a/4d43efe7816a3d5fb945db89025a954ff0efc40bb276189c023c39bda91d/vnpy_ctp-6.7.2.1.tar.gz", hash = "sha256:833a3c575f998769c00d55b176938ecea60889dcdc702a1e07cacd52144b43b3", size = 12858210 }
+
+[[package]]
 name = "vnpy-datamanager"
 version = "1.1.1"
 source = { registry = "https://pypi.org/simple" }
@@ -6279,6 +6292,20 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/d8/50/95e00f23a5672f5cc894d4050731c70575910e7aa6a6732321af831d74ac/vnpy_rqdata-3.0.2.1.tar.gz", hash = "sha256:6fba6c1406b91e6e149c64d09d326306042b8a83b8024a7811920580f2b7e62e", size = 9982 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/49/6a/9ebc9abbaf78e558c46390ad229dca57bed5dee785c4c930e179967b69bd/vnpy_rqdata-3.0.2.1-py3-none-any.whl", hash = "sha256:f17478f22840cf983341bef27f8c1c9187101ed855066078378a5cf63d69ed59", size = 10276 },
+]
+
+[[package]]
+name = "vnpy-spreadtrading"
+version = "1.2.5"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "numpy" },
+    { name = "pandas" },
+    { name = "plotly" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/36/ba/91bfb8806e0544db800963c2d32b97a458b6313e80b4bfa85cc8ea4b35b0/vnpy_spreadtrading-1.2.5.tar.gz", hash = "sha256:1953c02fefefe5ce0782745a51555f4e3d40420282ceee3155cf51556bb59ee0", size = 37115 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/f0/36/d88e694d1c480d341a86547e3dc903888b8b0721a5ca183f95b023bef63f/vnpy_spreadtrading-1.2.5-py3-none-any.whl", hash = "sha256:8b1297d9f8fca0ba2736e1b1487290a32f47344b8b85addf97fa76d9e5bc79d5", size = 40411 },
 ]
 
 [[package]]
