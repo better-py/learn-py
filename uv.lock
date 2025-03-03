@@ -1099,6 +1099,18 @@ wheels = [
 ]
 
 [[package]]
+name = "ecdsa"
+version = "0.19.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "six" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/5e/d0/ec8ac1de7accdcf18cfe468653ef00afd2f609faf67c423efbd02491051b/ecdsa-0.19.0.tar.gz", hash = "sha256:60eaad1199659900dd0af521ed462b793bbdf867432b3948e87416ae4caf6bf8", size = 197791 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/00/e7/ed3243b30d1bec41675b6394a1daae46349dc2b855cb83be846a5a918238/ecdsa-0.19.0-py2.py3-none-any.whl", hash = "sha256:2cea9b88407fdac7bbeca0833b189e4c9c53f2ef1e1eaa29f6224dbc809b707a", size = 149266 },
+]
+
+[[package]]
 name = "exchange-calendars"
 version = "4.9"
 source = { registry = "https://pypi.org/simple" }
@@ -3376,6 +3388,15 @@ wheels = [
 ]
 
 [[package]]
+name = "passlib"
+version = "1.7.4"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/b6/06/9da9ee59a67fae7761aab3ccc84fa4f3f33f125b370f1ccdb915bf967c11/passlib-1.7.4.tar.gz", hash = "sha256:defd50f72b65c5402ab2c573830a6978e5f202ad0d984793c8dde2c4152ebe04", size = 689844 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/3b/a4/ab6b7589382ca3df236e03faa71deac88cae040af60c071a78d254a62172/passlib-1.7.4-py2.py3-none-any.whl", hash = "sha256:aa6bca462b8d8bda89c70b382f0c298a20b5560af6cbfa2dce410c0a2fb669f1", size = 525554 },
+]
+
+[[package]]
 name = "pathspec"
 version = "0.12.1"
 source = { registry = "https://pypi.org/simple" }
@@ -3722,11 +3743,11 @@ wheels = [
 
 [[package]]
 name = "pyasn1"
-version = "0.6.1"
+version = "0.4.8"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/ba/e9/01f1a64245b89f039897cb0130016d79f77d52669aae6ee7b159a6c4c018/pyasn1-0.6.1.tar.gz", hash = "sha256:6f580d2bdd84365380830acf45550f2511469f673cb4a5ae3857a3170128b034", size = 145322 }
+sdist = { url = "https://files.pythonhosted.org/packages/a4/db/fffec68299e6d7bad3d504147f9094830b704527a7fc098b721d38cc7fa7/pyasn1-0.4.8.tar.gz", hash = "sha256:aef77c9fb94a3ac588e87841208bdec464471d9871bd5050a287cc9a475cd0ba", size = 146820 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/c8/f1/d6a797abb14f6283c0ddff96bbdd46937f64122b8c925cab503dd37f8214/pyasn1-0.6.1-py3-none-any.whl", hash = "sha256:0d632f46f2ba09143da3a8afe9e33fb6f92fa2320ab7e886e2d0f7672af84629", size = 83135 },
+    { url = "https://files.pythonhosted.org/packages/62/1e/a94a8d635fa3ce4cfc7f506003548d0a2447ae76fd5ca53932970fe3053f/pyasn1-0.4.8-py2.py3-none-any.whl", hash = "sha256:39c7e2ec30515947ff4e87fb6f456dfc6e84857d34be479c9d4a4ba4bf46aa5d", size = 77145 },
 ]
 
 [[package]]
@@ -4252,6 +4273,20 @@ wheels = [
 ]
 
 [[package]]
+name = "python-jose"
+version = "3.4.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "ecdsa" },
+    { name = "pyasn1" },
+    { name = "rsa" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/8e/a0/c49687cf40cb6128ea4e0559855aff92cd5ebd1a60a31c08526818c0e51e/python-jose-3.4.0.tar.gz", hash = "sha256:9a9a40f418ced8ecaf7e3b28d69887ceaa76adad3bcaa6dae0d9e596fec1d680", size = 92145 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/63/b0/2586ea6b6fd57a994ece0b56418cbe93fff0efb85e2c9eb6b0caf24a4e37/python_jose-3.4.0-py2.py3-none-any.whl", hash = "sha256:9c9f616819652d109bd889ecd1e15e9a162b9b94d682534c9c2146092945b78f", size = 34616 },
+]
+
+[[package]]
 name = "python-json-logger"
 version = "3.2.1"
 source = { registry = "https://pypi.org/simple" }
@@ -4405,6 +4440,15 @@ dependencies = [
     { name = "setproctitle" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/d1/e4/c5a538cb87ef4c5a9d83233395f9c48dd846177406b01e0a354622ab93ae/pywry-0.5.14.tar.gz", hash = "sha256:a2a03b18f0847366a4347d30429afd8a50c95cc35713371a3d6bbed077db9983", size = 53051 }
+
+[[package]]
+name = "pyxll"
+version = "5.9.2"
+source = { registry = "https://pypi.org/simple" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/ee/3b/a0b668dd658c83c83b102d0f281ff10bb2360cc744b8ec583a8a2da7ba0c/pyxll-5.9.2-cp312-none-any.whl", hash = "sha256:b3f8e5c866e2fd3888845e50c6049dc9efa9e2bcd4929580ced32290b1ca81eb", size = 65278 },
+    { url = "https://files.pythonhosted.org/packages/20/04/51c9364b62c44ca6df49a17088b726628197c668a0bede36aec4c56c4ea8/pyxll-5.9.2-cp313-none-any.whl", hash = "sha256:64f4dedf1f0dbc4236e999f2bfe6166812c5c00fef3481df2cf555a6dabe2dec", size = 65278 },
+]
 
 [[package]]
 name = "pyyaml"
@@ -6052,14 +6096,19 @@ dependencies = [
     { name = "vnpy-ctabacktester" },
     { name = "vnpy-ctastrategy" },
     { name = "vnpy-datamanager" },
+    { name = "vnpy-datarecorder" },
+    { name = "vnpy-excelrtd" },
     { name = "vnpy-optionmaster" },
     { name = "vnpy-paperaccount" },
+    { name = "vnpy-portfoliomanager" },
     { name = "vnpy-portfoliostrategy" },
     { name = "vnpy-riskmanager" },
+    { name = "vnpy-rpcservice" },
     { name = "vnpy-rqdata" },
     { name = "vnpy-scripttrader" },
     { name = "vnpy-spreadtrading" },
     { name = "vnpy-sqlite" },
+    { name = "vnpy-webtrader" },
 ]
 
 [package.metadata]
@@ -6073,14 +6122,19 @@ requires-dist = [
     { name = "vnpy-ctabacktester", specifier = ">=1.1.6" },
     { name = "vnpy-ctastrategy", specifier = ">=1.2.0" },
     { name = "vnpy-datamanager", specifier = ">=1.1.1" },
+    { name = "vnpy-datarecorder", specifier = ">=1.0.7" },
+    { name = "vnpy-excelrtd", specifier = ">=1.0.2" },
     { name = "vnpy-optionmaster", specifier = ">=1.1.0" },
     { name = "vnpy-paperaccount", specifier = ">=1.0.6" },
+    { name = "vnpy-portfoliomanager", specifier = ">=1.0.3" },
     { name = "vnpy-portfoliostrategy", specifier = ">=1.1.2" },
     { name = "vnpy-riskmanager", specifier = ">=1.0.4" },
+    { name = "vnpy-rpcservice", specifier = ">=1.0.6" },
     { name = "vnpy-rqdata", specifier = ">=3.0.2.1" },
     { name = "vnpy-scripttrader", specifier = ">=1.0.2" },
     { name = "vnpy-spreadtrading", specifier = ">=1.2.5" },
     { name = "vnpy-sqlite", specifier = ">=1.0.1" },
+    { name = "vnpy-webtrader", specifier = ">=1.0.5" },
 ]
 
 [[package]]
@@ -6353,6 +6407,28 @@ wheels = [
 ]
 
 [[package]]
+name = "vnpy-datarecorder"
+version = "1.0.7"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/0d/db/f9a35b41db1c3a5f077bece836194b88af216e6708a4f04a2ff02782ba03/vnpy_datarecorder-1.0.7.tar.gz", hash = "sha256:d47f27301d7e65864aa4a12dc46682183815cb9c298f63bcd726517578a38ba2", size = 21853 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/3f/4f/2d2b60a1fcac0fcae16a2767734597f26aa2e400256745af0a01492bdfed/vnpy_datarecorder-1.0.7-py3-none-any.whl", hash = "sha256:a5c8ee7ae9b9d3de0452fb7fbd4554f37671376bdfb2445d6d4d33849349b5d7", size = 21789 },
+]
+
+[[package]]
+name = "vnpy-excelrtd"
+version = "1.0.2"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "importlib-metadata" },
+    { name = "pyxll" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/3f/be/979980c18b35c07e0baad2bac2be46bf2c0da3fb246503790027852aca82/vnpy_excelrtd-1.0.2.tar.gz", hash = "sha256:a491df8bbd5f74e09bb591edab7c69b70ff806500a3acc572d4dfd3379dece3f", size = 16607 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/51/68/8d0ba4aa196c540659a22e5744904c79b3907a27d4874416676adba35792/vnpy_excelrtd-1.0.2-py3-none-any.whl", hash = "sha256:0b7018e7bb4ad6a1e4fe4a3c0927fe6adb9cd4d51a4c227f8882cf5063a43203", size = 16841 },
+]
+
+[[package]]
 name = "vnpy-optionmaster"
 version = "1.1.0"
 source = { registry = "https://pypi.org/simple" }
@@ -6379,6 +6455,18 @@ wheels = [
 ]
 
 [[package]]
+name = "vnpy-portfoliomanager"
+version = "1.0.3"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "importlib-metadata" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/41/41/3fb6526f78b5a7318dde48cb081d3ff9ab0d33a5f4b427ffbaae4f41de1a/vnpy_portfoliomanager-1.0.3.tar.gz", hash = "sha256:9bab9a849caf39c7862b417cbc063d41b9c328d467f34d974b5a4b2d57de2a35", size = 13084 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/e1/3c/9dd463152654bdb287937cd09ac7c890861b728ac0bd7b66e1010ef3ccaa/vnpy_portfoliomanager-1.0.3-py3-none-any.whl", hash = "sha256:e43199b9b7f6e70965a1b0504d24c39a912ede3221273a12c9d983208278ea62", size = 13800 },
+]
+
+[[package]]
 name = "vnpy-portfoliostrategy"
 version = "1.1.2"
 source = { registry = "https://pypi.org/simple" }
@@ -6398,6 +6486,18 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/f5/f1/c4d5f898f826fd77989b81585e96cfb501d233bae9dd4e08bd9b9be2d65c/vnpy_riskmanager-1.0.4.tar.gz", hash = "sha256:29c9a970701b109c29b3c97b55c3a428d2528df50cb733663db63e07447cf8c8", size = 12316 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/13/4c/396eb363c83cd91729d0ad1463f5d605f61a43a9fcf757ade6a3d277a803/vnpy_riskmanager-1.0.4-py3-none-any.whl", hash = "sha256:28db0cb6266874c61e8daccda70886cf5e992b8bb88a342ce9aeb695376595f0", size = 12497 },
+]
+
+[[package]]
+name = "vnpy-rpcservice"
+version = "1.0.6"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "importlib-metadata" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/4a/6b/be4319874a621f51578f38577549a3aeb642cf5e869136b5f123b6cf144f/vnpy_rpcservice-1.0.6.tar.gz", hash = "sha256:a90fbb659617646b3785b44f23c40492c5efe0f58484f1ae3888908f3282fe25", size = 12727 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/b4/0d/647a706b06937a51fe07dd4f95b86f8219fc4defa2a4bd2791295eefc36e/vnpy_rpcservice-1.0.6-py3-none-any.whl", hash = "sha256:b60ba9b130db86e996b9120c63bc62ae02cc324cb5e9833b711590279b206377", size = 14329 },
 ]
 
 [[package]]
@@ -6450,6 +6550,24 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/08/a9/f0460d75dde0aa0845ab6c1dde5b3ae5d5739482689972a544db9e70e735/vnpy_sqlite-1.0.1.tar.gz", hash = "sha256:4de259b84f8d7b183cebb2124c9b70dc51d33e017fb7ae2136e78bf448ba505a", size = 5896 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/d0/17/127a15f8cf697eadde3cf0c74ccbda887333d59e2509907502c20f0de2b9/vnpy_sqlite-1.0.1-py3-none-any.whl", hash = "sha256:914fdff01047e95ff8e78d466c880c0d272d36f45aebd6ee2c11659ec075a285", size = 6589 },
+]
+
+[[package]]
+name = "vnpy-webtrader"
+version = "1.0.5"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "fastapi" },
+    { name = "passlib" },
+    { name = "pydantic" },
+    { name = "python-jose" },
+    { name = "python-multipart" },
+    { name = "uvicorn" },
+    { name = "websockets" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/d9/9d/036eddbcf8e8c8b601682aa558fbe22cd836114d8e2b9a40348d8a27be61/vnpy_webtrader-1.0.5.tar.gz", hash = "sha256:7d2203a7dd65dba5a9b5f28e717262c849f560c2f3587da12de6b0e24235bad9", size = 34830 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/b3/17/3ab596ccc56cf2e15b8984a4db510ea7d25430b885e8123def0314b57725/vnpy_webtrader-1.0.5-py3-none-any.whl", hash = "sha256:99c2413c0d5431b24f977a1a17bb9ebc07adb292d5c95d162ae2c2a3d90bd74c", size = 33661 },
 ]
 
 [[package]]

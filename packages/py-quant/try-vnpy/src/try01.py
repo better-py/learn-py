@@ -5,12 +5,18 @@ from vnpy_algotrading import AlgoTradingApp
 from vnpy_chartwizard import ChartWizardApp
 from vnpy_ctabacktester import CtaBacktesterApp
 from vnpy_ctastrategy import CtaStrategyApp
+from vnpy_datamanager import DataManagerApp
+from vnpy_datarecorder import DataRecorderApp
+from vnpy_excelrtd import ExcelRtdApp
 from vnpy_optionmaster import OptionMasterApp
 from vnpy_paperaccount import PaperAccountApp
+from vnpy_portfoliomanager import PortfolioManagerApp
 from vnpy_portfoliostrategy import PortfolioStrategyApp
 from vnpy_riskmanager import RiskManagerApp
+from vnpy_rpcservice import RpcServiceApp
 from vnpy_scripttrader import ScriptTraderApp
 from vnpy_spreadtrading import SpreadTradingApp
+from vnpy_webtrader import WebTraderApp
 
 
 # from vnpy_ctp import CtpGateway  # TODO X: macos fix, https://github.com/vnpy/vnpy_ctp
@@ -36,6 +42,12 @@ def main():
     main_engine.add_app(ScriptTraderApp)
     main_engine.add_app(PaperAccountApp)
     main_engine.add_app(ChartWizardApp)
+    main_engine.add_app(PortfolioManagerApp)
+    main_engine.add_app(RpcServiceApp)
+    main_engine.add_app(DataManagerApp)
+    main_engine.add_app(DataRecorderApp)
+    main_engine.add_app(ExcelRtdApp)
+    main_engine.add_app(WebTraderApp)
     main_engine.add_app(RiskManagerApp)
 
     #
