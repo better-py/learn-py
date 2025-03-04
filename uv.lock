@@ -5985,11 +5985,15 @@ name = "try-pyecharts"
 version = "0.1.0"
 source = { virtual = "packages/py-chart/try-pyecharts" }
 dependencies = [
+    { name = "ipykernel" },
     { name = "pyecharts" },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "pyecharts", specifier = ">=2.0.8" }]
+requires-dist = [
+    { name = "ipykernel", specifier = ">=6.29.5" },
+    { name = "pyecharts", specifier = ">=2.0.8" },
+]
 
 [[package]]
 name = "try-pygwalker"

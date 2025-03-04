@@ -1,6 +1,15 @@
 {
-    "[python]": {
-        "editor.defaultFormatter": "ms-python.black-formatter"
+  "editor.formatOnSave": true,
+  // format using black
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
     },
-    "python.formatting.provider": "none"
+  },
+  "isort.args": [
+    "--profile",
+    "black"
+  ],
 }
