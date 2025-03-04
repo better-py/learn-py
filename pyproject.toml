@@ -19,10 +19,7 @@ dev = [
     "pytest>=8.3.4",
     "ruff>=0.9.6",
 ]
-docs = [
-    "mkdocs>=1.6.1",
-    "mkdocs-material>=9.6.4",
-]
+docs = ["mkdocs>=1.6.1", "mkdocs-material>=9.6.4"]
 
 
 #
@@ -36,11 +33,12 @@ members = [
     #
     # 热门领域
     #
-    "packages/py-ai/*", # ai
-    "packages/py-quant/*", # 量化交易
-    "packages/py-data/*", # 大数据
-    "packages/py-crawler/*", # 爬虫
+    "packages/py-ai/*",         # ai
+    "packages/py-quant/*",      # 量化交易
+    "packages/py-data/*",       # 大数据
+    "packages/py-crawler/*",    # 爬虫
     "packages/py-automation/*", # Android 自动化测试框架
+    "packages/py-chart/*",      # 数据可视化
 
     #
     # 热门包调研
