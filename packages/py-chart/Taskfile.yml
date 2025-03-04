@@ -1,0 +1,14 @@
+version: "3"
+
+includes:
+  pyecharts:
+    aliases: ["pc"]
+    taskfile: try-pyecharts/
+    dir: try-pyecharts/
+    optional: true
+
+  matplotlib:
+    aliases: ["mplot"]
+    taskfile: try-matplotlib/
+    dir: try-matplotlib/
+    optional: true

@@ -22,37 +22,40 @@ includes:
     optional: true
 
   quant:
-    aliases: [ 'trade', 'qt' ]
+    aliases: ["trade", "qt"]
     taskfile: packages/py-quant/
     dir: packages/py-quant/
     optional: true
 
+  chart:
+    aliases: ["ch"]
+    taskfile: packages/py-chart/
+    dir: packages/py-chart/
+    optional: true
+
   gui:
-    aliases: [ 'ui' ]
+    aliases: ["ui"]
     taskfile: packages/py-gui/
     dir: packages/py-gui/
     optional: true
 
   crawler:
-    aliases: [ 'cr' ]
+    aliases: ["cr"]
     taskfile: packages/py-crawler/
     dir: packages/py-crawler/
     optional: true
 
   data:
-    aliases: [ 'da', "data-analysis","big-data", "data-science" ]
+    aliases: ["da", "data-analysis", "big-data", "data-science"]
     taskfile: packages/py-data/
     dir: packages/py-data/
     optional: true
 
   try:
-    aliases: [ 't', 'tr' ]
+    aliases: ["t", "tr"]
     taskfile: packages/try/
     dir: packages/try/
     optional: true
-
-
-
 
 ################################################################################################
 
@@ -79,19 +82,18 @@ tasks:
       - task: install
 
   install:
-    aliases: [ "i" ]
+    aliases: ["i"]
     cmds:
       - uv sync
       - uv sync --group=dev
       - uv sync --group=docs
-
 
   init:env:
     cmds:
       - cp .env.local .env
 
   uv:
-    aliases: [ 'pkg', 'pm' ]
+    aliases: ["pkg", "pm"]
     cmds:
       - uv {{.CLI_ARGS}}
 
@@ -103,28 +105,26 @@ tasks:
       - uv run mkdocs serve --open --watch=docs --watch=mkdocs.yml --dev-addr=localhost:5002
 
   docs:deploy:
-    aliases: [ "docs:d" ]
+    aliases: ["docs:d"]
     cmds:
       - uv sync --group=docs
       - uv run mkdocs gh-deploy # build and create gh-pages branch
       - git push origin gh-pages:gh-pages --force # push to public repo
-
 
   ##################################################################################################
 
   # usage:
   #   - task n -- try/try-jieba
   new:
-    aliases: [ 'n' ]
+    aliases: ["n"]
     cmds:
       - uv init {{.CLI_ARGS}}
     dir: packages/
 
-
   ##################################################################################################
 
   quick:
-    aliases: [ 'q' ]
+    aliases: ["q"]
     cmds:
       - task: cc
       - task: push
@@ -135,7 +135,7 @@ tasks:
       - task: commit
 
   commit:
-    aliases: [ 'c' ]
+    aliases: ["c"]
     cmds:
       - git add .
       - git commit -m "update"

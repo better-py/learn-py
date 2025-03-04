@@ -33,9 +33,11 @@ members = [
     "try-hftbacktest",
     "try-invoke",
     "try-jieba",
+    "try-matplotlib",
     "try-nicegui",
     "try-pandas",
     "try-playwright",
+    "try-pyecharts",
     "try-pygwalker",
     "try-pywry",
     "try-rye",
@@ -3534,6 +3536,18 @@ wheels = [
 ]
 
 [[package]]
+name = "prettytable"
+version = "3.15.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "wcwidth" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/38/95/78080e58efbdde46cda8d4498737bf9687839ed4a9744b068cc730a073ed/prettytable-3.15.1.tar.gz", hash = "sha256:f0edb38060cb9161b2417939bfd5cd9877da73388fb19d1e8bf7987e8558896e", size = 65907 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/8c/37/f687efd8760c183787ff16a61ec9e3515355178271f33fd7c14bf42e338c/prettytable-3.15.1-py3-none-any.whl", hash = "sha256:1bb0da7437e904ec879d2998aded19abc722719aa3d384a7faa44dcbe4aeb2e9", size = 33781 },
+]
+
+[[package]]
 name = "prometheus-client"
 version = "0.21.1"
 source = { registry = "https://pypi.org/simple" }
@@ -3935,6 +3949,20 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/fe/9a/e6bca0eed82db26562c73b5076539a4a08d3cffd19c3cc5913a3e61145fd/pydub-0.25.1.tar.gz", hash = "sha256:980a33ce9949cab2a569606b65674d748ecbca4f0796887fd6f46173a7b0d30f", size = 38326 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/a6/53/d78dc063216e62fc55f6b2eebb447f6a4b0a59f55c8406376f76bf959b08/pydub-0.25.1-py2.py3-none-any.whl", hash = "sha256:65617e33033874b59d87db603aa1ed450633288aefead953b30bded59cb599a6", size = 32327 },
+]
+
+[[package]]
+name = "pyecharts"
+version = "2.0.8"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "jinja2" },
+    { name = "prettytable" },
+    { name = "simplejson" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/98/68/c86a3960ab5d97709237e91a5136ae02079c3c39c83192ca16f1a25f8b1a/pyecharts-2.0.8.tar.gz", hash = "sha256:908dbd939862dd3c76bb53697bdb41d3cdd0b5ba48ca69a76a6085d0aa27dbdf", size = 165148 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/ae/18/383622b338e4f6948ba1b75a8155d748ce097ead08a4163ca763f0ad510e/pyecharts-2.0.8-py3-none-any.whl", hash = "sha256:8b711ba139f39f89bc1b2a869d7adda89dc74c910d158a1f9063109fe66bc985", size = 153686 },
 ]
 
 [[package]]
@@ -5913,6 +5941,11 @@ requires-dist = [
 ]
 
 [[package]]
+name = "try-matplotlib"
+version = "0.1.0"
+source = { virtual = "packages/py-chart/try-matplotlib" }
+
+[[package]]
 name = "try-nicegui"
 version = "0.1.0"
 source = { virtual = "packages/py-gui/try-nicegui" }
@@ -5946,6 +5979,17 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [{ name = "playwright", specifier = ">=1.50.0" }]
+
+[[package]]
+name = "try-pyecharts"
+version = "0.1.0"
+source = { virtual = "packages/py-chart/try-pyecharts" }
+dependencies = [
+    { name = "pyecharts" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "pyecharts", specifier = ">=2.0.8" }]
 
 [[package]]
 name = "try-pygwalker"
