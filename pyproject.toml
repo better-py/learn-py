@@ -48,6 +48,7 @@ members = [
     "packages/py-gui/try-nicegui",
     "packages/py-gui/try-kivy/kivy-basic",
     "packages/py-gui/try-flet/flet-desktop",
+    "packages/py-gui/try-pytauri",
 ]
 
 exclude = [
