@@ -37,6 +37,7 @@ members = [
     "try-nicegui",
     "try-pandas",
     "try-playwright",
+    "try-plotly",
     "try-pyecharts",
     "try-pygwalker",
     "try-pytauri",
@@ -5992,6 +5993,27 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [{ name = "playwright", specifier = ">=1.50.0" }]
+
+[[package]]
+name = "try-plotly"
+version = "0.1.0"
+source = { virtual = "packages/py-chart/try-plotly" }
+dependencies = [
+    { name = "ipykernel" },
+    { name = "ipython" },
+    { name = "nbformat" },
+    { name = "pandas" },
+    { name = "plotly" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "ipykernel", specifier = ">=6.29.5" },
+    { name = "ipython", specifier = ">=9.0.0" },
+    { name = "nbformat", specifier = ">=5.10.4" },
+    { name = "pandas", specifier = ">=2.2.3" },
+    { name = "plotly", specifier = ">=6.0.0" },
+]
 
 [[package]]
 name = "try-pyecharts"

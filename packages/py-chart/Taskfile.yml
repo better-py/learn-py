@@ -12,3 +12,9 @@ includes:
     taskfile: try-matplotlib/
     dir: try-matplotlib/
     optional: true
+
+  plotly:
+    aliases: ["pl"]
+    taskfile: try-plotly/
+    dir: try-plotly/
+    optional: true
