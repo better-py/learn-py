@@ -10,4 +10,6 @@ dependencies = [
     "notebook>=7.3.2",
     "numpy>=1.26.4",
     "pandas>=2.2.3",
+    "requests>=2.32.3",
+    "ta-lib>=0.6.3",
 ]

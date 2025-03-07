@@ -6065,6 +6065,8 @@ dependencies = [
     { name = "notebook" },
     { name = "numpy" },
     { name = "pandas" },
+    { name = "requests" },
+    { name = "ta-lib" },
 ]
 
 [package.metadata]
@@ -6074,6 +6076,8 @@ requires-dist = [
     { name = "notebook", specifier = ">=7.3.2" },
     { name = "numpy", specifier = ">=1.26.4" },
     { name = "pandas", specifier = ">=2.2.3" },
+    { name = "requests", specifier = ">=2.32.3" },
+    { name = "ta-lib", specifier = ">=0.6.3" },
 ]
 
 [[package]]

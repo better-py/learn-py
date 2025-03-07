@@ -2,37 +2,43 @@ version: "3"
 
 includes:
   ccxt:
-    aliases: [ "cc" ]
+    aliases: ["cc"]
     taskfile: try-ccxt/
     dir: try-ccxt/
     optional: true
 
   hftbacktest:
-    aliases: [ "hft" ]
+    aliases: ["hft"]
     taskfile: try-hftbacktest/
     dir: try-hftbacktest/
     optional: true
 
   vnpy:
-    aliases: [ "vn" ]
+    aliases: ["vn"]
     taskfile: try-vnpy/
     dir: try-vnpy/
     optional: true
 
   gm:
-    aliases: [ "gm" ]
+    aliases: ["gm"]
     taskfile: try-gm/
     dir: try-gm/
     optional: true
 
+  mplfinance:
+    aliases: ["mplf", "mp"]
+    taskfile: try-mplfinance/
+    dir: try-mplfinance/
+    optional: true
+
   gate:
-    aliases: [ "gateio" ]
+    aliases: ["gateio"]
     taskfile: try-gateio/
     dir: try-gateio/
     optional: true
 
   binance:
-    aliases: [ "bn" ]
+    aliases: ["bn"]
     taskfile: try-binance/
     dir: try-binance/
     optional: true
