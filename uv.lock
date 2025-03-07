@@ -5945,6 +5945,16 @@ requires-dist = [
 name = "try-matplotlib"
 version = "0.1.0"
 source = { virtual = "packages/py-chart/try-matplotlib" }
+dependencies = [
+    { name = "ipykernel" },
+    { name = "matplotlib" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "ipykernel", specifier = ">=6.29.5" },
+    { name = "matplotlib", specifier = ">=3.10.1" },
+]
 
 [[package]]
 name = "try-nicegui"

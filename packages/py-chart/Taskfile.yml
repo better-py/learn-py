@@ -8,7 +8,7 @@ includes:
     optional: true
 
   matplotlib:
-    aliases: ["mplot"]
+    aliases: ["mplot", "mp"]
     taskfile: try-matplotlib/
     dir: try-matplotlib/
     optional: true
