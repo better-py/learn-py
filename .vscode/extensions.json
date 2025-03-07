@@ -4,6 +4,16 @@
         "ms-python.black-formatter",
         "ms-python.mypy-type-checker",
         "charliermarsh.ruff",
-        "ms-toolsai.jupyter"
+        "davidanson.vscode-markdownlint",
+        "codeium.codeium",
+        "ms-python.python",
+        "ms-vscode-remote.remote-containers",
+        "editorconfig.editorconfig",
+        "tamasfe.even-better-toml",
+        "k--kato.intellij-idea-keybindings",
+        "pkief.material-icon-theme",
+        "ms-vscode-remote.remote-ssh",
+        "vscode-icons-team.vscode-icons",
+        "redhat.vscode-yaml"
     ]
 }
