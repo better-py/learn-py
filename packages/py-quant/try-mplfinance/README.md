@@ -6,6 +6,7 @@
 
 - [run02.ipynb](./src/run02.ipynb)
 - <https://www.grenade.tw/blog/how-to-use-the-python-financial-analysis-visualization-module-mplfinance/>
+- <https://www.kaggle.com/code/jkraak/crypto-prices-data-a-step-by-step-tutorial>
 
 ## Reference
 
