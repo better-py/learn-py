@@ -5988,12 +5988,14 @@ source = { virtual = "packages/py-chart/try-pyecharts" }
 dependencies = [
     { name = "ipykernel" },
     { name = "pyecharts" },
+    { name = "requests" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "ipykernel", specifier = ">=6.29.5" },
     { name = "pyecharts", specifier = ">=2.0.8" },
+    { name = "requests", specifier = ">=2.32.3" },
 ]
 
 [[package]]
