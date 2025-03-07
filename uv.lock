@@ -5948,12 +5948,14 @@ source = { virtual = "packages/py-chart/try-matplotlib" }
 dependencies = [
     { name = "ipykernel" },
     { name = "matplotlib" },
+    { name = "numpy" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "ipykernel", specifier = ">=6.29.5" },
     { name = "matplotlib", specifier = ">=3.10.1" },
+    { name = "numpy", specifier = ">=1.26.4" },
 ]
 
 [[package]]
