@@ -4,7 +4,8 @@
 
 ### 币安K线图
 
-- [run02.ipynb](./src/run02.ipynb)
+- ✅ [run02.ipynb](./src/run02.ipynb)
+- ✅ [run03.ipynb](./src/run03.ipynb)
 - <https://www.grenade.tw/blog/how-to-use-the-python-financial-analysis-visualization-module-mplfinance/>
 - <https://www.kaggle.com/code/jkraak/crypto-prices-data-a-step-by-step-tutorial>
 
