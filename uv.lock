@@ -39,6 +39,7 @@ members = [
     "try-playwright",
     "try-pyecharts",
     "try-pygwalker",
+    "try-pytauri",
     "try-pywry",
     "try-rye",
     "try-rye-rs",
@@ -6015,6 +6016,11 @@ requires-dist = [
     { name = "pygwalker", specifier = ">=0.4.7" },
     { name = "streamlit", specifier = ">=1.32.2" },
 ]
+
+[[package]]
+name = "try-pytauri"
+version = "0.1.0"
+source = { virtual = "packages/py-gui/try-pytauri" }
 
 [[package]]
 name = "try-pywry"
