@@ -12,4 +12,7 @@
     "--profile",
     "black"
   ],
+  "notebook.formatOnSave.enabled": true,
+  "notebook.diff.overviewRuler": true,
+  "notebook.consolidatedRunButton": true,
 }
