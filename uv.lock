@@ -56,6 +56,7 @@ members = [
     "try-rye-rs",
     "try-selenium",
     "try-spacy",
+    "try-sweetviz",
     "try-tidevice",
     "try-twitter",
     "try-typer",
@@ -5771,6 +5772,24 @@ wheels = [
 ]
 
 [[package]]
+name = "sweetviz"
+version = "2.3.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "importlib-resources" },
+    { name = "jinja2" },
+    { name = "matplotlib" },
+    { name = "numpy" },
+    { name = "pandas" },
+    { name = "scipy" },
+    { name = "tqdm" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/ea/cc/a30efc5d6c8de367e01933262154c4cd60585c8db60db6f31bd4859a4a0f/sweetviz-2.3.1.tar.gz", hash = "sha256:076bcab57835db167789e68949340f074dee2da78a24eaaaf211d2735f38b691", size = 15099229 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/89/50/8d3f7ca820267a38b42c64778db0f186d85cec6e3f0c5210eab9c16e783f/sweetviz-2.3.1-py3-none-any.whl", hash = "sha256:9ac785dd78f8555f6d57a2e4fee3853e6c5ace9706de19f30697c409ff9de429", size = 15112426 },
+]
+
+[[package]]
 name = "ta-lib"
 version = "0.6.3"
 source = { registry = "https://pypi.org/simple" }
@@ -6596,6 +6615,17 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [{ name = "spacy", specifier = ">=3.8.4" }]
+
+[[package]]
+name = "try-sweetviz"
+version = "0.1.0"
+source = { virtual = "packages/py-quant/try-sweetviz" }
+dependencies = [
+    { name = "sweetviz" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "sweetviz", specifier = ">=2.3.1" }]
 
 [[package]]
 name = "try-tidevice"
