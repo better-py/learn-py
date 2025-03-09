@@ -1,0 +1,13 @@
+[project]
+name = "try-akshare"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "akshare>=1.16.32",
+    "mplfinance>=0.12.10b0",
+    "notebook>=7.3.2",
+    "numpy>=1.26.4",
+    "pandas>=2.2.3",
+]
