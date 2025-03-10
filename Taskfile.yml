@@ -97,6 +97,12 @@ tasks:
     cmds:
       - uv {{.CLI_ARGS}}
 
+  sync:
+    cmds:
+      - uv self update
+      - uv sync -h
+      - uv sync --all-packages
+
   ##################################################################################################
 
   docs:

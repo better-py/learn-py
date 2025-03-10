@@ -8,4 +8,5 @@ dependencies = [
     "duckdb>=1.2.0",
     "pandas>=2.2.3",
     "polars>=1.23.0",
+    "pyarrow>=19.0.1",
 ]

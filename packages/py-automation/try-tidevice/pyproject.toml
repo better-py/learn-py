@@ -2,48 +2,12 @@
 name = "try-tidevice"
 version = "0.1.0"
 description = "Add your description here"
-authors = [
-    { name = "Henry.Huang", email = "hhglory@outlook.com" }
-]
+readme = "README.md"
+requires-python = ">=3.12"
 dependencies = [
-    "tidevice==0.12.9",
+    "facebook-wda>=1.5.0",
+    "pyopenssl>=25.0.0",
+    "pysocks>=1.7.1",
+    "tidevice>=0.12.9",
+    "typer>=0.9.4",
 ]
-readme = "README.md"
-requires-python = ">= 3.12"
-
-#[build-system]
-#requires = ["hatchling"]
-#build-backend = "hatchling.build"
-
-[tool.rye]
-managed = true
-dev-dependencies = []
-
-[tool.hatch.metadata]
-allow-direct-references = true
-
-[tool.hatch.build.targets.wheel]
-packages = ["src/try_tidevice"]
-
-
-[tool.poetry]
-name = "try-tidevice"
-version = "0.1.0"
-description = ""
-authors = ["Henry.Huang <hhglory@outlook.com>"]
-readme = "README.md"
-packages = [{ include = "try_tidevice", from = "src" }]
-
-[tool.poetry.dependencies]
-python = "^3.10"
-tidevice = {version = "0.12.9", extras = ["openssl"]}
-facebook-wda = "^1.4.7"
-pyopenssl = "23.1.1"
-pysocks = "^1.7.1"
-typer = "^0.12.3"
-
-
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"

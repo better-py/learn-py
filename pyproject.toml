@@ -5,7 +5,10 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "ipykernel>=6.29.5",
     "loguru>=0.7.3",
+    "notebook>=7.3.2",
+    "pandas>=2.2.3",
     #    "typer[all]>=0.9.4",
     "typer[all]>=0.9.4",
 ]
