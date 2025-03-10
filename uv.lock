@@ -6307,10 +6307,16 @@ version = "0.1.0"
 source = { virtual = "packages/py-db/try-duckdb" }
 dependencies = [
     { name = "duckdb" },
+    { name = "pandas" },
+    { name = "polars" },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "duckdb", specifier = ">=1.2.0" }]
+requires-dist = [
+    { name = "duckdb", specifier = ">=1.2.0" },
+    { name = "pandas", specifier = ">=2.2.3" },
+    { name = "polars", specifier = ">=1.23.0" },
+]
 
 [[package]]
 name = "try-faststream"
