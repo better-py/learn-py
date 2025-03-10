@@ -58,6 +58,7 @@ members = [
     "try-rye-rs",
     "try-selenium",
     "try-spacy",
+    "try-streamlit",
     "try-sweetviz",
     "try-tidevice",
     "try-twitter",
@@ -6583,6 +6584,21 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [{ name = "spacy", specifier = ">=3.8.4" }]
+
+[[package]]
+name = "try-streamlit"
+version = "0.1.0"
+source = { virtual = "packages/py-webui/try-streamlit" }
+dependencies = [
+    { name = "streamlit" },
+    { name = "watchdog" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "streamlit", specifier = ">=1.42.2" },
+    { name = "watchdog", specifier = ">=6.0.0" },
+]
 
 [[package]]
 name = "try-sweetviz"
