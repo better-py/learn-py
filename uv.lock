@@ -35,6 +35,7 @@ members = [
     "try-chroma",
     "try-django",
     "try-dtale",
+    "try-duckdb",
     "try-faststream",
     "try-gateio",
     "try-gemini",
@@ -6299,6 +6300,17 @@ requires-dist = [
     { name = "dtale", specifier = ">=3.16.1" },
     { name = "kaleido", specifier = "==1.0.0rc0" },
 ]
+
+[[package]]
+name = "try-duckdb"
+version = "0.1.0"
+source = { virtual = "packages/py-db/try-duckdb" }
+dependencies = [
+    { name = "duckdb" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "duckdb", specifier = ">=1.2.0" }]
 
 [[package]]
 name = "try-faststream"
