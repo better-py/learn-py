@@ -2,14 +2,12 @@
 name = "try-pygwalker"
 version = "0.1.0"
 description = "Add your description here"
-authors = [
-    { name = "Henry.Huang", email = "hhglory@outlook.com" }
-]
+authors = [{ name = "Henry.Huang", email = "hhglory@outlook.com" }]
 dependencies = [
     "loguru>=0.7.2",
     "pygwalker>=0.4.7",
     "streamlit>=1.32.2",
-    "gradio>=4.21.0",
+    "gradio>=4.26.0",
     "httpx[socks]>=0.27.0",
 ]
 readme = "README.md"

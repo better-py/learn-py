@@ -101,7 +101,8 @@ tasks:
     cmds:
       - uv self update
       - uv sync -h
-      - uv sync --all-packages
+      - uv sync --all-packages --upgrade
+    ignore_error: true
 
   ##################################################################################################
 

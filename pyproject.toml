@@ -54,6 +54,7 @@ members = [
     "packages/py-gui/try-pytauri",
     "packages/py-db/try-duckdb",
     "packages/py-webui/try-streamlit",
+    "packages/py-webui/try-gradio",
 ]
 
 exclude = [
