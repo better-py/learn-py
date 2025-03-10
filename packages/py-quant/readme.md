@@ -2,7 +2,11 @@
 
 ## Reference
 
-- https://github.com/wilsonfreitas/awesome-quant
+- <https://github.com/wilsonfreitas/awesome-quant>
+
+> 测试数据集
+
+- <https://github.com/plotly/datasets>
 
 ### Crypto Currency
 
@@ -18,10 +22,10 @@
 
 #### US Stock
 
-- https://tushare.pro/document/2?doc_id=254
+- <https://tushare.pro/document/2?doc_id=254>
 - [Alpaca](https://alpaca.markets/)
 
 #### HK Stock
 
 - [Tushare](https://tushare.pro/)
-- https://tushare.pro/document/2?doc_id=192
+- <https://tushare.pro/document/2?doc_id=192>

@@ -8,4 +8,5 @@ dependencies = [
     "binance-connector>=3.12.0",
     "binance-futures-connector>=4.1.0",
     "loguru>=0.7.3",
+    "python-dotenv>=1.0.1",
 ]

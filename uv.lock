@@ -26,6 +26,7 @@ members = [
     "kivy-basic",
     "learn-py",
     "try-101",
+    "try-akshare",
     "try-appium",
     "try-autogpt",
     "try-beeware",
@@ -6175,6 +6176,27 @@ version = "0.1.0"
 source = { virtual = "packages/py-101/try-101" }
 
 [[package]]
+name = "try-akshare"
+version = "0.1.0"
+source = { virtual = "packages/py-quant/try-akshare" }
+dependencies = [
+    { name = "akshare" },
+    { name = "mplfinance" },
+    { name = "notebook" },
+    { name = "numpy" },
+    { name = "pandas" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "akshare", specifier = ">=1.16.32" },
+    { name = "mplfinance", specifier = ">=0.12.10b0" },
+    { name = "notebook", specifier = ">=7.3.2" },
+    { name = "numpy", specifier = ">=1.26.4" },
+    { name = "pandas", specifier = ">=2.2.3" },
+]
+
+[[package]]
 name = "try-appium"
 version = "0.1.0"
 source = { editable = "packages/py-automation/try-appium" }
@@ -6203,6 +6225,7 @@ dependencies = [
     { name = "binance-connector" },
     { name = "binance-futures-connector" },
     { name = "loguru" },
+    { name = "python-dotenv" },
 ]
 
 [package.metadata]
@@ -6210,6 +6233,7 @@ requires-dist = [
     { name = "binance-connector", specifier = ">=3.12.0" },
     { name = "binance-futures-connector", specifier = ">=4.1.0" },
     { name = "loguru", specifier = ">=0.7.3" },
+    { name = "python-dotenv", specifier = ">=1.0.1" },
 ]
 
 [[package]]
