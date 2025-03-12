@@ -6242,6 +6242,8 @@ version = "0.1.0"
 source = { virtual = "packages/py-db/try-duckdb" }
 dependencies = [
     { name = "duckdb" },
+    { name = "jupyterlab" },
+    { name = "notebook" },
     { name = "pandas" },
     { name = "polars" },
     { name = "pyarrow" },
@@ -6250,6 +6252,8 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "duckdb", specifier = ">=1.2.0" },
+    { name = "jupyterlab", specifier = ">=4.3.5" },
+    { name = "notebook", specifier = ">=7.3.2" },
     { name = "pandas", specifier = ">=2.2.3" },
     { name = "polars", specifier = ">=1.23.0" },
     { name = "pyarrow", specifier = ">=19.0.1" },

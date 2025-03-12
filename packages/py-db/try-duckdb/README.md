@@ -6,6 +6,7 @@
 ## Docs
 
 - <https://duckdb.org/docs/stable/clients/python/overview.html>
+- <https://duckdb.org/docs/stable/guides/python/jupyter.html>
 
 ## References
 
