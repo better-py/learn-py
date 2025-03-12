@@ -16,6 +16,7 @@
         "vscode-icons-team.vscode-icons",
         "redhat.vscode-yaml",
         "ms-toolsai.jupyter",
-        "ms-vscode-remote.vscode-remote-extensionpack"
+        "ms-vscode-remote.vscode-remote-extensionpack",
+        "dbcode.dbcode"
     ]
 }

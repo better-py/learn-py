@@ -1188,6 +1188,15 @@ wheels = [
 ]
 
 [[package]]
+name = "distro"
+version = "1.9.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/fc/f8/98eea607f65de6527f8a2e8885fc8015d3e6f5775df186e443e0964a11c3/distro-1.9.0.tar.gz", hash = "sha256:2fa77c6fd8940f116ee1d6b94a2f90b13b5ea8d019b98bc8bafdcabcdd9bdbed", size = 60722 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/12/b3/231ffd4ab1fc9d679809f356cebee130ac7daa00d6d6f3206dd4fd137e9e/distro-1.9.0-py3-none-any.whl", hash = "sha256:7bffd925d65168f85027d8da9af6bddab658135b840670a223589bc0c8ef02b2", size = 20277 },
+]
+
+[[package]]
 name = "django"
 version = "5.1.7"
 source = { registry = "https://pypi.org/simple" }
@@ -1284,6 +1293,20 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/9c/6c/07717799b64e34dd383c4fe9a3a53f5506c97ada096b103154c8856dc68b/duckdb-1.2.1-cp313-cp313-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:be76e55e9a36febcb0c7c7c28b8fae0b33bbcf6a84b3b23eb23e7ee3e65e3394", size = 18754621 },
     { url = "https://files.pythonhosted.org/packages/53/8b/f971b0cd6cfc3ac094d31998b789a8fb372bd0813fbb47c932342fc926f0/duckdb-1.2.1-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "sha256:d8f5066ae9acc6cee22c7a455696511d993bdbfc55bb9466360b073b5c8cba67", size = 22291214 },
     { url = "https://files.pythonhosted.org/packages/1e/1c/4e29e52a35b5af451b24232b6f89714180da71c904017e62f7cc5477f135/duckdb-1.2.1-cp313-cp313-win_amd64.whl", hash = "sha256:6112711457b6014ac041492bedf8b6a97403666aefa20a4a4f3479db10136501", size = 11365219 },
+]
+
+[[package]]
+name = "duckdb-engine"
+version = "0.15.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "duckdb" },
+    { name = "packaging" },
+    { name = "sqlalchemy" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/ac/2d/ea892e63f8b372a3aa48caa2de9eed8e4c731275b9715a1334be6b784329/duckdb_engine-0.15.0.tar.gz", hash = "sha256:59f67ec95ebf9eb4dea22994664dfd34edce3c7416b862daa46da43f572ad6ef", size = 47695 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/0c/92/a3b7edba792772f364ad6c57ceb8685fb5ae5f893704650f2b46978f9b34/duckdb_engine-0.15.0-py3-none-any.whl", hash = "sha256:d18acd73f03202145e1baa86605dca3612080fd0a849dbc42b38111ffee6857c", size = 49634 },
 ]
 
 [[package]]
@@ -2282,6 +2305,15 @@ wheels = [
 ]
 
 [[package]]
+name = "ipython-genutils"
+version = "0.2.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/e8/69/fbeffffc05236398ebfcfb512b6d2511c622871dca1746361006da310399/ipython_genutils-0.2.0.tar.gz", hash = "sha256:eb2e116e75ecef9d4d228fdc66af54269afa26ab4463042e33785b887c628ba8", size = 22208 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/fa/bc/9bd3b5c2b4774d5f33b2d544f1460be9df7df2fe42f352135381c347c69a/ipython_genutils-0.2.0-py2.py3-none-any.whl", hash = "sha256:72dd37233799e619666c9f639a9da83c34013a73e8bbc79a7a6348d93c61fab8", size = 26343 },
+]
+
+[[package]]
 name = "ipython-pygments-lexers"
 version = "1.1.1"
 source = { registry = "https://pypi.org/simple" }
@@ -2448,6 +2480,37 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/10/db/58f950c996c793472e336ff3655b13fbcf1e3b359dcf52dcf3ed3b52c352/jsonschema_specifications-2024.10.1.tar.gz", hash = "sha256:0f38b83639958ce1152d02a7f062902c41c8fd20d558b0c34344292d417ae272", size = 15561 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/d1/0f/8910b19ac0670a0f80ce1008e5e751c4a57e14d2c4c13a482aa6079fa9d6/jsonschema_specifications-2024.10.1-py3-none-any.whl", hash = "sha256:a09a0680616357d9a0ecf05c12ad234479f549239d0f5b55f3deea67475da9bf", size = 18459 },
+]
+
+[[package]]
+name = "jupysql"
+version = "0.11.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "ipython-genutils" },
+    { name = "jinja2" },
+    { name = "jupysql-plugin" },
+    { name = "ploomber-core" },
+    { name = "prettytable" },
+    { name = "sqlalchemy" },
+    { name = "sqlglot" },
+    { name = "sqlparse" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/41/49/a6d279890d3c7ec763a888998dc6eef15b8ecb19346354a23fd4d79618ab/jupysql-0.11.0.tar.gz", hash = "sha256:d5f331406791e1b7dc2c784d6a01cd6be445c4cda142552ea24923b7df44a72a", size = 81176 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/79/4f/0fb4c183adaa817ad2e68147c5e8ba8c1d207583cf8bc95c19d36d12e07e/jupysql-0.11.0-py3-none-any.whl", hash = "sha256:9279993e7de6f51c96a4c0448f084000b2e2ae4519d3bdfdf35892bfbe22a155", size = 95311 },
+]
+
+[[package]]
+name = "jupysql-plugin"
+version = "0.4.5"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "ploomber-core" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/a1/f2/eb7af7131ebb1086d163f5ddef90f4e2dacf586332b81733728eb739247f/jupysql_plugin-0.4.5.tar.gz", hash = "sha256:7085e178898ee012f4d339f5d356432332a5daa9080ec4cdb3064e0ace7894d6", size = 203104 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/87/16/838b6683ce9bce9203fe8ff3e4169cdb4237f79e688a55b2b221f302d7b4/jupysql_plugin-0.4.5-py3-none-any.whl", hash = "sha256:8d1eab73a3daff557958907ca3de8c18216fb7b7d9a299fb3eac2efd66958543", size = 192755 },
 ]
 
 [[package]]
@@ -3838,6 +3901,19 @@ wheels = [
 ]
 
 [[package]]
+name = "ploomber-core"
+version = "0.2.26"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "posthog" },
+    { name = "pyyaml" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/68/99/97e552cfac94dc9058faa939a9fcff76a5f4bb5334136d5b3d8c0159f04f/ploomber-core-0.2.26.tar.gz", hash = "sha256:0779f009f023e84c534f9fb5a3577bee76634db6b782a338350443bece1f707b", size = 22163 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/e9/cc/2b7e5113d5a46a3d5230194e5583b72616303d24c566833edf816d63c057/ploomber_core-0.2.26-py3-none-any.whl", hash = "sha256:f0b8d54f9973ba5d42b7f6ac75b23e5533bbbfd778dc63c5d825615c004b19a9", size = 22781 },
+]
+
+[[package]]
 name = "plotly"
 version = "6.0.0"
 source = { registry = "https://pypi.org/simple" }
@@ -3871,6 +3947,23 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/12/16/f95207616b2e802c381459cf01f0d233daa98bdc4e394ec88044af9e927f/polars-1.24.0-cp39-abi3-manylinux_2_24_aarch64.whl", hash = "sha256:3c6c774aebdd5cd601839594986648789352f72b8893f4b7e34224e75b060c8d", size = 31490266 },
     { url = "https://files.pythonhosted.org/packages/8b/82/cb0512747ec5508a4f840a521feb27f28a81eac1aef6c92fc25643073579/polars-1.24.0-cp39-abi3-win_amd64.whl", hash = "sha256:a5a473ff44fe1b9e3e7a9013a9321efe841d858e89cf33d424e6f3fef3ea4d5e", size = 34678593 },
     { url = "https://files.pythonhosted.org/packages/67/00/db3810803938467a215c1f161ff21ad6fef581d5ac1381ee2990d0180c19/polars-1.24.0-cp39-abi3-win_arm64.whl", hash = "sha256:5ea781ca8e0a39c3b677171dbd852e5fa2d5c53417b5fbd69d711b6044a49eaa", size = 30892251 },
+]
+
+[[package]]
+name = "posthog"
+version = "3.19.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "backoff" },
+    { name = "distro" },
+    { name = "monotonic" },
+    { name = "python-dateutil" },
+    { name = "requests" },
+    { name = "six" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/70/c7/1cf4f3c10259057ac59d2a6b18c9251ff6d856e3424fbdbee9a6fc052db1/posthog-3.19.1.tar.gz", hash = "sha256:b879bc257de287ea91a9545bab1a3d09ba22586f3c0370ef210e06631c4929bc", size = 66178 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/ca/5c/4d5c48c176780286b98bac616ed0f6beca733433b048f81d5db65408dfab/posthog-3.19.1-py2.py3-none-any.whl", hash = "sha256:7abaa1f0fbcdde8f1c193f744fdc26de852c13a80b5f527c6eeba8516b20df76", size = 77830 },
 ]
 
 [[package]]
@@ -6254,8 +6347,11 @@ version = "0.1.0"
 source = { virtual = "packages/py-db/try-duckdb" }
 dependencies = [
     { name = "duckdb" },
+    { name = "duckdb-engine" },
     { name = "faker" },
+    { name = "jupysql" },
     { name = "jupyterlab" },
+    { name = "matplotlib" },
     { name = "notebook" },
     { name = "pandas" },
     { name = "polars" },
@@ -6265,8 +6361,11 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "duckdb", specifier = ">=1.2.0" },
+    { name = "duckdb-engine", specifier = ">=0.15.0" },
     { name = "faker", specifier = ">=37.0.0" },
+    { name = "jupysql", specifier = ">=0.11.0" },
     { name = "jupyterlab", specifier = ">=4.3.5" },
+    { name = "matplotlib", specifier = ">=3.10.1" },
     { name = "notebook", specifier = ">=7.3.2" },
     { name = "pandas", specifier = ">=2.2.3" },
     { name = "polars", specifier = ">=1.23.0" },
