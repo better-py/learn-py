@@ -1,7 +1,8 @@
-from binance.cm_futures import CMFutures
-from loguru import logger
 import os
 import time
+
+from binance.cm_futures import CMFutures
+from loguru import logger
 
 
 def get_futures_account():
@@ -14,7 +15,7 @@ def get_futures_account():
     logger.debug(f"server time: {cm_futures_client.time()}")
 
     api_key = os.getenv("BINANCE_API_KEY")
-    api_secret = os.getenv("BINANCE_SECRET_KEY")
+    api_secret = os.getenv("BINANCE_SECRET_KEY") or os.getenv("BINANCE_API_SECRET")
 
     assert api_key and api_secret
 
