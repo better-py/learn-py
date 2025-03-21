@@ -2,13 +2,13 @@ version: "3"
 
 tasks:
   uv:
-    aliases: [ "pm", "pkg" ]
+    aliases: ["pm", "pkg"]
     cmds:
       - uv {{.CLI_ARGS}}
 
   run:
-    aliases: [ 'r' ]
+    aliases: ["r"]
     cmds:
-      - uv sync
+      - uv sync --all-packages --upgrade
       - uv run {{.CLI_ARGS}}
     dir: src/

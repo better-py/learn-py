@@ -1,5 +1,6 @@
 import os
 import time
+
 from binance.spot import Spot
 from loguru import logger
 
@@ -19,13 +20,11 @@ def get_klines():
 
 def get_account():
     api_key = os.getenv("BINANCE_API_KEY")
-    api_secret = os.getenv("BINANCE_SECRET_KEY")
+    api_secret = os.getenv("BINANCE_API_SECRET") or os.getenv("BINANCE_SECRET_KEY")
 
-    assert api_key and api_secret
+    logger.debug(f"api key: {api_key[:10] if api_key else 'not set'}****************")
 
-    logger.debug(f"api key: {api_key}, secret: {api_secret}")
-
-    # API key/secret are required for user data endpoints
+    assert api_key and api_secret, "BINANCE_API_KEY and BINANCE_API_SECRET must be set"
     client = Spot(api_key=api_key, api_secret=api_secret)
 
     ret = client.account()
