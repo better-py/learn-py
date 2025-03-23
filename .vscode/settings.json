@@ -1,18 +1,36 @@
 {
   "editor.formatOnSave": true,
-  // format using black
+  // python 配置
   "[python]": {
-    "editor.defaultFormatter": "ms-python.black-formatter",
-    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "charliermarsh.ruff", // 默认使用 Ruff 格式化
+    "editor.formatOnSave": true, // 保存时自动格式化
     "editor.codeActionsOnSave": {
-      "source.organizeImports": "explicit"
-    },
+      "source.fixAll.ruff": "explicit", // 保存时自动修复可修复的 lint 错误
+      "source.organizeImports.ruff": "explicit" // 保存时自动排序 import 语句
+    }
   },
-  "isort.args": [
-    "--profile",
-    "black"
-  ],
+  // "isort.args": ["--profile", "ruff"],
   "notebook.formatOnSave.enabled": true,
   "notebook.diff.overviewRuler": true,
   "notebook.consolidatedRunButton": true,
+  "dbcode.connections": [
+    {
+      "connectionId": "ccGhCgCcO7YUxlzugel9Z",
+      "name": "redis.local",
+      "driver": "redis",
+      "connectionType": "host",
+      "host": "127.0.0.1",
+      "port": 6379,
+      "ssl": false,
+      "username": "default",
+      "savePassword": "secretStorage",
+      "readOnly": false,
+      "connectionTimeout": 30
+    }
+  ],
+  "python.testing.pytestArgs": [
+    "."
+  ],
+  "python.testing.unittestEnabled": false,
+  "python.testing.pytestEnabled": true
 }
