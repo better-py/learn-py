@@ -12,7 +12,7 @@ GATEIO_API_SECRET=
 GATEIO_TESTNET=
 
 # install requirements
-uv sync 
+uv sync --all-packages --upgrade
   
 # run:  
 task quant:gate:r -- ws/run02_spot_ticker.py
@@ -21,4 +21,4 @@ task quant:gate:r -- ws/run02_spot_ticker.py
 
 ## reference
 
-- https://github.com/gateio/gateapi-python
+- <https://github.com/gateio/gateapi-python>

@@ -9,7 +9,7 @@ tasks:
   run:
     aliases: ["r"]
     cmds:
-      - uv sync
+      - uv sync --all-packages --upgrade
       - uv run {{.CLI_ARGS}}
     dir: src/
 

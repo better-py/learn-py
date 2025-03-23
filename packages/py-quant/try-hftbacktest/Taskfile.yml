@@ -2,25 +2,24 @@ version: "3"
 
 tasks:
   uv:
-    aliases: [ "pm", "pkg" ]
+    aliases: ["pm", "pkg"]
     cmds:
       - uv {{.CLI_ARGS}}
 
   run:
-    aliases: [ 'r' ]
+    aliases: ["r"]
     cmds:
-      - uv sync
+      - uv sync --all-packages --upgrade
       - uv run {{.CLI_ARGS}}
     dir: src/
 
-
   jupyter:
-    aliases: [ 'j', "book", "note" ]
+    aliases: ["j", "book", "note"]
     cmds:
       - uv run jupyter notebook {{.CLI_ARGS}}
 
   dl:
-    aliases: [ 'd', "down" ]
+    aliases: ["d", "down"]
     cmds:
       - mkdir -p tmp/mexc/
       - mkdir -p tmp/spot/
@@ -32,9 +31,8 @@ tasks:
     #        https://github.com/nkaz001/hftbacktest/raw/6bcae676da517bec6486ddc0d0a7cfe702888679/examples/mexc/btcusdt_20250126.gz         -P tmp/mexc/
     ignore_error: true
 
-
   r01:
-    aliases: [ 'r01' ]
+    aliases: ["r01"]
     cmds:
       - echo $(pwd)
       - task: dl
