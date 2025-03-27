@@ -47,12 +47,24 @@ members = [
     # 热门包调研
     #
     "packages/try/*",
+
+    #
+    # gui
+    #
     "packages/py-gui/try-beeware",
     "packages/py-gui/try-nicegui",
     "packages/py-gui/try-kivy/kivy-basic",
     "packages/py-gui/try-flet/flet-desktop",
     "packages/py-gui/try-pytauri",
+
+    #
+    # db
+    #
     "packages/py-db/try-duckdb",
+
+    #
+    # web ui
+    #
     "packages/py-webui/try-streamlit",
     "packages/py-webui/try-gradio",
 
@@ -63,5 +75,7 @@ members = [
 ]
 
 exclude = [
+    "packages/py-quant/try-vnpy", # TODO X: 依赖 pyside6, 此包太大, 影响构建速度, 先排除
+    "packages/py-gui/try-pyside", # TODO X: 依赖 pyside6, 此包太大, 影响构建速度, 先排除
     #    "packages/py-gui/try-flet/flet-desktop",
 ]

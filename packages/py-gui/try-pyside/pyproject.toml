@@ -4,13 +4,13 @@ version = "0.1.0"
 description = ""
 authors = ["Henry.Huang <hhglory@outlook.com>"]
 readme = "README.md"
-packages = [{include = "try_pyside", from = "src"}]
+packages = [{ include = "try_pyside", from = "src" }]
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.13"
-pyside6 = "^6.6.1"
+# pyside6 = "^6.6.1" # todo x: 太大了,不用
 loguru = "^0.7.2"
-typer = {extras = ["all"], version = "^0.9.0"}
+typer = { extras = ["all"], version = "^0.9.0" }
 
 
 [build-system]
