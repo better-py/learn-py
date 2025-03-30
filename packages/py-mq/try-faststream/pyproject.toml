@@ -1,0 +1,15 @@
+[project]
+name = "try-faststream"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "aioclock>=0.3.0",
+    "faststream[nats]>=0.5.37",
+    "loguru>=0.7.3",
+    "pydantic-settings>=2.8.1",
+    "taskiq>=0.11.16",
+    "taskiq-faststream>=0.2.0",
+    "taskiq-nats>=0.5.1",
+]

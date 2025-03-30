@@ -2,8 +2,7 @@ from faststream import FastStream
 from faststream.nats import NatsBroker
 from loguru import logger
 from taskiq.schedule_sources import LabelScheduleSource
-from taskiq_faststream import AppWrapper
-from taskiq_faststream import StreamScheduler
+from taskiq_faststream import AppWrapper, StreamScheduler
 
 host = "nats://localhost:4222"
 broker = NatsBroker(host)
@@ -31,10 +30,11 @@ taskiq_broker = AppWrapper(app)
 taskiq_broker.task(
     message="cron data: test",
     subject="test-cron",
-    schedule=[{
-        "cron": "* * * * *",  # TODO X: 每2秒执行一次
-    }],
-
+    schedule=[
+        {
+            "cron": "* * * * *",  # TODO X: 每2秒执行一次
+        }
+    ],
 )
 
 scheduler = StreamScheduler(

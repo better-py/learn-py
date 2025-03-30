@@ -75,20 +75,21 @@ members = [
 
 [[package]]
 name = "adbutils"
-version = "2.8.5"
+version = "2.8.6"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
+    { name = "apkutils" },
     { name = "deprecation" },
     { name = "pillow" },
     { name = "requests" },
     { name = "retry" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/6f/fb/3d591e033861bb549863a47a4a788fca790018c8846837c08553a3a5f687/adbutils-2.8.5.tar.gz", hash = "sha256:42d905fd91811604cf0a2918cbb0919fced966aaf3c580dc8ca38791b9b30347", size = 185252 }
+sdist = { url = "https://files.pythonhosted.org/packages/c8/16/dc9514ada961fc4d86ad9e8c454eaa04d34e2dea4359051e07ec7c6dda2c/adbutils-2.8.6.tar.gz", hash = "sha256:f9a75e74a90c7eb4c5fb5f2caeafb9a361e5ead9f9f8769d0634a8a692fc742a", size = 185540 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/06/e2/22dd3e0c7b0dbd9605539ce883e371e05fb9a1ed6a1aa78fb90610fec7fc/adbutils-2.8.5-py3-none-macosx_10_9_intel.macosx_10_9_x86_64.macosx_10_10_intel.macosx_10_10_x86_64.whl", hash = "sha256:b63e090c14fabdd8f5b7e99f97e8b72b53b18d482ca1ad0dd1afe06a1b56e84f", size = 6061209 },
-    { url = "https://files.pythonhosted.org/packages/36/ad/b8440bfd8c03474f7bc6a751744f79a0d973b5556f0276fd3c3dd6a9e798/adbutils-2.8.5-py3-none-manylinux1_x86_64.whl", hash = "sha256:72d3316f053d2e9a2aaefa824459f8cfdd3fb1770dd9b93a69100955dfa59c4e", size = 3254893 },
-    { url = "https://files.pythonhosted.org/packages/8f/25/aa446f9b6d09f98e4ab294ed2b918b5b20e59d1a25e22da732434dd0e395/adbutils-2.8.5-py3-none-win32.whl", hash = "sha256:54d5eec3cbc0c38b306d0fd2b95fb9d379c4fa822f66158c4393d2e4ed0ad3bd", size = 3000910 },
-    { url = "https://files.pythonhosted.org/packages/d1/7a/84ecf78a239e832343a82dffdb9a7e65113d731490e3878113cfa14aaaf0/adbutils-2.8.5-py3-none-win_amd64.whl", hash = "sha256:0c4a1557cc1571b3626340402034666e664211cdabf9fb1cfc55acd5cb12ac5d", size = 3000913 },
+    { url = "https://files.pythonhosted.org/packages/a8/8d/2aacd6c2e8a24dd96cd98b1d955895324266db5a9e4b9275f27ca4800808/adbutils-2.8.6-py3-none-macosx_10_9_intel.macosx_10_9_x86_64.macosx_10_10_intel.macosx_10_10_x86_64.whl", hash = "sha256:c4e34a3e437bee8d41e3ef405de50a89510b3bd2861614728b4372b90d1e9cb0", size = 6704987 },
+    { url = "https://files.pythonhosted.org/packages/23/68/7cd7e98e2b0dd68f26e51675f10d847ed8713de3f1fcdea4296e141b99db/adbutils-2.8.6-py3-none-manylinux1_x86_64.whl", hash = "sha256:e11243521c616aa3861c9d99d7d5b8c87640858f56f7fbec3be0a9c4b7ecfa66", size = 3575934 },
+    { url = "https://files.pythonhosted.org/packages/81/3c/b71bc5f72b9ef8301e5412c7bc85f3271aa5ac6c99546b7fee11b1b7648c/adbutils-2.8.6-py3-none-win32.whl", hash = "sha256:173d5e4c959e23eabe9628b52844bad44cd13be4e63948c73d24b3ec228d7d48", size = 3336553 },
+    { url = "https://files.pythonhosted.org/packages/99/e6/1cb7f5b9dd317e82bdb1c536b441aaa8f3f8acb14a282457d45d59d73b24/adbutils-2.8.6-py3-none-win_amd64.whl", hash = "sha256:9b4c89047bd36a6b44cbfdc45b3feb09a5c31807eecc2efb7c415bda1156cbf1", size = 3336558 },
 ]
 
 [[package]]
@@ -280,6 +281,24 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/ed/69/20423d6abd2a57d767d20a9dcf3f816bd4cbbe4813ac7c7158ba16e44c3f/anywidget-0.9.18.tar.gz", hash = "sha256:262cf459b517a7d044d6fbc84b953e9c83f026790b2dd3ce90f21a7f8eded00f", size = 9808509 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/2b/f0/09a30ca0551af20c7cefa7464b7ccb6f5407a550b83c4dcb15c410814849/anywidget-0.9.18-py3-none-any.whl", hash = "sha256:944b82ef1dd17b8ff0fb6d1f199f613caf9111338e6e2857da478f6e73770cb8", size = 220671 },
+]
+
+[[package]]
+name = "apkutils"
+version = "2.0.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "beautifulsoup4" },
+    { name = "click" },
+    { name = "colorlog" },
+    { name = "cryptography" },
+    { name = "lxml" },
+    { name = "pyelftools" },
+    { name = "pyftype" },
+    { name = "pygments" },
+]
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/49/cf/2e8d4081f3826f1daab93b2f98ee2175a0c9e39b1d3c1e9eb4238f4ad626/apkutils-2.0.0-py3-none-any.whl", hash = "sha256:03112d802bf83a1f8941cbd0510b938c8d39309eb2bf2b3b63e91ea5576d5ae6", size = 473627 },
 ]
 
 [[package]]
@@ -846,6 +865,18 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/b0/01/04aa2e928233863ddf91b35d8f9c0ae40714394afac01fa76ba4eb2f0182/colored-2.3.0.tar.gz", hash = "sha256:4daf9b3ed687a01d59005e1bd03f354475226b933abb9a01836d6dde926d4c6f", size = 14708 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/71/52/990d8b2a888be9fe1022eb89884849547e6341a8bec0072605fd70483db8/colored-2.3.0-py3-none-any.whl", hash = "sha256:2f7f455dc2ed490531b0b8e0ecf8f8513bb28a150d9f12f0e48b023641a55185", size = 18333 },
+]
+
+[[package]]
+name = "colorlog"
+version = "6.9.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "colorama", marker = "sys_platform == 'win32'" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/d3/7a/359f4d5df2353f26172b3cc39ea32daa39af8de522205f512f458923e677/colorlog-6.9.0.tar.gz", hash = "sha256:bfba54a1b93b94f54e1f4fe48395725a3d92fd2a4af702f6bd70946bdc0c6ac2", size = 16624 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/e3/51/9b208e85196941db2f0654ad0357ca6388ab3ed67efdbfc799f35d1f83aa/colorlog-6.9.0-py3-none-any.whl", hash = "sha256:5906e71acd67cb07a71e779c47c4bcb45fb8c2993eebe9e5adcd6a6f1b283eff", size = 11424 },
 ]
 
 [[package]]
@@ -4438,12 +4469,29 @@ wheels = [
 ]
 
 [[package]]
+name = "pyelftools"
+version = "0.27"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/6b/b5/f7022f2d950327ba970ec85fb8f85c79244031092c129b6f34ab17514ae0/pyelftools-0.27.tar.gz", hash = "sha256:cde854e662774c5457d688ca41615f6594187ba7067af101232df889a6b7a66b", size = 2636011 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/6f/50/3d7729d64bb23393aa4c166af250a6e6f9def40c90bf0e9af3c5ad25b6f7/pyelftools-0.27-py2.py3-none-any.whl", hash = "sha256:5609aa6da1123fccfae2e8431a67b4146aa7fad5b3889f808df12b110f230937", size = 151643 },
+]
+
+[[package]]
 name = "pyfiglet"
 version = "1.0.2"
 source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/a0/f2/2649b2acace54f861eccd4ab163bfd914236fc93ddb1df02dad2a2552b14/pyfiglet-1.0.2.tar.gz", hash = "sha256:758788018ab8faaddc0984e1ea05ff330d3c64be663c513cc1f105f6a3066dab", size = 832345 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/1a/03/bef6fff907e212d67a0003f8ea4819307bba91b2856074a0763dd483ccc4/pyfiglet-1.0.2-py3-none-any.whl", hash = "sha256:889b351d79c99e50a3f619c8f8e6ffdb27fd8c939fc43ecbd7559bd57d5f93ea", size = 1085824 },
+]
+
+[[package]]
+name = "pyftype"
+version = "1.2.4"
+source = { registry = "https://pypi.org/simple" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/0a/6a/5eb1dc61829df04db7ac6e37602bbc416b3853aaa9ee8e2cc8807d9c4665/pyftype-1.2.4-py3-none-any.whl", hash = "sha256:f58cce4a98276355f5c392c8295fc131aeee5b086f2e0e4953770849c8feb48c", size = 13435 },
 ]
 
 [[package]]
@@ -4611,7 +4659,7 @@ name = "pypiwin32"
 version = "223"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "pywin32", marker = "sys_platform != 'linux'" },
+    { name = "pywin32" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/13/e8/4f38eb30c4dae36634a53c5b2cd73b517ea3607e10d00f61f2494449cec0/pypiwin32-223.tar.gz", hash = "sha256:71be40c1fbd28594214ecaecb58e7aa8b708eabfa0125c8a109ebd51edbd776a", size = 622 }
 wheels = [
@@ -6234,7 +6282,7 @@ requires-dist = [
 [[package]]
 name = "try-faststream"
 version = "0.1.0"
-source = { editable = "packages/try/try-faststream" }
+source = { virtual = "packages/py-mq/try-faststream" }
 dependencies = [
     { name = "aioclock" },
     { name = "faststream", extra = ["nats"] },
@@ -6247,13 +6295,13 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
-    { name = "aioclock", specifier = ">=0.2.1" },
-    { name = "faststream", extras = ["nats"], specifier = ">=0.5.14" },
-    { name = "loguru", specifier = ">=0.7.2" },
-    { name = "pydantic-settings", specifier = ">=2.3.4" },
-    { name = "taskiq", specifier = ">=0.11.6" },
-    { name = "taskiq-faststream", specifier = ">=0.1.8" },
-    { name = "taskiq-nats", specifier = ">=0.4.0" },
+    { name = "aioclock", specifier = ">=0.3.0" },
+    { name = "faststream", extras = ["nats"], specifier = ">=0.5.37" },
+    { name = "loguru", specifier = ">=0.7.3" },
+    { name = "pydantic-settings", specifier = ">=2.8.1" },
+    { name = "taskiq", specifier = ">=0.11.16" },
+    { name = "taskiq-faststream", specifier = ">=0.2.0" },
+    { name = "taskiq-nats", specifier = ">=0.5.1" },
 ]
 
 [[package]]

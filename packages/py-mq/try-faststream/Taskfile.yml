@@ -1,6 +1,5 @@
 version: "3"
 
-
 #
 # global vars: https://taskfile.dev/#/usage?id=variables
 #
@@ -13,67 +12,56 @@ env:
 
 ################################################################################################
 
-
 tasks:
   run:
-    aliases: [ 'r' ]
+    aliases: ["r"]
     cmds:
       - task: ra
 
   run:sub:
-    aliases: [ 'rs', 'sub' ]
+    aliases: ["rs", "sub"]
     cmds:
-      - faststream run run_sub:app --reload {{.CLI_ARGS}}  # --workers 2
+      - faststream run run_sub:app --reload {{.CLI_ARGS}} # --workers 2
     dir: src/try_faststream/
 
   run:pub:
-    aliases: [ 'rp', 'pub' ]
+    aliases: ["rp", "pub"]
     cmds:
       - python run_pub.py
     dir: src/try_faststream/
 
   run:pub:cron:
-    aliases: [ 'rc', 'cron', 'pub:cron' ]
+    aliases: ["rc", "cron", "pub:cron"]
     cmds:
       - python run_pub_cron.py
     dir: src/try_faststream/
 
   run:pub:cron2:
-    aliases: [ 'rc2', 'cron2', 'pub:cron2' ]
+    aliases: ["rc2", "cron2", "pub:cron2"]
     cmds:
       - python run_pub_cron2.py
     dir: src/try_faststream/
 
   run:pub:cron3:
-    aliases: [ 'rc3', 'cron3', 'pub:cron3' ]
+    aliases: ["rc3", "cron3", "pub:cron3"]
     cmds:
       - taskiq scheduler run_pub_cron3:scheduler
     dir: src/try_faststream/
-
 
   docs:
     cmds:
       - open "http://127.0.0.1:8000/docs"
 
-  pdm:
-    aliases: [ 'pm', "p", "pkg" ]
+  uv:
     cmds:
-      - pdm {{.CLI_ARGS}}
-
-  poetry:
-    cmds:
-      - poetry {{.CLI_ARGS}}
-
-  rye:
-    cmds:
-      - rye {{.CLI_ARGS}} # install, update
+      - uv {{.CLI_ARGS}} # install, update
 
   add:list:
-    aliases: [ 'a' ]
+    aliases: ["a"]
     cmds:
       #      - rye add weditor
-      - pdm add fastapi "uvicorn[standard]" sqlmodel
-      - pdm add loguru pydantic-settings
-      - pdm add faststream[nats] taskiq taskiq-nats taskiq-redis taskiq-faststream
-      - pdm add fastapi_amis_admin[sqlmodel] aiosqlite greenlet
-      - pdm add --dev isort pytest mypy ruff watchfiles
+      - uv add fastapi "uvicorn[standard]" sqlmodel
+      - uv add loguru pydantic-settings
+      - uv add faststream[nats] taskiq taskiq-nats taskiq-redis taskiq-faststream
+      - uv add fastapi_amis_admin[sqlmodel] aiosqlite greenlet
+      - uv add --dev isort pytest mypy ruff watchfiles

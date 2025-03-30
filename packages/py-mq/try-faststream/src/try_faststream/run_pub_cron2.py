@@ -20,6 +20,7 @@ async def start_app():
 @app.task("every 2 second", execution="async")
 async def publish(br: NatsBroker = Arg("broker")):
     import time
+
     ts = time.time()
     logger.debug(f"cron publish: {br}, {ts}")
     await br.publish(f"Hi, Rocketry! {ts}", "test")

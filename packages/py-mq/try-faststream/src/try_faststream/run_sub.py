@@ -2,8 +2,7 @@ import os
 
 import anyio
 from faststream import FastStream
-from faststream.nats import NatsBroker, PullSub
-from faststream.nats import NatsMessage
+from faststream.nats import NatsBroker, NatsMessage, PullSub
 from loguru import logger
 
 host = "nats://localhost:4222"
@@ -84,5 +83,5 @@ async def setup_broker():
     # await kv.put("key1", b"Hello!")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     anyio.run(app.run)
