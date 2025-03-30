@@ -128,6 +128,12 @@ tasks:
       - uv init {{.CLI_ARGS}}
     dir: packages/
 
+  new:django:
+    aliases: ["nd"]
+    cmds:
+      - django-admin startproject {{.CLI_ARGS}}
+    dir: packages/py-web/
+
   ##################################################################################################
 
   quick:

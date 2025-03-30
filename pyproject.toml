@@ -16,6 +16,7 @@ dependencies = [
 [dependency-groups]
 dev = [
     "black>=25.1.0",
+    "django-ninja>=1.4.0",
     "ipython>=8.32.0",
     "isort>=6.0.0",
     "mypy>=1.15.0",
@@ -42,6 +43,10 @@ members = [
     "packages/py-crawler/*",    # 爬虫
     "packages/py-automation/*", # Android 自动化测试框架
     "packages/py-chart/*",      # 数据可视化
+    "packages/py-web/*",        # web
+    "packages/py-rpc/*",        # rpc
+    "packages/py-mq/*",         # 消息队列
+
 
     #
     # 热门包调研
