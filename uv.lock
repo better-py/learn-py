@@ -1208,6 +1208,19 @@ wheels = [
 ]
 
 [[package]]
+name = "django-ninja-crud"
+version = "0.6.2"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "django" },
+    { name = "django-ninja" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/0a/50/bcea64366f7d32ec9df12ba0fa7a41ce8845879ada68dc1fc7cbf8b17b10/django_ninja_crud-0.6.2.tar.gz", hash = "sha256:f6698469e19687b646afed1b0aa5a12aec9fbb2192b1c69f97e0219f4644bfed", size = 17938 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/29/00/a9f1eb25d616897147669ca5a8e964e9a84e71df3d46269eafb724df6824/django_ninja_crud-0.6.2-py3-none-any.whl", hash = "sha256:8c769f58143b7359bfd7f90c9abd5a6abe12de9335d7ee8ce19e13e5dc31fd51", size = 23775 },
+]
+
+[[package]]
 name = "djangorestframework"
 version = "3.16.0"
 source = { registry = "https://pypi.org/simple" }
@@ -4598,7 +4611,7 @@ name = "pypiwin32"
 version = "223"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "pywin32" },
+    { name = "pywin32", marker = "sys_platform != 'linux'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/13/e8/4f38eb30c4dae36634a53c5b2cd73b517ea3607e10d00f61f2494449cec0/pypiwin32-223.tar.gz", hash = "sha256:71be40c1fbd28594214ecaecb58e7aa8b708eabfa0125c8a109ebd51edbd776a", size = 622 }
 wheels = [
@@ -6155,6 +6168,22 @@ requires-dist = [
 name = "try-django-ninja"
 version = "0.1.0"
 source = { virtual = "packages/py-web/try-django-ninja" }
+dependencies = [
+    { name = "django" },
+    { name = "django-cors-headers" },
+    { name = "django-debug-toolbar" },
+    { name = "django-ninja" },
+    { name = "django-ninja-crud" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "django", specifier = ">=5.1.7" },
+    { name = "django-cors-headers", specifier = ">=4.7.0" },
+    { name = "django-debug-toolbar", specifier = ">=5.1.0" },
+    { name = "django-ninja", specifier = ">=1.4.0" },
+    { name = "django-ninja-crud", specifier = ">=0.6.2" },
+]
 
 [[package]]
 name = "try-dtale"

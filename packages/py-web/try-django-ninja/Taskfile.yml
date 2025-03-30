@@ -1,0 +1,75 @@
+version: "3"
+
+#
+# global vars: https://taskfile.dev/#/usage?id=variables
+#
+vars:
+  VAR1: "some-var"
+
+# global env:
+env:
+  ENV1: testing
+
+################################################################################################
+
+tasks:
+  uv:
+    aliases: ["pm", "pkg"]
+    cmds:
+      - uv {{.CLI_ARGS}}
+
+  run:
+    aliases: ["r"]
+    cmds:
+      - uv run python src/manage.py runserver
+
+  exec:
+    aliases: ["e"]
+    cmds:
+      - uv run python src/manage.py {{.CLI_ARGS}}
+
+  init:project:
+    cmds:
+      - django-admin startproject app . # 当前目录
+      - mkdir -p src/internal # src/modules
+    dir: "src/"
+
+  init:
+    cmds:
+      - uv run python src/manage.py makemigrations
+      - uv run python src/manage.py migrate
+
+  # user: admin
+  # email: admin@admin.com
+  # pwd: admin
+  init:user:
+    cmds:
+      - uv run python src/manage.py createsuperuser # admin/admin
+
+  install:
+    aliases: ["i"]
+    cmds:
+      - uv install
+
+  add:
+    aliases: ["a"]
+    cmds:
+      - uv add {{.CLI_ARGS}} # --dev
+
+  add:all:
+    cmds:
+      - uv add "typer[all]" selenium
+
+  new:project:
+    aliases: ["np"]
+    cmds:
+      - uv run django-admin startproject {{.CLI_ARGS}}
+  #    dir: "src/try_django"
+
+  new:app:
+    aliases: ["na"]
+    cmds:
+      - echo $(pwd)
+      - uv run django-admin startapp {{.CLI_ARGS}}
+    dir: "src/internal"
+    ignore_error: true

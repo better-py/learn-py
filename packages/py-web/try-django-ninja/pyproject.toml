@@ -4,4 +4,95 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "django>=5.1.7",
+    "django-cors-headers>=4.7.0",
+    "django-debug-toolbar>=5.1.0",
+    "django-ninja>=1.4.0",
+    "django-ninja-crud>=0.6.2",
+]
+
+
+[tool.ruff.lint]
+exclude = ["*.ipynb", "tmp/*", "docs/*", "tests/*"]
+select = [
+    "E",       # pycodestyle (error)
+    "F",       # pyflakes
+    "W",       # pycodestyle (warning)
+    "B",       # flake8-bugbear
+    "I",       # isort
+    "N",       # pep8-naming
+    "PIE",     # flake8-pie
+    "PLE",     # pylint error
+    "RUF100",  # Unused noqa comments
+    "PGH004",  # blanket noqa comments
+    "UP",      # pyupgrade
+    "C4",      # flake8-comprehensions
+    "SIM101",  # merge duplicate isinstance calls
+    "SIM201",
+    "SIM202",
+    "SIM222",
+    "SIM223",  # flake8-simplify
+    "FURB188", # use str.remove(pre|suf)fix
+    "ISC001",  # implicitly concatenated string
+    "RET501",
+    "RET502",  # better return None handling
+]
+
+ignore = [
+    "B007",   # Loop control variable not used within the loop body.
+    "B011",   # Don't use assert False
+    "B023",   # Function definition does not bind loop variable
+    "E2",     # conflicts with black
+    "E402",   # module level import not at top of file
+    "E501",   # conflicts with black
+    "E721",   # Use `is` and `is not` for type comparisons, or `isinstance()` for isinstance checks
+    "E731",   # Do not assign a `lambda` expression, use a `def`
+    "E741",   # Ambiguous variable name
+    "N818",   # Exception should be named with an Error suffix
+    "N806",   # UPPER_CASE used for constant local variables
+    "UP031",  # Use format specifiers instead of percent format
+    "UP032",  # 'f-string always preferable to format' is controversial
+    "C409",   # https://github.com/astral-sh/ruff/issues/12912
+    "C420",   # reads a little worse. fromkeys predates dict comprehensions
+    "C416",   # There are a few cases where it's nice to have names for the dict items
+    "PIE790", # there's nothing wrong with pass
+]
+
+# Allow fix for all enabled rules (when `--fix`) is provided.
+fixable = ["ALL"]
+
+unfixable = [
+    "F841",   # unused variable. ruff keeps the call, but mostly we want to get rid of it all
+    "F601",   # automatic fix might obscure issue
+    "F602",   # automatic fix might obscure issue
+    "B018",   # automatic fix might obscure issue
+    "UP036",  # sometimes it's better to just noqa this
+    "SIM222", # automatic fix might obscure issue
+    "SIM223", # automatic fix might obscure issue
+]
+
+[tool.ruff.format]
+exclude = ["*.ipynb", "tmp/*"]
+docstring-code-format = true
+skip-magic-trailing-comma = false # 是否跳过魔法尾逗号
+preview = true
+
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
+known-first-party = ["routers", "internal"]    # 用途: 强制分组, 标识为项目内部模块
+known-third-party = []                         # 用途: 强制分组, 标识为第三方模块
+known-local-folder = ["modules"]               # 用途: 强制分组, 标识为项目内部模块
+extra-standard-library = ["typing_extensions"]
+force-single-line = false                      # 强制单行导入
+order-by-type = true                           # 按类型排序
+# lines-between-sections = 1                       # 每个部分之间的空行
+lines-after-imports = 2                          # 导入之后的空行
+no-lines-before = ["future", "standard-library"] # 导入之前不需要空行
+single-line-exclusions = ["os", "sys"]           # 单行导入的例外
+force-sort-within-sections = false               # 强制排序
+force-wrap-aliases = true                        # 强制别名换行
+case-sensitive = true                            # 区分大小写
+detect-same-package = true                       # 检测相同包
+from-first = false                               # 从第一个导入开始排序
