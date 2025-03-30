@@ -39,6 +39,12 @@ includes:
     dir: packages/py-gui/
     optional: true
 
+  web:
+    aliases: ["w"]
+    taskfile: packages/py-web/
+    dir: packages/py-web/
+    optional: true
+
   crawler:
     aliases: ["cr"]
     taskfile: packages/py-crawler/

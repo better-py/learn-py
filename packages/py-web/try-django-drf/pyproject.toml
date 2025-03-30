@@ -1,0 +1,14 @@
+[project]
+name = "try-django-drf"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "django>=5.1.7",
+    "django-cors-headers>=4.7.0",
+    "django-debug-toolbar>=5.1.0",
+    "djangorestframework>=3.16.0",
+    "drf-spectacular>=0.28.0",
+    "sentry-sdk>=2.24.1",
+]

@@ -2,28 +2,7 @@ version: "3"
 
 includes:
   pygwalker:
-    aliases: [ 'pyg' ]
+    aliases: ["pyg"]
     taskfile: try-pygwalker/
     dir: try-pygwalker/
     optional: true
-
-
-#
-# global vars: https://taskfile.dev/#/usage?id=variables
-#
-vars:
-  VAR1: "some-var"
-
-# global env:
-env:
-  ENV1: testing
-
-################################################################################################
-
-
-tasks:
-  poetry:
-    aliases: [ 'p' ]
-    cmds:
-      - poetry
-      - poetry {{.CLI_ARGS}}

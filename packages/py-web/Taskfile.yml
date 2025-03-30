@@ -1,0 +1,14 @@
+version: "3"
+
+includes:
+  django-rest-framework:
+    aliases: ["drf"]
+    taskfile: try-django-drf/
+    dir: try-django-drf/
+    optional: true
+
+  django-ninja:
+    aliases: ["dn"]
+    taskfile: try-django-ninja/
+    dir: try-django-ninja/
+    optional: true
