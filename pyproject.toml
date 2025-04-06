@@ -46,7 +46,7 @@ members = [
     "packages/py-web/*",        # web
     "packages/py-rpc/*",        # rpc
     "packages/py-mq/*",         # 消息队列
-
+    "packages/py-id/*",         # ID Generator, ID 生成器/生成算法
 
     #
     # 热门包调研

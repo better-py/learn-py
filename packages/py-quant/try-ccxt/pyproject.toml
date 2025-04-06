@@ -5,7 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "ccxt>=4.4.61",
+    "ccxt>=4.4.30",          # "ccxt>=4.4.61",  # 版本冲突(aiohttp)
     "ipython>=8.32.0",
     "jupyterlab>=4.3.5",
     "loguru>=0.7.3",
