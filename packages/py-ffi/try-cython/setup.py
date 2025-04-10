@@ -7,8 +7,8 @@ from setuptools import setup
 def build(mods=None):
     if mods is None:
         mods = [
-            "src/fib/fib.pyx",  # 模块
-            "src/fib/fibonacci.py",  # 模块
+            "src/fib/cyfib.pyx",  # 模块
+            "src/fib/pcfib.py",  # 模块
         ]
 
     for mod in mods:
