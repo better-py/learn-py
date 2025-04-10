@@ -55,10 +55,11 @@ members = [
     #
     # python FFI
     #
-    "packages/py-ffi/try-cython",    # python + C
-    "packages/py-ffi/try-pybind11",  # python + C++
-    "packages/py-ffi/try-pythonnet", # python + .NET
-    "packages/py-ffi/try-pyo3",      # python + Rust
+    "packages/py-ffi/try-cython",       # python + C
+    "packages/py-ffi/try-pybind11",     # python + C++
+    "packages/py-ffi/try-pythonnet",    # python + .NET
+    "packages/py-ffi/try-pyo3",         # python + Rust
+    "packages/py-ffi/try-pyo3/libpyo3", # python + Rust
 
     #
     # python db

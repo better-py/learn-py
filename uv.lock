@@ -25,6 +25,7 @@ members = [
     "flet-desktop",
     "kivy-basic",
     "learn-py",
+    "libpyo3",
     "try-101",
     "try-akshare",
     "try-appium",
@@ -3036,7 +3037,7 @@ docs = [
 
 [[package]]
 name = "libpyo3"
-source = { directory = "packages/py-ffi/try-pyo3/libpyo3" }
+source = { editable = "packages/py-ffi/try-pyo3/libpyo3" }
 
 [[package]]
 name = "llvmlite"
@@ -4739,7 +4740,7 @@ name = "pypiwin32"
 version = "223"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "pywin32", marker = "sys_platform != 'linux'" },
+    { name = "pywin32" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/13/e8/4f38eb30c4dae36634a53c5b2cd73b517ea3607e10d00f61f2494449cec0/pypiwin32-223.tar.gz", hash = "sha256:71be40c1fbd28594214ecaecb58e7aa8b708eabfa0125c8a109ebd51edbd776a", size = 622 }
 wheels = [
@@ -6290,10 +6291,14 @@ version = "0.1.0"
 source = { virtual = "packages/py-ffi/try-cython" }
 dependencies = [
     { name = "cython" },
+    { name = "libpyo3" },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "cython", specifier = ">=3.0.12" }]
+requires-dist = [
+    { name = "cython", specifier = ">=3.0.12" },
+    { name = "libpyo3", editable = "packages/py-ffi/try-pyo3/libpyo3" },
+]
 
 [[package]]
 name = "try-django-drf"
@@ -6688,6 +6693,7 @@ version = "0.1.0"
 source = { virtual = "packages/py-ffi/try-pyo3" }
 dependencies = [
     { name = "libpyo3" },
+    { name = "loguru" },
 ]
 
 [package.dev-dependencies]
@@ -6696,7 +6702,10 @@ dev = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "libpyo3", directory = "packages/py-ffi/try-pyo3/libpyo3" }]
+requires-dist = [
+    { name = "libpyo3", editable = "packages/py-ffi/try-pyo3/libpyo3" },
+    { name = "loguru", specifier = ">=0.7.3" },
+]
 
 [package.metadata.requires-dev]
 dev = [{ name = "maturin", specifier = ">=1.8.3" }]

@@ -25,5 +25,23 @@ tasks:
   build:pyo3:
     aliases: ["b"]
     cmds:
-      - uv run maturin develop
-    dir: libpyo3/rust/
+      - uv run maturin develop --release
+      # - uv run maturin build
+    dir: libpyo3/
+
+  clean:
+    aliases: ["cl"]
+    cmds:
+      # 删除 .so 文件
+      - find libpyo3/src -name "*.so" -exec rm {} \;
+
+  run01:
+    aliases: ["r1"]
+    cmds:
+      - uv run src/main.py
+
+  run02:
+    aliases: ["r2"]
+    cmds:
+      - uv run src/main.py
+    dir: libpyo3/

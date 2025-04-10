@@ -3,7 +3,7 @@ requires = ["maturin>=1.8,<2.0"]
 build-backend = "maturin"
 
 [project]
-name = "libpyo3"
+name = "libuniffi"
 requires-python = ">=3.8"
 classifiers = [
     "Programming Language :: Rust",
@@ -11,10 +11,3 @@ classifiers = [
     "Programming Language :: Python :: Implementation :: PyPy",
 ]
 dynamic = ["version"]
-
-
-# https://www.maturin.rs/config.html#maturin-options
-[tool.maturin]
-features = ["pyo3/extension-module"]
-# Strip the library for minimum file size
-strip = true

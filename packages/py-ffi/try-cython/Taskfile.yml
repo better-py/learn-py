@@ -16,3 +16,13 @@ tasks:
     cmds:
       - uv run {{.CLI_ARGS}}
     dir: src/
+
+  build:cython:
+    aliases: ["b"]
+    cmds:
+      - uv run setup.py build_ext --inplace
+
+  run01:
+    aliases: ["r01"]
+    cmds:
+      - uv run src/main.py
