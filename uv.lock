@@ -3035,6 +3035,10 @@ docs = [
 ]
 
 [[package]]
+name = "libpyo3"
+source = { directory = "packages/py-ffi/try-pyo3/libpyo3" }
+
+[[package]]
 name = "llvmlite"
 version = "0.44.0"
 source = { registry = "https://pypi.org/simple" }
@@ -6682,6 +6686,9 @@ requires-dist = [
 name = "try-pyo3"
 version = "0.1.0"
 source = { virtual = "packages/py-ffi/try-pyo3" }
+dependencies = [
+    { name = "libpyo3" },
+]
 
 [package.dev-dependencies]
 dev = [
@@ -6689,6 +6696,7 @@ dev = [
 ]
 
 [package.metadata]
+requires-dist = [{ name = "libpyo3", directory = "packages/py-ffi/try-pyo3/libpyo3" }]
 
 [package.metadata.requires-dev]
 dev = [{ name = "maturin", specifier = ">=1.8.3" }]

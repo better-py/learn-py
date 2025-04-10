@@ -11,3 +11,9 @@
 
 - [pyo3](https://github.com/PyO3/pyo3)
 - [maturin](https://github.com/PyO3/maturin)
+
+```ruby
+
+# 安装 maturin
+uv add --dev maturin
+```

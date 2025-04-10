@@ -21,3 +21,9 @@ tasks:
     aliases: ["n"]
     cmds:
       - uv run maturin new --mixed --src {{.CLI_ARGS}} # pyrslib, o3lib
+
+  build:pyo3:
+    aliases: ["b"]
+    cmds:
+      - uv run maturin develop
+    dir: libpyo3/rust/
