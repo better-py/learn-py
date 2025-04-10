@@ -104,6 +104,11 @@ tasks:
     cmds:
       - uv {{.CLI_ARGS}}
 
+  uv:migrate:
+    aliases: ["migrate", "um"]
+    cmds:
+      - uvx migrate-to-uv
+
   sync:
     cmds:
       # - uv self update
@@ -142,11 +147,30 @@ tasks:
 
   ##################################################################################################
 
+  clean:
+    aliases: ["cl"]
+    cmds:
+      - echo "clean all"
+      # 批量查找+删除
+      - find ./ -name "__pycache__" -exec rm -rf {} \;
+      - find ./ -name ".pytest_cache" -exec rm -rf {} \;
+      - find ./ -name ".mypy_cache" -exec rm -rf {} \;
+      - find ./packages -name ".venv" -exec rm -rf {} \;
+      - find ./packages -name ".ruff_cache" -exec rm -rf {} \;
+    ignore_error: true
+
   quick:
     aliases: ["q"]
     cmds:
       - task: cc
       - task: push
+
+  # usage: task rc -- 2
+  cf:
+    aliases: ["reset:commit", "rc"]
+    cmds:
+      - git reset --soft HEAD~{{.CLI_ARGS}}
+      - task: c
 
   cc:
     cmds:
@@ -157,7 +181,8 @@ tasks:
     aliases: ["c"]
     cmds:
       - git add .
-      - git commit -m "update"
+      - git status
+      - git commit -m "update" --no-verify
     ignore_error: true
 
   pull:
