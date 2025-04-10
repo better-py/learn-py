@@ -82,6 +82,7 @@ members = [
 ]
 
 exclude = [
+    "tmp/",
     "packages/py-quant/try-vnpy", # TODO X: 依赖 pyside6, 此包太大, 影响构建速度, 先排除
     "packages/py-gui/try-pyside", # TODO X: 依赖 pyside6, 此包太大, 影响构建速度, 先排除
     #    "packages/py-gui/try-flet/flet-desktop",
