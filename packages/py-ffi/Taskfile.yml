@@ -1,0 +1,26 @@
+version: "3"
+
+includes:
+  cython:
+    aliases: ["c"]
+    taskfile: try-cython/
+    dir: try-cython/
+    optional: true
+
+  pyo3:
+    aliases: ["rs", "rust"]
+    taskfile: try-pyo3/
+    dir: try-pyo3/
+    optional: true
+
+  pybind11:
+    aliases: ["cpp"]
+    taskfile: try-pybind11/
+    dir: try-pybind11/
+    optional: true
+
+  pythonnet:
+    aliases: ["dotnet", "csharp"]
+    taskfile: try-pythonnet/
+    dir: try-pythonnet/
+    optional: true

@@ -1,0 +1,18 @@
+version: "3"
+
+tasks:
+  uv:
+    aliases: ["pm", "pkg"]
+    cmds:
+      - uv {{.CLI_ARGS}}
+
+  sync:
+    aliases: ["s"]
+    cmds:
+      - uv sync --all-packages --all-groups
+
+  run:
+    aliases: ["r"]
+    cmds:
+      - uv run {{.CLI_ARGS}}
+    dir: src/

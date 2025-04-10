@@ -11,6 +11,11 @@ includes:
     dir: packages/py-101/
     optional: true
 
+  ffi:
+    taskfile: packages/py-ffi/
+    dir: packages/py-ffi/
+    optional: true
+
   ai:
     taskfile: packages/py-ai/
     dir: packages/py-ai/

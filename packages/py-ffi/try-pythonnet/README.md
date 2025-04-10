@@ -1,6 +1,11 @@
-# Python + CSharp
+# Python + .NET(C#)
 
 - 基于 pythonnet 的方案， 实现 python 和 c# 互相调用
+
+## python + CSharp
+
+- dotnet
+- pythonnet
 
 ## Reference
 

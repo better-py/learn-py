@@ -10,6 +10,7 @@
 ## python + C
 
 - cffi
+- cython
 
 ## python + Rust
 

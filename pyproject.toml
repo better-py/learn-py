@@ -9,7 +9,6 @@ dependencies = [
     "loguru>=0.7.3",
     "notebook>=7.3.2",
     "pandas>=2.2.3",
-    #    "typer[all]>=0.9.4",
     "typer[all]>=0.9.4",
 ]
 
@@ -54,7 +53,20 @@ members = [
     "packages/try/*",
 
     #
-    # gui
+    # python FFI
+    #
+    "packages/py-ffi/try-cython",    # python + C
+    "packages/py-ffi/try-pybind11",  # python + C++
+    "packages/py-ffi/try-pythonnet", # python + .NET
+    "packages/py-ffi/try-pyo3",      # python + Rust
+
+    #
+    # python db
+    #
+    "packages/py-db/try-duckdb",
+
+    #
+    # python gui
     #
     "packages/py-gui/try-beeware",
     "packages/py-gui/try-nicegui",
@@ -63,20 +75,10 @@ members = [
     "packages/py-gui/try-pytauri",
 
     #
-    # db
-    #
-    "packages/py-db/try-duckdb",
-
-    #
-    # web ui
+    # python web ui
     #
     "packages/py-webui/try-streamlit",
     "packages/py-webui/try-gradio",
-
-    #
-    # python FFI
-    #
-    "packages/py-ffi/try-pythonnet",
 ]
 
 exclude = [
